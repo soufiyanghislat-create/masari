@@ -1,4 +1,4 @@
-# Masari Morocco Jobs Taxonomy v1
+# Masari Morocco Jobs Taxonomy v1.2 — Precision
 
 This layer is deterministic. It does not call AI at search time.
 
@@ -33,3 +33,21 @@ The search index is pre-built after crawling. Users never trigger crawling, AI c
 - HCP, Nomenclature Analytique des Professions 2014: https://www.hcp.ma/file/232108/
 - HCP classifications and nomenclatures: https://www.hcp.ma/Classification-et-nomenclatures_a3178.html
 - OFPPT BTP training material is used as a market-language reference for building/drawing terminology.
+
+
+## Precision policy v1.2
+
+User-facing search only accepts `EXACT` or `STRONG` profession evidence.
+Potential/reverse-subset similarities are stored as `RELATED` hints for taxonomy
+maintenance and never appear as the selected profession in search.
+
+Example:
+
+```text
+Technicien en Bâtiment -> Technicien bâtiment
+Technicien en Bâtiment -X-> Dessinateur architectural
+Dessin de bâtiment -> Dessinateur architectural
+```
+
+`precision_audit.py` enforces fixed positive/negative golden cases and fails CI if
+a RELATED/low-confidence match leaks into the searchable index.

@@ -78,6 +78,20 @@
       ]
     },
     {
+      "id": "btp.technicien_batiment",
+      "label": "Technicien bâtiment",
+      "sector": "BTP / Bâtiment",
+      "family": "Technique bâtiment",
+      "hcp_codes": [
+        "2111"
+      ],
+      "aliases": [
+        "technicien en bâtiment",
+        "technicien du bâtiment"
+      ],
+      "diplomas": []
+    },
+    {
       "id": "btp.dessinateur_architectural",
       "label": "Dessinateur architectural",
       "sector": "BTP / Architecture",
@@ -626,6 +640,19 @@
       ]
     },
     {
+      "id": "finance.controleur_gestion",
+      "label": "Contrôleur de gestion",
+      "sector": "Finance / Comptabilité",
+      "family": "Contrôle de gestion",
+      "hcp_codes": [],
+      "aliases": [
+        "contrôle de gestion",
+        "controleur de gestion",
+        "controle de gestion"
+      ],
+      "diplomas": []
+    },
+    {
       "id": "finance.auditeur",
       "label": "Auditeur",
       "sector": "Finance / Comptabilité",
@@ -727,7 +754,9 @@
         "chargé ressources humaines",
         "responsable rh",
         "gestion ressources humaines",
-        "recrutement"
+        "chargé de recrutement",
+        "responsable recrutement",
+        "recruteur"
       ],
       "diplomas": []
     },

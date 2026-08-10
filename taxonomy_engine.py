@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-import math
 import re
 import unicodedata
 from dataclasses import dataclass
@@ -11,6 +10,11 @@ from typing import Iterable
 
 ROOT = Path(__file__).resolve().parent
 DEFAULT_TAXONOMY_DIR = ROOT / "taxonomy"
+
+# Only EXACT/STRONG matches are placed in the user-facing search index.
+STRICT_SEARCH_MIN_SCORE = 92.0
+RELATED_MIN_SCORE = 70.0
+HCP_SEARCH_MIN_SCORE = 96.0
 
 STOPWORDS = {
     "a", "au", "aux", "avec", "de", "des", "du", "d", "en", "et", "la", "le", "les",
@@ -103,14 +107,10 @@ class Taxonomy:
         return sorted(out, key=lambda p: (p.sector, p.label))
 
     def autocomplete(self, query: str, limit: int = 10) -> list[dict]:
-        """Return user-facing profession choices.
+        """Return clean user-facing profession choices.
 
-        Curated Moroccan market professions are authoritative for the default
-        UX. HCP/NAP remains a long-tail fallback, but is only exposed when the
-        curated market taxonomy has no match at all. This prevents generic
-        queries such as "dessin" from mixing architectural job choices with
-        unrelated administrative labels such as caricaturists or drawing
-        teachers.
+        Curated Moroccan market professions are authoritative in the default UX.
+        HCP/NAP is exposed only when the curated market layer has no suggestion.
         """
         q = normalize(query)
         if not q:
@@ -178,13 +178,53 @@ class Taxonomy:
         return sorted({p.id for p in matches})
 
     def classify_job(self, job: dict, *, max_matches: int = 8) -> list[dict]:
+        """Return only search-safe EXACT/STRONG profession matches.
+
+        A generic job title is never allowed to become a more specific profession
+        merely because some of its words are contained in a longer alias. Example:
+        `Technicien en Bâtiment` must not become `Dessinateur architectural` from
+        the alias `technicien dessin bâtiment`.
+        """
         fields = self._job_fields(job)
-        market_matches = self._classify_against(self.market, fields, min_score=70.0)
+        market_matches = self._classify_against(
+            self.market,
+            fields,
+            min_score=STRICT_SEARCH_MIN_SCORE,
+            scoring="strict",
+            searchable=True,
+        )
         if market_matches:
             return market_matches[:max_matches]
-        # HCP fallback keeps long-tail Moroccan occupations searchable without
-        # inventing a market label when no curated Masari profession exists yet.
-        return self._classify_against(self.hcp, fields, min_score=82.0)[:max_matches]
+
+        # HCP remains a long-tail fallback, but only for very strong phrase
+        # evidence. Reverse/subset inference is intentionally forbidden here.
+        return self._classify_against(
+            self.hcp,
+            fields,
+            min_score=HCP_SEARCH_MIN_SCORE,
+            scoring="strict",
+            searchable=True,
+        )[:max_matches]
+
+    def related_job_matches(
+        self,
+        job: dict,
+        *,
+        exclude_ids: set[str] | None = None,
+        max_matches: int = 8,
+    ) -> list[dict]:
+        """Return non-searchable RELATED hints for internal use only."""
+        exclude_ids = exclude_ids or set()
+        fields = self._job_fields(job)
+        rows = self._classify_against(
+            self.market,
+            fields,
+            min_score=RELATED_MIN_SCORE,
+            max_score=STRICT_SEARCH_MIN_SCORE - 0.01,
+            scoring="related",
+            searchable=False,
+        )
+        return [row for row in rows if row["profession_id"] not in exclude_ids][:max_matches]
 
     @staticmethod
     def _job_fields(job: dict) -> list[tuple[str, str, float]]:
@@ -195,7 +235,9 @@ class Taxonomy:
             if specialty:
                 fields.append(("specialty", str(specialty), 1.0))
         if job.get("listing_title"):
-            fields.append(("listing_title", str(job["listing_title"]), 0.95))
+            fields.append(("listing_title", str(job["listing_title"]), 0.90))
+        # Grade is useful context, but is too generic to establish a searchable
+        # profession by itself (Technicien 3ème grade, Administrateur, etc.).
         if job.get("grade"):
             fields.append(("grade", str(job["grade"]), 0.72))
         return fields
@@ -206,14 +248,18 @@ class Taxonomy:
         fields: list[tuple[str, str, float]],
         *,
         min_score: float,
+        scoring: str,
+        searchable: bool,
+        max_score: float | None = None,
     ) -> list[dict]:
         results: list[dict] = []
+        scorer = self._strict_phrase_match_score if scoring == "strict" else self._related_phrase_match_score
         for profession in professions:
             best_score = 0.0
             best_evidence = None
             for term in profession.terms:
                 for field_name, field_value, field_weight in fields:
-                    raw = self._phrase_match_score(term, field_value)
+                    raw = scorer(term, field_value)
                     score = raw * field_weight
                     if score > best_score:
                         best_score = score
@@ -223,51 +269,93 @@ class Taxonomy:
                             "matched_term": term,
                             "raw_score": round(raw, 2),
                         }
-            if best_score >= min_score and best_evidence:
-                results.append(
-                    {
-                        "profession_id": profession.id,
-                        "label": profession.label,
-                        "sector": profession.sector,
-                        "family": profession.family,
-                        "hcp_codes": list(profession.hcp_codes),
-                        "source": profession.source,
-                        "score": round(min(best_score, 100.0), 2),
-                        "evidence": best_evidence,
-                    }
-                )
+            if best_score < min_score or not best_evidence:
+                continue
+            if max_score is not None and best_score > max_score:
+                continue
+            results.append(
+                {
+                    "profession_id": profession.id,
+                    "label": profession.label,
+                    "sector": profession.sector,
+                    "family": profession.family,
+                    "hcp_codes": list(profession.hcp_codes),
+                    "source": profession.source,
+                    "score": round(min(best_score, 100.0), 2),
+                    "confidence": self._confidence(best_score),
+                    "searchable": searchable,
+                    "evidence": best_evidence,
+                }
+            )
         results.sort(key=lambda x: (-x["score"], 0 if x["source"] == "masari_market" else 1, x["label"].casefold()))
         return results
 
     @staticmethod
-    def _phrase_match_score(term: str, field: str) -> float:
+    def _confidence(score: float) -> str:
+        if score >= 98.0:
+            return "EXACT"
+        if score >= STRICT_SEARCH_MIN_SCORE:
+            return "STRONG"
+        if score >= RELATED_MIN_SCORE:
+            return "RELATED"
+        return "NONE"
+
+    @staticmethod
+    def _strict_phrase_match_score(term: str, field: str) -> float:
+        """High-precision scorer used for user-facing classification.
+
+        It permits exact phrase evidence and forward containment only. Crucially,
+        it never treats a shorter/generic field as proof of a longer/more specific
+        profession alias.
+        """
         nt = normalize(term)
         nf = normalize(field)
         if not nt or not nf:
             return 0.0
         if nt == nf:
             return 100.0
-        # Avoid using tiny abbreviations as substring triggers. They remain
-        # available for autocomplete but require an exact field match here.
-        if len(nt) >= 4 and re.search(rf"(?:^| ){re.escape(nt)}(?:$| )", nf):
-            return 96.0
+
         tt = set(tokens(nt))
         ft = set(tokens(nf))
+        if not tt or not ft:
+            return 0.0
+
+        # A multi-token profession term can safely appear inside a more verbose
+        # official title/specialty, e.g. "développement informatique" inside a
+        # longer specialty. One-word terms are intentionally exact-only.
+        if len(tt) >= 2 and len(nt) >= 4 and re.search(rf"(?:^| ){re.escape(nt)}(?:$| )", nf):
+            return 98.0
+        if len(tt) >= 2 and tt.issubset(ft):
+            return 94.0
+        return 0.0
+
+    @staticmethod
+    def _related_phrase_match_score(term: str, field: str) -> float:
+        """Conservative similarity scorer for non-searchable internal hints."""
+        nt = normalize(term)
+        nf = normalize(field)
+        if not nt or not nf:
+            return 0.0
+        if nt == nf:
+            return 100.0
+        tt = set(tokens(nt))
+        ft = set(tokens(nf))
+        if not tt or not ft:
+            return 0.0
         if len(tt) >= 2 and tt.issubset(ft):
             return 91.0
-        # A concise specialty such as "génie civil" can legitimately identify
-        # an official HCP label that is much longer. Require at least two useful
-        # tokens to avoid generic one-word matches such as "gestion".
+        # Reverse subset is exactly the dangerous case for search precision; it
+        # is kept only as a RELATED hint and capped below the searchable gate.
         if len(ft) >= 2 and ft.issubset(tt):
             return 88.0
-        if tt and ft:
-            inter = len(tt & ft)
-            union = len(tt | ft)
+        inter = len(tt & ft)
+        union = len(tt | ft)
+        if inter >= 2 and union:
             jaccard = inter / union
             coverage = inter / min(len(tt), len(ft))
-            if inter >= 2 and coverage >= 0.80 and jaccard >= 0.45:
+            if coverage >= 0.80 and jaccard >= 0.45:
                 return 84.0
-            if inter >= 2 and coverage >= 0.67 and jaccard >= 0.35:
+            if coverage >= 0.67 and jaccard >= 0.35:
                 return 78.0
         return 0.0
 
@@ -286,7 +374,7 @@ class Taxonomy:
                 }
             )
         return {
-            "version": 1,
+            "version": 2,
             "market_professions": len(self.market),
             "hcp_professions": len(self.hcp),
             "options": options,

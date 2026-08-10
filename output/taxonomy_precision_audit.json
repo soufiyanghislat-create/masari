@@ -1,0 +1,115 @@
+{
+  "generated_at": "2026-08-10T23:51:33.339733+01:00",
+  "policy": "exact_strong_search_related_internal_only",
+  "golden_cases": 9,
+  "passed_cases": 9,
+  "failed_cases": 0,
+  "precision_gate_pct": 100.0,
+  "cases": [
+    {
+      "name": "generic_building_technician_is_not_drafter",
+      "pass": true,
+      "matched_ids": [
+        "btp.technicien_batiment"
+      ],
+      "missing_required": [],
+      "forbidden_present": [],
+      "unexpected_search_matches": [],
+      "low_confidence_search_matches": []
+    },
+    {
+      "name": "drawing_specialty_maps_to_architectural_drafter",
+      "pass": true,
+      "matched_ids": [
+        "btp.dessinateur_architectural"
+      ],
+      "missing_required": [],
+      "forbidden_present": [],
+      "unexpected_search_matches": [],
+      "low_confidence_search_matches": []
+    },
+    {
+      "name": "architectural_drafter_title_maps_exactly",
+      "pass": true,
+      "matched_ids": [
+        "btp.dessinateur_architectural"
+      ],
+      "missing_required": [],
+      "forbidden_present": [],
+      "unexpected_search_matches": [],
+      "low_confidence_search_matches": []
+    },
+    {
+      "name": "civil_engineering_technician_is_not_drafter",
+      "pass": true,
+      "matched_ids": [
+        "btp.technicien_genie_civil"
+      ],
+      "missing_required": [],
+      "forbidden_present": [],
+      "unexpected_search_matches": [],
+      "low_confidence_search_matches": []
+    },
+    {
+      "name": "developer_is_not_network_technician",
+      "pass": true,
+      "matched_ids": [
+        "it.developpeur_logiciel"
+      ],
+      "missing_required": [],
+      "forbidden_present": [],
+      "unexpected_search_matches": [],
+      "low_confidence_search_matches": []
+    },
+    {
+      "name": "accountant_is_not_management_controller",
+      "pass": true,
+      "matched_ids": [
+        "finance.comptable"
+      ],
+      "missing_required": [],
+      "forbidden_present": [],
+      "unexpected_search_matches": [],
+      "low_confidence_search_matches": []
+    },
+    {
+      "name": "management_controller_is_not_accountant",
+      "pass": true,
+      "matched_ids": [
+        "finance.controleur_gestion"
+      ],
+      "missing_required": [],
+      "forbidden_present": [],
+      "unexpected_search_matches": [],
+      "low_confidence_search_matches": []
+    },
+    {
+      "name": "nurse_is_not_doctor",
+      "pass": true,
+      "matched_ids": [
+        "health.infirmier"
+      ],
+      "missing_required": [],
+      "forbidden_present": [],
+      "unexpected_search_matches": [],
+      "low_confidence_search_matches": []
+    },
+    {
+      "name": "doctor_is_not_nurse",
+      "pass": true,
+      "matched_ids": [
+        "health.medecin_generaliste"
+      ],
+      "missing_required": [],
+      "forbidden_present": [],
+      "unexpected_search_matches": [],
+      "low_confidence_search_matches": []
+    }
+  ],
+  "index": {
+    "index_present": false,
+    "unsafe_search_matches": [],
+    "unsafe_count": 0
+  },
+  "gate": "PASS"
+}

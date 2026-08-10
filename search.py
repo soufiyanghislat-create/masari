@@ -32,6 +32,14 @@ def rank_job(job: dict, profession_id: str, now: datetime | None = None) -> tupl
     match = next((m for m in job.get("profession_matches") or [] if m.get("profession_id") == profession_id), None)
     if not match:
         return -1.0, None
+    # Precision safety net: RELATED/internal hints must never become user-facing
+    # search results, even if a malformed/stale index accidentally contains one.
+    if match.get("searchable") is False:
+        return -1.0, None
+    if match.get("confidence") == "RELATED":
+        return -1.0, None
+    if match.get("confidence") is None and float(match.get("score") or 0) < 92.0:
+        return -1.0, None
     match_component = float(match.get("score") or 0) * 0.82
     age = _days_since(str(job.get("publication_date") or ""), now)
     freshness_component = max(10.0 - min(age, 15) * (10.0 / 15.0), 0.0)

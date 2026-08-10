@@ -40,6 +40,10 @@ jobs:
         timeout-minutes: 2
         run: python -u build_search_index.py --min-coverage 90
 
+      - name: Taxonomy precision gate
+        timeout-minutes: 1
+        run: python -u precision_audit.py
+
       - name: Search smoke test
         timeout-minutes: 1
         run: |

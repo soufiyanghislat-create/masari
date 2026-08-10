@@ -27,7 +27,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Build deterministic Masari search index from verified Emploi-Public jobs")
     ap.add_argument("--input", default="output/jobs.json")
     ap.add_argument("--output", default="output")
-    ap.add_argument("--min-coverage", type=float, default=0.0, help="Fail if classification coverage is below this percentage")
+    ap.add_argument("--min-coverage", type=float, default=0.0, help="Fail if searchable classification coverage is below this percentage")
     args = ap.parse_args()
 
     source = Path(args.input)
@@ -45,23 +45,40 @@ def main() -> int:
     total_positions = 0
     market_classified = 0
     hcp_fallback_classified = 0
+    exact_jobs = 0
+    strong_jobs = 0
+    related_only_jobs = 0
 
     for job in jobs:
         matches = taxonomy.classify_job(job)
+        strong_ids = {m["profession_id"] for m in matches}
+        related = taxonomy.related_job_matches(job, exclude_ids=strong_ids)
+
         copy = dict(job)
         copy["search_title"] = _display_title(job)
+        # Only these matches are eligible for search results.
         copy["profession_matches"] = matches
         copy["profession_ids"] = [m["profession_id"] for m in matches]
+        # RELATED matches are retained for taxonomy maintenance/debugging only.
+        copy["related_profession_matches"] = related
         indexed.append(copy)
+
         positions = int(job.get("positions") or 0)
         total_positions += positions
         if matches:
             classified_positions += positions
+            confidences = {m.get("confidence") for m in matches}
+            if "EXACT" in confidences:
+                exact_jobs += 1
+            else:
+                strong_jobs += 1
             if any(m["source"] == "masari_market" for m in matches):
                 market_classified += 1
             else:
                 hcp_fallback_classified += 1
         else:
+            if related:
+                related_only_jobs += 1
             unclassified.append(
                 {
                     "uuid": job.get("uuid"),
@@ -71,6 +88,7 @@ def main() -> int:
                     "grade": job.get("grade"),
                     "specialties": job.get("specialties") or [],
                     "positions": positions,
+                    "related_profession_matches": related,
                 }
             )
 
@@ -80,9 +98,10 @@ def main() -> int:
     gate = coverage >= args.min_coverage
 
     index_payload = {
-        "version": 1,
+        "version": 2,
         "generated_at": datetime.now(TZ).isoformat(),
         "source": "emploi-public.ma",
+        "classification_policy": "precision_v1.2_exact_strong_only",
         "jobs": indexed,
     }
     taxonomy_audit = {
@@ -97,9 +116,13 @@ def main() -> int:
         "position_coverage_pct": position_coverage,
         "market_classified_jobs": market_classified,
         "hcp_fallback_classified_jobs": hcp_fallback_classified,
+        "exact_jobs": exact_jobs,
+        "strong_jobs": strong_jobs,
+        "related_only_jobs": related_only_jobs,
         "market_professions": len(taxonomy.market),
         "hcp_professions": len(taxonomy.hcp),
         "minimum_required_coverage_pct": args.min_coverage,
+        "searchable_match_policy": "EXACT_OR_STRONG_ONLY",
         "gate": "PASS" if gate else "FAIL",
     }
 
