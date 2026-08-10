@@ -1,3 +1,4 @@
+from crawler import PAGE_GUARD, PAGE_SIZE_ESTIMATE
 from parser import extract_listing_links, parse_detail, parse_official_count
 
 LISTING = """
@@ -45,3 +46,11 @@ def test_detail_parser_preserves_specialties():
     assert job.deadline == "2026-08-19T16:30:00"
     assert "Développement informatique" in job.specialties
     assert "Technico-commercial en production horticole" in job.specialties
+
+
+def test_etab_publics_scale_requires_more_than_old_120_page_cap():
+    import math
+    official = 1571
+    target_pages = math.ceil(official / PAGE_SIZE_ESTIMATE) + PAGE_GUARD
+    assert target_pages >= 175
+    assert target_pages > 120

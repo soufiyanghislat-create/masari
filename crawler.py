@@ -27,7 +27,8 @@ LIST_URL = f"{BASE_URL}/fr/concours-liste"
 SCOPES = ("service_etat", "etab_publics", "collec")
 USER_AGENT = "Masari-EmploiPublic-Audit/1.0"
 PAGE_SIZE_ESTIMATE = 9
-MAX_PAGES_HARD = 120
+PAGE_GUARD = 12
+MAX_OFFICIAL_RESULTS = 100_000
 MAX_WORKERS = 8
 
 _thread_local = threading.local()
@@ -104,6 +105,7 @@ class ScopeResult:
     scope: str
     official_before: int
     official_after: int
+    target_pages: int
     discovered_urls: list[str]
     titles: dict[str, str]
     pages_requested: int
@@ -132,7 +134,14 @@ def crawl_scope_once(scope: str) -> ScopeResult:
     pages_requested += 1
     pages_successful += 1
 
-    target_pages = min(MAX_PAGES_HARD, max(1, math.ceil(official_before / PAGE_SIZE_ESTIMATE) + 6))
+    # Derive the pagination budget from the site's own official result count.
+    # A fixed page cap caused silent under-crawling when etab_publics grew past
+    # 1,080 announcements (120 pages x 9 cards). The guard pages absorb small
+    # template/page-size changes while the loop still exits immediately once
+    # every official result has been discovered.
+    if official_before < 0 or official_before > MAX_OFFICIAL_RESULTS:
+        raise RuntimeError(f"Unreasonable official result count: {official_before}")
+    target_pages = max(1, math.ceil(official_before / PAGE_SIZE_ESTIMATE) + PAGE_GUARD)
     stagnant = 0
     page = 2
     while len(seen) < official_before and page <= target_pages:
@@ -171,6 +180,7 @@ def crawl_scope_once(scope: str) -> ScopeResult:
         scope=scope,
         official_before=official_before,
         official_after=official_after,
+        target_pages=target_pages,
         discovered_urls=urls,
         titles=titles,
         pages_requested=pages_requested,

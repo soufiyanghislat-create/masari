@@ -64,6 +64,7 @@ def main() -> int:
             f"scope={scope} official_before={result.official_before} "
             f"official_after={result.official_after} discovered={len(set(result.discovered_urls))} "
             f"pages={result.pages_successful}/{result.pages_requested} "
+            f"budget={result.target_pages} "
             f"stable={result.stable_counter} complete={result.listing_complete}"
         )
         for err in result.errors:
@@ -104,6 +105,7 @@ def main() -> int:
             "extra_count": max(discovered - official, 0),
             "listing_coverage_pct": round((discovered / official * 100) if official else 100.0, 2),
             "counter_stable": r.stable_counter,
+            "target_pages": r.target_pages,
             "pages_requested": r.pages_requested,
             "pages_successful": r.pages_successful,
             "errors": r.errors,
