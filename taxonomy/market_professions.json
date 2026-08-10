@@ -13,7 +13,9 @@
       ],
       "aliases": [
         "architecte bâtiment",
-        "architecte de bâtiment"
+        "architecte de bâtiment",
+        "architecte 1er grade",
+        "cadre architecte"
       ],
       "diplomas": []
     },
@@ -185,7 +187,9 @@
         "topographe",
         "géomètre topographe",
         "technicien topographe",
-        "géomètre"
+        "géomètre",
+        "technicien en topographie",
+        "ingénieur d'etat en topographie"
       ],
       "diplomas": [
         "Technicien spécialisé géomètre topographe",
@@ -452,7 +456,12 @@
       "aliases": [
         "administrateur système",
         "admin système",
-        "administration systèmes"
+        "administration systèmes",
+        "ingénieur système et middleware",
+        "ingénieur virtualisation et cloud",
+        "ingénieur active directory et messagerie",
+        "ingénieur datacenters supervision et sauvegarde",
+        "ingénieur datacenters, supervision et sauvegarde"
       ],
       "diplomas": []
     },
@@ -632,7 +641,8 @@
         "cadre comptable",
         "technicien comptable",
         "aide comptable",
-        "comptabilité"
+        "comptabilité",
+        "régisseur comptable"
       ],
       "diplomas": [
         "Technicien spécialisé en gestion des entreprises",
@@ -665,6 +675,66 @@
         "auditeur interne",
         "audit financier",
         "audit comptable"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "finance.controle_interne",
+      "label": "Chargé de contrôle interne",
+      "sector": "Finance / Audit",
+      "family": "Contrôle interne",
+      "hcp_codes": [
+        "2329"
+      ],
+      "aliases": [
+        "chargé du contrôle interne",
+        "contrôle interne"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "finance.gestionnaire_risques",
+      "label": "Gestionnaire des risques",
+      "sector": "Finance / Risques",
+      "family": "Gestion des risques",
+      "hcp_codes": [
+        "2329"
+      ],
+      "aliases": [
+        "gestionnaire des risques junior",
+        "gestionnaire des risques confirmé"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "finance.gerant_portefeuille",
+      "label": "Gérant de portefeuille",
+      "sector": "Finance / Marchés",
+      "family": "Gestion d'actifs",
+      "hcp_codes": [
+        "2309",
+        "2319"
+      ],
+      "aliases": [
+        "gérant portefeuille",
+        "gérant portefeuille obligataire",
+        "gérant portefeuille change",
+        "gérant portefeuille confirmé obligataire change"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "finance.gestionnaire_post_marche",
+      "label": "Gestionnaire post-marché",
+      "sector": "Finance / Marchés",
+      "family": "Back-office marchés",
+      "hcp_codes": [
+        "3379"
+      ],
+      "aliases": [
+        "gestionnaire post-marché",
+        "gestionnaire post marché",
+        "gestionnaire post-marché junior"
       ],
       "diplomas": []
     },
@@ -789,7 +859,9 @@
       "aliases": [
         "secrétaire administratif",
         "secrétaire de direction",
-        "secrétaire exécutif"
+        "secrétaire exécutif",
+        "assistant de direction",
+        "assistante de direction"
       ],
       "diplomas": []
     },
@@ -835,7 +907,20 @@
       "aliases": [
         "acheteur approvisionneur",
         "responsable achats",
-        "achats"
+        "achats",
+        "acheteur projet"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "admin.declarant_douane",
+      "label": "Déclarant en douane",
+      "sector": "Logistique / Supply Chain",
+      "family": "Douane / Transit",
+      "hcp_codes": [],
+      "aliases": [
+        "déclarant douane",
+        "déclarants en douane"
       ],
       "diplomas": []
     },
@@ -851,7 +936,8 @@
         "magasinier",
         "gestionnaire de stock",
         "gestion de stock",
-        "stock"
+        "stock",
+        "gestionnaire de magasin"
       ],
       "diplomas": []
     },
@@ -915,7 +1001,8 @@
         "marketing",
         "responsable marketing",
         "chef de projet marketing",
-        "marketing digital"
+        "marketing digital",
+        "chargé de publicité"
       ],
       "diplomas": []
     },
@@ -930,7 +1017,26 @@
       "aliases": [
         "communication",
         "relations publiques",
-        "chargé relations publiques"
+        "chargé relations publiques",
+        "chargé de projet en communication",
+        "chef de service communication",
+        "chef de service communication offres et services"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "sales.charge_contenu",
+      "label": "Chargé de contenu",
+      "sector": "Marketing / Communication",
+      "family": "Contenu éditorial",
+      "hcp_codes": [
+        "1932"
+      ],
+      "aliases": [
+        "chargé de contenu francophone",
+        "chargé de contenu arabophone",
+        "content manager",
+        "rédacteur de contenu"
       ],
       "diplomas": []
     },
@@ -1064,7 +1170,11 @@
       "aliases": [
         "infirmier diplômé",
         "infirmière",
-        "soins infirmiers"
+        "soins infirmiers",
+        "infirmier diplômé d'état",
+        "infirmier diplômé d'état de 1er grade",
+        "infirmier de premier grade",
+        "infirmier polyvalent"
       ],
       "diplomas": []
     },
@@ -1222,7 +1332,33 @@
       "aliases": [
         "formateur",
         "formateur ofppt",
-        "enseignant formation professionnelle"
+        "enseignant formation professionnelle",
+        "formateur en arts culinaires",
+        "formateur en boulangerie-pâtisserie-chocolaterie",
+        "formateur en management hôtelier",
+        "formateur en construction métallique",
+        "formateur en management touristique",
+        "formateur en électronique automatisme et robotique",
+        "formateur en entrepreneuriat",
+        "formateur en maintenance des véhicules automobiles",
+        "formateur en menuiserie aluminium",
+        "formateur en gros oeuvres",
+        "formateur en développement digital",
+        "formateur en langue anglaise",
+        "formateur en réseaux informatiques",
+        "formateur en fabrication mécanique",
+        "formateur en soft skills",
+        "formateur en froid et génie thermique",
+        "formateur en génie civil",
+        "formateur en commerce ventes",
+        "formateur en langue française",
+        "formateur en gestion, comptabilité et finances",
+        "formateur en arts de table restauration",
+        "formateur en infrastructures digitales",
+        "formateur en espaces verts",
+        "formateur en gestion des déchets, de dépollution et d'environnement",
+        "formateur en gestion de l'eau potable et assainissement",
+        "formateur en infographie"
       ],
       "diplomas": []
     },
@@ -1489,7 +1625,8 @@
         "chauffeur bus",
         "chauffeur autobus",
         "conducteur bus",
-        "conducteur autocar"
+        "conducteur autocar",
+        "chauffeur de transport scolaire"
       ],
       "diplomas": []
     },
@@ -1701,7 +1838,8 @@
         "qualité hygiène sécurité",
         "hse",
         "qse",
-        "qualité sécurité environnement"
+        "qualité sécurité environnement",
+        "responsable hse"
       ],
       "diplomas": []
     },

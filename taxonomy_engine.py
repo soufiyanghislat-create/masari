@@ -22,6 +22,11 @@ STOPWORDS = {
     "n", "c", "niveau", "cadre", "cadres", "moyen", "moyens", "specialise", "specialises",
 }
 
+LISTING_ROLE_PATTERNS = (
+    re.compile(r"\brecrutement d['’]?u?n?e?\s+(?P<role>.+?)(?:\s+annonce\b|$)", re.IGNORECASE),
+    re.compile(r"\brecrutement de\s+(?P<role>.+?)(?:\s+annonce\b|$)", re.IGNORECASE),
+)
+
 
 def normalize(value: str) -> str:
     value = unicodedata.normalize("NFKD", value or "")
@@ -235,12 +240,39 @@ class Taxonomy:
             if specialty:
                 fields.append(("specialty", str(specialty), 1.0))
         if job.get("listing_title"):
-            fields.append(("listing_title", str(job["listing_title"]), 0.90))
+            listing_title = str(job["listing_title"])
+            role = Taxonomy._extract_listing_role(listing_title)
+            if role:
+                fields.append(("listing_role", role, 1.0))
+            fields.append(("listing_title", listing_title, 0.90))
         # Grade is useful context, but is too generic to establish a searchable
         # profession by itself (Technicien 3ème grade, Administrateur, etc.).
         if job.get("grade"):
             fields.append(("grade", str(job["grade"]), 0.72))
         return fields
+
+    @staticmethod
+    def _extract_listing_role(listing_title: str) -> str:
+        """Extract the advertised role from boilerplate-heavy Emploi-Public titles.
+
+        Example:
+        `Avis de concours de recrutement de Maître de conférences ...`
+        -> `Maître de conférences ...`
+
+        This keeps exact phrase evidence on the profession part of the title while
+        avoiding false positives from the generic `avis/recrutement/concours`
+        boilerplate that surrounds many public-sector listings.
+        """
+        text = re.sub(r"\s+", " ", str(listing_title or "")).strip()
+        if not text:
+            return ""
+        for pattern in LISTING_ROLE_PATTERNS:
+            match = pattern.search(text)
+            if match:
+                role = match.group("role").strip(" -–:()[]")
+                if normalize(role) and normalize(role) != normalize(text):
+                    return role
+        return ""
 
     def _classify_against(
         self,
