@@ -65,6 +65,51 @@ GOLDEN_CASES = [
         "must_include": ["health.medecin_generaliste"],
         "must_exclude": ["health.infirmier"],
     },
+    {
+        "name": "maitre_de_conferences_from_listing_title",
+        "job": {
+            "job_name": "",
+            "specialties": ["Science économiques"],
+            "listing_title": "Avis de concours de recrutement de Maître de conférences grade A - Echelle 11 Université Moulay Ismaïl - Meknès Annonce 1 poste Limite de dépôt : 8 Septembre 2026 Date du concours : 17 Septembre 2026",
+            "grade": "Maître de conférences grade A - echelle 11",
+        },
+        "must_include": ["edu.prof_universitaire"],
+        "must_exclude": [],
+    },
+    {
+        "name": "generic_technicien_grade_without_specialty_stays_unclassified",
+        "job": {
+            "job_name": "",
+            "specialties": [],
+            "listing_title": "Avis de concours de recrutement de Technicien de 3ème grade - Echelle 9 Archives du Maroc Annonce Dépôt en ligne 1 poste Limite de dépôt : 28 Août 2026 Date du concours : 27 Septembre 2026",
+            "grade": "Technicien de 3ème grade - echelle 9",
+        },
+        "must_include": [],
+        "must_exclude": [],
+        "allowed_ids": [],
+    },
+    {
+        "name": "charge_contenu_is_not_hr",
+        "job": {
+            "job_name": "Chargé de contenu Francophone",
+            "specialties": [],
+            "listing_title": "Avis de concours de recrutement de Chargé de contenu Francophone Office de la Formation Professionnelle et de la Promotion du Travail Annonce 1 poste Limite de dépôt : 6 Septembre 2026",
+            "grade": "",
+        },
+        "must_include": ["sales.charge_contenu"],
+        "must_exclude": ["admin.rh"],
+    },
+    {
+        "name": "specialized_formateur_is_not_it_operator",
+        "job": {
+            "job_name": "Formateur en Réseaux Informatiques-(Bac+5)",
+            "specialties": [],
+            "listing_title": "Avis de concours de recrutement de Formateur en Réseaux Informatiques-(Bac+5) Office de la Formation Professionnelle et de la Promotion du Travail Annonce 1 poste Limite de dépôt : 6 Septembre 2026",
+            "grade": "",
+        },
+        "must_include": ["edu.formateur_professionnel"],
+        "must_exclude": ["it.technicien_reseaux", "it.administrateur_reseaux"],
+    },
 ]
 
 
