@@ -1298,7 +1298,10 @@
         "professeur université",
         "enseignant universitaire",
         "maître de conférences",
-        "maitre de conferences"
+        "maitre de conferences",
+        "enseignant chercheur",
+        "enseignant-chercheur",
+        "أستاذ محاضر"
       ],
       "diplomas": []
     },
@@ -1964,21 +1967,6 @@
         "chargée de projets",
         "chargés de projets seniors",
         "chargées de projets seniors"
-      ],
-      "diplomas": []
-    },
-    {
-      "id": "edu.enseignant_chercheur",
-      "label": "Enseignant-chercheur / Maître de conférences",
-      "sector": "Enseignement supérieur",
-      "family": "Enseignement / Recherche",
-      "hcp_codes": [],
-      "aliases": [
-        "maître de conférences",
-        "maitre de conferences",
-        "enseignant chercheur",
-        "professeur universitaire",
-        "أستاذ محاضر"
       ],
       "diplomas": []
     },

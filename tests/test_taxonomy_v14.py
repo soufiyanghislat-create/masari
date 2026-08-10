@@ -48,7 +48,7 @@ def test_v14_explicit_remaining_titles():
 
 
 def test_v14_arabic_lecturer():
-    assert "edu.enseignant_chercheur" in ids_for({"job_name":"أستاذ محاضر بالمدرسة العليا للتربية والتكوين بأكادير تخصص اللغة العربية : اللسانيات","specialties":[],"grade":""})
+    assert "edu.prof_universitaire" in ids_for({"job_name":"أستاذ محاضر بالمدرسة العليا للتربية والتكوين بأكادير تخصص اللغة العربية : اللسانيات","specialties":[],"grade":""})
 
 
 def test_v14_formateur_gros_oeuvre():
