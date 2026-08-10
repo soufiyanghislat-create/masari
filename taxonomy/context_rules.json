@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "description": "Conjunctive public-sector rules",
+  "rules": [
+    {
+      "id": "public.tech_gc",
+      "profession_id": "btp.technicien_genie_civil",
+      "grade_any": [
+        "technicien"
+      ],
+      "specialty_any": [
+        "génie civil",
+        "génie civil travaux"
+      ],
+      "score": 99.0
+    },
+    {
+      "id": "public.eng_gc",
+      "profession_id": "btp.ingenieur_genie_civil",
+      "grade_any": [
+        "ingénieur",
+        "ingenieur"
+      ],
+      "specialty_any": [
+        "génie civil"
+      ],
+      "score": 99.0
+    },
+    {
+      "id": "public.tech_info",
+      "profession_id": "it.technicien_informatique",
+      "grade_any": [
+        "technicien"
+      ],
+      "specialty_any": [
+        "informatique"
+      ],
+      "score": 99.0
+    },
+    {
+      "id": "public.tech_si",
+      "profession_id": "it.technicien_systemes_information",
+      "grade_any": [
+        "technicien"
+      ],
+      "specialty_any": [
+        "systèmes d'information",
+        "systemes d'information",
+        "développement des systèmes d'information",
+        "developpement des systemes d'information"
+      ],
+      "score": 99.0
+    },
+    {
+      "id": "public.tech_network",
+      "profession_id": "it.technicien_reseaux",
+      "grade_any": [
+        "technicien"
+      ],
+      "specialty_any": [
+        "réseaux",
+        "reseaux"
+      ],
+      "score": 99.0
+    },
+    {
+      "id": "public.tech_support",
+      "profession_id": "it.technicien_support",
+      "grade_any": [
+        "technicien"
+      ],
+      "specialty_any": [
+        "maintenance informatique"
+      ],
+      "score": 99.0
+    },
+    {
+      "id": "public.tech_urbanisme",
+      "profession_id": "btp.technicien_architecture_urbanisme",
+      "grade_any": [
+        "technicien"
+      ],
+      "specialty_any": [
+        "urbanisme",
+        "architecture"
+      ],
+      "score": 99.0
+    },
+    {
+      "id": "public.tech_electricite",
+      "profession_id": "industry.technicien_electrique",
+      "grade_any": [
+        "technicien"
+      ],
+      "specialty_any": [
+        "électricité",
+        "electricite"
+      ],
+      "score": 99.0
+    },
+    {
+      "id": "public.tech_electromeca",
+      "profession_id": "industry.technicien_electromecanique",
+      "grade_any": [
+        "technicien"
+      ],
+      "specialty_any": [
+        "électromécanique",
+        "electromecanique"
+      ],
+      "score": 99.0
+    },
+    {
+      "id": "public.eng_hydraulique",
+      "profession_id": "btp.ingenieur_hydraulique",
+      "grade_any": [
+        "ingénieur",
+        "ingenieur"
+      ],
+      "specialty_any": [
+        "génie hydraulique",
+        "genie hydraulique",
+        "génie rural",
+        "genie rural"
+      ],
+      "score": 99.0
+    },
+    {
+      "id": "market.agent_maitrise_finance",
+      "profession_id": "admin.agent_maitrise_gestion_finance",
+      "job_name_any": [
+        "agent de maitrise",
+        "agent de maîtrise"
+      ],
+      "specialty_any": [
+        "gestion d'entreprise",
+        "comptabilité",
+        "comptabilite",
+        "finance",
+        "économie",
+        "economie"
+      ],
+      "score": 99.0
+    }
+  ]
+}

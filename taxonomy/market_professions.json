@@ -1,5 +1,5 @@
 {
-  "name": "Masari Morocco Market Professions v1",
+  "name": "Masari Morocco Market Professions v1.4",
   "description": "User-facing Moroccan job taxonomy mapped to HCP NAP-2014 codes. Curated market labels sit on top of the official HCP backbone.",
   "source_backbone": "HCP NAP-2014",
   "professions": [
@@ -1358,7 +1358,11 @@
         "formateur en espaces verts",
         "formateur en gestion des déchets, de dépollution et d'environnement",
         "formateur en gestion de l'eau potable et assainissement",
-        "formateur en infographie"
+        "formateur en infographie",
+        "formateur en gros œuvres",
+        "formateur en gros oeuvre",
+        "formateur gros œuvres",
+        "formateur gros oeuvre"
       ],
       "diplomas": []
     },
@@ -1917,6 +1921,297 @@
         "esthéticien",
         "esthéticienne",
         "soins de beauté"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "sales.superviseur_clientele",
+      "label": "Superviseur clientèle",
+      "sector": "Services / Relation client",
+      "family": "Supervision clientèle",
+      "hcp_codes": [],
+      "aliases": [
+        "superviseur clientèle",
+        "superviseurs clientèles",
+        "superviseur service client",
+        "superviseur relation client"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "management.chef_projet_strategie",
+      "label": "Chef de projet stratégie",
+      "sector": "Management / Stratégie",
+      "family": "Gestion de projet / Stratégie",
+      "hcp_codes": [],
+      "aliases": [
+        "chef de projet stratégie",
+        "chef de projet stratégie et idéation",
+        "chef projet stratégie et idéation"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "management.charge_projet",
+      "label": "Chargé de projet",
+      "sector": "Management / Projets",
+      "family": "Gestion de projet",
+      "hcp_codes": [],
+      "aliases": [
+        "chargé de projet",
+        "chargée de projet",
+        "chargé de projets",
+        "chargée de projets",
+        "chargés de projets seniors",
+        "chargées de projets seniors"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "edu.enseignant_chercheur",
+      "label": "Enseignant-chercheur / Maître de conférences",
+      "sector": "Enseignement supérieur",
+      "family": "Enseignement / Recherche",
+      "hcp_codes": [],
+      "aliases": [
+        "maître de conférences",
+        "maitre de conferences",
+        "enseignant chercheur",
+        "professeur universitaire",
+        "أستاذ محاضر"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "btp.technicien_architecture_urbanisme",
+      "label": "Technicien architecture et urbanisme",
+      "sector": "BTP / Architecture",
+      "family": "Architecture / Urbanisme",
+      "hcp_codes": [],
+      "aliases": [
+        "technicien architecture urbanisme",
+        "technicien en architecture et urbanisme",
+        "technicien spécialisé en architecture et urbanisme"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "industry.maintenance_multitechnique",
+      "label": "Chargé de maintenance multitechnique",
+      "sector": "Industrie / Maintenance",
+      "family": "Maintenance multitechnique",
+      "hcp_codes": [],
+      "aliases": [
+        "chargé de maintenance multitechnique",
+        "chargé du suivi de la maintenance multi techniques",
+        "maintenance multi techniques",
+        "maintenance multitechnique"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "transport.responsable_exploitation_gare",
+      "label": "Responsable d'exploitation de gare routière",
+      "sector": "Transport / Logistique",
+      "family": "Exploitation transport",
+      "hcp_codes": [],
+      "aliases": [
+        "chargé d'exploitation de la gare routière",
+        "responsable exploitation gare routière",
+        "exploitation gare routière"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "finance.analyste_politique_monetaire",
+      "label": "Analyste politique monétaire",
+      "sector": "Banque / Finance",
+      "family": "Économie monétaire",
+      "hcp_codes": [],
+      "aliases": [
+        "analyste politique monétaire",
+        "analyse politique monétaire",
+        "économiste politique monétaire"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "sales.commerce_international",
+      "label": "Cadre en commerce international",
+      "sector": "Commerce / International",
+      "family": "Commerce international",
+      "hcp_codes": [],
+      "aliases": [
+        "cadre en commerce international",
+        "commerce international",
+        "chargé commerce international"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "health.aide_soignant",
+      "label": "Aide-soignant",
+      "sector": "Santé",
+      "family": "Soins",
+      "hcp_codes": [],
+      "aliases": [
+        "aide-soignant",
+        "aide soignant",
+        "aide-soignante",
+        "aide soignante"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "admin.moyens_generaux",
+      "label": "Chargé des moyens généraux",
+      "sector": "Administration / Services généraux",
+      "family": "Moyens généraux",
+      "hcp_codes": [],
+      "aliases": [
+        "chargé de moyens généraux",
+        "chargé des moyens généraux",
+        "responsable moyens généraux"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "it.responsable_si",
+      "label": "Cadre / Responsable systèmes d'information",
+      "sector": "Informatique / Digital",
+      "family": "Systèmes d'information",
+      "hcp_codes": [],
+      "aliases": [
+        "cadre supérieur en système d'information",
+        "cadre système d'information",
+        "responsable système d'information",
+        "responsable systèmes d'information"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "btp.chef_projet_genie_civil",
+      "label": "Chargé de projet génie civil",
+      "sector": "BTP / Génie civil",
+      "family": "Gestion de projet BTP",
+      "hcp_codes": [],
+      "aliases": [
+        "chargé de projet génie civil",
+        "chargée de projet génie civil",
+        "chef de projet génie civil"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "operations.controleur_terrain",
+      "label": "Contrôleur terrain",
+      "sector": "Opérations / Contrôle",
+      "family": "Contrôle terrain",
+      "hcp_codes": [],
+      "aliases": [
+        "contrôleur terrain",
+        "controleur terrain",
+        "agent contrôle terrain"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "sales.controleur_pratiques_commerciales",
+      "label": "Contrôleur des pratiques commerciales",
+      "sector": "Commerce / Contrôle",
+      "family": "Pratiques commerciales",
+      "hcp_codes": [],
+      "aliases": [
+        "contrôleur pratiques commerciales",
+        "contrôleur pratiques commerciales confirmé",
+        "controleur pratiques commerciales"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "services.relations_beneficiaires",
+      "label": "Chargé des relations avec les bénéficiaires",
+      "sector": "Services / Relation usagers",
+      "family": "Relations bénéficiaires",
+      "hcp_codes": [],
+      "aliases": [
+        "chargé relations avec les bénéficiaires",
+        "chargé relations avec les bénéficiaires confirmé",
+        "relations bénéficiaires"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "sports.cadre_technique_pelouses",
+      "label": "Cadre technique pelouses et surfaces sportives",
+      "sector": "Sport / Technique",
+      "family": "Pelouses / Surfaces sportives",
+      "hcp_codes": [],
+      "aliases": [
+        "cadre technique pelouses et surfaces sportives",
+        "pelouses et surfaces sportives",
+        "responsable surfaces sportives"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "it.technicien_informatique",
+      "label": "Technicien informatique",
+      "sector": "Informatique / Digital",
+      "family": "Informatique générale",
+      "hcp_codes": [],
+      "aliases": [
+        "technicien informatique",
+        "technicien en informatique"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "it.technicien_systemes_information",
+      "label": "Technicien systèmes d'information",
+      "sector": "Informatique / Digital",
+      "family": "Systèmes d'information",
+      "hcp_codes": [],
+      "aliases": [
+        "technicien systèmes d'information",
+        "technicien système d'information"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "industry.technicien_electromecanique",
+      "label": "Technicien électromécanique",
+      "sector": "Industrie / Maintenance",
+      "family": "Électromécanique",
+      "hcp_codes": [],
+      "aliases": [
+        "technicien électromécanique",
+        "technicien en électromécanique"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "btp.ingenieur_hydraulique",
+      "label": "Ingénieur hydraulique / génie rural",
+      "sector": "BTP / Eau / Hydraulique",
+      "family": "Hydraulique / Génie rural",
+      "hcp_codes": [],
+      "aliases": [
+        "ingénieur hydraulique",
+        "ingénieur génie hydraulique",
+        "ingénieur génie rural"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "admin.agent_maitrise_gestion_finance",
+      "label": "Agent de maîtrise gestion / finance",
+      "sector": "Administration / Finance",
+      "family": "Gestion / Finance",
+      "hcp_codes": [],
+      "aliases": [
+        "agent de maîtrise gestion finance",
+        "agent de maitrise gestion finance"
       ],
       "diplomas": []
     }

@@ -32,7 +32,7 @@ def normalize(value: str) -> str:
     value = unicodedata.normalize("NFKD", value or "")
     value = "".join(ch for ch in value if not unicodedata.combining(ch))
     value = value.casefold().replace("’", "'")
-    value = re.sub(r"[^a-z0-9+#]+", " ", value)
+    value = re.sub(r"[^\w+#]+", " ", value, flags=re.UNICODE).replace("_", " ")
     return re.sub(r"\s+", " ", value).strip()
 
 
@@ -93,6 +93,11 @@ class Taxonomy:
             )
 
         self.by_id = {p.id: p for p in [*self.market, *self.hcp]}
+        rules_path = self.taxonomy_dir / 'context_rules.json'
+        self.context_rules = []
+        if rules_path.exists():
+            rules_data = json.loads(rules_path.read_text(encoding='utf-8'))
+            self.context_rules = list(rules_data.get('rules') or [])
         self._normalized_terms: dict[str, list[tuple[Profession, str]]] = {}
         for profession in [*self.market, *self.hcp]:
             for term in profession.terms:
@@ -191,6 +196,7 @@ class Taxonomy:
         the alias `technicien dessin bâtiment`.
         """
         fields = self._job_fields(job)
+        context_matches = self._context_rule_matches(job)
         market_matches = self._classify_against(
             self.market,
             fields,
@@ -198,8 +204,14 @@ class Taxonomy:
             scoring="strict",
             searchable=True,
         )
-        if market_matches:
-            return market_matches[:max_matches]
+        if context_matches or market_matches:
+            merged = {}
+            for row in [*context_matches, *market_matches]:
+                current = merged.get(row["profession_id"])
+                if current is None or row["score"] > current["score"]:
+                    merged[row["profession_id"]] = row
+            rows = sorted(merged.values(), key=lambda x: (-x["score"], x["label"].casefold()))
+            return rows[:max_matches]
 
         # HCP remains a long-tail fallback, but only for very strong phrase
         # evidence. Reverse/subset inference is intentionally forbidden here.
@@ -230,6 +242,38 @@ class Taxonomy:
             searchable=False,
         )
         return [row for row in rows if row["profession_id"] not in exclude_ids][:max_matches]
+
+    @staticmethod
+    def _context_contains(value: str, phrase: str) -> bool:
+        nv = normalize(value)
+        np = normalize(phrase)
+        if not nv or not np:
+            return False
+        return bool(re.search(rf"(?:^| ){re.escape(np)}(?:$| )", nv))
+
+    def _context_rule_matches(self, job: dict) -> list[dict]:
+        if not self.context_rules:
+            return []
+        job_name = str(job.get("job_name") or "")
+        grade = str(job.get("grade") or "")
+        specialties = [str(x) for x in (job.get("specialties") or []) if x]
+        def any_match(values: list[str], phrases: list[str]) -> bool:
+            return any(self._context_contains(value, phrase) for value in values for phrase in phrases)
+        rows = []
+        for rule in self.context_rules:
+            profession = self.by_id.get(rule.get("profession_id"))
+            if profession is None or profession.source != "masari_market":
+                continue
+            if rule.get("job_name_any") and not any_match([job_name], list(rule["job_name_any"])):
+                continue
+            if rule.get("grade_any") and not any_match([grade], list(rule["grade_any"])):
+                continue
+            if rule.get("specialty_any") and not any_match(specialties, list(rule["specialty_any"])):
+                continue
+            score = float(rule.get("score") or 99.0)
+            rows.append({"profession_id": profession.id, "label": profession.label, "sector": profession.sector, "family": profession.family, "hcp_codes": list(profession.hcp_codes), "source": profession.source, "score": round(min(score,100.0),2), "confidence": self._confidence(score), "searchable": True, "evidence": {"field": "context_rule", "value": rule.get("id") or "context", "matched_term": rule.get("id") or "context", "raw_score": round(score,2)}})
+        rows.sort(key=lambda x: (-x["score"], x["label"].casefold()))
+        return rows
 
     @staticmethod
     def _job_fields(job: dict) -> list[tuple[str, str, float]]:
