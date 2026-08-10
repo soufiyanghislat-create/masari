@@ -1,0 +1,1757 @@
+{
+  "name": "Masari Morocco Market Professions v1",
+  "description": "User-facing Moroccan job taxonomy mapped to HCP NAP-2014 codes. Curated market labels sit on top of the official HCP backbone.",
+  "source_backbone": "HCP NAP-2014",
+  "professions": [
+    {
+      "id": "btp.architecte",
+      "label": "Architecte",
+      "sector": "BTP / Architecture",
+      "family": "Architecture",
+      "hcp_codes": [
+        "1171"
+      ],
+      "aliases": [
+        "architecte bâtiment",
+        "architecte de bâtiment"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "btp.architecte_paysagiste",
+      "label": "Architecte paysagiste",
+      "sector": "BTP / Architecture",
+      "family": "Architecture",
+      "hcp_codes": [
+        "1172"
+      ],
+      "aliases": [
+        "paysagiste architecte"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "btp.urbaniste",
+      "label": "Urbaniste",
+      "sector": "BTP / Architecture",
+      "family": "Urbanisme",
+      "hcp_codes": [
+        "1173"
+      ],
+      "aliases": [
+        "urbaniste aménageur",
+        "aménagement urbain"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "btp.ingenieur_genie_civil",
+      "label": "Ingénieur génie civil",
+      "sector": "BTP / Génie civil",
+      "family": "Ingénierie",
+      "hcp_codes": [
+        "1142"
+      ],
+      "aliases": [
+        "ingénieur civil",
+        "ingénieur btp",
+        "ingénieur travaux"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "btp.technicien_genie_civil",
+      "label": "Technicien génie civil",
+      "sector": "BTP / Génie civil",
+      "family": "Études / Travaux",
+      "hcp_codes": [
+        "2111"
+      ],
+      "aliases": [
+        "technicien en génie civil",
+        "technicien btp",
+        "technicien travaux publics"
+      ],
+      "diplomas": [
+        "Technicien en génie civil",
+        "Technicien spécialisé en génie civil"
+      ]
+    },
+    {
+      "id": "btp.dessinateur_architectural",
+      "label": "Dessinateur architectural",
+      "sector": "BTP / Architecture",
+      "family": "Dessin / Études",
+      "hcp_codes": [
+        "2111"
+      ],
+      "aliases": [
+        "dessinateur architecture",
+        "dessinateur en bâtiment",
+        "dessinateur bâtiment",
+        "dessin de bâtiment",
+        "technicien dessin bâtiment",
+        "technicien en dessin de bâtiment",
+        "dessinateur dao bâtiment",
+        "dao bâtiment",
+        "cao bâtiment"
+      ],
+      "diplomas": [
+        "Technicien en dessin de bâtiment",
+        "Technicien dessin de bâtiment"
+      ]
+    },
+    {
+      "id": "btp.dessinateur_projeteur",
+      "label": "Dessinateur-projeteur bâtiment",
+      "sector": "BTP / Architecture",
+      "family": "Dessin / Études",
+      "hcp_codes": [
+        "2111"
+      ],
+      "aliases": [
+        "dessinateur projeteur",
+        "projeteur bâtiment",
+        "technicien projeteur",
+        "technicien projeteur modeleur",
+        "projeteur modeleur",
+        "modeleur bâtiment"
+      ],
+      "diplomas": [
+        "Technicien projeteur modeleur",
+        "Technicien en dessin de bâtiment"
+      ]
+    },
+    {
+      "id": "btp.technicien_bureau_etudes",
+      "label": "Technicien bureau d'études BTP",
+      "sector": "BTP / Génie civil",
+      "family": "Bureau d'études",
+      "hcp_codes": [
+        "2111"
+      ],
+      "aliases": [
+        "technicien bureau études",
+        "technicien be bâtiment",
+        "bureau d'études bâtiment",
+        "technicien études btp"
+      ],
+      "diplomas": [
+        "Technicien en dessin de bâtiment",
+        "Technicien spécialisé en génie civil"
+      ]
+    },
+    {
+      "id": "btp.metreur",
+      "label": "Métreur",
+      "sector": "BTP / Génie civil",
+      "family": "Études de prix / Métré",
+      "hcp_codes": [
+        "2111"
+      ],
+      "aliases": [
+        "métreur bâtiment",
+        "technicien métreur",
+        "métré bâtiment",
+        "étude de prix btp",
+        "technicien étude de prix"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "btp.topographe",
+      "label": "Topographe / Géomètre",
+      "sector": "BTP / Topographie",
+      "family": "Topographie",
+      "hcp_codes": [
+        "1174",
+        "2111"
+      ],
+      "aliases": [
+        "topographe",
+        "géomètre topographe",
+        "technicien topographe",
+        "géomètre"
+      ],
+      "diplomas": [
+        "Technicien spécialisé géomètre topographe",
+        "Technicien topographe"
+      ]
+    },
+    {
+      "id": "btp.conducteur_travaux",
+      "label": "Conducteur de travaux",
+      "sector": "BTP / Chantier",
+      "family": "Conduite de travaux",
+      "hcp_codes": [
+        "2123"
+      ],
+      "aliases": [
+        "conducteur travaux",
+        "conducteur de chantier",
+        "responsable travaux"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "btp.chef_chantier",
+      "label": "Chef de chantier",
+      "sector": "BTP / Chantier",
+      "family": "Supervision chantier",
+      "hcp_codes": [
+        "2123"
+      ],
+      "aliases": [
+        "chef chantier",
+        "superviseur btp",
+        "superviseur chantier"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "btp.electricien_batiment",
+      "label": "Électricien bâtiment",
+      "sector": "BTP / Second œuvre",
+      "family": "Électricité bâtiment",
+      "hcp_codes": [
+        "6128"
+      ],
+      "aliases": [
+        "électricien du bâtiment",
+        "électricité bâtiment"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "btp.plombier",
+      "label": "Plombier / Tuyauteur",
+      "sector": "BTP / Second œuvre",
+      "family": "Plomberie",
+      "hcp_codes": [
+        "6127"
+      ],
+      "aliases": [
+        "plombier",
+        "tuyauteur",
+        "plomberie sanitaire"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "btp.macon",
+      "label": "Maçon",
+      "sector": "BTP / Gros œuvre",
+      "family": "Maçonnerie",
+      "hcp_codes": [
+        "6112"
+      ],
+      "aliases": [
+        "maçon bâtiment",
+        "maçon béton armé"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "btp.coffreur",
+      "label": "Coffreur",
+      "sector": "BTP / Gros œuvre",
+      "family": "Coffrage",
+      "hcp_codes": [
+        "6113"
+      ],
+      "aliases": [
+        "coffreur bâtiment",
+        "coffreur bois"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "btp.ferrailleur",
+      "label": "Ferrailleur bâtiment",
+      "sector": "BTP / Gros œuvre",
+      "family": "Ferraillage",
+      "hcp_codes": [
+        "6114"
+      ],
+      "aliases": [
+        "ferrailleur",
+        "ferraillage bâtiment"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "btp.carreleur",
+      "label": "Carreleur / Zelligeur",
+      "sector": "BTP / Second œuvre",
+      "family": "Revêtements",
+      "hcp_codes": [
+        "6121"
+      ],
+      "aliases": [
+        "carreleur",
+        "zelligeur",
+        "mosaïste"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "btp.peintre",
+      "label": "Peintre bâtiment",
+      "sector": "BTP / Second œuvre",
+      "family": "Peinture",
+      "hcp_codes": [
+        "6131"
+      ],
+      "aliases": [
+        "peintre en bâtiment",
+        "peinture bâtiment"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "btp.menuisier_batiment",
+      "label": "Menuisier bâtiment",
+      "sector": "BTP / Second œuvre",
+      "family": "Menuiserie",
+      "hcp_codes": [
+        "6124"
+      ],
+      "aliases": [
+        "menuisier du bâtiment",
+        "menuiserie bâtiment",
+        "menuisier aluminium bâtiment"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "btp.mecanicien_engins",
+      "label": "Mécanicien engins BTP",
+      "sector": "BTP / Matériel",
+      "family": "Maintenance engins",
+      "hcp_codes": [
+        "6314"
+      ],
+      "aliases": [
+        "mécanicien engins",
+        "mécanicien machines btp",
+        "mécanicien engins de chantier"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "it.analyste_systemes",
+      "label": "Analyste systèmes",
+      "sector": "Informatique / Digital",
+      "family": "Logiciels",
+      "hcp_codes": [
+        "1311"
+      ],
+      "aliases": [
+        "analyste système",
+        "system analyst"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "it.ingenieur_logiciel",
+      "label": "Ingénieur logiciel",
+      "sector": "Informatique / Digital",
+      "family": "Logiciels",
+      "hcp_codes": [
+        "1312"
+      ],
+      "aliases": [
+        "software engineer",
+        "ingénieur développement",
+        "ingénieur informatique développement"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "it.developpeur_logiciel",
+      "label": "Développeur logiciel",
+      "sector": "Informatique / Digital",
+      "family": "Développement",
+      "hcp_codes": [
+        "1312",
+        "1314"
+      ],
+      "aliases": [
+        "développeur informatique",
+        "développement informatique",
+        "développeur application",
+        "développeur applications",
+        "programmeur",
+        "software developer"
+      ],
+      "diplomas": [
+        "Technicien spécialisé en développement informatique",
+        "Licence informatique",
+        "Master informatique"
+      ]
+    },
+    {
+      "id": "it.developpeur_web",
+      "label": "Développeur web",
+      "sector": "Informatique / Digital",
+      "family": "Développement web",
+      "hcp_codes": [
+        "1313",
+        "1314"
+      ],
+      "aliases": [
+        "développement web",
+        "web developer",
+        "développeur front end",
+        "développeur frontend",
+        "développeur back end",
+        "développeur backend",
+        "développeur full stack",
+        "développeur fullstack"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "it.developpeur_mobile",
+      "label": "Développeur mobile",
+      "sector": "Informatique / Digital",
+      "family": "Développement mobile",
+      "hcp_codes": [
+        "1314"
+      ],
+      "aliases": [
+        "développement mobile",
+        "mobile developer",
+        "android developer",
+        "ios developer"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "it.administrateur_systemes",
+      "label": "Administrateur systèmes",
+      "sector": "Informatique / Digital",
+      "family": "Systèmes",
+      "hcp_codes": [
+        "1322"
+      ],
+      "aliases": [
+        "administrateur système",
+        "admin système",
+        "administration systèmes"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "it.administrateur_reseaux",
+      "label": "Administrateur réseaux",
+      "sector": "Informatique / Digital",
+      "family": "Réseaux",
+      "hcp_codes": [
+        "1323"
+      ],
+      "aliases": [
+        "administrateur réseau",
+        "admin réseau",
+        "ingénieur réseau",
+        "spécialiste réseaux"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "it.base_donnees",
+      "label": "Administrateur bases de données",
+      "sector": "Informatique / Digital",
+      "family": "Données",
+      "hcp_codes": [
+        "1321"
+      ],
+      "aliases": [
+        "administrateur base de données",
+        "dba",
+        "base de données",
+        "bases de données"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "it.cybersecurite",
+      "label": "Spécialiste cybersécurité",
+      "sector": "Informatique / Digital",
+      "family": "Cybersécurité",
+      "hcp_codes": [
+        "1323",
+        "1329"
+      ],
+      "aliases": [
+        "cybersécurité",
+        "sécurité informatique",
+        "sécurité des systèmes d'information",
+        "soc analyst",
+        "pentester"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "it.technicien_support",
+      "label": "Technicien support informatique",
+      "sector": "Informatique / Digital",
+      "family": "Support",
+      "hcp_codes": [
+        "2512",
+        "2519"
+      ],
+      "aliases": [
+        "support informatique",
+        "helpdesk",
+        "technicien help desk",
+        "technicien maintenance informatique"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "it.technicien_reseaux",
+      "label": "Technicien réseaux et systèmes",
+      "sector": "Informatique / Digital",
+      "family": "Réseaux / Systèmes",
+      "hcp_codes": [
+        "2513"
+      ],
+      "aliases": [
+        "technicien réseau",
+        "technicien réseaux",
+        "technicien systèmes",
+        "réseaux et systèmes informatiques"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "it.technicien_programmation",
+      "label": "Technicien en programmation",
+      "sector": "Informatique / Digital",
+      "family": "Développement",
+      "hcp_codes": [
+        "2515"
+      ],
+      "aliases": [
+        "technicien développement informatique",
+        "technicien développeur",
+        "programmation informatique"
+      ],
+      "diplomas": [
+        "Technicien spécialisé en développement informatique"
+      ]
+    },
+    {
+      "id": "it.technicien_internet",
+      "label": "Technicien Internet / Web",
+      "sector": "Informatique / Digital",
+      "family": "Web",
+      "hcp_codes": [
+        "2514"
+      ],
+      "aliases": [
+        "technicien internet",
+        "technicien web"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "it.telecom",
+      "label": "Technicien télécommunications",
+      "sector": "Informatique / Télécom",
+      "family": "Télécommunications",
+      "hcp_codes": [
+        "2522"
+      ],
+      "aliases": [
+        "technicien télécom",
+        "télécommunications",
+        "technicien fibre optique"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "it.data_analyst",
+      "label": "Data analyst",
+      "sector": "Informatique / Digital",
+      "family": "Data",
+      "hcp_codes": [
+        "1311",
+        "1913"
+      ],
+      "aliases": [
+        "analyste de données",
+        "analyse de données",
+        "data analytics"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "it.data_scientist",
+      "label": "Data scientist",
+      "sector": "Informatique / Digital",
+      "family": "Data / IA",
+      "hcp_codes": [
+        "1311",
+        "1312"
+      ],
+      "aliases": [
+        "science des données",
+        "data science",
+        "intelligence artificielle",
+        "machine learning"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "finance.comptable",
+      "label": "Comptable",
+      "sector": "Finance / Comptabilité",
+      "family": "Comptabilité",
+      "hcp_codes": [
+        "1911",
+        "2631",
+        "3121"
+      ],
+      "aliases": [
+        "cadre comptable",
+        "technicien comptable",
+        "aide comptable",
+        "comptabilité"
+      ],
+      "diplomas": [
+        "Technicien spécialisé en gestion des entreprises",
+        "Licence comptabilité"
+      ]
+    },
+    {
+      "id": "finance.auditeur",
+      "label": "Auditeur",
+      "sector": "Finance / Comptabilité",
+      "family": "Audit",
+      "hcp_codes": [
+        "1911",
+        "1913"
+      ],
+      "aliases": [
+        "auditeur interne",
+        "audit financier",
+        "audit comptable"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "finance.analyste_financier",
+      "label": "Analyste financier",
+      "sector": "Finance / Banque",
+      "family": "Finance",
+      "hcp_codes": [
+        "1913"
+      ],
+      "aliases": [
+        "analyse financière",
+        "financial analyst"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "finance.conseiller_financier",
+      "label": "Conseiller financier",
+      "sector": "Finance / Banque",
+      "family": "Finance",
+      "hcp_codes": [
+        "1912"
+      ],
+      "aliases": [
+        "conseiller en finances",
+        "conseiller investissement"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "finance.banque",
+      "label": "Chargé de banque / Assurance",
+      "sector": "Banque / Assurance",
+      "family": "Banque",
+      "hcp_codes": [
+        "2632"
+      ],
+      "aliases": [
+        "chargé de clientèle banque",
+        "conseiller bancaire",
+        "cadre banque",
+        "cadre assurance"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "finance.guichetier_banque",
+      "label": "Guichetier de banque",
+      "sector": "Banque / Assurance",
+      "family": "Banque",
+      "hcp_codes": [
+        "3141"
+      ],
+      "aliases": [
+        "guichetier banque",
+        "agent guichet banque"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "finance.agent_assurance",
+      "label": "Agent d'assurance",
+      "sector": "Banque / Assurance",
+      "family": "Assurance",
+      "hcp_codes": [
+        "4410"
+      ],
+      "aliases": [
+        "agent assurance",
+        "courtier assurance",
+        "courtier d'assurance"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "admin.rh",
+      "label": "Ressources humaines",
+      "sector": "Administration / RH",
+      "family": "Ressources humaines",
+      "hcp_codes": [
+        "1923"
+      ],
+      "aliases": [
+        "rh",
+        "chargé ressources humaines",
+        "responsable rh",
+        "gestion ressources humaines",
+        "recrutement"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "admin.assistant",
+      "label": "Assistant administratif",
+      "sector": "Administration / RH",
+      "family": "Administration",
+      "hcp_codes": [
+        "3114",
+        "2613"
+      ],
+      "aliases": [
+        "agent administratif",
+        "assistant administration",
+        "employé administratif",
+        "gestion administrative"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "admin.secretaire",
+      "label": "Secrétaire",
+      "sector": "Administration / RH",
+      "family": "Secrétariat",
+      "hcp_codes": [
+        "3111",
+        "2653"
+      ],
+      "aliases": [
+        "secrétaire administratif",
+        "secrétaire de direction",
+        "secrétaire exécutif"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "admin.gestionnaire",
+      "label": "Gestionnaire",
+      "sector": "Administration / Gestion",
+      "family": "Gestion",
+      "hcp_codes": [
+        "2634"
+      ],
+      "aliases": [
+        "technicien gestion",
+        "gestion des entreprises",
+        "assistant de gestion"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "admin.logisticien",
+      "label": "Logisticien",
+      "sector": "Logistique / Supply Chain",
+      "family": "Logistique",
+      "hcp_codes": [
+        "1935"
+      ],
+      "aliases": [
+        "spécialiste logistique",
+        "responsable logistique",
+        "logistique",
+        "supply chain"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "admin.acheteur",
+      "label": "Acheteur",
+      "sector": "Commerce / Achats",
+      "family": "Achats",
+      "hcp_codes": [
+        "2621"
+      ],
+      "aliases": [
+        "acheteur approvisionneur",
+        "responsable achats",
+        "achats"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "admin.magasinier",
+      "label": "Magasinier / Gestionnaire de stock",
+      "sector": "Logistique / Supply Chain",
+      "family": "Stocks",
+      "hcp_codes": [
+        "3124"
+      ],
+      "aliases": [
+        "magasinier",
+        "gestionnaire de stock",
+        "gestion de stock",
+        "stock"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "admin.paie",
+      "label": "Gestionnaire de paie",
+      "sector": "Administration / RH",
+      "family": "Paie",
+      "hcp_codes": [
+        "2633",
+        "3122"
+      ],
+      "aliases": [
+        "paie",
+        "technicien paie",
+        "responsable paie"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "sales.commercial",
+      "label": "Commercial",
+      "sector": "Commerce / Vente",
+      "family": "Vente",
+      "hcp_codes": [
+        "2622"
+      ],
+      "aliases": [
+        "agent commercial",
+        "technico commercial",
+        "technico-commercial",
+        "commercial terrain",
+        "conseiller commercial"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "sales.chef_vente",
+      "label": "Chef de vente",
+      "sector": "Commerce / Vente",
+      "family": "Management commercial",
+      "hcp_codes": [
+        "2621"
+      ],
+      "aliases": [
+        "responsable commercial",
+        "chef des ventes",
+        "sales manager"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "sales.marketing",
+      "label": "Chargé de marketing",
+      "sector": "Marketing / Communication",
+      "family": "Marketing",
+      "hcp_codes": [
+        "1931"
+      ],
+      "aliases": [
+        "marketing",
+        "responsable marketing",
+        "chef de projet marketing",
+        "marketing digital"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "sales.communication",
+      "label": "Chargé de communication / Relations publiques",
+      "sector": "Marketing / Communication",
+      "family": "Communication",
+      "hcp_codes": [
+        "1932"
+      ],
+      "aliases": [
+        "communication",
+        "relations publiques",
+        "chargé relations publiques"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "sales.vendeur",
+      "label": "Vendeur",
+      "sector": "Commerce / Vente",
+      "family": "Vente",
+      "hcp_codes": [
+        "3213",
+        "3219"
+      ],
+      "aliases": [
+        "vendeur magasin",
+        "conseiller de vente",
+        "vendeuse",
+        "télévendeur"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "sales.caissier",
+      "label": "Caissier",
+      "sector": "Commerce / Vente",
+      "family": "Caisse",
+      "hcp_codes": [
+        "3214"
+      ],
+      "aliases": [
+        "caissière",
+        "agent de caisse"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "sales.centre_appels",
+      "label": "Conseiller centre d'appels",
+      "sector": "Services / Relation client",
+      "family": "Centre d'appels",
+      "hcp_codes": [
+        "3152"
+      ],
+      "aliases": [
+        "centre d'appel",
+        "centre d'appels",
+        "call center",
+        "téléconseiller",
+        "conseiller clientèle"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "sales.accueil",
+      "label": "Agent d'accueil / Réceptionniste",
+      "sector": "Services / Relation client",
+      "family": "Accueil",
+      "hcp_codes": [
+        "3156"
+      ],
+      "aliases": [
+        "agent accueil",
+        "réceptionniste",
+        "chargé d'accueil"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "health.medecin_generaliste",
+      "label": "Médecin généraliste",
+      "sector": "Santé",
+      "family": "Médecine",
+      "hcp_codes": [
+        "1211"
+      ],
+      "aliases": [
+        "médecin généraliste"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "health.medecin_specialiste",
+      "label": "Médecin spécialiste",
+      "sector": "Santé",
+      "family": "Médecine",
+      "hcp_codes": [
+        "1212"
+      ],
+      "aliases": [
+        "médecin spécialiste",
+        "chirurgien"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "health.dentiste",
+      "label": "Chirurgien-dentiste",
+      "sector": "Santé",
+      "family": "Dentaire",
+      "hcp_codes": [
+        "1213"
+      ],
+      "aliases": [
+        "dentiste",
+        "chirurgien dentiste"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "health.pharmacien",
+      "label": "Pharmacien",
+      "sector": "Santé",
+      "family": "Pharmacie",
+      "hcp_codes": [
+        "1261"
+      ],
+      "aliases": [
+        "pharmacien"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "health.infirmier",
+      "label": "Infirmier",
+      "sector": "Santé",
+      "family": "Soins infirmiers",
+      "hcp_codes": [
+        "1221",
+        "2321",
+        "2322"
+      ],
+      "aliases": [
+        "infirmier diplômé",
+        "infirmière",
+        "soins infirmiers"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "health.sage_femme",
+      "label": "Sage-femme",
+      "sector": "Santé",
+      "family": "Maternité",
+      "hcp_codes": [
+        "1222",
+        "2323"
+      ],
+      "aliases": [
+        "sage femme",
+        "sage-femme"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "health.kinesitherapeute",
+      "label": "Kinésithérapeute",
+      "sector": "Santé",
+      "family": "Rééducation",
+      "hcp_codes": [
+        "1263",
+        "2315"
+      ],
+      "aliases": [
+        "kinésithérapeute",
+        "kiné",
+        "physiothérapeute"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "health.technicien_labo",
+      "label": "Technicien de laboratoire",
+      "sector": "Santé",
+      "family": "Laboratoire",
+      "hcp_codes": [
+        "2331"
+      ],
+      "aliases": [
+        "technicien laboratoire",
+        "laboratoire d'analyses",
+        "analyses médicales"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "health.technicien_radiologie",
+      "label": "Technicien radiologie",
+      "sector": "Santé",
+      "family": "Imagerie médicale",
+      "hcp_codes": [
+        "2332"
+      ],
+      "aliases": [
+        "technicien radiologie",
+        "radiologie",
+        "imagerie médicale"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "health.assistant_dentaire",
+      "label": "Assistant dentaire",
+      "sector": "Santé",
+      "family": "Dentaire",
+      "hcp_codes": [
+        "2314"
+      ],
+      "aliases": [
+        "assistant dentaire",
+        "prothèse dentaire"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "health.preparateur_pharmacie",
+      "label": "Préparateur en pharmacie",
+      "sector": "Santé",
+      "family": "Pharmacie",
+      "hcp_codes": [
+        "2317"
+      ],
+      "aliases": [
+        "préparateur pharmacie",
+        "assistant pharmacien"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "health.veterinaire",
+      "label": "Vétérinaire",
+      "sector": "Santé / Vétérinaire",
+      "family": "Vétérinaire",
+      "hcp_codes": [
+        "1251",
+        "1252"
+      ],
+      "aliases": [
+        "médecin vétérinaire",
+        "vétérinaire"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "edu.prof_universitaire",
+      "label": "Professeur universitaire",
+      "sector": "Enseignement",
+      "family": "Enseignement supérieur",
+      "hcp_codes": [
+        "1411",
+        "1412",
+        "1413",
+        "1414",
+        "1415"
+      ],
+      "aliases": [
+        "professeur université",
+        "enseignant universitaire",
+        "maître de conférences",
+        "maitre de conferences"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "edu.prof_secondaire",
+      "label": "Professeur enseignement secondaire",
+      "sector": "Enseignement",
+      "family": "Secondaire",
+      "hcp_codes": [
+        "1421",
+        "1422",
+        "1423",
+        "1424"
+      ],
+      "aliases": [
+        "professeur secondaire",
+        "enseignant secondaire",
+        "professeur lycée"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "edu.formateur_professionnel",
+      "label": "Formateur professionnel",
+      "sector": "Enseignement / Formation",
+      "family": "Formation professionnelle",
+      "hcp_codes": [
+        "1424",
+        "1473"
+      ],
+      "aliases": [
+        "formateur",
+        "formateur ofppt",
+        "enseignant formation professionnelle"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "edu.instituteur",
+      "label": "Instituteur / Enseignant primaire",
+      "sector": "Enseignement",
+      "family": "Primaire",
+      "hcp_codes": [
+        "1431",
+        "1432"
+      ],
+      "aliases": [
+        "enseignant primaire",
+        "professeur primaire",
+        "instituteur"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "legal.avocat",
+      "label": "Avocat",
+      "sector": "Droit / Juridique",
+      "family": "Droit",
+      "hcp_codes": [
+        "1711"
+      ],
+      "aliases": [
+        "avocat"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "legal.conseiller_juridique",
+      "label": "Conseiller juridique",
+      "sector": "Droit / Juridique",
+      "family": "Conseil juridique",
+      "hcp_codes": [
+        "1712",
+        "1541"
+      ],
+      "aliases": [
+        "juriste",
+        "jurisconsulte",
+        "conseiller juridique"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "legal.notaire",
+      "label": "Notaire",
+      "sector": "Droit / Juridique",
+      "family": "Notariat",
+      "hcp_codes": [
+        "1731"
+      ],
+      "aliases": [
+        "notaire"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "legal.adoul",
+      "label": "Adoul",
+      "sector": "Droit / Juridique",
+      "family": "Adoul",
+      "hcp_codes": [
+        "1732"
+      ],
+      "aliases": [
+        "adoul"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "legal.greffier",
+      "label": "Greffier",
+      "sector": "Droit / Juridique",
+      "family": "Justice",
+      "hcp_codes": [
+        "3145"
+      ],
+      "aliases": [
+        "greffier",
+        "agent administratif justice"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "hotel.receptionniste",
+      "label": "Réceptionniste hôtel",
+      "sector": "Hôtellerie / Tourisme",
+      "family": "Réception",
+      "hcp_codes": [
+        "3154"
+      ],
+      "aliases": [
+        "réceptionniste hôtel",
+        "réception hôtelière"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "hotel.cuisinier",
+      "label": "Cuisinier",
+      "sector": "Hôtellerie / Restauration",
+      "family": "Cuisine",
+      "hcp_codes": [
+        "3322"
+      ],
+      "aliases": [
+        "cuisinier restaurant",
+        "cuisinier hôtel"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "hotel.chef_cuisinier",
+      "label": "Chef cuisinier",
+      "sector": "Hôtellerie / Restauration",
+      "family": "Cuisine",
+      "hcp_codes": [
+        "2741"
+      ],
+      "aliases": [
+        "chef de cuisine",
+        "chef cuisine"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "hotel.serveur",
+      "label": "Serveur / Barman",
+      "sector": "Hôtellerie / Restauration",
+      "family": "Service",
+      "hcp_codes": [
+        "3323"
+      ],
+      "aliases": [
+        "serveur",
+        "serveuse",
+        "barman",
+        "garçon de café"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "hotel.guide_touristique",
+      "label": "Guide touristique",
+      "sector": "Hôtellerie / Tourisme",
+      "family": "Tourisme",
+      "hcp_codes": [
+        "3312"
+      ],
+      "aliases": [
+        "guide tourisme",
+        "guide touristique"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "hotel.agent_voyage",
+      "label": "Agent de voyage",
+      "sector": "Hôtellerie / Tourisme",
+      "family": "Voyages",
+      "hcp_codes": [
+        "3151"
+      ],
+      "aliases": [
+        "agent voyage",
+        "agence de voyages"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "security.agent_securite",
+      "label": "Agent de sécurité",
+      "sector": "Sécurité",
+      "family": "Sécurité privée / générale",
+      "hcp_codes": [
+        "3519",
+        "3424"
+      ],
+      "aliases": [
+        "agent sécurité",
+        "vigile",
+        "gardien de sécurité",
+        "sécurité privée"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "security.pompier",
+      "label": "Pompier",
+      "sector": "Sécurité",
+      "family": "Incendie / Secours",
+      "hcp_codes": [
+        "3511"
+      ],
+      "aliases": [
+        "sapeur pompier",
+        "pompier"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "security.gardien",
+      "label": "Gardien / Concierge",
+      "sector": "Sécurité / Services",
+      "family": "Gardiennage",
+      "hcp_codes": [
+        "3424",
+        "9134"
+      ],
+      "aliases": [
+        "gardien",
+        "concierge",
+        "gardien immeuble",
+        "gardien parking"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "transport.chauffeur",
+      "label": "Chauffeur / Conducteur VL",
+      "sector": "Transport / Logistique",
+      "family": "Conduite",
+      "hcp_codes": [
+        "8322"
+      ],
+      "aliases": [
+        "chauffeur",
+        "chauffeur voiture",
+        "chauffeur camionnette",
+        "conducteur automobile"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "transport.chauffeur_poids_lourd",
+      "label": "Chauffeur poids lourd",
+      "sector": "Transport / Logistique",
+      "family": "Conduite poids lourd",
+      "hcp_codes": [
+        "8332"
+      ],
+      "aliases": [
+        "chauffeur poids lourd",
+        "chauffeur camion",
+        "conducteur poids lourd",
+        "conducteur camion"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "transport.chauffeur_bus",
+      "label": "Conducteur autobus",
+      "sector": "Transport / Logistique",
+      "family": "Transport voyageurs",
+      "hcp_codes": [
+        "8331"
+      ],
+      "aliases": [
+        "chauffeur bus",
+        "chauffeur autobus",
+        "conducteur bus",
+        "conducteur autocar"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "transport.cariste",
+      "label": "Cariste",
+      "sector": "Transport / Logistique",
+      "family": "Manutention",
+      "hcp_codes": [
+        "8344"
+      ],
+      "aliases": [
+        "cariste",
+        "conducteur chariot élévateur",
+        "chariot élévateur"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "transport.conducteur_engins",
+      "label": "Conducteur d'engins",
+      "sector": "Transport / BTP",
+      "family": "Engins",
+      "hcp_codes": [
+        "8342",
+        "8390"
+      ],
+      "aliases": [
+        "conducteur engins",
+        "conducteur engin de chantier",
+        "engin terrassement"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "transport.grutier",
+      "label": "Grutier",
+      "sector": "Transport / BTP",
+      "family": "Levage",
+      "hcp_codes": [
+        "8343"
+      ],
+      "aliases": [
+        "grutier",
+        "conducteur grue"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "agri.technicien_agricole",
+      "label": "Technicien agricole",
+      "sector": "Agriculture",
+      "family": "Techniques agricoles",
+      "hcp_codes": [
+        "2230"
+      ],
+      "aliases": [
+        "technicien agriculture",
+        "conseiller agricole",
+        "techniques agricoles"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "agri.horticulture",
+      "label": "Technicien horticulture / Arboriculture",
+      "sector": "Agriculture",
+      "family": "Horticulture",
+      "hcp_codes": [
+        "2213"
+      ],
+      "aliases": [
+        "horticulture",
+        "arboriculture",
+        "technicien horticole",
+        "production horticole"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "agri.maraichage",
+      "label": "Technicien maraîchage",
+      "sector": "Agriculture",
+      "family": "Maraîchage",
+      "hcp_codes": [
+        "2211"
+      ],
+      "aliases": [
+        "maraîchage",
+        "technicien maraichage"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "agri.production_animale",
+      "label": "Technicien production animale",
+      "sector": "Agriculture",
+      "family": "Élevage",
+      "hcp_codes": [
+        "2220"
+      ],
+      "aliases": [
+        "production animale",
+        "technicien élevage",
+        "élevage"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "agri.eaux_forets",
+      "label": "Technicien eaux et forêts",
+      "sector": "Agriculture / Environnement",
+      "family": "Eaux et forêts",
+      "hcp_codes": [
+        "2240"
+      ],
+      "aliases": [
+        "eaux et forêts",
+        "technicien forestier"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "industry.technicien_electrique",
+      "label": "Technicien génie électrique",
+      "sector": "Industrie / Électricité",
+      "family": "Électricité",
+      "hcp_codes": [
+        "2112"
+      ],
+      "aliases": [
+        "technicien électrique",
+        "génie électrique",
+        "électrotechnique"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "industry.technicien_electronique",
+      "label": "Technicien électronique",
+      "sector": "Industrie / Électronique",
+      "family": "Électronique",
+      "hcp_codes": [
+        "2113"
+      ],
+      "aliases": [
+        "génie électronique",
+        "technicien en électronique"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "industry.technicien_mecanique",
+      "label": "Technicien mécanique",
+      "sector": "Industrie / Mécanique",
+      "family": "Mécanique",
+      "hcp_codes": [
+        "2114",
+        "2153"
+      ],
+      "aliases": [
+        "technicien mécanicien",
+        "génie mécanique",
+        "maintenance mécanique"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "industry.dessinateur_industriel",
+      "label": "Dessinateur industriel",
+      "sector": "Industrie / Mécanique",
+      "family": "Dessin industriel",
+      "hcp_codes": [
+        "2117"
+      ],
+      "aliases": [
+        "dessin industriel",
+        "dessinateur mécanique",
+        "dessinateur industriel"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "industry.maintenance_industrielle",
+      "label": "Technicien maintenance industrielle",
+      "sector": "Industrie / Maintenance",
+      "family": "Maintenance",
+      "hcp_codes": [
+        "2153",
+        "6315"
+      ],
+      "aliases": [
+        "maintenance industrielle",
+        "technicien maintenance",
+        "mécanicien industriel"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "industry.qualite",
+      "label": "Technicien qualité / HSE",
+      "sector": "Industrie / Qualité",
+      "family": "Qualité / HSE",
+      "hcp_codes": [
+        "2152"
+      ],
+      "aliases": [
+        "contrôle qualité",
+        "qualité hygiène sécurité",
+        "hse",
+        "qse",
+        "qualité sécurité environnement"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "industry.agroalimentaire",
+      "label": "Technicien agroalimentaire",
+      "sector": "Industrie / Agroalimentaire",
+      "family": "Agroalimentaire",
+      "hcp_codes": [
+        "2137"
+      ],
+      "aliases": [
+        "agroalimentaire",
+        "agro-industrie",
+        "industrie alimentaire"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "auto.mecanicien",
+      "label": "Mécanicien automobile",
+      "sector": "Automobile",
+      "family": "Mécanique automobile",
+      "hcp_codes": [
+        "6311"
+      ],
+      "aliases": [
+        "mécanicien auto",
+        "mécanique automobile",
+        "technicien automobile"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "auto.electricien",
+      "label": "Électricien automobile",
+      "sector": "Automobile",
+      "family": "Électricité automobile",
+      "hcp_codes": [
+        "6321",
+        "6326"
+      ],
+      "aliases": [
+        "électricien auto",
+        "électricité automobile"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "beauty.coiffeur",
+      "label": "Coiffeur / Coiffeuse",
+      "sector": "Services personnels",
+      "family": "Coiffure",
+      "hcp_codes": [
+        "6731",
+        "6732",
+        "6733"
+      ],
+      "aliases": [
+        "coiffeur",
+        "coiffeuse",
+        "coiffure"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "beauty.estheticien",
+      "label": "Esthéticien / Esthéticienne",
+      "sector": "Services personnels",
+      "family": "Esthétique",
+      "hcp_codes": [
+        "6734"
+      ],
+      "aliases": [
+        "esthéticien",
+        "esthéticienne",
+        "soins de beauté"
+      ],
+      "diplomas": []
+    }
+  ]
+}

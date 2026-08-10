@@ -1,0 +1,82 @@
+{
+  "name": "Masari Diploma to Profession Map v1",
+  "description": "Fixed deterministic mappings. No AI is used at search time.",
+  "mappings": [
+    {
+      "diploma": "Licence comptabilité",
+      "profession_ids": [
+        "finance.comptable"
+      ]
+    },
+    {
+      "diploma": "Licence informatique",
+      "profession_ids": [
+        "it.developpeur_logiciel"
+      ]
+    },
+    {
+      "diploma": "Master informatique",
+      "profession_ids": [
+        "it.developpeur_logiciel"
+      ]
+    },
+    {
+      "diploma": "Technicien dessin de bâtiment",
+      "profession_ids": [
+        "btp.dessinateur_architectural"
+      ]
+    },
+    {
+      "diploma": "Technicien en dessin de bâtiment",
+      "profession_ids": [
+        "btp.dessinateur_architectural",
+        "btp.dessinateur_projeteur",
+        "btp.technicien_bureau_etudes"
+      ]
+    },
+    {
+      "diploma": "Technicien en génie civil",
+      "profession_ids": [
+        "btp.technicien_genie_civil"
+      ]
+    },
+    {
+      "diploma": "Technicien projeteur modeleur",
+      "profession_ids": [
+        "btp.dessinateur_projeteur"
+      ]
+    },
+    {
+      "diploma": "Technicien spécialisé en développement informatique",
+      "profession_ids": [
+        "it.developpeur_logiciel",
+        "it.technicien_programmation"
+      ]
+    },
+    {
+      "diploma": "Technicien spécialisé en gestion des entreprises",
+      "profession_ids": [
+        "finance.comptable"
+      ]
+    },
+    {
+      "diploma": "Technicien spécialisé en génie civil",
+      "profession_ids": [
+        "btp.technicien_bureau_etudes",
+        "btp.technicien_genie_civil"
+      ]
+    },
+    {
+      "diploma": "Technicien spécialisé géomètre topographe",
+      "profession_ids": [
+        "btp.topographe"
+      ]
+    },
+    {
+      "diploma": "Technicien topographe",
+      "profession_ids": [
+        "btp.topographe"
+      ]
+    }
+  ]
+}

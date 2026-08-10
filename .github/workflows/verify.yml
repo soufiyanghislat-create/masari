@@ -1,4 +1,4 @@
-name: Verify Emploi-Public
+name: Verify Emploi-Public + Masari Taxonomy
 
 on:
   workflow_dispatch:
@@ -9,7 +9,7 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
@@ -33,14 +33,25 @@ jobs:
         run: python -m pytest -q
 
       - name: Crawl and audit Emploi-Public
-        timeout-minutes: 18
+        timeout-minutes: 20
         run: python -u audit.py
 
-      - name: Upload audit results
+      - name: Build profession search index
+        timeout-minutes: 2
+        run: python -u build_search_index.py --min-coverage 90
+
+      - name: Search smoke test
+        timeout-minutes: 1
+        run: |
+          python search.py suggest "dessin" --limit 5
+          python search.py diploma "Technicien en dessin de bâtiment"
+          python search.py search "Dessinateur architectural" --limit 5
+
+      - name: Upload audit and search artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: emploi-public-audit
+          name: emploi-public-taxonomy-audit
           path: output/
           if-no-files-found: warn
           retention-days: 7
