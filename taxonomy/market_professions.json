@@ -1,5 +1,5 @@
 {
-  "name": "Masari Morocco Market Professions v1.4",
+  "name": "Masari Morocco Market Professions v2.0",
   "description": "User-facing Moroccan job taxonomy mapped to HCP NAP-2014 codes. Curated market labels sit on top of the official HCP backbone.",
   "source_backbone": "HCP NAP-2014",
   "professions": [
@@ -1020,7 +1020,11 @@
         "chargé relations publiques",
         "chargé de projet en communication",
         "chef de service communication",
-        "chef de service communication offres et services"
+        "chef de service communication offres et services",
+        "chargé de communication",
+        "charge de communication",
+        "chargée de communication",
+        "chargee de communication"
       ],
       "diplomas": []
     },
@@ -1301,7 +1305,10 @@
         "maitre de conferences",
         "enseignant chercheur",
         "enseignant-chercheur",
-        "أستاذ محاضر"
+        "أستاذ محاضر",
+        "maître de conférence",
+        "maitre de conférence",
+        "maitre de conference"
       ],
       "diplomas": []
     },
@@ -1365,7 +1372,18 @@
         "formateur en gros œuvres",
         "formateur en gros oeuvre",
         "formateur gros œuvres",
-        "formateur gros oeuvre"
+        "formateur gros oeuvre",
+        "formatrice",
+        "formateur professionnel",
+        "formatrice professionnelle",
+        "formateur en développement informatique",
+        "formateur en developpement informatique",
+        "formateur en génie électrique",
+        "formateur en genie electrique",
+        "formateur en qualité hygiène sécurité et environnement",
+        "formateur en qualite hygiene securite et environnement",
+        "formateur en qhse",
+        "formateur en hse"
       ],
       "diplomas": []
     },
@@ -2200,6 +2218,135 @@
       "aliases": [
         "agent de maîtrise gestion finance",
         "agent de maitrise gestion finance"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "industry.responsable_hse",
+      "label": "Responsable HSE / QHSE",
+      "sector": "Industrie / Qualité / HSE",
+      "family": "Hygiène Sécurité Environnement",
+      "hcp_codes": [],
+      "aliases": [
+        "responsable hse",
+        "responsable qhse",
+        "responsable qualité hygiène sécurité environnement",
+        "responsable qualite hygiene securite environnement"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "sales.responsable_communication",
+      "label": "Responsable / Chef de service communication",
+      "sector": "Communication / Marketing",
+      "family": "Communication",
+      "hcp_codes": [],
+      "aliases": [
+        "responsable communication",
+        "chef de service communication",
+        "chef service communication",
+        "chef de service communication offres et services"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "sales.publicite",
+      "label": "Chargé de publicité",
+      "sector": "Communication / Marketing",
+      "family": "Publicité",
+      "hcp_codes": [],
+      "aliases": [
+        "chargé de publicité",
+        "charge de publicite",
+        "chargée de publicité",
+        "chargee de publicite"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "admin.assistant_direction",
+      "label": "Assistant(e) de direction",
+      "sector": "Administration / Assistanat",
+      "family": "Assistanat de direction",
+      "hcp_codes": [],
+      "aliases": [
+        "assistant de direction",
+        "assistante de direction",
+        "assistant(e) de direction",
+        "assistant direction",
+        "assistante direction"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "it.technicien_developpement_informatique",
+      "label": "Technicien développement informatique",
+      "sector": "Informatique / Digital",
+      "family": "Développement informatique",
+      "hcp_codes": [],
+      "aliases": [
+        "technicien développement informatique",
+        "technicien developpement informatique",
+        "développement informatique",
+        "developpement informatique",
+        "développement numérique",
+        "developpement numerique"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "agri.technicien_technico_commercial_horticole",
+      "label": "Technicien technico-commercial horticole",
+      "sector": "Agriculture",
+      "family": "Production horticole / Technico-commercial",
+      "hcp_codes": [],
+      "aliases": [
+        "technico-commercial en production horticole",
+        "technico commercial en production horticole",
+        "technicien technico-commercial horticole",
+        "technicien technico commercial horticole"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "agri.technicien_hydraulique_irrigation",
+      "label": "Technicien hydraulique rurale / irrigation",
+      "sector": "Agriculture / Eau",
+      "family": "Hydraulique rurale / Irrigation",
+      "hcp_codes": [],
+      "aliases": [
+        "hydraulique rurale et irrigation",
+        "hydraulique rurale",
+        "gestion et maitrise de l'eau",
+        "gestion et maîtrise de l'eau",
+        "environnement et techniques de l'eau",
+        "environnement et techniques de l’eau"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "agri.technicien_elevage_ruminants",
+      "label": "Technicien élevage / production animale",
+      "sector": "Agriculture",
+      "family": "Élevage / Production animale",
+      "hcp_codes": [],
+      "aliases": [
+        "elevage des ruminants",
+        "élevage des ruminants",
+        "technicien élevage",
+        "technicien elevage"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "agri.technicien_gestion_entreprises_agricoles",
+      "label": "Technicien gestion des entreprises agricoles",
+      "sector": "Agriculture / Gestion",
+      "family": "Gestion des entreprises agricoles",
+      "hcp_codes": [],
+      "aliases": [
+        "gestion des entreprises agricoles",
+        "technicien gestion des entreprises agricoles"
       ],
       "diplomas": []
     }

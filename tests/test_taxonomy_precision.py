@@ -98,9 +98,10 @@ def test_formateur_reseaux_is_teacher_not_network_operator():
     assert "it.administrateur_reseaux" not in ids
 
 
-def test_assistante_de_direction_maps_to_secretaire():
+def test_assistante_de_direction_maps_to_precise_canonical_role():
     ids = ids_for({"job_name": "assistante de Direction", "specialties": [], "listing_title": "Avis", "grade": ""})
-    assert "admin.secretaire" in ids
+    assert "admin.assistant_direction" in ids
+    assert "admin.secretaire" not in ids
     assert "admin.assistant" not in ids
 
 

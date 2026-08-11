@@ -27,6 +27,24 @@ LISTING_ROLE_PATTERNS = (
     re.compile(r"\brecrutement de\s+(?P<role>.+?)(?:\s+annonce\b|$)", re.IGNORECASE),
 )
 
+ACADEMIC_ROLE_MARKERS = (
+    "maître de conférences",
+    "maitre de conferences",
+    "أستاذ محاضر",    "maître de conférence",    "maitre de conference",
+)
+TRAINER_ROLE_MARKERS = (
+    "formateur",
+    "formatrice",
+)
+
+
+LISTING_ENTITY_BOUNDARIES = (
+    "Ministère", "Ministere", "Agence", "Université", "Universite",
+    "Office", "Société", "Societe", "Province", "Préfecture",
+    "Prefecture", "Région", "Region", "Institut", "École", "Ecole",
+    "Centre", "Fondation", "Chambre",
+)
+
 
 def normalize(value: str) -> str:
     value = unicodedata.normalize("NFKD", value or "")
@@ -211,6 +229,7 @@ class Taxonomy:
                 if current is None or row["score"] > current["score"]:
                     merged[row["profession_id"]] = row
             rows = sorted(merged.values(), key=lambda x: (-x["score"], x["label"].casefold()))
+            rows = self._apply_authoritative_role_policy(job, rows)
             return rows[:max_matches]
 
         # HCP remains a long-tail fallback, but only for very strong phrase
@@ -242,6 +261,184 @@ class Taxonomy:
             searchable=False,
         )
         return [row for row in rows if row["profession_id"] not in exclude_ids][:max_matches]
+
+    def _apply_authoritative_role_policy(self, job: dict, rows: list[dict]) -> list[dict]:
+        role_parts = [
+            str(job.get("job_name") or ""),
+            str(job.get("grade") or ""),
+        ]
+        listing_title = str(job.get("listing_title") or "")
+        if listing_title:
+            role_parts.append(self._extract_listing_role(listing_title))
+        role_text = " ".join(role_parts)
+
+        # Academic titles are authoritative occupations. Their specialty remains
+        # a domain/discipline and must not become a second searchable profession.
+        if any(self._context_contains(role_text, marker) for marker in ACADEMIC_ROLE_MARKERS):
+            academic = [row for row in rows if row["profession_id"] == "edu.prof_universitaire"]
+            if academic:
+                return academic
+
+        # A trainer remains a trainer. The subject after "Formateur en ..." is
+        # the teaching domain and must not become the searchable occupation.
+        if any(self._context_contains(role_text, marker) for marker in TRAINER_ROLE_MARKERS):
+            trainer = [row for row in rows if row["profession_id"] == "edu.formateur_professionnel"]
+            if trainer:
+                return trainer
+
+        # When the source gives an explicit job title and that title produces a
+        # profession match, the title is authoritative. A specialty may describe
+        # the domain of that job (e.g. Data Performance Analyst / data science),
+        # not a second occupation. Conjunctive context rules are kept because
+        # they intentionally combine role/grade + specialty.
+        job_name = str(job.get("job_name") or "").strip()
+        if job_name:
+            title_rows = [
+                row for row in rows
+                if (row.get("evidence") or {}).get("field") == "job_name"
+            ]
+            context_rows = [
+                row for row in rows
+                if (row.get("evidence") or {}).get("field") == "context_rule"
+            ]
+            if title_rows:
+                keep_ids = {
+                    row["profession_id"]
+                    for row in [*title_rows, *context_rows]
+                }
+                rows = [row for row in rows if row["profession_id"] in keep_ids]
+
+        rows = self._apply_public_technician_semantics(job, rows)
+        rows = self._prune_generic_title_matches(rows)
+        return rows
+
+    @staticmethod
+    def _apply_public_technician_semantics(job: dict, rows: list[dict]) -> list[dict]:
+        role_text = " ".join([
+            str(job.get("job_name") or ""),
+            str(job.get("grade") or ""),
+        ])
+        role_norm = normalize(role_text)
+
+        precise_technician_ids = {
+            "it.technicien_developpement_informatique",
+            "agri.technicien_technico_commercial_horticole",
+            "agri.technicien_hydraulique_irrigation",
+            "agri.technicien_elevage_ruminants",
+            "agri.technicien_gestion_entreprises_agricoles",
+        }
+
+        is_technician_role = "technicien" in role_norm
+
+        if not is_technician_role:
+            return [
+                row for row in rows
+                if row["profession_id"] not in precise_technician_ids
+            ]
+
+        present = {row["profession_id"] for row in rows}
+        drop_ids: set[str] = set()
+
+        if "it.technicien_developpement_informatique" in present:
+            drop_ids.add("it.developpeur_logiciel")
+
+            # Drop the broad parent only when it has no independent specialty
+            # evidence. Example: a single "développement informatique" track
+            # should not be indexed twice as both development-technician and
+            # generic IT-technician. If another specialty such as "Gestion
+            # informatique" or "Maintenance informatique et réseaux" exists,
+            # the broad IT technician link remains legitimate.
+            specialties = [
+                normalize(str(value or ""))
+                for value in (job.get("specialties") or [])
+            ]
+
+            def is_development_track(value: str) -> bool:
+                return (
+                    "developpement informatique" in value
+                    or "developpement numerique" in value
+                )
+
+            independent_it_track = any(
+                "informatique" in value and not is_development_track(value)
+                for value in specialties
+            )
+
+            if not independent_it_track:
+                drop_ids.add("it.technicien_informatique")
+
+        if "agri.technicien_technico_commercial_horticole" in present:
+            drop_ids.update({
+                "sales.commercial",
+                "agri.horticulture",
+            })
+
+        if "agri.technicien_gestion_entreprises_agricoles" in present:
+            drop_ids.add("admin.gestionnaire")
+
+        return [
+            row for row in rows
+            if row["profession_id"] not in drop_ids
+        ]
+
+    @staticmethod
+    def _prune_generic_title_matches(rows: list[dict]) -> list[dict]:
+        """Prefer a specific title match over a generic parent match.
+
+        This only prunes searchable duplicates inside one advertisement. It does
+        not collapse genuinely different specialties in public multi-specialty
+        competitions.
+        """
+        drop_ids: set[str] = set()
+
+        # Explicit semantic dominance for titles whose wording is not a simple
+        # token subset of the generic profession.
+        dominance = {
+            "it.cybersecurite": {"it.responsable_si"},
+            "it.base_donnees": {"it.administrateur_systemes"},
+            "it.data_analyst": {"it.data_scientist"},
+            "sales.communication": {"management.charge_projet"},
+            "btp.chef_projet_genie_civil": {"management.charge_projet"},
+            "admin.assistant_direction": {"admin.secretaire"},
+            "sales.publicite": {"sales.marketing"},
+            "sales.responsable_communication": {"sales.communication"},
+            "industry.responsable_hse": {"industry.qualite"},
+        }
+
+        present = {row["profession_id"] for row in rows}
+        for specific_id, generic_ids in dominance.items():
+            if specific_id in present:
+                drop_ids.update(generic_ids & present)
+
+        # Generic phrase pruning: "chargé de projet" is dominated by
+        # "chargé de projet génie civil" when both matched the same job title.
+        for left in rows:
+            left_ev = left.get("evidence") or {}
+            if left_ev.get("field") != "job_name":
+                continue
+            left_tokens = set(tokens(str(left_ev.get("matched_term") or "")))
+            if not left_tokens:
+                continue
+
+            for right in rows:
+                if left is right:
+                    continue
+                right_ev = right.get("evidence") or {}
+                if right_ev.get("field") != "job_name":
+                    continue
+                if normalize(str(left_ev.get("value") or "")) != normalize(str(right_ev.get("value") or "")):
+                    continue
+
+                right_tokens = set(tokens(str(right_ev.get("matched_term") or "")))
+                if (
+                    left_tokens
+                    and right_tokens
+                    and left_tokens < right_tokens
+                    and float(right.get("score") or 0) >= float(left.get("score") or 0)
+                ):
+                    drop_ids.add(left["profession_id"])
+
+        return [row for row in rows if row["profession_id"] not in drop_ids]
 
     @staticmethod
     def _context_contains(value: str, phrase: str) -> bool:
@@ -314,9 +511,30 @@ class Taxonomy:
             match = pattern.search(text)
             if match:
                 role = match.group("role").strip(" -–:()[]")
+                role = Taxonomy._sanitize_listing_role(role)
                 if normalize(role) and normalize(role) != normalize(text):
                     return role
         return ""
+
+    @staticmethod
+    def _sanitize_listing_role(role: str) -> str:
+        value = re.sub(r"\s+", " ", str(role or "")).strip()
+        if not value:
+            return ""
+
+        scale = re.search(r"\b(?:echelle|échelle)\s*\d+\b", value, re.IGNORECASE)
+        if scale:
+            return value[: scale.end()].strip(" -–:()[]")
+
+        best = None
+        for marker in LISTING_ENTITY_BOUNDARIES:
+            m = re.search(rf"\s+{re.escape(marker)}\b", value, re.IGNORECASE)
+            if m and (best is None or m.start() < best):
+                best = m.start()
+        if best is not None:
+            value = value[:best]
+
+        return value.strip(" -–:()[]")
 
     def _classify_against(
         self,

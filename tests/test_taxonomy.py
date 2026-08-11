@@ -44,7 +44,8 @@ def test_one_announcement_can_map_to_multiple_professions_without_duplication():
     }
     matches = taxonomy.classify_job(job)
     ids = {m["profession_id"] for m in matches}
-    assert "it.developpeur_logiciel" in ids
+    assert "it.technicien_developpement_informatique" in ids
+    assert "it.developpeur_logiciel" not in ids
     assert "agri.horticulture" in ids
     assert job["uuid"] == "one-announcement"
 
