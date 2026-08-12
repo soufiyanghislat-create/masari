@@ -826,7 +826,9 @@
         "gestion ressources humaines",
         "chargé de recrutement",
         "responsable recrutement",
-        "recruteur"
+        "recruteur",
+        "gestionnaire recrutement",
+        "gestionnaire de recrutement"
       ],
       "diplomas": []
     },
@@ -2379,6 +2381,21 @@
       "aliases": [
         "chargé de pilotage du mandat de gestion",
         "charge de pilotage du mandat de gestion"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "legal.commissaire_judiciaire",
+      "label": "Commissaire judiciaire",
+      "sector": "Droit / Juridique",
+      "family": "Justice",
+      "hcp_codes": [],
+      "aliases": [
+        "commissaire judiciaire",
+        "commissaire judiciaire 3ème grade",
+        "commissaire judiciaire 3eme grade",
+        "commissaire judiciaire 3ème grade - echelle 10",
+        "commissaire judiciaire 3eme grade - echelle 10"
       ],
       "diplomas": []
     }

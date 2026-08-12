@@ -32,6 +32,32 @@ def is_fresh_and_open(job: dict, now: datetime) -> tuple[bool, str]:
     return True, "accepted"
 
 
+def _detail_gate_state(
+    expected_urls: set[str],
+    parsed_urls: set[str],
+    retired_redirects: dict[str, str],
+    failures: dict[str, str],
+) -> tuple[bool, set[str], list[str], list[str]]:
+    # Completeness remains strict for every detail URL that is still resolvable.
+    retired_urls = set(retired_redirects)
+    invalid_retired_urls = sorted(retired_urls - expected_urls)
+    resolvable_expected_urls = expected_urls - retired_urls
+    missing_resolvable_urls = sorted(resolvable_expected_urls - parsed_urls)
+
+    detail_gate = (
+        not invalid_retired_urls
+        and not missing_resolvable_urls
+        and not failures
+        and parsed_urls == resolvable_expected_urls
+    )
+    return (
+        detail_gate,
+        resolvable_expected_urls,
+        missing_resolvable_urls,
+        invalid_retired_urls,
+    )
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Independent Emploi-Public completeness audit")
     ap.add_argument("--output", default="output", help="Output directory")
@@ -74,7 +100,17 @@ def main() -> int:
     all_jobs = [job.to_dict() for job in details.jobs]
     expected_urls = {u for r in scope_results for u in r.discovered_urls}
     parsed_urls = {j["url"] for j in all_jobs}
-    missing_detail_urls = sorted(expected_urls - parsed_urls)
+    (
+        detail_gate,
+        resolvable_expected_urls,
+        missing_detail_urls,
+        invalid_retired_detail_urls,
+    ) = _detail_gate_state(
+        expected_urls,
+        parsed_urls,
+        details.retired_redirects,
+        details.failures,
+    )
 
     accepted = []
     rejected = []
@@ -90,7 +126,6 @@ def main() -> int:
     # Gate is about source completeness, not business filtering. A 15-day-old or
     # expired ad may be rejected from Masari while still needing to be crawled.
     listing_gate = all(r.listing_complete for r in scope_results)
-    detail_gate = len(missing_detail_urls) == 0 and len(details.failures) == 0 and len(parsed_urls) == len(expected_urls)
     gate = robots_ok and listing_gate and detail_gate
 
     scope_audit = {}
@@ -125,8 +160,18 @@ def main() -> int:
         "expected_detail_pages": len(expected_urls),
         "parsed_detail_pages": len(parsed_urls),
         "detail_coverage_pct": round((len(parsed_urls) / len(expected_urls) * 100) if expected_urls else 100.0, 2),
+        "retired_detail_redirect_count": len(details.retired_redirects),
+        "retired_detail_redirects": details.retired_redirects,
+        "resolvable_detail_pages": len(resolvable_expected_urls),
+        "resolvable_detail_coverage_pct": round(
+            (len(parsed_urls) / len(resolvable_expected_urls) * 100)
+            if resolvable_expected_urls
+            else 100.0,
+            2,
+        ),
         "detail_failures": details.failures,
         "missing_detail_urls": missing_detail_urls,
+        "invalid_retired_detail_urls": invalid_retired_detail_urls,
         "all_announcements_parsed": len(all_jobs),
         "fresh_open_announcements": len(accepted),
         "fresh_open_positions": sum(int(j.get("positions") or 0) for j in accepted),

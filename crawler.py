@@ -5,10 +5,11 @@ import math
 import random
 import threading
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Optional
 from urllib import robotparser
+from urllib.parse import urlparse
 
 import requests
 from requests.adapters import HTTPAdapter
@@ -208,14 +209,56 @@ def crawl_scope(scope: str) -> ScopeResult:
     return max((first, second), key=score)
 
 
+class RetiredDetailRedirect(RuntimeError):
+    # A discovered detail URL explicitly retired by Emploi-Public to the list page.
+    def __init__(self, requested_url: str, final_url: str):
+        self.requested_url = requested_url
+        self.final_url = final_url
+        super().__init__(f"retired detail redirect: {requested_url} -> {final_url}")
+
+
+def _retired_detail_redirect_target(
+    requested_url: str,
+    response: requests.Response,
+) -> Optional[str]:
+    # Only soften the verified same-site pattern:
+    # /fr/concours/details/<uuid> --3xx--> /fr/concours-liste
+    if not response.history:
+        return None
+
+    requested = urlparse(requested_url)
+    final = urlparse(response.url)
+    base = urlparse(BASE_URL)
+
+    if requested.netloc != base.netloc or final.netloc != base.netloc:
+        return None
+    if not requested.path.startswith("/fr/concours/details/"):
+        return None
+    if final.path.rstrip("/") != "/fr/concours-liste":
+        return None
+
+    first = response.history[0]
+    first_url = urlparse(first.url)
+    if first.status_code not in (301, 302, 303, 307, 308):
+        return None
+    if first_url.netloc != requested.netloc or first_url.path != requested.path:
+        return None
+
+    return response.url
+
+
 @dataclass
 class DetailResult:
     jobs: list[Job]
     failures: dict[str, str]
+    retired_redirects: dict[str, str] = field(default_factory=dict)
 
 
 def _fetch_detail(url: str, scope: str, title: str) -> Job:
     r = _get(url, timeout=35)
+    retired_target = _retired_detail_redirect_target(url, r)
+    if retired_target:
+        raise RetiredDetailRedirect(url, retired_target)
     return parse_detail(r.text, url, scope, title)
 
 
@@ -231,6 +274,7 @@ def crawl_details(scope_results: list[ScopeResult]) -> DetailResult:
 
     jobs: list[Job] = []
     failures: dict[str, str] = {}
+    retired_redirects: dict[str, str] = {}
     with cf.ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
         futs = {
             pool.submit(_fetch_detail, url, scope, title): (url, scope, title)
@@ -240,6 +284,8 @@ def crawl_details(scope_results: list[ScopeResult]) -> DetailResult:
             url, _, _ = futs[fut]
             try:
                 jobs.append(fut.result())
+            except RetiredDetailRedirect as exc:
+                retired_redirects[url] = exc.final_url
             except Exception as exc:
                 failures[url] = f"{type(exc).__name__}: {exc}"
 
@@ -252,9 +298,15 @@ def crawl_details(scope_results: list[ScopeResult]) -> DetailResult:
             try:
                 time.sleep(0.4)
                 jobs.append(_fetch_detail(url, scope, title))
+            except RetiredDetailRedirect as exc:
+                retired_redirects[url] = exc.final_url
             except Exception as exc:
                 retry_failures[url] = f"{type(exc).__name__}: {exc}"
         failures = retry_failures
 
     jobs.sort(key=lambda j: (j.publication_date or "", j.uuid), reverse=True)
-    return DetailResult(jobs=jobs, failures=failures)
+    return DetailResult(
+        jobs=jobs,
+        failures=failures,
+        retired_redirects=retired_redirects,
+    )
