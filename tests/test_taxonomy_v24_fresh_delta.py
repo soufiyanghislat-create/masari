@@ -67,14 +67,14 @@ def test_precise_industrial_maintenance_still_classifies_after_alias_cleanup():
     assert "industry.maintenance_industrielle" in result
 
 
-def test_mandat_de_gestion_stays_unclassified_without_domain_evidence():
+def test_mandat_de_gestion_is_resolved_by_v25_precise_role():
     result = ids({
         "job_name": "Chargé de Pilotage du Mandat de Gestion",
         "grade": "",
         "specialties": [],
         "listing_title": "",
     })
-    assert result == set()
+    assert result == {"finance.charge_pilotage_mandat_gestion"}
 
 
 def test_actuaire_autocomplete_is_market_first():
