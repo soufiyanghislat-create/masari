@@ -859,9 +859,7 @@
       "aliases": [
         "secrétaire administratif",
         "secrétaire de direction",
-        "secrétaire exécutif",
-        "assistant de direction",
-        "assistante de direction"
+        "secrétaire exécutif"
       ],
       "diplomas": []
     },
@@ -874,7 +872,6 @@
         "2634"
       ],
       "aliases": [
-        "technicien gestion",
         "gestion des entreprises",
         "assistant de gestion"
       ],
@@ -1001,8 +998,7 @@
         "marketing",
         "responsable marketing",
         "chef de projet marketing",
-        "marketing digital",
-        "chargé de publicité"
+        "marketing digital"
       ],
       "diplomas": []
     },
@@ -1785,7 +1781,8 @@
       "aliases": [
         "technicien électrique",
         "génie électrique",
-        "électrotechnique"
+        "électrotechnique",
+        "الهندسة الكهربائية"
       ],
       "diplomas": []
     },
@@ -1845,7 +1842,6 @@
       ],
       "aliases": [
         "maintenance industrielle",
-        "technicien maintenance",
         "mécanicien industriel"
       ],
       "diplomas": []
@@ -1863,8 +1859,7 @@
         "qualité hygiène sécurité",
         "hse",
         "qse",
-        "qualité sécurité environnement",
-        "responsable hse"
+        "qualité sécurité environnement"
       ],
       "diplomas": []
     },
@@ -1984,7 +1979,9 @@
         "chargé de projets",
         "chargée de projets",
         "chargés de projets seniors",
-        "chargées de projets seniors"
+        "chargées de projets seniors",
+        "chef de projet moe",
+        "chef projet moe"
       ],
       "diplomas": []
     },
@@ -2347,6 +2344,41 @@
       "aliases": [
         "gestion des entreprises agricoles",
         "technicien gestion des entreprises agricoles"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "finance.actuaire",
+      "label": "Actuaire",
+      "sector": "Finance / Assurance",
+      "family": "Actuariat",
+      "hcp_codes": [],
+      "aliases": [
+        "actuaire junior",
+        "actuaire confirmé"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "operations.technicien_gestion_maintenance",
+      "label": "Technicien gestion et maintenance",
+      "sector": "Opérations / Maintenance",
+      "family": "Gestion / Maintenance",
+      "hcp_codes": [],
+      "aliases": [
+        "technicien en gestion et maintenance"
+      ],
+      "diplomas": []
+    },
+    {
+      "id": "finance.charge_pilotage_mandat_gestion",
+      "label": "Chargé de pilotage de mandat de gestion",
+      "sector": "Finance / Marchés",
+      "family": "Gestion d'actifs / Mandats",
+      "hcp_codes": [],
+      "aliases": [
+        "chargé de pilotage du mandat de gestion",
+        "charge de pilotage du mandat de gestion"
       ],
       "diplomas": []
     }

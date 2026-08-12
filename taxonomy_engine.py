@@ -135,21 +135,24 @@ class Taxonomy:
         return sorted(out, key=lambda p: (p.sector, p.label))
 
     def autocomplete(self, query: str, limit: int = 10) -> list[dict]:
-        """Return clean user-facing profession choices.
-
-        Curated Moroccan market professions are authoritative in the default UX.
-        HCP/NAP is exposed only when the curated market layer has no suggestion.
-        """
+        # Curated market professions are authoritative.
+        # Structured matches are returned without fuzzy noise.
+        # Fuzzy matches are a conservative typo-only fallback.
         q = normalize(query)
         if not q:
             return []
+
         q_tokens = set(tokens(q))
+        primary_min_score = 800.0
+        fuzzy_min_score = 585.0
 
         def collect(professions: Iterable[Profession]) -> list[dict]:
-            best: dict[str, dict] = {}
+            rows: list[dict] = []
+
             for profession in professions:
                 best_term_score = -1.0
                 best_term = profession.label
+
                 for term in profession.terms:
                     nt = normalize(term)
                     if not nt:
@@ -158,27 +161,70 @@ class Taxonomy:
                     if score > best_term_score:
                         best_term_score = score
                         best_term = term
+
                 if best_term_score < 0:
                     continue
+
+                label_score = self._autocomplete_term_score(
+                    q,
+                    q_tokens,
+                    normalize(profession.label),
+                )
+
                 if "n c a" in normalize(profession.label):
                     best_term_score -= 90
-                best[profession.id] = {
-                    "profession_id": profession.id,
-                    "label": profession.label,
-                    "sector": profession.sector,
-                    "family": profession.family,
-                    "hcp_codes": list(profession.hcp_codes),
-                    "source": profession.source,
-                    "matched_term": best_term,
-                    "score": round(best_term_score, 2),
-                }
-            return sorted(best.values(), key=lambda x: (-x["score"], x["label"].casefold()))
+                    label_score -= 90
+
+                rows.append(
+                    {
+                        "profession_id": profession.id,
+                        "label": profession.label,
+                        "sector": profession.sector,
+                        "family": profession.family,
+                        "hcp_codes": list(profession.hcp_codes),
+                        "source": profession.source,
+                        "matched_term": best_term,
+                        "score": round(best_term_score, 2),
+                        "_label_score": label_score,
+                    }
+                )
+
+            rows.sort(
+                key=lambda x: (
+                    -x["score"],
+                    0 if x["_label_score"] >= primary_min_score else 1,
+                    -x["_label_score"],
+                    x["label"].casefold(),
+                )
+            )
+            return rows
+
+        def public_rows(rows: list[dict], minimum: float) -> list[dict]:
+            result = []
+            for row in rows:
+                if row["score"] < minimum:
+                    continue
+                item = dict(row)
+                item.pop("_label_score", None)
+                result.append(item)
+            return result[:limit]
 
         market_rows = collect(self.market)
-        if market_rows:
-            return market_rows[:limit]
-        return collect(self.hcp)[:limit]
 
+        market_primary = public_rows(market_rows, primary_min_score)
+        if market_primary:
+            return market_primary
+
+        market_fuzzy = public_rows(market_rows, fuzzy_min_score)
+        if market_fuzzy:
+            return market_fuzzy
+
+        hcp_rows = collect(self.hcp)
+        hcp_primary = public_rows(hcp_rows, primary_min_score)
+        if hcp_primary:
+            return hcp_primary
+
+        return public_rows(hcp_rows, fuzzy_min_score)
     @staticmethod
     def _autocomplete_term_score(q: str, q_tokens: set[str], term: str) -> float:
         if q == term:
@@ -187,13 +233,13 @@ class Taxonomy:
             return 920
         if any(word.startswith(q) for word in term.split()):
             return 860
-        if q in term:
+        if re.search(rf"(?:^| ){re.escape(q)}(?:$| )", term):
             return 820
         t_tokens = set(tokens(term))
         if q_tokens and q_tokens.issubset(t_tokens):
             return 780 + min(len(q_tokens), 5)
         ratio = SequenceMatcher(None, q, term).ratio()
-        if ratio >= 0.72:
+        if ratio >= 0.85:
             return 500 + ratio * 100
         return -1
 
