@@ -7,6 +7,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+from classifiability import evaluate_classifiable_coverage
 from taxonomy_engine import Taxonomy
 
 TZ = ZoneInfo("Africa/Casablanca")
@@ -27,7 +28,12 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Build deterministic Masari search index from verified Emploi-Public jobs")
     ap.add_argument("--input", default="output/jobs.json")
     ap.add_argument("--output", default="output")
-    ap.add_argument("--min-coverage", type=float, default=0.0, help="Fail if searchable classification coverage is below this percentage")
+    ap.add_argument(
+        "--min-coverage",
+        type=float,
+        default=0.0,
+        help="Fail if classifiable-job searchable coverage is below this percentage",
+    )
     args = ap.parse_args()
 
     source = Path(args.input)
@@ -92,10 +98,14 @@ def main() -> int:
                 }
             )
 
-    classified = len(indexed) - len(unclassified)
-    coverage = round(classified / len(indexed) * 100, 2) if indexed else 100.0
+    classifiability = evaluate_classifiable_coverage(
+        indexed,
+        minimum_coverage_pct=args.min_coverage,
+    )
+    classified = classifiability["classified_jobs"]
+    coverage = classifiability["raw_classification_coverage_pct"]
     position_coverage = round(classified_positions / total_positions * 100, 2) if total_positions else 100.0
-    gate = coverage >= args.min_coverage
+    gate = classifiability["gate"]
 
     index_payload = {
         "version": 2,
@@ -111,6 +121,13 @@ def main() -> int:
         "classified_jobs": classified,
         "unclassified_jobs": len(unclassified),
         "classification_coverage_pct": coverage,
+        "raw_classification_coverage_pct": coverage,
+        "structurally_ambiguous_jobs": classifiability["structurally_ambiguous_jobs"],
+        "classifiable_jobs": classifiability["classifiable_jobs"],
+        "classified_classifiable_jobs": classifiability["classified_classifiable_jobs"],
+        "unexplained_unclassified_jobs": classifiability["unexplained_unclassified_jobs"],
+        "classifiable_coverage_pct": classifiability["classifiable_coverage_pct"],
+        "ambiguous_classified_jobs": classifiability["ambiguous_classified_jobs"],
         "positions": total_positions,
         "classified_positions": classified_positions,
         "position_coverage_pct": position_coverage,
@@ -122,6 +139,8 @@ def main() -> int:
         "market_professions": len(taxonomy.market),
         "hcp_professions": len(taxonomy.hcp),
         "minimum_required_coverage_pct": args.min_coverage,
+        "minimum_required_classifiable_coverage_pct": args.min_coverage,
+        "coverage_gate_policy": "CLASSIFIABLE_COVERAGE_AND_ZERO_AMBIGUOUS_CLASSIFICATIONS",
         "searchable_match_policy": "EXACT_OR_STRONG_ONLY",
         "gate": "PASS" if gate else "FAIL",
     }
@@ -130,6 +149,18 @@ def main() -> int:
     (out / "autocomplete.json").write_text(json.dumps(taxonomy.autocomplete_payload(), ensure_ascii=False, indent=2), encoding="utf-8")
     (out / "taxonomy_audit.json").write_text(json.dumps(taxonomy_audit, ensure_ascii=False, indent=2), encoding="utf-8")
     (out / "unclassified_jobs.json").write_text(json.dumps(unclassified, ensure_ascii=False, indent=2), encoding="utf-8")
+    (out / "structurally_ambiguous_jobs.json").write_text(
+        json.dumps(classifiability["structurally_ambiguous_rows"], ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    (out / "unexplained_unclassified_jobs.json").write_text(
+        json.dumps(classifiability["unexplained_unclassified_rows"], ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    (out / "ambiguous_classified_jobs.json").write_text(
+        json.dumps(classifiability["ambiguous_classified_rows"], ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
 
     print("=== MASARI TAXONOMY INDEX ===")
     print(json.dumps(taxonomy_audit, ensure_ascii=False, indent=2))
