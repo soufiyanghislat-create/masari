@@ -33,6 +33,10 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui
 .sourcebadge{display:inline-block;margin-top:10px;padding:5px 8px;background:#eef2ff;border-radius:999px;font-size:11px;font-weight:800}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
 .tag{padding:6px 9px;background:var(--soft);border-radius:999px;font-size:12px}
+.match{font-weight:850}
+.specialties{margin-top:11px;font-size:12px;color:var(--muted)}
+.specialties summary{cursor:pointer;font-weight:750}
+.specialties .tags{margin-top:8px}
 .info{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:15px}
 .info>div{border:1px solid var(--line);border-radius:11px;padding:10px;background:#fafafa}
 .info span{display:block;color:var(--muted);font-size:11px;margin-bottom:4px}
@@ -88,9 +92,45 @@ function esc(v){
     {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[s]
   ));
 }
-function dt(v){
-  if(!v)return'—';
-  return String(v).replace('T00:00:00','').replace('T',' ');
+
+function parseSourceDate(v){
+  if(!v)return null;
+  const raw=String(v).trim();
+  const normalized=/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}/.test(raw)
+    ? raw.replace(' ','T')
+    : raw;
+  const d=new Date(normalized);
+  return Number.isNaN(d.getTime()) ? null : d;
+}
+
+function humanDate(v,{time=false}={}){
+  if(!v)return '—';
+  const d=parseSourceDate(v);
+  if(!d){
+    return String(v)
+      .replace('T00:00:00','')
+      .replace('T',' ')
+      .replace(/:00(?=[+-]\d\d:\d\d$)/,'');
+  }
+
+  const options={
+    day:'numeric',
+    month:'long',
+    year:'numeric'
+  };
+  if(time){
+    options.hour='2-digit';
+    options.minute='2-digit';
+  }
+  return new Intl.DateTimeFormat('ar-MA',options).format(d);
+}
+
+function deadlineText(v){
+  if(!v)return '—';
+  const raw=String(v);
+  const hasMeaningfulTime=/[T ]\d{2}:\d{2}/.test(raw) &&
+    !/[T ]00:00(?::00)?(?:$|[+-])/.test(raw);
+  return humanDate(v,{time:hasMeaningfulTime});
 }
 
 async function loadMeta(){
@@ -115,8 +155,11 @@ async function loadMeta(){
       return;
     }
 
-    const p=d.manifest?.published_at?dt(d.manifest.published_at):'—';
-    meta.innerHTML=`<span class="ok">● البيانات محدثة</span><br>${d.jobs} إعلان · آخر تحديث: ${esc(p)}`;
+    const published=d.manifest?.published_at
+      ? humanDate(d.manifest.published_at,{time:true})
+      : '—';
+
+    meta.innerHTML=`<span class="ok">● البيانات محدثة</span><br>${d.jobs} إعلان · آخر تحديث: ${esc(published)}`;
   }catch{
     meta.textContent='تعذر قراءة حالة التحديث';
   }
@@ -187,6 +230,18 @@ function choices(d){
   });
 }
 
+function originalSpecialties(specialties){
+  if(!specialties.length)return '';
+  return `
+    <details class="specialties">
+      <summary>تخصصات الإعلان الأصلية (${specialties.length})</summary>
+      <div class="tags">
+        ${specialties.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}
+      </div>
+    </details>
+  `;
+}
+
 function results(d){
   const p=d.profession;
   const rows=d.results||[];
@@ -199,28 +254,44 @@ function results(d){
     <div class="grid">
       ${
         rows.length
-          ? rows.map(j=>`
-            <article class="card">
-              <div class="title">${esc(j.title)}</div>
-              <div class="admin">${esc(j.administration||'—')}</div>
-              <div class="sourcebadge">Emploi-Public.ma</div>
-              <div class="tags">
-                ${(j.specialties||[]).map(x=>`<span class="tag">${esc(x)}</span>`).join('')}
-              </div>
-              <div class="info">
-                <div><span>عدد المناصب</span>${esc(j.positions??'—')}</div>
-                <div><span>تاريخ النشر</span>${esc(dt(j.publication_date))}</div>
-                <div><span>آخر أجل</span>${esc(dt(j.deadline))}</div>
-              </div>
-              <a class="official" target="_blank" rel="noopener" href="${esc(j.url)}">
-                فتح الإعلان الرسمي ←
-              </a>
-              <details class="source">
-                <summary>بيانات المصدر</summary>
-                <div>${esc(j.source_title||'—')}</div>
-              </details>
-            </article>
-          `).join('')
+          ? rows.map(j=>{
+            const specialties=Array.isArray(j.specialties)
+              ? j.specialties.filter(Boolean)
+              : [];
+            const multi=specialties.length>1;
+            const positionsLabel=multi
+              ? 'إجمالي مناصب الإعلان'
+              : 'عدد المناصب';
+
+            return `
+              <article class="card">
+                <div class="title">${esc(j.title)}</div>
+                <div class="admin">${esc(j.administration||'—')}</div>
+                <div class="sourcebadge">Emploi-Public.ma</div>
+
+                <div class="tags">
+                  <span class="tag match">مطابقة البحث: ${esc(p.label)}</span>
+                </div>
+
+                ${originalSpecialties(specialties)}
+
+                <div class="info">
+                  <div><span>${positionsLabel}</span>${esc(j.positions??'—')}</div>
+                  <div><span>تاريخ النشر</span>${esc(humanDate(j.publication_date))}</div>
+                  <div><span>آخر أجل</span>${esc(deadlineText(j.deadline))}</div>
+                </div>
+
+                <a class="official" target="_blank" rel="noopener" href="${esc(j.url)}">
+                  فتح الإعلان الرسمي ←
+                </a>
+
+                <details class="source">
+                  <summary>بيانات المصدر</summary>
+                  <div>${esc(j.source_title||'—')}</div>
+                </details>
+              </article>
+            `;
+          }).join('')
           : `<div class="init">لا توجد عروض مفتوحة لهذه المهنة حالياً.</div>`
       }
     </div>
