@@ -14,7 +14,6 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui
 .logo{font-size:34px;font-weight:900;letter-spacing:-1px}
 .badge{display:inline-block;margin-top:7px;padding:5px 9px;border-radius:999px;background:#fff3cd;color:#7c5c00;font-size:12px;font-weight:700}
 .tagline{color:var(--muted);margin-top:7px;direction:rtl}
-.meta{text-align:right;color:var(--muted);font-size:12px;line-height:1.7;direction:rtl}
 .search{position:relative}
 .row{display:flex;gap:10px}
 .row input{flex:1;height:58px;padding:0 18px;border:1px solid var(--line);border-radius:15px;background:white;font-size:17px;outline:none}
@@ -47,7 +46,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui
 .init{background:white;border:1px solid var(--line);border-radius:17px;padding:24px;direction:rtl}
 .ok{color:var(--ok)}.warn{color:var(--warn)}
 @media(max-width:700px){
-  .top{display:block}.meta{text-align:right;margin-top:12px}
+  .top{display:block}
   .row{display:block}.row button{height:50px;width:100%;margin-top:8px}
   .suggest{top:120px;right:0}.info{grid-template-columns:1fr}
 }
@@ -61,8 +60,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui
       <div class="badge">STAGING · نسخة تجريبية</div>
       <div class="tagline">بحث مهني سريع ودقيق في فرص العمل بالمغرب</div>
     </div>
-    <div class="meta" id="meta">جاري قراءة حالة البيانات…</div>
-  </div>
+</div>
 
   <div class="search">
     <div class="row">
@@ -82,7 +80,6 @@ const go=document.getElementById('go');
 const sug=document.getElementById('suggestions');
 const state=document.getElementById('state');
 const content=document.getElementById('content');
-const meta=document.getElementById('meta');
 
 let timer;
 let selectedProfessionId=null;
@@ -131,38 +128,6 @@ function deadlineText(v){
   const hasMeaningfulTime=/[T ]\d{2}:\d{2}/.test(raw) &&
     !/[T ]00:00(?::00)?(?:$|[+-])/.test(raw);
   return humanDate(v,{time:hasMeaningfulTime});
-}
-
-async function loadMeta(){
-  try{
-    const r=await fetch('/api/meta',{cache:'no-store'});
-    const d=await r.json();
-
-    if(!d.ready){
-      meta.innerHTML='<span class="warn">● تهيئة أول بيانات البحث</span><br>سيظهر البحث تلقائياً عند اكتمال التحقق';
-      return;
-    }
-
-    const refresh=d.refresh||{};
-    if(d.index_source==='bootstrap'){
-      if(refresh.last_failed){
-        meta.innerHTML=`<span class="warn">● بيانات متاحة</span><br>${d.jobs} إعلان · تعذر آخر تحديث وسيعاد تلقائياً`;
-      }else if(refresh.running){
-        meta.innerHTML=`<span class="ok">● البحث متاح الآن</span><br>${d.jobs} إعلان · يجري تحديث المصدر في الخلفية`;
-      }else{
-        meta.innerHTML=`<span class="ok">● البحث متاح الآن</span><br>${d.jobs} إعلان · نسخة أولية صالحة حتى اكتمال التحديث`;
-      }
-      return;
-    }
-
-    const published=d.manifest?.published_at
-      ? humanDate(d.manifest.published_at,{time:true})
-      : '—';
-
-    meta.innerHTML=`<span class="ok">● البيانات محدثة</span><br>${d.jobs} إعلان · آخر تحديث: ${esc(published)}`;
-  }catch{
-    meta.textContent='تعذر قراءة حالة التحديث';
-  }
 }
 
 async function suggest(){
@@ -330,10 +295,7 @@ async function search(){
     }else{
       selectedProfessionId=d.profession.profession_id;
       q.value=d.profession.label;
-      state.textContent=
-        d.index_source==='bootstrap'
-          ? 'النتائج متاحة الآن من النسخة الموثقة، والتحديث الأحدث يعمل في الخلفية.'
-          : 'النتائج النشطة والمحدثة فقط؛ المنتهي لا يظهر.';
+      state.textContent='';
       results(d);
     }
   }catch(e){
@@ -348,8 +310,6 @@ document.addEventListener('click',e=>{
   if(!e.target.closest('.search'))sug.hidden=true;
 });
 
-loadMeta();
-setInterval(loadMeta,30000);
 </script>
 </body>
 </html>
