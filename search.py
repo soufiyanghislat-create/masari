@@ -10,6 +10,9 @@ from taxonomy_engine import Taxonomy
 
 TZ = ZoneInfo("Africa/Casablanca")
 
+# Only a single, sufficiently strong fuzzy suggestion may skip an extra click.
+UNIQUE_FUZZY_AUTOSELECT_MIN_SCORE = 595.0
+
 
 def _days_since(iso_value: str, now: datetime) -> int:
     try:
@@ -25,6 +28,52 @@ def _days_until(iso_value: str, now: datetime) -> int:
         return max((value.date() - now.date()).days, 0)
     except Exception:
         return 0
+
+
+
+def resolve_profession_query(taxonomy: Taxonomy, query: str) -> tuple[str | None, list[dict]]:
+    """Resolve a search query without guessing across multiple professions."""
+    if query in taxonomy.by_id:
+        return query, []
+
+    exact = taxonomy.exact_profession_ids(query)
+    if len(exact) == 1:
+        return exact[0], []
+
+    suggestions = taxonomy.autocomplete(query, limit=8)
+
+    if len(suggestions) == 1:
+        suggestion = suggestions[0]
+        score = float(suggestion.get("score") or 0.0)
+        profession_id = str(suggestion.get("profession_id") or "")
+        if profession_id and score >= UNIQUE_FUZZY_AUTOSELECT_MIN_SCORE:
+            return profession_id, []
+
+    return None, suggestions
+
+
+def _result_titles(job: dict, match: dict | None) -> tuple[str, str, str]:
+    """Return display title, literal listing title, and Masari search summary."""
+    literal_source_title = str(
+        job.get("listing_title")
+        or job.get("search_title")
+        or "Offre Emploi-Public"
+    ).strip()
+    search_title = str(
+        job.get("search_title")
+        or literal_source_title
+    ).strip()
+
+    job_name = str(job.get("job_name") or "").strip()
+    evidence_field = str(((match or {}).get("evidence") or {}).get("field") or "")
+
+    if job_name:
+        return job_name, literal_source_title, search_title
+
+    if evidence_field == "context_rule" and (match or {}).get("label"):
+        return str(match["label"]), literal_source_title, search_title
+
+    return search_title, literal_source_title, search_title
 
 
 def rank_job(job: dict, profession_id: str, now: datetime | None = None) -> tuple[float, dict | None]:
@@ -57,12 +106,17 @@ def search_by_profession(index: dict, profession_id: str, limit: int = 20) -> li
         score, match = rank_job(job, profession_id, now)
         if score < 0:
             continue
+        display_title, source_title, search_title = _result_titles(job, match)
         rows.append(
             {
                 "score": score,
                 "profession_match": match,
                 "uuid": job.get("uuid"),
-                "title": job.get("search_title") or job.get("listing_title"),
+                "title": display_title,
+                "source_title": source_title,
+                "search_title": search_title,
+                "matched_profession_label": (match or {}).get("label"),
+                "specialties": list(job.get("specialties") or []),
                 "administration": job.get("administration"),
                 "publication_date": job.get("publication_date"),
                 "deadline": job.get("deadline"),
@@ -113,16 +167,16 @@ def main() -> int:
         raise SystemExit(f"Search index not found: {index_path}. Run build_search_index.py first.")
     index = json.loads(index_path.read_text(encoding="utf-8"))
 
-    if args.query in taxonomy.by_id:
-        profession_id = args.query
-    else:
-        exact = taxonomy.exact_profession_ids(args.query)
-        if len(exact) == 1:
-            profession_id = exact[0]
-        else:
-            suggestions = taxonomy.autocomplete(args.query, limit=8)
-            print(json.dumps({"selection_required": True, "suggestions": suggestions}, ensure_ascii=False, indent=2))
-            return 3
+    profession_id, suggestions = resolve_profession_query(taxonomy, args.query)
+    if profession_id is None:
+        print(
+            json.dumps(
+                {"selection_required": True, "suggestions": suggestions},
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+        return 3
 
     profession = taxonomy.profession(profession_id)
     results = search_by_profession(index, profession_id, args.limit)
