@@ -197,7 +197,16 @@ class Job:
 
 
 def parse_detail(html: str, url: str, scope: str, listing_title: str = "") -> Job:
-    soup = BeautifulSoup(html, "html.parser")
+    # Only the announcement itself is authoritative source data.
+    # "Concours similaires" contains other announcements and must never
+    # contaminate fields such as Date du concours.
+    detail_html = re.split(
+        r"Concours\s+similaires",
+        html,
+        maxsplit=1,
+        flags=re.IGNORECASE,
+    )[0]
+    soup = BeautifulSoup(detail_html, "html.parser")
     path = urlparse(url).path
     m = DETAIL_RE.match(path)
     if not m:

@@ -44,6 +44,7 @@ def test_detail_parser_preserves_specialties():
     assert job.administration == "Ministère Test"
     assert job.publication_date == "2026-08-04T00:00:00"
     assert job.deadline == "2026-08-19T16:30:00"
+    assert job.contest_date == "2026-10-04T00:00:00"
     assert "Développement informatique" in job.specialties
     assert "Technico-commercial en production horticole" in job.specialties
 
@@ -54,3 +55,51 @@ def test_etab_publics_scale_requires_more_than_old_120_page_cap():
     target_pages = math.ceil(official / PAGE_SIZE_ESTIMATE) + PAGE_GUARD
     assert target_pages >= 175
     assert target_pages > 120
+
+
+DETAIL_WITH_SIMILAR_CONTEST_DATE = """
+<html><body>
+
+<h3>Administration qui recrute Société Test</h3>
+<h3>Délai de dépôt des candidatures 27 Février 2026 - 16:30</h3>
+<h3>Date de publication 12 Février 2026</h3>
+
+<h2>Description</h2>
+<ul>
+<li>Nom du poste : Chef de projet SIRH</li>
+<li>Nombre de postes : 1</li>
+<li>Type de recrutement : Recrutement régulier</li>
+</ul>
+
+<h2>Concours similaires</h2>
+
+<div class="similar-job">
+    <h3>Autre concours</h3>
+    <p>Date du concours 12 Septembre 2026</p>
+</div>
+
+</body></html>
+"""
+
+
+def test_detail_parser_ignores_contest_date_from_similar_announcements():
+    url = (
+        "https://www.emploi-public.ma/fr/concours/details/"
+        "0267d6e6-eb39-4f0a-9822-9050514586a0"
+    )
+
+    job = parse_detail(
+        DETAIL_WITH_SIMILAR_CONTEST_DATE,
+        url,
+        "etab_publics",
+        "Avis de concours de recrutement de Chef de projet SIRH",
+    )
+
+    assert job.administration == "Société Test"
+    assert job.publication_date == "2026-02-12T00:00:00"
+    assert job.deadline == "2026-02-27T16:30:00"
+    assert job.job_name == "Chef de projet SIRH"
+
+    # Critical regression:
+    # the date belongs to "Concours similaires", not this announcement.
+    assert job.contest_date is None
