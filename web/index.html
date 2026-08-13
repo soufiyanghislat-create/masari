@@ -1,88 +1,719 @@
 <!doctype html>
-<html lang="ar">
+<html lang="fr" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Masari — النسخة التجريبية</title>
+<title>Masari</title>
 <style>
-:root{--bg:#f4f6f8;--card:#fff;--text:#17202a;--muted:#6b7280;--line:#e5e7eb;--dark:#111827;--soft:#f1f5f9;--ok:#166534;--warn:#9a3412}
+:root{--bg:#f4f6f8;--card:#fff;--text:#17202a;--muted:#6b7280;--line:#e5e7eb;--dark:#111827;--soft:#f1f5f9}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
 .shell{max-width:1050px;margin:auto;padding:34px 18px 80px}
 .top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:28px}
+.brand{min-width:0}
 .logo{font-size:34px;font-weight:900;letter-spacing:-1px}
-.badge{display:inline-block;margin-top:7px;padding:5px 9px;border-radius:999px;background:#fff3cd;color:#7c5c00;font-size:12px;font-weight:700}
-.tagline{color:var(--muted);margin-top:7px;direction:rtl}
+.badge{display:inline-block;margin-top:7px;padding:5px 9px;border-radius:999px;background:#fff3cd;color:#7c5c00;font-size:12px;font-weight:750}
+.tagline{color:var(--muted);margin-top:7px}
+.langs{display:flex;gap:6px;flex-wrap:wrap;direction:ltr}
+.langs button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;font-weight:750;cursor:pointer;color:var(--muted)}
+.langs button.active{background:var(--dark);color:#fff;border-color:var(--dark)}
 .search{position:relative}
 .row{display:flex;gap:10px}
-.row input{flex:1;height:58px;padding:0 18px;border:1px solid var(--line);border-radius:15px;background:white;font-size:17px;outline:none}
+.row input{flex:1;height:58px;padding-inline:18px;border:1px solid var(--line);border-radius:15px;background:white;font-size:17px;outline:none;text-align:start}
 .row input:focus{border-color:#9ca3af;box-shadow:0 0 0 4px rgba(17,24,39,.05)}
-.row button{border:0;border-radius:15px;background:var(--dark);color:white;font-weight:800;padding:0 24px;cursor:pointer}
-.suggest{position:absolute;top:64px;left:0;right:116px;background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:0 16px 42px rgba(0,0,0,.12);z-index:10;overflow:hidden}
+.row button{border:0;border-radius:15px;background:var(--dark);color:white;font-weight:800;padding-inline:24px;cursor:pointer}
+.suggest{position:absolute;top:64px;inset-inline-start:0;inset-inline-end:116px;background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:0 16px 42px rgba(0,0,0,.12);z-index:10;overflow:hidden}
 .srow{padding:13px 16px;border-bottom:1px solid var(--line);cursor:pointer}
 .srow:last-child{border-bottom:0}.srow:hover{background:var(--soft)}
 .slabel{font-weight:800}.smeta{color:var(--muted);font-size:12px;margin-top:3px}
-.state{margin:20px 0;color:var(--muted);direction:rtl}
+.state{margin:20px 0;color:var(--muted)}
 .profession{margin:18px 0;background:var(--dark);color:white;border-radius:17px;padding:18px}
 .profession .name{font-size:21px;font-weight:900}.profession .pm{opacity:.75;margin-top:5px}
 .grid{display:grid;gap:14px}
 .card{background:white;border:1px solid var(--line);border-radius:18px;padding:20px}
-.title{font-size:20px;font-weight:900}.admin{color:var(--muted);margin-top:4px}
-.sourcebadge{display:inline-block;margin-top:10px;padding:5px 8px;background:#eef2ff;border-radius:999px;font-size:11px;font-weight:800}
+.title{font-size:20px;font-weight:900}
+.admin{color:var(--muted);margin-top:5px}
+.sourcebadge{display:inline-block;margin-top:10px;padding:5px 8px;background:#eef2ff;border-radius:999px;font-size:11px;font-weight:800;direction:ltr}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
 .tag{padding:6px 9px;background:var(--soft);border-radius:999px;font-size:12px}
 .match{font-weight:850}
-.specialties{margin-top:11px;font-size:12px;color:var(--muted)}
-.specialties summary{cursor:pointer;font-weight:750}
-.specialties .tags{margin-top:8px}
 .info{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:15px}
 .info>div{border:1px solid var(--line);border-radius:11px;padding:10px;background:#fafafa}
 .info span{display:block;color:var(--muted);font-size:11px;margin-bottom:4px}
+.date-value{direction:ltr;unicode-bidi:isolate;text-align:start}
 .official{display:inline-block;margin-top:15px;color:var(--dark);font-weight:850;text-decoration:none}
-.source{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:11px;color:var(--muted)}
-.choice{margin-top:18px;background:white;border:1px solid var(--line);border-radius:17px;padding:18px;direction:rtl}
+.original{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.original summary{cursor:pointer;font-weight:750}
+.original-body{margin-top:10px;padding:12px;border-radius:12px;background:#fafafa;direction:ltr;text-align:left}
+.original-title{font-weight:800;color:var(--text)}
+.original-specialties{margin-top:8px}
+.choice{margin-top:18px;background:white;border:1px solid var(--line);border-radius:17px;padding:18px}
 .choice button{margin:5px;padding:10px 12px;border:1px solid var(--line);border-radius:11px;background:var(--soft);cursor:pointer;font-weight:750}
-.init{background:white;border:1px solid var(--line);border-radius:17px;padding:24px;direction:rtl}
-.ok{color:var(--ok)}.warn{color:var(--warn)}
+.init{background:white;border:1px solid var(--line);border-radius:17px;padding:24px}
+[dir="rtl"] .state,[dir="rtl"] .choice,[dir="rtl"] .init{text-align:right}
+[dir="rtl"] .profession,[dir="rtl"] .card{text-align:right}
+[dir="ltr"] .profession,[dir="ltr"] .card{text-align:left}
 @media(max-width:700px){
   .top{display:block}
+  .langs{margin-top:16px}
   .row{display:block}.row button{height:50px;width:100%;margin-top:8px}
-  .suggest{top:120px;right:0}.info{grid-template-columns:1fr}
+  .suggest{top:120px;inset-inline-end:0}.info{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 <div class="shell">
   <div class="top">
-    <div>
+    <div class="brand">
       <div class="logo">Masari</div>
-      <div class="badge">STAGING · نسخة تجريبية</div>
-      <div class="tagline">بحث مهني سريع ودقيق في فرص العمل بالمغرب</div>
+      <div class="badge" id="stagingBadge"></div>
+      <div class="tagline" id="tagline"></div>
     </div>
-</div>
+    <nav class="langs" aria-label="Language">
+      <button type="button" data-lang="ar">العربية</button>
+      <button type="button" data-lang="fr">Français</button>
+      <button type="button" data-lang="en">English</button>
+    </nav>
+  </div>
 
   <div class="search">
     <div class="row">
-      <input id="q" autocomplete="off" placeholder="مثال: technicien génie civil, comptable, gardien…">
-      <button id="go">بحث</button>
+      <input id="q" autocomplete="off">
+      <button id="go"></button>
     </div>
     <div id="suggestions" class="suggest" hidden></div>
   </div>
 
-  <div id="state" class="state">اكتب المهنة التي تبحث عنها.</div>
+  <div id="state" class="state"></div>
   <div id="content"></div>
 </div>
 
 <script>
+const UI={
+  ar:{
+    badge:'نسخة تجريبية',
+    tagline:'بحث مهني سريع ودقيق في فرص العمل بالمغرب',
+    placeholder:'مثال: تقني هندسة مدنية، محاسب، ممرض…',
+    search:'بحث',
+    start:'اكتب المهنة التي تبحث عنها.',
+    searching:'جاري البحث…',
+    choose:'العبارة تطابق أكثر من مهنة. اختر المهنة المقصودة:',
+    refine:'لم نجد مهنة مطابقة بهذه الصيغة. جرّب تسمية أكثر دقة.',
+    results:'نتائج',
+    noResults:'لا توجد عروض مفتوحة لهذه المهنة حالياً.',
+    positions:'عدد المناصب',
+    totalPositions:'إجمالي مناصب الإعلان',
+    publication:'تاريخ النشر',
+    deadline:'آخر أجل',
+    openOfficial:'فتح الإعلان الرسمي',
+    employer:'الجهة المعلنة',
+    match:'مطابقة البحث',
+    originalData:'عرض النص الأصلي للإعلان',
+    originalTitle:'العنوان الرسمي',
+    originalSpecialties:'التخصصات الأصلية',
+    unavailable:'خدمة البحث غير متاحة مؤقتاً.',
+    preparing:'Masari يجهز بيانات البحث. أعد المحاولة بعد قليل.',
+    error:'تعذر إتمام البحث.',
+    profession:'المهنة'
+  },
+  fr:{
+    badge:'Version de test',
+    tagline:"Recherche d'emploi rapide et précise au Maroc",
+    placeholder:'Ex. : technicien génie civil, comptable, infirmier…',
+    search:'Rechercher',
+    start:'Saisissez le métier que vous recherchez.',
+    searching:'Recherche en cours…',
+    choose:'Cette recherche correspond à plusieurs métiers. Choisissez le métier souhaité :',
+    refine:'Aucun métier précis ne correspond à cette formulation. Essayez un intitulé plus précis.',
+    results:'résultats',
+    noResults:'Aucune offre ouverte pour ce métier actuellement.',
+    positions:'Nombre de postes',
+    totalPositions:"Total des postes de l’annonce",
+    publication:'Date de publication',
+    deadline:'Date limite',
+    openOfficial:"Voir l’annonce officielle",
+    employer:'Organisme',
+    match:'Correspondance',
+    originalData:"Voir les données originales de l’annonce",
+    originalTitle:'Intitulé officiel',
+    originalSpecialties:'Spécialités originales',
+    unavailable:'Le service de recherche est temporairement indisponible.',
+    preparing:"Masari prépare l’index de recherche. Réessayez dans quelques instants.",
+    error:"Impossible d’effectuer la recherche.",
+    profession:'Métier'
+  },
+  en:{
+    badge:'Staging version',
+    tagline:'Fast, precise job search in Morocco',
+    placeholder:'e.g. civil engineering technician, accountant, nurse…',
+    search:'Search',
+    start:'Enter the profession you are looking for.',
+    searching:'Searching…',
+    choose:'This search matches more than one profession. Choose the intended profession:',
+    refine:'No precise profession matches that wording. Try a more specific job title.',
+    results:'results',
+    noResults:'There are currently no open jobs for this profession.',
+    positions:'Number of positions',
+    totalPositions:'Total positions in announcement',
+    publication:'Publication date',
+    deadline:'Application deadline',
+    openOfficial:'View official announcement',
+    employer:'Employer',
+    match:'Search match',
+    originalData:'View original announcement data',
+    originalTitle:'Official title',
+    originalSpecialties:'Original specialties',
+    unavailable:'Search is temporarily unavailable.',
+    preparing:'Masari is preparing the search index. Try again shortly.',
+    error:'Search could not be completed.',
+    profession:'Profession'
+  }
+};
+
+const PROFESSIONS={
+  "admin.acheteur": {
+    "fr": "Acheteur",
+    "ar": "مسؤول مشتريات",
+    "en": "Buyer"
+  },
+  "admin.agent_maitrise_gestion_finance": {
+    "fr": "Agent de maîtrise gestion / finance",
+    "ar": "عون إشراف في التسيير والمالية",
+    "en": "Management and Finance Supervisor"
+  },
+  "admin.assistant": {
+    "fr": "Assistant administratif",
+    "ar": "مساعد إداري",
+    "en": "Administrative Assistant"
+  },
+  "admin.assistant_direction": {
+    "fr": "Assistant(e) de direction",
+    "ar": "مساعد الإدارة",
+    "en": "Executive Assistant"
+  },
+  "admin.declarant_douane": {
+    "fr": "Déclarant en douane",
+    "ar": "مصرّح جمركي",
+    "en": "Customs Declarant"
+  },
+  "admin.gestionnaire": {
+    "fr": "Gestionnaire",
+    "ar": "مسؤول تسيير",
+    "en": "Administrative Manager"
+  },
+  "admin.logisticien": {
+    "fr": "Logisticien",
+    "ar": "مسؤول لوجستيك",
+    "en": "Logistics Specialist"
+  },
+  "admin.magasinier": {
+    "fr": "Magasinier / Gestionnaire de stock",
+    "ar": "أمين مخزن / مسؤول مخزون",
+    "en": "Storekeeper / Inventory Manager"
+  },
+  "admin.moyens_generaux": {
+    "fr": "Chargé des moyens généraux",
+    "ar": "مسؤول الوسائل العامة",
+    "en": "General Services Officer"
+  },
+  "admin.paie": {
+    "fr": "Gestionnaire de paie",
+    "ar": "مسؤول الأجور",
+    "en": "Payroll Officer"
+  },
+  "admin.rh": {
+    "fr": "Ressources humaines",
+    "ar": "الموارد البشرية",
+    "en": "Human Resources"
+  },
+  "admin.secretaire": {
+    "fr": "Secrétaire",
+    "ar": "سكرتير / سكرتيرة",
+    "en": "Secretary"
+  },
+  "agri.horticulture": {
+    "fr": "Technicien horticulture / Arboriculture",
+    "ar": "تقني البستنة والأشجار المثمرة",
+    "en": "Horticulture / Arboriculture Technician"
+  },
+  "agri.technicien_agricole": {
+    "fr": "Technicien agricole",
+    "ar": "تقني فلاحي",
+    "en": "Agricultural Technician"
+  },
+  "agri.technicien_technico_commercial_horticole": {
+    "fr": "Technicien technico-commercial horticole",
+    "ar": "تقني تجاري في البستنة",
+    "en": "Horticultural Technical Sales Technician"
+  },
+  "auto.electricien": {
+    "fr": "Électricien automobile",
+    "ar": "كهربائي سيارات",
+    "en": "Automotive Electrician"
+  },
+  "auto.mecanicien": {
+    "fr": "Mécanicien automobile",
+    "ar": "ميكانيكي سيارات",
+    "en": "Automotive Mechanic"
+  },
+  "beauty.estheticien": {
+    "fr": "Esthéticien / Esthéticienne",
+    "ar": "أخصائي / أخصائية تجميل",
+    "en": "Beautician"
+  },
+  "btp.architecte": {
+    "fr": "Architecte",
+    "ar": "مهندس معماري",
+    "en": "Architect"
+  },
+  "btp.architecte_paysagiste": {
+    "fr": "Architecte paysagiste",
+    "ar": "مهندس مناظر طبيعية",
+    "en": "Landscape Architect"
+  },
+  "btp.chef_projet_genie_civil": {
+    "fr": "Chargé de projet génie civil",
+    "ar": "مسؤول مشروع هندسة مدنية",
+    "en": "Civil Engineering Project Officer"
+  },
+  "btp.dessinateur_architectural": {
+    "fr": "Dessinateur architectural",
+    "ar": "رسام معماري",
+    "en": "Architectural Drafter"
+  },
+  "btp.dessinateur_projeteur": {
+    "fr": "Dessinateur-projeteur bâtiment",
+    "ar": "رسام مصمم في البناء",
+    "en": "Building Design Drafter"
+  },
+  "btp.electricien_batiment": {
+    "fr": "Électricien bâtiment",
+    "ar": "كهربائي مبانٍ",
+    "en": "Building Electrician"
+  },
+  "btp.ingenieur_genie_civil": {
+    "fr": "Ingénieur génie civil",
+    "ar": "مهندس مدني",
+    "en": "Civil Engineer"
+  },
+  "btp.ingenieur_hydraulique": {
+    "fr": "Ingénieur hydraulique / génie rural",
+    "ar": "مهندس هيدروليك / هندسة قروية",
+    "en": "Hydraulic / Rural Engineer"
+  },
+  "btp.metreur": {
+    "fr": "Métreur",
+    "ar": "تقني قياس وكميات",
+    "en": "Quantity Surveyor"
+  },
+  "btp.technicien_architecture_urbanisme": {
+    "fr": "Technicien architecture et urbanisme",
+    "ar": "تقني الهندسة المعمارية والتعمير",
+    "en": "Architecture and Urban Planning Technician"
+  },
+  "btp.technicien_batiment": {
+    "fr": "Technicien bâtiment",
+    "ar": "تقني بناء",
+    "en": "Building Technician"
+  },
+  "btp.technicien_genie_civil": {
+    "fr": "Technicien génie civil",
+    "ar": "تقني هندسة مدنية",
+    "en": "Civil Engineering Technician"
+  },
+  "btp.topographe": {
+    "fr": "Topographe / Géomètre",
+    "ar": "طبوغرافي / مسّاح",
+    "en": "Surveyor / Geomatics Technician"
+  },
+  "edu.formateur_professionnel": {
+    "fr": "Formateur professionnel",
+    "ar": "مكوّن مهني",
+    "en": "Vocational Trainer"
+  },
+  "edu.prof_universitaire": {
+    "fr": "Professeur universitaire",
+    "ar": "أستاذ جامعي",
+    "en": "University Professor"
+  },
+  "finance.analyste_politique_monetaire": {
+    "fr": "Analyste politique monétaire",
+    "ar": "محلل السياسة النقدية",
+    "en": "Monetary Policy Analyst"
+  },
+  "finance.auditeur": {
+    "fr": "Auditeur",
+    "ar": "مدقق",
+    "en": "Auditor"
+  },
+  "finance.charge_pilotage_mandat_gestion": {
+    "fr": "Chargé de pilotage du mandat de gestion",
+    "ar": "مسؤول تتبع تفويض التسيير",
+    "en": "Management Mandate Officer"
+  },
+  "finance.comptable": {
+    "fr": "Comptable",
+    "ar": "محاسب",
+    "en": "Accountant"
+  },
+  "finance.controle_interne": {
+    "fr": "Chargé de contrôle interne",
+    "ar": "مسؤول الرقابة الداخلية",
+    "en": "Internal Control Officer"
+  },
+  "finance.controleur_gestion": {
+    "fr": "Contrôleur de gestion",
+    "ar": "مراقب التسيير",
+    "en": "Management Controller"
+  },
+  "finance.gerant_portefeuille": {
+    "fr": "Gérant de portefeuille",
+    "ar": "مدير محفظة",
+    "en": "Portfolio Manager"
+  },
+  "finance.gestionnaire_post_marche": {
+    "fr": "Gestionnaire post-marché",
+    "ar": "مسؤول عمليات ما بعد التداول",
+    "en": "Post-Trade Operations Officer"
+  },
+  "finance.gestionnaire_risques": {
+    "fr": "Gestionnaire des risques",
+    "ar": "مسؤول إدارة المخاطر",
+    "en": "Risk Manager"
+  },
+  "health.aide_soignant": {
+    "fr": "Aide-soignant",
+    "ar": "مساعد ممرض",
+    "en": "Nursing Assistant"
+  },
+  "health.assistant_dentaire": {
+    "fr": "Assistant dentaire",
+    "ar": "مساعد طبيب أسنان",
+    "en": "Dental Assistant"
+  },
+  "health.infirmier": {
+    "fr": "Infirmier",
+    "ar": "ممرض",
+    "en": "Nurse"
+  },
+  "health.medecin_generaliste": {
+    "fr": "Médecin généraliste",
+    "ar": "طبيب عام",
+    "en": "General Practitioner"
+  },
+  "industry.agroalimentaire": {
+    "fr": "Technicien agroalimentaire",
+    "ar": "تقني الصناعات الغذائية",
+    "en": "Food Industry Technician"
+  },
+  "industry.dessinateur_industriel": {
+    "fr": "Dessinateur industriel",
+    "ar": "رسام صناعي",
+    "en": "Industrial Drafter"
+  },
+  "industry.maintenance_industrielle": {
+    "fr": "Technicien maintenance industrielle",
+    "ar": "تقني صيانة صناعية",
+    "en": "Industrial Maintenance Technician"
+  },
+  "industry.maintenance_multitechnique": {
+    "fr": "Chargé de maintenance multitechnique",
+    "ar": "مسؤول صيانة متعددة التقنيات",
+    "en": "Multi-Technical Maintenance Officer"
+  },
+  "industry.qualite": {
+    "fr": "Technicien qualité / HSE",
+    "ar": "تقني الجودة والسلامة والبيئة",
+    "en": "Quality / HSE Technician"
+  },
+  "industry.responsable_hse": {
+    "fr": "Responsable HSE / QHSE",
+    "ar": "مسؤول الصحة والسلامة والبيئة",
+    "en": "HSE / QHSE Manager"
+  },
+  "industry.technicien_electrique": {
+    "fr": "Technicien génie électrique",
+    "ar": "تقني هندسة كهربائية",
+    "en": "Electrical Engineering Technician"
+  },
+  "industry.technicien_electromecanique": {
+    "fr": "Technicien électromécanique",
+    "ar": "تقني كهروميكانيك",
+    "en": "Electromechanical Technician"
+  },
+  "industry.technicien_mecanique": {
+    "fr": "Technicien mécanique",
+    "ar": "تقني ميكانيك",
+    "en": "Mechanical Technician"
+  },
+  "it.administrateur_reseaux": {
+    "fr": "Administrateur réseaux",
+    "ar": "مسؤول شبكات",
+    "en": "Network Administrator"
+  },
+  "it.administrateur_systemes": {
+    "fr": "Administrateur systèmes",
+    "ar": "مسؤول أنظمة",
+    "en": "Systems Administrator"
+  },
+  "it.base_donnees": {
+    "fr": "Administrateur bases de données",
+    "ar": "مسؤول قواعد البيانات",
+    "en": "Database Administrator"
+  },
+  "it.cybersecurite": {
+    "fr": "Spécialiste cybersécurité",
+    "ar": "أخصائي أمن سيبراني",
+    "en": "Cybersecurity Specialist"
+  },
+  "it.data_analyst": {
+    "fr": "Data analyst",
+    "ar": "محلل بيانات",
+    "en": "Data Analyst"
+  },
+  "it.developpeur_logiciel": {
+    "fr": "Développeur logiciel",
+    "ar": "مطور برمجيات",
+    "en": "Software Developer"
+  },
+  "it.developpeur_mobile": {
+    "fr": "Développeur mobile",
+    "ar": "مطور تطبيقات الهاتف",
+    "en": "Mobile Developer"
+  },
+  "it.developpeur_web": {
+    "fr": "Développeur web",
+    "ar": "مطور ويب",
+    "en": "Web Developer"
+  },
+  "it.ingenieur_logiciel": {
+    "fr": "Ingénieur logiciel",
+    "ar": "مهندس برمجيات",
+    "en": "Software Engineer"
+  },
+  "it.responsable_si": {
+    "fr": "Cadre / Responsable systèmes d'information",
+    "ar": "مسؤول نظم المعلومات",
+    "en": "Information Systems Manager"
+  },
+  "it.telecom": {
+    "fr": "Technicien télécommunications",
+    "ar": "تقني اتصالات",
+    "en": "Telecommunications Technician"
+  },
+  "it.technicien_developpement_informatique": {
+    "fr": "Technicien développement informatique",
+    "ar": "تقني تطوير معلوماتي",
+    "en": "Software Development Technician"
+  },
+  "it.technicien_informatique": {
+    "fr": "Technicien informatique",
+    "ar": "تقني معلوماتي",
+    "en": "IT Technician"
+  },
+  "it.technicien_programmation": {
+    "fr": "Technicien en programmation",
+    "ar": "تقني برمجة",
+    "en": "Programming Technician"
+  },
+  "it.technicien_reseaux": {
+    "fr": "Technicien réseaux et systèmes",
+    "ar": "تقني شبكات وأنظمة",
+    "en": "Networks and Systems Technician"
+  },
+  "it.technicien_support": {
+    "fr": "Technicien support informatique",
+    "ar": "تقني دعم معلوماتي",
+    "en": "IT Support Technician"
+  },
+  "it.technicien_systemes_information": {
+    "fr": "Technicien systèmes d'information",
+    "ar": "تقني نظم المعلومات",
+    "en": "Information Systems Technician"
+  },
+  "legal.commissaire_judiciaire": {
+    "fr": "Commissaire judiciaire",
+    "ar": "مفوض قضائي",
+    "en": "Judicial Commissioner"
+  },
+  "management.charge_projet": {
+    "fr": "Chargé de projet",
+    "ar": "مسؤول مشروع",
+    "en": "Project Officer"
+  },
+  "management.chef_projet_strategie": {
+    "fr": "Chef de projet stratégie",
+    "ar": "مدير مشروع استراتيجي",
+    "en": "Strategy Project Manager"
+  },
+  "operations.controleur_terrain": {
+    "fr": "Contrôleur terrain",
+    "ar": "مراقب ميداني",
+    "en": "Field Controller"
+  },
+  "sales.centre_appels": {
+    "fr": "Conseiller centre d'appels",
+    "ar": "مستشار مركز اتصال",
+    "en": "Call Center Advisor"
+  },
+  "sales.charge_contenu": {
+    "fr": "Chargé de contenu",
+    "ar": "مسؤول محتوى",
+    "en": "Content Officer"
+  },
+  "sales.chef_vente": {
+    "fr": "Chef de vente",
+    "ar": "مدير مبيعات",
+    "en": "Sales Manager"
+  },
+  "sales.commerce_international": {
+    "fr": "Cadre en commerce international",
+    "ar": "إطار في التجارة الدولية",
+    "en": "International Trade Officer"
+  },
+  "sales.commercial": {
+    "fr": "Commercial",
+    "ar": "مسؤول مبيعات",
+    "en": "Sales Representative"
+  },
+  "sales.communication": {
+    "fr": "Chargé de communication / Relations publiques",
+    "ar": "مسؤول تواصل وعلاقات عامة",
+    "en": "Communications / Public Relations Officer"
+  },
+  "sales.controleur_pratiques_commerciales": {
+    "fr": "Contrôleur des pratiques commerciales",
+    "ar": "مراقب الممارسات التجارية",
+    "en": "Commercial Practices Controller"
+  },
+  "sales.marketing": {
+    "fr": "Chargé de marketing",
+    "ar": "مسؤول تسويق",
+    "en": "Marketing Officer"
+  },
+  "sales.publicite": {
+    "fr": "Chargé de publicité",
+    "ar": "مسؤول إعلانات",
+    "en": "Advertising Officer"
+  },
+  "sales.responsable_communication": {
+    "fr": "Responsable / Chef de service communication",
+    "ar": "مسؤول / رئيس مصلحة التواصل",
+    "en": "Communications Manager"
+  },
+  "sales.superviseur_clientele": {
+    "fr": "Superviseur clientèle",
+    "ar": "مشرف خدمة الزبناء",
+    "en": "Customer Service Supervisor"
+  },
+  "services.relations_beneficiaires": {
+    "fr": "Chargé des relations avec les bénéficiaires",
+    "ar": "مسؤول العلاقات مع المستفيدين",
+    "en": "Beneficiary Relations Officer"
+  },
+  "sports.cadre_technique_pelouses": {
+    "fr": "Cadre technique pelouses et surfaces sportives",
+    "ar": "إطار تقني للملاعب والأسطح الرياضية",
+    "en": "Sports Turf Technical Officer"
+  },
+  "transport.chauffeur": {
+    "fr": "Chauffeur / Conducteur VL",
+    "ar": "سائق مركبة خفيفة",
+    "en": "Light Vehicle Driver"
+  },
+  "transport.chauffeur_bus": {
+    "fr": "Conducteur autobus",
+    "ar": "سائق حافلة",
+    "en": "Bus Driver"
+  },
+  "transport.chauffeur_poids_lourd": {
+    "fr": "Chauffeur poids lourd",
+    "ar": "سائق شاحنة ثقيلة",
+    "en": "Heavy Truck Driver"
+  },
+  "transport.responsable_exploitation_gare": {
+    "fr": "Responsable d'exploitation de gare routière",
+    "ar": "مسؤول استغلال محطة طرقية",
+    "en": "Bus Station Operations Manager"
+  }
+};
+
+const TAXONOMY_TEXT={
+  ar:{
+    'BTP / Architecture':'البناء والأشغال العمومية / الهندسة المعمارية',
+    'BTP / Génie civil':'البناء والأشغال العمومية / الهندسة المدنية',
+    'Informatique / Digital':'المعلوميات / الرقمنة',
+    'Finance / Comptabilité':'المالية / المحاسبة',
+    'Administration / RH':'الإدارة / الموارد البشرية',
+    'Commerce / Achats':'التجارة / المشتريات',
+    'Logistique / Supply Chain':'اللوجستيك / سلسلة الإمداد',
+    'Industrie / Qualité / HSE':'الصناعة / الجودة / الصحة والسلامة والبيئة',
+    'Industrie / Qualité':'الصناعة / الجودة',
+    'Industrie / Mécanique':'الصناعة / الميكانيك',
+    'Enseignement / Formation':'التعليم / التكوين',
+    'Marketing / Communication':'التسويق / التواصل',
+    'Dessin / Études':'الرسم / الدراسات',
+    'Études / Travaux':'الدراسات / الأشغال',
+    'Ingénierie':'الهندسة',
+    'Développement':'التطوير',
+    'Développement informatique':'التطوير المعلوماتي',
+    'Logiciels':'البرمجيات',
+    'Comptabilité':'المحاسبة',
+    'Ressources humaines':'الموارد البشرية',
+    'Formation professionnelle':'التكوين المهني',
+    'Qualité / HSE':'الجودة / الصحة والسلامة والبيئة',
+    'Hygiène Sécurité Environnement':'الصحة والسلامة والبيئة',
+    'Logistique':'اللوجستيك',
+    'Marketing':'التسويق',
+    'Gestion de projet BTP':'إدارة مشاريع البناء والأشغال العمومية'
+  },
+  en:{
+    'BTP / Architecture':'Construction / Architecture',
+    'BTP / Génie civil':'Construction / Civil Engineering',
+    'Informatique / Digital':'IT / Digital',
+    'Finance / Comptabilité':'Finance / Accounting',
+    'Administration / RH':'Administration / Human Resources',
+    'Commerce / Achats':'Commerce / Procurement',
+    'Logistique / Supply Chain':'Logistics / Supply Chain',
+    'Industrie / Qualité / HSE':'Industry / Quality / HSE',
+    'Industrie / Qualité':'Industry / Quality',
+    'Industrie / Mécanique':'Industry / Mechanical',
+    'Enseignement / Formation':'Education / Training',
+    'Marketing / Communication':'Marketing / Communications',
+    'Dessin / Études':'Drafting / Studies',
+    'Études / Travaux':'Studies / Works',
+    'Ingénierie':'Engineering',
+    'Développement':'Development',
+    'Développement informatique':'Software Development',
+    'Logiciels':'Software',
+    'Comptabilité':'Accounting',
+    'Ressources humaines':'Human Resources',
+    'Formation professionnelle':'Vocational Training',
+    'Qualité / HSE':'Quality / HSE',
+    'Hygiène Sécurité Environnement':'Health, Safety and Environment',
+    'Logistique':'Logistics',
+    'Marketing':'Marketing',
+    'Gestion de projet BTP':'Construction Project Management'
+  }
+};
+
 const q=document.getElementById('q');
 const go=document.getElementById('go');
 const sug=document.getElementById('suggestions');
 const state=document.getElementById('state');
 const content=document.getElementById('content');
-
 let timer;
 let selectedProfessionId=null;
+let currentLang=localStorage.getItem('masari.lang') || preferredLanguage();
+let lastQuery='';
+
+function preferredLanguage(){
+  const n=(navigator.language||'fr').toLowerCase();
+  if(n.startsWith('ar')) return 'ar';
+  if(n.startsWith('en')) return 'en';
+  return 'fr';
+}
 
 function esc(v){
   return String(v??'').replace(/[&<>"']/g,s=>(
@@ -90,81 +721,145 @@ function esc(v){
   ));
 }
 
-function parseSourceDate(v){
-  if(!v)return null;
-  const raw=String(v).trim();
-  const normalized=/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}/.test(raw)
-    ? raw.replace(' ','T')
-    : raw;
-  const d=new Date(normalized);
-  return Number.isNaN(d.getTime()) ? null : d;
+function normalize(v){
+  return String(v||'')
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .toLowerCase()
+    .replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه')
+    .replace(/[^a-z0-9\u0600-\u06ff]+/g,' ')
+    .trim();
 }
 
-function humanDate(v,{time=false}={}){
-  if(!v)return '—';
-  const d=parseSourceDate(v);
-  if(!d){
-    return String(v)
-      .replace('T00:00:00','')
-      .replace('T',' ')
-      .replace(/:00(?=[+-]\d\d:\d\d$)/,'');
-  }
+function professionLabel(id,fallback=''){
+  const item=PROFESSIONS[id];
+  if(item && item[currentLang]) return item[currentLang];
+  if(currentLang==='fr') return fallback || UI.fr.profession;
+  return lastQuery || UI[currentLang].profession;
+}
 
-  const options={
-    day:'numeric',
-    month:'long',
-    year:'numeric'
-  };
-  if(time){
-    options.hour='2-digit';
-    options.minute='2-digit';
-  }
-  return new Intl.DateTimeFormat('ar-MA',options).format(d);
+function taxonomyText(v){
+  if(!v) return '';
+  if(currentLang==='fr') return v;
+  return TAXONOMY_TEXT[currentLang]?.[v] || '';
+}
+
+function setLanguage(lang){
+  if(!UI[lang]) return;
+  currentLang=lang;
+  localStorage.setItem('masari.lang',lang);
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  document.title='Masari';
+  document.getElementById('stagingBadge').textContent=UI[lang].badge;
+  document.getElementById('tagline').textContent=UI[lang].tagline;
+  q.placeholder=UI[lang].placeholder;
+  go.textContent=UI[lang].search;
+  document.querySelectorAll('.langs button').forEach(b=>{
+    b.classList.toggle('active',b.dataset.lang===lang);
+    b.setAttribute('aria-pressed',b.dataset.lang===lang?'true':'false');
+  });
+  state.textContent=UI[lang].start;
+  content.innerHTML='';
+  sug.hidden=true;
+  selectedProfessionId=null;
+  q.value='';
+}
+
+function formatDate(v,withTime=false){
+  if(!v) return '—';
+  const m=String(v).match(/^(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{2}):(\d{2}))?/);
+  if(!m) return '—';
+  const date=`${m[3]}/${m[2]}/${m[1]}`;
+  if(withTime && m[4] && m[5] && !(m[4]==='00' && m[5]==='00')) return `${date} · ${m[4]}:${m[5]}`;
+  return date;
 }
 
 function deadlineText(v){
-  if(!v)return '—';
-  const raw=String(v);
-  const hasMeaningfulTime=/[T ]\d{2}:\d{2}/.test(raw) &&
-    !/[T ]00:00(?::00)?(?:$|[+-])/.test(raw);
-  return humanDate(v,{time:hasMeaningfulTime});
+  return formatDate(v,true);
+}
+
+function localProfessionSuggestions(query){
+  const needle=normalize(query);
+  if(!needle) return [];
+  const rows=[];
+  for(const [id,item] of Object.entries(PROFESSIONS)){
+    const label=item[currentLang];
+    if(!label) continue;
+    const hay=normalize(label);
+    let score=0;
+    if(hay===needle) score=1000;
+    else if(hay.startsWith(needle)) score=900;
+    else if(hay.includes(needle)) score=820;
+    else {
+      const terms=needle.split(' ').filter(Boolean);
+      const matched=terms.filter(x=>hay.includes(x)).length;
+      if(terms.length && matched===terms.length) score=760;
+    }
+    if(score) rows.push({profession_id:id,label,score});
+  }
+  return rows.sort((a,b)=>b.score-a.score||a.label.localeCompare(b.label,currentLang)).slice(0,8);
+}
+
+async function backendSuggestions(query){
+  try{
+    const r=await fetch('/api/suggest?q='+encodeURIComponent(query),{cache:'no-store'});
+    if(!r.ok) return [];
+    const d=await r.json();
+    return d.suggestions||[];
+  }catch{ return []; }
+}
+
+function localizedSuggestionRow(x){
+  const id=x.profession_id;
+  const mapped=PROFESSIONS[id];
+  if(currentLang!=='fr' && !mapped) return null;
+  return {
+    profession_id:id,
+    label:professionLabel(id,x.label),
+    sector:taxonomyText(x.sector),
+    family:taxonomyText(x.family),
+    score:x.score||0
+  };
 }
 
 async function suggest(){
   const v=q.value.trim();
   selectedProfessionId=null;
   clearTimeout(timer);
-
-  if(v.length<2){
-    sug.hidden=true;
-    return;
-  }
+  if(v.length<2){sug.hidden=true;return;}
 
   timer=setTimeout(async()=>{
-    const r=await fetch('/api/suggest?q='+encodeURIComponent(v));
-    const d=await r.json();
-    const rows=d.suggestions||[];
+    const local=localProfessionSuggestions(v);
+    const backend=await backendSuggestions(v);
+    const merged=new Map();
 
-    if(!rows.length){
-      sug.hidden=true;
-      return;
+    for(const row of [...local,...backend]){
+      const x=localizedSuggestionRow(row);
+      if(!x) continue;
+      const old=merged.get(x.profession_id);
+      if(!old || x.score>old.score) merged.set(x.profession_id,x);
     }
 
-    sug.innerHTML=rows.map(x=>`
-      <div class="srow"
-           data-id="${esc(x.profession_id)}"
-           data-label="${esc(x.label)}">
-        <div class="slabel">${esc(x.label)}</div>
-        <div class="smeta">${esc(x.sector)} · ${esc(x.family)}</div>
-      </div>
-    `).join('');
+    const rows=[...merged.values()]
+      .sort((a,b)=>b.score-a.score||a.label.localeCompare(b.label,currentLang))
+      .slice(0,8);
 
+    if(!rows.length){sug.hidden=true;return;}
+
+    sug.innerHTML=rows.map(x=>{
+      const meta=[x.sector,x.family].filter(Boolean).join(' · ');
+      return `<div class="srow" data-id="${esc(x.profession_id)}" data-label="${esc(x.label)}">
+        <div class="slabel">${esc(x.label)}</div>
+        ${meta?`<div class="smeta">${esc(meta)}</div>`:''}
+      </div>`;
+    }).join('');
     sug.hidden=false;
 
     sug.querySelectorAll('.srow').forEach(el=>{
       el.onclick=()=>{
         selectedProfessionId=el.dataset.id;
         q.value=el.dataset.label;
+        lastQuery=el.dataset.label;
         sug.hidden=true;
         search();
       };
@@ -173,143 +868,133 @@ async function suggest(){
 }
 
 function choices(d){
-  content.innerHTML=`
-    <div class="choice">
-      <b>العبارة تطابق أكثر من مهنة. اختر المقصود:</b>
-      <div>
-        ${(d.suggestions||[]).map(x=>`
-          <button data-id="${esc(x.profession_id)}" data-label="${esc(x.label)}">
-            ${esc(x.label)}
-          </button>
-        `).join('')}
-      </div>
-    </div>
-  `;
+  const rows=(d.suggestions||[])
+    .map(localizedSuggestionRow)
+    .filter(Boolean);
+
+  if(!rows.length){
+    state.textContent=UI[currentLang].refine;
+    content.innerHTML='';
+    return;
+  }
+
+  content.innerHTML=`<div class="choice">
+    <b>${esc(UI[currentLang].choose)}</b>
+    <div>${rows.map(x=>`<button data-id="${esc(x.profession_id)}" data-label="${esc(x.label)}">${esc(x.label)}</button>`).join('')}</div>
+  </div>`;
 
   content.querySelectorAll('.choice button').forEach(el=>{
     el.onclick=()=>{
       selectedProfessionId=el.dataset.id;
       q.value=el.dataset.label;
+      lastQuery=el.dataset.label;
       search();
     };
   });
 }
 
-function originalSpecialties(specialties){
-  if(!specialties.length)return '';
-  return `
-    <details class="specialties">
-      <summary>تخصصات الإعلان الأصلية (${specialties.length})</summary>
-      <div class="tags">
-        ${specialties.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}
-      </div>
-    </details>
-  `;
+function originalBlock(j,specialties){
+  const hasOriginal=(j.source_title||j.title||specialties.length);
+  if(!hasOriginal) return '';
+  return `<details class="original">
+    <summary>${esc(UI[currentLang].originalData)}</summary>
+    <div class="original-body" lang="fr" dir="ltr">
+      ${j.source_title||j.title?`<div><b>${esc(UI[currentLang].originalTitle)}:</b></div><div class="original-title">${esc(j.source_title||j.title)}</div>`:''}
+      ${specialties.length?`<div class="original-specialties"><b>${esc(UI[currentLang].originalSpecialties)}:</b> ${specialties.map(esc).join(' · ')}</div>`:''}
+    </div>
+  </details>`;
 }
 
 function results(d){
   const p=d.profession;
   const rows=d.results||[];
+  const label=professionLabel(p.profession_id,p.label);
+  const sector=taxonomyText(p.sector);
+  const family=taxonomyText(p.family);
+  const meta=[sector,family,`${rows.length} ${UI[currentLang].results}`].filter(Boolean).join(' · ');
 
-  content.innerHTML=`
-    <div class="profession">
-      <div class="name">${esc(p.label)}</div>
-      <div class="pm">${esc(p.sector)} · ${esc(p.family)} · ${rows.length} نتيجة</div>
+  content.innerHTML=`<div class="profession">
+      <div class="name">${esc(label)}</div>
+      <div class="pm">${esc(meta)}</div>
     </div>
     <div class="grid">
-      ${
-        rows.length
-          ? rows.map(j=>{
-            const specialties=Array.isArray(j.specialties)
-              ? j.specialties.filter(Boolean)
-              : [];
-            const multi=specialties.length>1;
-            const positionsLabel=multi
-              ? 'إجمالي مناصب الإعلان'
-              : 'عدد المناصب';
+      ${rows.length?rows.map(j=>{
+        const specialties=Array.isArray(j.specialties)?j.specialties.filter(Boolean):[];
+        const multi=specialties.length>1;
+        const posLabel=multi?UI[currentLang].totalPositions:UI[currentLang].positions;
+        return `<article class="card">
+          <div class="title">${esc(label)}</div>
+          <div class="admin"><span>${esc(UI[currentLang].employer)}:</span> <span lang="fr" dir="ltr">${esc(j.administration||'—')}</span></div>
+          <div class="sourcebadge">Emploi-Public.ma</div>
+          ${multi?`<div class="tags"><span class="tag match">${esc(UI[currentLang].match)}: ${esc(label)}</span></div>`:''}
+          <div class="info">
+            <div><span>${esc(posLabel)}</span>${esc(j.positions??'—')}</div>
+            <div><span>${esc(UI[currentLang].publication)}</span><bdi class="date-value">${esc(formatDate(j.publication_date))}</bdi></div>
+            <div><span>${esc(UI[currentLang].deadline)}</span><bdi class="date-value">${esc(deadlineText(j.deadline))}</bdi></div>
+          </div>
+          <a class="official" target="_blank" rel="noopener" href="${esc(j.url)}">${esc(UI[currentLang].openOfficial)} ←</a>
+          ${originalBlock(j,specialties)}
+        </article>`;
+      }).join(''):`<div class="init">${esc(UI[currentLang].noResults)}</div>`}
+    </div>`;
+}
 
-            return `
-              <article class="card">
-                <div class="title">${esc(j.title)}</div>
-                <div class="admin">${esc(j.administration||'—')}</div>
-                <div class="sourcebadge">Emploi-Public.ma</div>
-
-                <div class="tags">
-                  <span class="tag match">مطابقة البحث: ${esc(p.label)}</span>
-                </div>
-
-                ${originalSpecialties(specialties)}
-
-                <div class="info">
-                  <div><span>${positionsLabel}</span>${esc(j.positions??'—')}</div>
-                  <div><span>تاريخ النشر</span>${esc(humanDate(j.publication_date))}</div>
-                  <div><span>آخر أجل</span>${esc(deadlineText(j.deadline))}</div>
-                </div>
-
-                <a class="official" target="_blank" rel="noopener" href="${esc(j.url)}">
-                  فتح الإعلان الرسمي ←
-                </a>
-
-                <details class="source">
-                  <summary>بيانات المصدر</summary>
-                  <div>${esc(j.source_title||'—')}</div>
-                </details>
-              </article>
-            `;
-          }).join('')
-          : `<div class="init">لا توجد عروض مفتوحة لهذه المهنة حالياً.</div>`
-      }
-    </div>
-  `;
+function directLocalId(value){
+  const needle=normalize(value);
+  const matches=[];
+  for(const [id,item] of Object.entries(PROFESSIONS)){
+    const label=normalize(item[currentLang]);
+    if(label===needle) return id;
+    if(label.startsWith(needle) || needle.startsWith(label)) matches.push(id);
+  }
+  return matches.length===1?matches[0]:null;
 }
 
 async function search(){
-  const visibleValue=q.value.trim();
-  if(!visibleValue && !selectedProfessionId)return;
+  const visible=q.value.trim();
+  if(!visible && !selectedProfessionId) return;
 
+  lastQuery=visible;
   sug.hidden=true;
-  state.textContent='جاري البحث…';
+  state.textContent=UI[currentLang].searching;
   content.innerHTML='';
 
-  const backendQuery=selectedProfessionId||visibleValue;
+  const localId=selectedProfessionId||directLocalId(visible);
+  const backendQuery=localId||visible;
 
   try{
-    const r=await fetch(
-      '/api/search?q='+encodeURIComponent(backendQuery)+'&limit=15',
-      {cache:'no-store'}
-    );
+    const r=await fetch('/api/search?q='+encodeURIComponent(backendQuery)+'&limit=15',{cache:'no-store'});
     const d=await r.json();
 
     if(r.status===503){
-      state.textContent='Masari يجهز بيانات البحث. أعد المحاولة بعد قليل.';
-      content.innerHTML='<div class="init">الخدمة متاحة، لكن index البحث لم يجهز بعد.</div>';
+      state.textContent=UI[currentLang].preparing;
       return;
     }
-
-    if(!r.ok)throw new Error(d.detail||'خطأ');
+    if(!r.ok) throw new Error();
 
     if(d.selection_required){
       selectedProfessionId=null;
-      state.textContent='يلزم تحديد المهنة بدقة.';
       choices(d);
     }else{
       selectedProfessionId=d.profession.profession_id;
-      q.value=d.profession.label;
+      const label=professionLabel(d.profession.profession_id,d.profession.label);
+      q.value=label;
+      lastQuery=label;
       state.textContent='';
       results(d);
     }
-  }catch(e){
-    state.textContent='خطأ: '+e.message;
+  }catch{
+    state.textContent=UI[currentLang].error;
   }
 }
 
 q.addEventListener('input',suggest);
 q.addEventListener('keydown',e=>{if(e.key==='Enter')search();});
 go.addEventListener('click',search);
-document.addEventListener('click',e=>{
-  if(!e.target.closest('.search'))sug.hidden=true;
-});
+document.addEventListener('click',e=>{if(!e.target.closest('.search'))sug.hidden=true;});
+document.querySelectorAll('.langs button').forEach(b=>b.addEventListener('click',()=>setLanguage(b.dataset.lang)));
 
+setLanguage(currentLang);
 </script>
 </body>
 </html>
