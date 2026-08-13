@@ -93,6 +93,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui
 const UI={
   ar:{
     badge:'نسخة تجريبية',
+    languageNames:{ar:'العربية',fr:'الفرنسية',en:'الإنجليزية'},
     tagline:'بحث مهني سريع ودقيق في فرص العمل بالمغرب',
     placeholder:'مثال: تقني هندسة مدنية، محاسب، ممرض…',
     search:'بحث',
@@ -119,6 +120,7 @@ const UI={
   },
   fr:{
     badge:'Version de test',
+    languageNames:{ar:'Arabe',fr:'Français',en:'Anglais'},
     tagline:"Recherche d'emploi rapide et précise au Maroc",
     placeholder:'Ex. : technicien génie civil, comptable, infirmier…',
     search:'Rechercher',
@@ -145,6 +147,7 @@ const UI={
   },
   en:{
     badge:'Staging version',
+    languageNames:{ar:'Arabic',fr:'French',en:'English'},
     tagline:'Fast, precise job search in Morocco',
     placeholder:'e.g. civil engineering technician, accountant, nurse…',
     search:'Search',
@@ -242,6 +245,21 @@ const PROFESSIONS={
     "ar": "تقني فلاحي",
     "en": "Agricultural Technician"
   },
+  "agri.technicien_elevage_ruminants": {
+    "fr": "Technicien élevage des ruminants",
+    "ar": "تقني تربية المجترات",
+    "en": "Ruminant Livestock Technician"
+  },
+  "agri.technicien_gestion_entreprises_agricoles": {
+    "fr": "Technicien gestion des entreprises agricoles",
+    "ar": "تقني تسيير المقاولات الفلاحية",
+    "en": "Agricultural Business Management Technician"
+  },
+  "agri.technicien_hydraulique_irrigation": {
+    "fr": "Technicien hydraulique rurale et irrigation",
+    "ar": "تقني الهيدروليك القروي والري",
+    "en": "Rural Hydraulics and Irrigation Technician"
+  },
   "agri.technicien_technico_commercial_horticole": {
     "fr": "Technicien technico-commercial horticole",
     "ar": "تقني تجاري في البستنة",
@@ -336,6 +354,11 @@ const PROFESSIONS={
     "fr": "Professeur universitaire",
     "ar": "أستاذ جامعي",
     "en": "University Professor"
+  },
+  "finance.actuaire": {
+    "fr": "Actuaire",
+    "ar": "خبير اكتواري",
+    "en": "Actuary"
   },
   "finance.analyste_politique_monetaire": {
     "fr": "Analyste politique monétaire",
@@ -552,6 +575,11 @@ const PROFESSIONS={
     "ar": "مراقب ميداني",
     "en": "Field Controller"
   },
+  "operations.technicien_gestion_maintenance": {
+    "fr": "Technicien gestion et maintenance",
+    "ar": "تقني التسيير والصيانة",
+    "en": "Management and Maintenance Technician"
+  },
   "sales.centre_appels": {
     "fr": "Conseiller centre d'appels",
     "ar": "مستشار مركز اتصال",
@@ -755,6 +783,7 @@ function setLanguage(lang){
   q.placeholder=UI[lang].placeholder;
   go.textContent=UI[lang].search;
   document.querySelectorAll('.langs button').forEach(b=>{
+    b.textContent=UI[lang].languageNames[b.dataset.lang];
     b.classList.toggle('active',b.dataset.lang===lang);
     b.setAttribute('aria-pressed',b.dataset.lang===lang?'true':'false');
   });
