@@ -323,6 +323,33 @@ def validate_runtime_index(
     return report
 
 
+def run_application_cta_gate(
+    run_dir: Path,
+    *,
+    check_network: bool,
+) -> dict:
+    source_jobs = run_dir / "source" / "jobs.json"
+    report_path = run_dir / "application_cta_audit.json"
+
+    cmd = [
+        sys.executable,
+        "-u",
+        str(REPO / "application_cta_audit.py"),
+        "--input",
+        str(source_jobs),
+        "--output",
+        str(report_path),
+    ]
+    if check_network:
+        cmd.append("--check-network")
+
+    run(cmd)
+    report = read_json(report_path)
+    if report.get("gate") != "PASS":
+        raise RuntimeError("MASARI_APPLICATION_CTA_GATE did not pass")
+    return report
+
+
 def validate_and_build(
     run_dir: Path,
     min_coverage: float,
@@ -390,6 +417,7 @@ def publish(
 
     index_data = read_json(index_dir / "search_index.json")
     source_audit = read_json(source_dir / "audit.json")
+    cta_audit = read_json(run_dir / "application_cta_audit.json")
 
     manifest = {
         "source": "emploi-public.ma",
@@ -399,12 +427,30 @@ def publish(
         "run_id": run_dir.name,
         "jobs": len(index_data.get("jobs") or []),
         "source_gate": source_audit.get("gate"),
+        "application_cta_gate": cta_audit.get("gate"),
+        "application_cta_hard_failures": cta_audit.get("hard_failure_count"),
+        "application_cta_warnings": cta_audit.get("warning_count"),
+        "application_cta_counts": cta_audit.get("cta_counts"),
+        "application_channel_counts": cta_audit.get("application_channel_counts"),
+        "application_cta_direct_or_document_pct": cta_audit.get(
+            "direct_application_or_document_pct"
+        ),
+        "application_cta_official_detail_fallback_jobs": cta_audit.get(
+            "official_detail_fallback_jobs"
+        ),
+        "application_cta_network_verdict_counts": cta_audit.get(
+            "network_verdict_counts"
+        ),
     }
     write_json(run_dir / "manifest.json", manifest)
 
     atomic_copy(source_dir / "all_announcements.json", current / "all_announcements.json")
     atomic_copy(source_dir / "jobs.json", current / "jobs.json")
     atomic_copy(source_dir / "audit.json", current / "audit.json")
+    atomic_copy(
+        run_dir / "application_cta_audit.json",
+        current / "application_cta_audit.json",
+    )
     atomic_copy(run_dir / "manifest.json", current / "manifest.json")
     # Search index is replaced last: users see old complete index until this point.
     atomic_copy(index_dir / "search_index.json", current_index)
@@ -471,6 +517,10 @@ def main() -> int:
         else:
             quick_source_refresh(run_dir, runtime_dir / "current", now)
 
+        run_application_cta_gate(
+            run_dir,
+            check_network=(mode == "full"),
+        )
         validate_and_build(run_dir, args.min_coverage, now)
         manifest = publish(run_dir, runtime_dir, mode, now)
         prune_runs(runtime_dir, args.keep_runs)
