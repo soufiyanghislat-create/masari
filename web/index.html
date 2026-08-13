@@ -7,20 +7,20 @@
 <title>Masari</title>
 <style>
 :root{
-  --bg:#f5f7f6;
+  --bg:#f7faf9;
   --card:#ffffff;
-  --text:#172321;
-  --muted:#6b7774;
-  --line:#e2e8e5;
-  --brand:#123f39;
-  --brand-strong:#0c302c;
-  --brand-soft:#edf5f3;
-  --accent:#d6a94e;
-  --accent-soft:#fff7e6;
+  --text:#17312c;
+  --muted:#6d7c78;
+  --line:#dfe8e5;
+  --brand:#4f877e;
+  --brand-strong:#174f47;
+  --brand-soft:#eef7f5;
+  --accent:#dfb557;
+  --accent-soft:#fff8e9;
   --soft:#f2f5f4;
   --white:#ffffff;
-  --shadow-sm:0 5px 18px rgba(18,63,57,.06);
-  --shadow:0 18px 55px rgba(18,63,57,.10);
+  --shadow-sm:0 6px 20px rgba(23,79,71,.055);
+  --shadow:0 20px 55px rgba(23,79,71,.085);
   --radius:20px;
 }
 *{box-sizing:border-box}
@@ -29,7 +29,7 @@ body{
   margin:0;
   min-height:100vh;
   background:
-    radial-gradient(circle at 50% -20%,rgba(18,63,57,.07),transparent 36%),
+    radial-gradient(circle at 50% -20%,rgba(79,135,126,.08),transparent 38%),
     var(--bg);
   color:var(--text);
   font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
@@ -114,13 +114,15 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{
   position:relative;
   overflow:visible;
   border-radius:28px;
-  padding:34px;
+  padding:32px 34px 30px;
+  border:1px solid #d8e6e2;
   background:
-    radial-gradient(circle at 12% 10%,rgba(214,169,78,.20),transparent 28%),
-    linear-gradient(135deg,var(--brand-strong),var(--brand));
+    radial-gradient(circle at 8% 4%,rgba(223,181,87,.22),transparent 30%),
+    radial-gradient(circle at 88% 12%,rgba(79,135,126,.13),transparent 32%),
+    linear-gradient(135deg,#f6f1e5 0%,#edf6f3 45%,#dfeeea 100%);
   box-shadow:var(--shadow);
 }
-.hero-copy{max-width:760px;margin-bottom:24px;color:#fff}
+.hero-copy{max-width:760px;margin-bottom:24px;color:var(--text)}
 .hero-title{
   margin:0;
   max-width:760px;
@@ -132,7 +134,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{
 .hero-text{
   margin:12px 0 0;
   max-width:690px;
-  color:rgba(255,255,255,.76);
+  color:#60736e;
   font-size:15px;
   line-height:1.75;
 }
@@ -141,10 +143,10 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{
   display:flex;
   gap:9px;
   padding:7px;
-  border:1px solid rgba(255,255,255,.16);
+  border:1px solid rgba(23,79,71,.10);
   border-radius:18px;
   background:#fff;
-  box-shadow:0 12px 30px rgba(0,0,0,.15);
+  box-shadow:0 12px 30px rgba(23,79,71,.10);
 }
 .row input{
   flex:1;
@@ -165,14 +167,14 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{
   min-width:118px;
   border:0;
   border-radius:12px;
-  background:var(--accent);
-  color:#261d0c;
+  background:var(--brand-strong);
+  color:#fff;
   font-weight:900;
   padding-inline:22px;
   cursor:pointer;
   transition:transform .16s ease,filter .16s ease;
 }
-.row button:hover{filter:brightness(1.035);transform:translateY(-1px)}
+.row button:hover{background:var(--brand);filter:none;transform:translateY(-1px)}
 .row button:active{transform:translateY(0)}
 .suggest{
   position:absolute;
@@ -208,10 +210,10 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{
   gap:7px;
   min-height:30px;
   padding:6px 10px;
-  border:1px solid rgba(255,255,255,.14);
+  border:1px solid rgba(23,79,71,.10);
   border-radius:999px;
-  color:rgba(255,255,255,.84);
-  background:rgba(255,255,255,.07);
+  color:#4f625d;
+  background:rgba(255,255,255,.68);
   font-size:11px;
   font-weight:750;
 }
@@ -221,7 +223,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{
   height:6px;
   border-radius:50%;
   background:var(--accent);
-  box-shadow:0 0 0 3px rgba(214,169,78,.14);
+  box-shadow:0 0 0 3px rgba(223,181,87,.16);
 }
 .state{
   min-height:24px;
