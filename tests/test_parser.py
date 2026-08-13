@@ -103,3 +103,73 @@ def test_detail_parser_ignores_contest_date_from_similar_announcements():
     # Critical regression:
     # the date belongs to "Concours similaires", not this announcement.
     assert job.contest_date is None
+
+
+
+APPLICATION_DOCUMENT_DETAIL = """
+<html><body>
+<h3>Administration qui recrute Province Test</h3>
+<h3>Délai de dépôt des candidatures 28 Août 2026 - 16:30</h3>
+<h3>Date de publication 29 Juillet 2026</h3>
+<h2>Téléchargement</h2>
+<a href="/fr/concours/download/arrete/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa">Arrêté d'ouverture du concours</a>
+<h2>Documents joints</h2>
+<a href="/fr/concours/download/fichiers_att/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/0">Avis</a>
+<h2>Description</h2>
+<ul>
+<li>Spécialité : Infirmerie</li>
+<li>Grade : Infirmier diplômé d'Etat de 1er grade - echelle 10</li>
+<li>Nombre de postes : 4</li>
+<li>Type de recrutement : Recrutement régulier</li>
+<li>Code du concours : C43068/26</li>
+</ul>
+<h2>Concours similaires</h2>
+<a href="/fr/concours/download/fichiers_att/bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb/0">Avis</a>
+</body></html>
+"""
+
+
+def test_detail_parser_extracts_application_documents():
+    url = (
+        "https://www.emploi-public.ma/fr/concours/details/"
+        "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+    )
+    job = parse_detail(APPLICATION_DOCUMENT_DETAIL, url, "collec", "Avis")
+    assert job.application_notice_url == (
+        "https://www.emploi-public.ma/fr/concours/download/fichiers_att/"
+        "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/0"
+    )
+    assert job.opening_order_url == (
+        "https://www.emploi-public.ma/fr/concours/download/arrete/"
+        "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+    )
+    assert "bbbbbbbb" not in job.application_notice_url
+
+
+ONLINE_APPLICATION_DETAIL = """
+<html><body>
+<h3>Administration qui recrute Ministère Test</h3>
+<h3>Délai de dépôt des candidatures 28 Août 2026 - 16:30</h3>
+<h3>Date de publication 13 Août 2026</h3>
+<h2>Description</h2>
+<ul>
+<li>Spécialité : Audit et Contrôle de Gestion</li>
+<li>Grade : Administrateur 2ème grade - echelle 11</li>
+<li>Nombre de postes : 1</li>
+<li>Type de recrutement : Recrutement régulier</li>
+<li>Type de dépôt : sur emploi-public</li>
+<li>Code du concours : C43263/26</li>
+</ul>
+<div>Dépôt en ligne</div>
+</body></html>
+"""
+
+
+def test_detail_parser_preserves_online_application_type():
+    url = (
+        "https://www.emploi-public.ma/fr/concours/details/"
+        "cccccccc-cccc-cccc-cccc-cccccccccccc"
+    )
+    job = parse_detail(ONLINE_APPLICATION_DETAIL, url, "service_etat", "Avis")
+    assert job.application_type == "sur emploi-public"
+    assert job.application_site == ""

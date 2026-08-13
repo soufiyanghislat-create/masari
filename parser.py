@@ -173,6 +173,35 @@ def _description_fields(soup: BeautifulSoup) -> dict[str, object]:
     return fields
 
 
+def _application_documents(soup: BeautifulSoup) -> dict[str, str]:
+    """Extract authoritative candidature documents from this announcement only."""
+    notice_candidates: list[tuple[int, str]] = []
+    opening_order_url = ""
+
+    for anchor in soup.find_all("a", href=True):
+        href = str(anchor.get("href") or "").strip()
+        if not href:
+            continue
+
+        path = urlparse(href).path.lower()
+        label = _clean(anchor.get_text(" ", strip=True)).lower()
+        absolute = urljoin(BASE_URL, href)
+
+        if "/fr/concours/download/fichiers_att/" in path:
+            priority = 0 if "avis" in label else 1
+            notice_candidates.append((priority, absolute))
+            continue
+
+        if "/fr/concours/download/arrete/" in path and not opening_order_url:
+            opening_order_url = absolute
+
+    notice_candidates.sort(key=lambda item: item[0])
+    return {
+        "application_notice_url": notice_candidates[0][1] if notice_candidates else "",
+        "opening_order_url": opening_order_url,
+    }
+
+
 @dataclass
 class Job:
     uuid: str
@@ -191,6 +220,8 @@ class Job:
     application_type: str
     application_site: str
     contest_code: str
+    application_notice_url: str = ""
+    opening_order_url: str = ""
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -217,6 +248,7 @@ def parse_detail(html: str, url: str, scope: str, listing_title: str = "") -> Jo
     contest_date_raw = _find_heading_value(soup, "Date du concours")
     publication_raw = _find_heading_value(soup, "Date de publication")
     fields = _description_fields(soup)
+    documents = _application_documents(soup)
 
     publication_dt = parse_french_datetime(publication_raw)
     deadline_dt = parse_french_datetime(deadline_raw, end_of_day_if_no_time=True)
@@ -250,4 +282,6 @@ def parse_detail(html: str, url: str, scope: str, listing_title: str = "") -> Jo
         application_type=str(fields.get("application_type") or ""),
         application_site=str(fields.get("application_site") or ""),
         contest_code=str(fields.get("contest_code") or ""),
+        application_notice_url=str(documents.get("application_notice_url") or ""),
+        opening_order_url=str(documents.get("opening_order_url") or ""),
     )

@@ -113,3 +113,18 @@ def test_current_bootstrap_professions_have_localized_labels():
         assert item.get("ar")
         assert item.get("fr")
         assert item.get("en")
+
+
+
+def test_application_cta_is_trilingual_and_source_driven():
+    assert "الترشح الآن" in HTML
+    assert "Postuler" in HTML
+    assert "Apply now" in HTML
+    assert "شروط وطريقة الترشح (PDF)" in HTML
+    assert "Conditions et modalités de candidature (PDF)" in HTML
+    assert "Application requirements and instructions (PDF)" in HTML
+    assert "function applicationCta(j){" in HTML
+    assert "j.application_notice_url" in HTML
+    assert "j.opening_order_url" in HTML
+    assert "j.application_site" in HTML
+    assert "j.application_type" in HTML

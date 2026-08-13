@@ -108,6 +108,8 @@ const UI={
     publication:'تاريخ النشر',
     deadline:'آخر أجل',
     openOfficial:'فتح الإعلان الرسمي',
+    applyNow:'الترشح الآن',
+    applicationPdf:'شروط وطريقة الترشح (PDF)',
     employer:'الجهة المعلنة',
     match:'مطابقة البحث',
     originalData:'عرض النص الأصلي للإعلان',
@@ -135,6 +137,8 @@ const UI={
     publication:'Date de publication',
     deadline:'Date limite',
     openOfficial:"Voir l’annonce officielle",
+    applyNow:'Postuler',
+    applicationPdf:'Conditions et modalités de candidature (PDF)',
     employer:'Organisme',
     match:'Correspondance',
     originalData:"Voir les données originales de l’annonce",
@@ -162,6 +166,8 @@ const UI={
     publication:'Publication date',
     deadline:'Application deadline',
     openOfficial:'View official announcement',
+    applyNow:'Apply now',
+    applicationPdf:'Application requirements and instructions (PDF)',
     employer:'Employer',
     match:'Search match',
     originalData:'View original announcement data',
@@ -922,6 +928,37 @@ function choices(d){
   });
 }
 
+
+function applicationCta(j){
+  const site=String(j.application_site||'').trim();
+  const type=normalize(j.application_type||'');
+  let href='';
+  let label='';
+
+  if(/^https?:\/\//i.test(site)){
+    href=site;
+    label=UI[currentLang].applyNow;
+  }
+  else if(type.includes('sur emploi public')){
+    href=j.url;
+    label=UI[currentLang].applyNow;
+  }
+  else if(j.application_notice_url){
+    href=j.application_notice_url;
+    label=UI[currentLang].applicationPdf;
+  }
+  else if(j.opening_order_url){
+    href=j.opening_order_url;
+    label=UI[currentLang].applicationPdf;
+  }
+  else{
+    href=j.url;
+    label=UI[currentLang].openOfficial;
+  }
+
+  return `<a class="official" target="_blank" rel="noopener" href="${esc(href)}">${esc(label)} ←</a>`;
+}
+
 function originalBlock(j,specialties){
   const hasOriginal=(j.source_title||j.title||specialties.length);
   if(!hasOriginal) return '';
@@ -961,7 +998,7 @@ function results(d){
             <div><span>${esc(UI[currentLang].publication)}</span><bdi class="date-value">${esc(formatDate(j.publication_date))}</bdi></div>
             <div><span>${esc(UI[currentLang].deadline)}</span><bdi class="date-value">${esc(deadlineText(j.deadline))}</bdi></div>
           </div>
-          <a class="official" target="_blank" rel="noopener" href="${esc(j.url)}">${esc(UI[currentLang].openOfficial)} ←</a>
+          ${applicationCta(j)}
           ${originalBlock(j,specialties)}
         </article>`;
       }).join(''):`<div class="init">${esc(UI[currentLang].noResults)}</div>`}
