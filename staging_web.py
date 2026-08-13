@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import os
+from contextlib import asynccontextmanager
 import subprocess
 import sys
 import threading
@@ -23,16 +24,29 @@ TZ = ZoneInfo("Africa/Casablanca")
 REPO = Path(__file__).resolve().parent
 HTML_PATH = REPO / "web" / "index.html"
 
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    if os.getenv("MASARI_DISABLE_SCHEDULER", "").strip() != "1":
+        thread = threading.Thread(
+            target=scheduler_loop,
+            daemon=True,
+            name="masari-staging-scheduler",
+        )
+        thread.start()
+    yield
+
+
 app = FastAPI(
     title="Masari Staging",
     docs_url=None,
     redoc_url=None,
+    lifespan=lifespan,
 )
 
 taxonomy = Taxonomy()
 
 _cache_lock = threading.Lock()
-_cache_mtime_ns: int | None = None
+_cache_key: tuple[str, int] | None = None
 _cache_index: dict[str, Any] | None = None
 
 _refresh_state_lock = threading.Lock()
@@ -47,6 +61,8 @@ def runtime_dir() -> Path:
     if explicit:
         return Path(explicit)
 
+    # Kept for compatibility if a volume is ever used later, but no volume
+    # is required or expected for the current hosting-only staging setup.
     railway_volume = os.getenv("RAILWAY_VOLUME_MOUNT_PATH", "").strip()
     if railway_volume:
         return Path(railway_volume) / "emploi_public"
@@ -62,29 +78,52 @@ def current_manifest_path() -> Path:
     return runtime_dir() / "current" / "manifest.json"
 
 
+def bootstrap_index_path() -> Path:
+    return REPO / "bootstrap" / "search_index.json"
+
+
+def bootstrap_manifest_path() -> Path:
+    return REPO / "bootstrap" / "manifest.json"
+
+
+def active_index_path() -> tuple[Path | None, str]:
+    current = current_index_path()
+    if current.exists():
+        return current, "runtime"
+
+    seed = bootstrap_index_path()
+    if seed.exists():
+        return seed, "bootstrap"
+
+    return None, "none"
+
+
 def load_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def load_index() -> dict[str, Any]:
-    global _cache_mtime_ns, _cache_index
-    path = current_index_path()
-    if not path.exists():
-        raise FileNotFoundError(path)
+def load_index() -> tuple[dict[str, Any], str]:
+    global _cache_key, _cache_index
+
+    path, source = active_index_path()
+    if path is None:
+        raise FileNotFoundError("No runtime or bootstrap index is available")
 
     stat = path.stat()
+    key = (str(path.resolve()), stat.st_mtime_ns)
+
     with _cache_lock:
-        if _cache_index is None or _cache_mtime_ns != stat.st_mtime_ns:
+        if _cache_index is None or _cache_key != key:
             data = load_json(path)
             if not isinstance(data, dict) or not isinstance(data.get("jobs"), list):
                 raise RuntimeError("invalid search index")
             _cache_index = data
-            _cache_mtime_ns = stat.st_mtime_ns
-        return _cache_index
+            _cache_key = key
+        return _cache_index, source
 
 
-def manifest() -> dict[str, Any]:
-    path = current_manifest_path()
+def active_manifest(source: str) -> dict[str, Any]:
+    path = current_manifest_path() if source == "runtime" else bootstrap_manifest_path()
     if not path.exists():
         return {}
     try:
@@ -94,7 +133,7 @@ def manifest() -> dict[str, Any]:
         return {}
 
 
-def refresh_status() -> dict[str, Any]:
+def refresh_status_private() -> dict[str, Any]:
     with _refresh_state_lock:
         return {
             "running": _refresh_running,
@@ -102,6 +141,16 @@ def refresh_status() -> dict[str, Any]:
             "last_started": _refresh_last_started,
             "last_finished": _refresh_last_finished,
         }
+
+
+def refresh_status_public() -> dict[str, Any]:
+    status = refresh_status_private()
+    return {
+        "running": bool(status["running"]),
+        "last_failed": bool(status["last_error"]),
+        "last_started": status["last_started"],
+        "last_finished": status["last_finished"],
+    }
 
 
 def _set_refresh_state(**changes: Any) -> None:
@@ -129,8 +178,10 @@ def run_refresh(mode: str) -> bool:
             return False
         _refresh_running = True
 
-    started = datetime.now(TZ).isoformat()
-    _set_refresh_state(last_started=started, last_error="")
+    _set_refresh_state(
+        last_started=datetime.now(TZ).isoformat(),
+        last_error="",
+    )
 
     cmd = [
         sys.executable,
@@ -164,6 +215,7 @@ def start_refresh(mode: str) -> bool:
     with _refresh_state_lock:
         if _refresh_running:
             return False
+
     thread = threading.Thread(
         target=run_refresh,
         args=(mode,),
@@ -186,24 +238,30 @@ def full_run_exists_for_today(now: datetime) -> bool:
 
 
 def bootstrap_mode(now: datetime) -> str | None:
+    # Hosting-only Railway filesystem is ephemeral. The committed bootstrap
+    # index makes the site usable immediately, while a fresh verified runtime
+    # index is built in the background after every new container starts.
     if not current_index_path().exists():
         return "full"
 
-    if now.hour >= 6 and not full_run_exists_for_today(now):
+    if (now.hour, now.minute) >= (5, 30) and not full_run_exists_for_today(now):
         return "full"
 
-    m = manifest()
-    published_at = str(m.get("published_at") or "")
-    if published_at:
+    manifest_path = current_manifest_path()
+    if manifest_path.exists():
         try:
-            published = datetime.fromisoformat(published_at)
-            if published.tzinfo is None:
-                published = published.replace(tzinfo=TZ)
-            age_seconds = (now - published.astimezone(TZ)).total_seconds()
-            if age_seconds > 5 * 3600:
-                return "quick"
-        except ValueError:
+            manifest = load_json(manifest_path)
+            published_at = str(manifest.get("published_at") or "")
+            if published_at:
+                published = datetime.fromisoformat(published_at)
+                if published.tzinfo is None:
+                    published = published.replace(tzinfo=TZ)
+                age_seconds = (now - published.astimezone(TZ)).total_seconds()
+                if age_seconds > 5 * 3600:
+                    return "quick"
+        except Exception:
             return "quick"
+
     return None
 
 
@@ -216,8 +274,7 @@ SLOTS: dict[tuple[int, int], str] = {
 
 
 def scheduler_loop() -> None:
-    now = datetime.now(TZ)
-    mode = bootstrap_mode(now)
+    mode = bootstrap_mode(datetime.now(TZ))
     if mode:
         start_refresh(mode)
 
@@ -232,18 +289,6 @@ def scheduler_loop() -> None:
         time.sleep(20)
 
 
-@app.on_event("startup")
-def startup() -> None:
-    if os.getenv("MASARI_DISABLE_SCHEDULER", "").strip() == "1":
-        return
-    thread = threading.Thread(
-        target=scheduler_loop,
-        daemon=True,
-        name="masari-staging-scheduler",
-    )
-    thread.start()
-
-
 @app.get("/", response_class=HTMLResponse)
 def home() -> HTMLResponse:
     return HTMLResponse(
@@ -254,10 +299,11 @@ def home() -> HTMLResponse:
 
 @app.get("/healthz")
 def healthz() -> dict[str, Any]:
-    ready = current_index_path().exists()
+    path, source = active_index_path()
     return {
         "ok": True,
-        "ready": ready,
+        "ready": path is not None,
+        "index_source": source,
         "service": "masari-staging",
     }
 
@@ -265,18 +311,20 @@ def healthz() -> dict[str, Any]:
 @app.get("/api/meta")
 def api_meta() -> dict[str, Any]:
     try:
-        index = load_index()
+        index, source = load_index()
         jobs = len(index.get("jobs") or [])
         ready = True
     except Exception:
         jobs = 0
+        source = "none"
         ready = False
 
     return {
         "ready": ready,
         "jobs": jobs,
-        "manifest": manifest(),
-        "refresh": refresh_status(),
+        "index_source": source,
+        "manifest": active_manifest(source),
+        "refresh": refresh_status_public(),
         "timezone": "Africa/Casablanca",
     }
 
@@ -296,14 +344,14 @@ def api_search(
     limit: int = Query(default=15, ge=1, le=30),
 ) -> dict[str, Any]:
     try:
-        index = load_index()
+        index, index_source = load_index()
     except FileNotFoundError:
         raise HTTPException(
             status_code=503,
-            detail="Masari is preparing the first verified index.",
+            detail="Masari is preparing the first search index.",
         )
-    except Exception as exc:
-        raise HTTPException(status_code=503, detail=f"Index unavailable: {exc}")
+    except Exception:
+        raise HTTPException(status_code=503, detail="Search index unavailable.")
 
     query = q.strip()
     profession_id, suggestions = resolve_profession_query(taxonomy, query)
@@ -312,6 +360,7 @@ def api_search(
         return {
             "selection_required": True,
             "suggestions": suggestions,
+            "index_source": index_source,
         }
 
     p = taxonomy.profession(profession_id)
@@ -319,6 +368,7 @@ def api_search(
 
     return {
         "selection_required": False,
+        "index_source": index_source,
         "profession": {
             "profession_id": profession_id,
             "label": getattr(p, "label", profession_id),
