@@ -40,9 +40,37 @@ jobs:
         timeout-minutes: 2
         run: python -u build_search_index.py --min-coverage 90
 
+      - name: Classifiability gate
+        timeout-minutes: 1
+        run: python -u classifiability_audit.py --index output/search_index.json --min-coverage 90
+
+      - name: Autocomplete precision gate
+        timeout-minutes: 1
+        run: python -u autocomplete_precision_audit.py
+
       - name: Taxonomy precision gate
         timeout-minutes: 1
         run: python -u precision_audit.py
+
+      - name: Real semantic precision gate
+        timeout-minutes: 1
+        run: python -u semantic_precision_audit.py --index output/search_index.json
+
+      - name: Public grade semantic gate
+        timeout-minutes: 1
+        run: python -u public_grade_semantic_audit.py --index output/search_index.json
+
+      - name: Specificity semantic gate
+        timeout-minutes: 1
+        run: python -u specificity_semantic_audit.py --index output/search_index.json
+
+      - name: Fresh delta semantic gate
+        timeout-minutes: 1
+        run: python -u fresh_delta_semantic_audit.py --index output/search_index.json
+
+      - name: Recruitment and justice semantic gate
+        timeout-minutes: 1
+        run: python -u taxonomy_v27_semantic_audit.py --index output/search_index.json
 
       - name: Search smoke test
         timeout-minutes: 1
