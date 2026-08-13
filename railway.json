@@ -1,0 +1,8 @@
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "deploy": {
+    "startCommand": "python staging_web.py",
+    "healthcheckPath": "/healthz",
+    "healthcheckTimeout": 120
+  }
+}

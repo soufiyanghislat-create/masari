@@ -76,6 +76,36 @@ def _result_titles(job: dict, match: dict | None) -> tuple[str, str, str]:
     return search_title, literal_source_title, search_title
 
 
+
+MAX_JOB_AGE_DAYS = 15
+
+
+def _local_datetime(iso_value: object) -> datetime:
+    dt = datetime.fromisoformat(str(iso_value))
+    if dt.tzinfo is None:
+        return dt.replace(tzinfo=TZ)
+    return dt.astimezone(TZ)
+
+
+def is_job_visible_now(job: dict, now: datetime | None = None) -> bool:
+    # Final runtime safety gate: never show stale or expired jobs.
+    now = now or datetime.now(TZ)
+    publication = job.get("publication_date")
+    deadline = job.get("deadline")
+    if not publication or not deadline:
+        return False
+
+    try:
+        pub = _local_datetime(publication)
+        end = _local_datetime(deadline)
+    except (TypeError, ValueError):
+        return False
+
+    age_days = (now.date() - pub.date()).days
+    if age_days < 0 or age_days > MAX_JOB_AGE_DAYS:
+        return False
+    return end >= now
+
 def rank_job(job: dict, profession_id: str, now: datetime | None = None) -> tuple[float, dict | None]:
     now = now or datetime.now(TZ)
     match = next((m for m in job.get("profession_matches") or [] if m.get("profession_id") == profession_id), None)
@@ -99,10 +129,17 @@ def rank_job(job: dict, profession_id: str, now: datetime | None = None) -> tupl
     return round(final, 2), match
 
 
-def search_by_profession(index: dict, profession_id: str, limit: int = 20) -> list[dict]:
-    now = datetime.now(TZ)
+def search_by_profession(
+    index: dict,
+    profession_id: str,
+    limit: int = 20,
+    now: datetime | None = None,
+) -> list[dict]:
+    now = now or datetime.now(TZ)
     rows = []
     for job in index.get("jobs") or []:
+        if not is_job_visible_now(job, now):
+            continue
         score, match = rank_job(job, profession_id, now)
         if score < 0:
             continue

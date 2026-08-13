@@ -1,0 +1,3 @@
+# Masari production schedule. Scheduler timezone must be Africa/Casablanca.
+CRON_TZ=Africa/Casablanca
+30 5,10,14,18 * * * cd /app && python3 maintenance/run_scheduled_refresh.py >> runtime/emploi_public/refresh.log 2>&1
