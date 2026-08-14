@@ -51,7 +51,8 @@ def normalize_anapec_job(job: dict[str, Any]) -> dict[str, Any]:
             "source_offer_id": source_offer_id,
             "url": source_url,
             "source_url": source_url,
-            "scope": "public",
+            "scope": "private",
+            "employment_sector": "private",
             # Existing Masari/Emploi-Public contract
             "listing_title": str(job.get("source_title") or title).strip(),
             "administration": company or "ANAPEC",
@@ -99,6 +100,8 @@ def normalize_emploi_public_job(job: dict[str, Any]) -> dict[str, Any]:
     if not uuid:
         raise ValueError("Emploi-Public job missing uuid")
     row.setdefault("global_id", f"emploi-public:{uuid}")
+    row["scope"] = "public"
+    row["employment_sector"] = "public"
     row.setdefault("source", EMPLOI_PUBLIC_SOURCE)
     row.setdefault("source_label", "Emploi-Public.ma")
     row.setdefault("source_offer_id", uuid)

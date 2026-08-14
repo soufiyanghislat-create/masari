@@ -145,6 +145,8 @@ def search_literal_profession(index: dict[str, Any], profession_id: str, *, limi
             "global_id": job.get("global_id") or job.get("uuid"),
             "source": "anapec",
             "source_label": job.get("source_label") or "ANAPEC",
+            "scope": "private",
+            "employment_sector": "private",
             "title": title,
             "source_title": source_title,
             "search_title": title,

@@ -173,6 +173,8 @@ def search_by_profession(
                 "matched_profession_label": (match or {}).get("label"),
                 "source": job.get("source") or "emploi-public",
                 "source_label": job.get("source_label") or "Emploi-Public.ma",
+                "scope": job.get("scope") or ("private" if str(job.get("source") or "").casefold() == "anapec" else "public"),
+                "employment_sector": job.get("employment_sector") or job.get("scope") or ("private" if str(job.get("source") or "").casefold() == "anapec" else "public"),
                 "global_id": job.get("global_id") or job.get("uuid"),
                 "application_type": job.get("application_type") or "",
                 "application_site": job.get("application_site") or "",

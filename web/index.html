@@ -441,6 +441,90 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{
 [dir="ltr"] .profession,[dir="ltr"] .card{text-align:left}
 [dir="rtl"] .hero-copy{text-align:right}
 [dir="ltr"] .hero-copy{text-align:left}
+.job-link{display:block;color:inherit;text-decoration:none}.job-list-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}.job-list-meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:14px;padding-inline-start:4px;color:var(--muted);font-size:12px;font-weight:700}.job-open{color:var(--brand-strong);font-size:12px;font-weight:900;white-space:nowrap}
+.sector-tabs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:18px 0 14px;
+  padding:6px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:#fff;
+  box-shadow:var(--shadow-sm);
+}
+.sector-tab{
+  position:relative;
+  min-height:64px;
+  border:1px solid transparent;
+  border-radius:14px;
+  padding:10px 14px;
+  background:transparent;
+  color:var(--muted);
+  cursor:pointer;
+  text-align:center;
+  transition:background .16s ease,border-color .16s ease,color .16s ease,transform .16s ease;
+}
+.sector-tab:hover{
+  background:var(--soft);
+  color:var(--text);
+}
+.sector-tab.active{
+  background:var(--brand-strong);
+  color:#fff;
+  border-color:var(--brand-strong);
+  box-shadow:0 7px 18px rgba(23,79,71,.16);
+}
+.sector-tab.private.active{
+  background:#8a671e;
+  border-color:#8a671e;
+}
+.sector-tab-label{
+  display:block;
+  font-size:18px;
+  line-height:1.2;
+  font-weight:950;
+  letter-spacing:-.2px;
+}
+.sector-tab-count{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:28px;
+  height:23px;
+  margin-top:6px;
+  padding:0 8px;
+  border-radius:999px;
+  background:rgba(23,79,71,.08);
+  color:inherit;
+  font-size:11px;
+  font-weight:950;
+}
+.sector-tab.active .sector-tab-count{
+  background:rgba(255,255,255,.17);
+}
+.sector-panel{
+  margin-top:0;
+}
+.sector-panel-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin:0 2px 10px;
+}
+.sector-panel-title{
+  font-size:14px;
+  font-weight:900;
+  color:var(--muted);
+}
+@media(max-width:560px){
+  .sector-tabs{gap:6px;padding:5px}
+  .sector-tab{min-height:60px;padding:9px 7px}
+  .sector-tab-label{font-size:16px}
+}
+
+@media(max-width:760px){.job-list-head{display:block}.job-open{display:block;margin-top:10px}}
 @media(max-width:760px){
   .shell{padding:16px 14px 54px}
   .top{align-items:flex-start;margin-bottom:16px}
@@ -1499,42 +1583,105 @@ function originalBlock(j,specialties){
   </details>`;
 }
 
+let activeEmploymentSector='public';
+
+function sectorForJob(j){
+  const explicit=String(j.employment_sector||j.scope||'').toLowerCase();
+  if(explicit==='private'||explicit==='public') return explicit;
+  return String(j.source||'').toLowerCase()==='anapec'?'private':'public';
+}
+
+function sectorLabels(){
+  return {
+    public: currentLang==='ar'?'القطاع العمومي':currentLang==='en'?'Public sector':'Secteur public',
+    private: currentLang==='ar'?'القطاع الخاص':currentLang==='en'?'Private sector':'Secteur privé'
+  };
+}
+
+function renderSectorJobs(rows,sector){
+  const detail=currentLang==='ar'?'عرض التفاصيل':currentLang==='en'?'View details':'Voir les détails';
+  const locLabel=currentLang==='ar'?'المكان':currentLang==='en'?'Location':'Lieu';
+  const labels=sectorLabels();
+  const empty=currentLang==='ar'?'لا توجد وظائف في هذا القسم لهذا البحث.':currentLang==='en'?'No jobs in this sector for this search.':'Aucune offre dans ce secteur pour cette recherche.';
+  return `<section class="sector-panel">
+    <div class="sector-panel-head">
+      <div class="sector-panel-title">${esc(labels[sector])}</div>
+    </div>
+    <div class="grid">
+      ${rows.length?rows.map(j=>{
+        const id=String(j.global_id||j.uuid||'');
+        const employer=String(j.company||j.administration||'').trim();
+        const source=String(j.source_label||(j.source==='anapec'?'ANAPEC':'Emploi-Public.ma'));
+        const location=String(j.location||j.work_location_text||'').trim();
+        return `<article class="card">
+          <a class="job-link" href="/job/${encodeURIComponent(id)}">
+            <div class="job-list-head">
+              <div>
+                <div class="title">${esc(j.title||'')}</div>
+                ${employer?`<div class="admin"><span>${esc(UI[currentLang].employer)}:</span> <span lang="fr" dir="ltr">${esc(j.administration||j.company||employer)}</span></div>`:''}
+                <div class="sourcebadge">${esc(source)}</div>
+              </div>
+              <span class="job-open">${esc(detail)} ${currentLang==='ar'?'←':'→'}</span>
+            </div>
+            <div class="job-list-meta">
+              ${location?`<span><b>${esc(locLabel)}:</b> ${esc(location)}</span>`:''}
+              <span><b>${esc(UI[currentLang].publication)}:</b> ${esc(formatDate(j.publication_date))}</span>
+              <span><b>${esc(UI[currentLang].positions)}:</b> ${esc(j.positions??'—')}</span>
+            </div>
+          </a>
+        </article>`;
+      }).join(''):`<div class="sector-empty">${esc(empty)}</div>`}
+    </div>
+  </section>`;
+}
+
+function renderSectorTabs(rows){
+  const labels=sectorLabels();
+  const publicRows=rows.filter(j=>sectorForJob(j)==='public');
+  const privateRows=rows.filter(j=>sectorForJob(j)==='private');
+  const selected=activeEmploymentSector==='private'?privateRows:publicRows;
+  return `<div class="sector-tabs" role="tablist" aria-label="Employment sector">
+    <button type="button" class="sector-tab public ${activeEmploymentSector==='public'?'active':''}" data-sector="public" role="tab" aria-selected="${activeEmploymentSector==='public'?'true':'false'}">
+      <span class="sector-tab-label">${esc(labels.public)}</span>
+      <span class="sector-tab-count">${publicRows.length}</span>
+    </button>
+    <button type="button" class="sector-tab private ${activeEmploymentSector==='private'?'active':''}" data-sector="private" role="tab" aria-selected="${activeEmploymentSector==='private'?'true':'false'}">
+      <span class="sector-tab-label">${esc(labels.private)}</span>
+      <span class="sector-tab-count">${privateRows.length}</span>
+    </button>
+  </div>${renderSectorJobs(selected,activeEmploymentSector)}`;
+}
+
+function bindSectorTabs(rows){
+  content.querySelectorAll('.sector-tab').forEach(button=>{
+    button.addEventListener('click',()=>{
+      activeEmploymentSector=button.dataset.sector==='private'?'private':'public';
+      const host=content.querySelector('.sector-tabs');
+      if(!host) return;
+      const panel=host.nextElementSibling;
+      host.outerHTML=renderSectorTabs(rows);
+      if(panel&&panel.parentNode) panel.remove();
+      bindSectorTabs(rows);
+    });
+  });
+}
+
 function results(d){
   const p=d.profession;
   const rows=d.results||[];
   const label=professionLabel(p.profession_id,p.label);
-  const sector=taxonomyText(p.sector);
-  const family=taxonomyText(p.family);
-  const meta=[sector,family].filter(Boolean).join(' · ');
-  const countLabel=`${rows.length} ${UI[currentLang].results}`;
-
+  const meta=[taxonomyText(p.sector),taxonomyText(p.family)].filter(Boolean).join(' · ');
+  if(!rows.some(j=>sectorForJob(j)===activeEmploymentSector)){
+    activeEmploymentSector=rows.some(j=>sectorForJob(j)==='public')?'public':'private';
+  }
   content.innerHTML=`<div class="profession">
-      <div class="profession-copy">
-        <div class="name">${esc(label)}</div>
-        ${meta?`<div class="pm">${esc(meta)}</div>`:''}
-      </div>
-      <div class="result-count">${esc(countLabel)}</div>
+    <div class="profession-copy">
+      <div class="name">${esc(label)}</div>
+      ${meta?`<div class="pm">${esc(meta)}</div>`:''}
     </div>
-    <div class="grid">
-      ${rows.length?rows.map(j=>{
-        const specialties=Array.isArray(j.specialties)?j.specialties.filter(Boolean):[];
-        const multi=specialties.length>1;
-        const posLabel=multi?UI[currentLang].totalPositions:UI[currentLang].positions;
-        return `<article class="card">
-          <div class="title">${esc(label)}</div>
-          <div class="admin"><span>${esc(UI[currentLang].employer)}:</span> <span lang="fr" dir="ltr">${esc(j.administration||'—')}</span></div>
-          <div class="sourcebadge">${esc(j.source_label||'Emploi-Public.ma')}</div>
-          ${multi?`<div class="tags"><span class="tag match">${esc(UI[currentLang].match)}: ${esc(label)}</span></div>`:''}
-          <div class="info">
-            <div><span>${esc(posLabel)}</span>${esc(j.positions??'—')}</div>
-            <div><span>${esc(UI[currentLang].publication)}</span><bdi class="date-value">${esc(formatDate(j.publication_date))}</bdi></div>
-            <div><span>${esc(UI[currentLang].deadline)}</span><bdi class="date-value">${esc(deadlineText(j.deadline))}</bdi></div>
-          </div>
-          ${applicationCta(j)}
-          ${originalBlock(j,specialties)}
-        </article>`;
-      }).join(''):`<div class="init">${esc(UI[currentLang].noResults)}</div>`}
-    </div>`;
+    <div class="result-count">${rows.length} ${esc(UI[currentLang].results)}</div>
+  </div>${renderSectorTabs(rows)}`;
+  bindSectorTabs(rows);
 }
 
 function directLocalId(value){

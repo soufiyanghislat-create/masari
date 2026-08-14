@@ -111,6 +111,23 @@ class Taxonomy:
             )
 
         self.by_id = {p.id: p for p in [*self.market, *self.hcp]}
+
+        # Query-only multilingual labels. They affect only user query resolution
+        # and autocomplete; source-job classification keeps Profession.aliases
+        # unchanged to preserve the existing precision gates.
+        self._query_i18n: dict[str, tuple[str, ...]] = {}
+        i18n_path = self.taxonomy_dir / "search_i18n.json"
+        if i18n_path.exists():
+            i18n_data = json.loads(i18n_path.read_text(encoding="utf-8"))
+            for profession_id, labels in (i18n_data.get("professions") or {}).items():
+                if profession_id not in self.by_id or not isinstance(labels, dict):
+                    continue
+                values = []
+                for language in ("ar", "fr", "en"):
+                    value = str(labels.get(language) or "").strip()
+                    if value:
+                        values.append(value)
+                self._query_i18n[profession_id] = tuple(dict.fromkeys(values))
         rules_path = self.taxonomy_dir / 'context_rules.json'
         self.context_rules = []
         if rules_path.exists():
@@ -118,10 +135,18 @@ class Taxonomy:
             self.context_rules = list(rules_data.get('rules') or [])
         self._normalized_terms: dict[str, list[tuple[Profession, str]]] = {}
         for profession in [*self.market, *self.hcp]:
-            for term in profession.terms:
+            for term in self.query_terms(profession):
                 n = normalize(term)
                 if n:
                     self._normalized_terms.setdefault(n, []).append((profession, term))
+
+    def query_terms(self, profession: Profession) -> tuple[str, ...]:
+        # User-facing query vocabulary. This is intentionally separate from
+        # Profession.terms, which remains the source classification vocabulary.
+        return tuple(dict.fromkeys((
+            *profession.terms,
+            *self._query_i18n.get(profession.id, ()),
+        )))
 
     def profession(self, profession_id: str) -> Profession | None:
         return self.by_id.get(profession_id)
@@ -153,7 +178,7 @@ class Taxonomy:
                 best_term_score = -1.0
                 best_term = profession.label
 
-                for term in profession.terms:
+                for term in self.query_terms(profession):
                     nt = normalize(term)
                     if not nt:
                         continue
@@ -230,7 +255,11 @@ class Taxonomy:
         if q == term:
             return 1000
         if term.startswith(q):
-            return 920
+            # Prefer the closest completion when several multilingual labels
+            # share the same prefix. Example: `nurs` should rank `Nurse`
+            # ahead of `Nursing Assistant`, while keeping both suggestions.
+            completion_gap = max(len(term) - len(q), 0)
+            return 940 - min(completion_gap, 40) * 0.5
         if any(word.startswith(q) for word in term.split()):
             return 860
         if re.search(rf"(?:^| ){re.escape(q)}(?:$| )", term):

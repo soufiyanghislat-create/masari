@@ -10,6 +10,7 @@ import threading
 import time
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import unquote
 from typing import Any
 from zoneinfo import ZoneInfo
 
@@ -17,7 +18,7 @@ import uvicorn
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import HTMLResponse, Response
 
-from search import resolve_profession_query, search_by_profession
+from search import is_job_visible_now, resolve_profession_query, search_by_profession
 from literal_search import (
     LITERAL_PREFIX,
     literal_profession_suggestions,
@@ -30,6 +31,7 @@ from taxonomy_engine import Taxonomy
 TZ = ZoneInfo("Africa/Casablanca")
 REPO = Path(__file__).resolve().parent
 HTML_PATH = REPO / "web" / "index.html"
+JOB_HTML_PATH = REPO / "web" / "job.html"
 
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
@@ -139,6 +141,16 @@ def active_manifest(source: str) -> dict[str, Any]:
     except Exception:
         return {}
 
+
+JOB_DETAIL_FIELDS=("uuid","global_id","source","source_label","scope","employment_sector","source_offer_id","source_reference","listing_title","search_title","title","job_name","administration","company","publication_date","deadline","contest_date","grade","specialties","positions","recruitment_type","contract_type","contract_options","salary","location","work_location_text","location_relation","education","experience","languages","description","profile","sector","agency","application_type","application_site","application_url","application_notice_url","opening_order_url","contest_code","url","source_url")
+def public_job_detail(job: dict[str, Any]) -> dict[str, Any]:
+    return {key: job.get(key) for key in JOB_DETAIL_FIELDS}
+def find_visible_job(index: dict[str, Any], job_id: str) -> dict[str, Any] | None:
+    needle=str(job_id or "").strip()
+    for job in index.get("jobs") or []:
+        ids={str(job.get("global_id") or "").strip(),str(job.get("uuid") or "").strip(),str(job.get("source_offer_id") or "").strip()}
+        if needle in ids:return job if is_job_visible_now(job) else None
+    return None
 
 def refresh_status_private() -> dict[str, Any]:
     with _refresh_state_lock:
@@ -351,6 +363,20 @@ def api_meta() -> dict[str, Any]:
         "timezone": "Africa/Casablanca",
     }
 
+
+@app.get("/job/{job_id:path}", response_class=HTMLResponse)
+def job_page(job_id: str) -> HTMLResponse:
+    try:index,_=load_index();job=find_visible_job(index,unquote(job_id))
+    except Exception:job=None
+    if job is None:raise HTTPException(status_code=404,detail="Job not found")
+    return HTMLResponse(JOB_HTML_PATH.read_text(encoding="utf-8"),headers={"Cache-Control":"no-store"})
+@app.get("/api/job/{job_id:path}")
+def api_job_detail(job_id: str) -> dict[str, Any]:
+    try:index,index_source=load_index()
+    except Exception:raise HTTPException(status_code=503,detail="Search index unavailable")
+    job=find_visible_job(index,unquote(job_id))
+    if job is None:raise HTTPException(status_code=404,detail="Job not found")
+    return {"index_source":index_source,"job":public_job_detail(job)}
 
 @app.get("/api/suggest")
 def api_suggest(

@@ -44,7 +44,7 @@
     },
     "uuid": "anapec:1158608",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158608/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Assistant Contrôle Gestion",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -57,7 +57,8 @@
     "contest_code": "BE1308261158608",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1308261158608"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1308261158608",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -104,7 +105,7 @@
     },
     "uuid": "anapec:1158788",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158788/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(10) Vendeurs / Vendeuses / Livreurs (H/F)",
     "administration": "ANAPEC",
     "contest_date": "2026-09-01",
@@ -117,7 +118,8 @@
     "contest_code": "EL1308261158788",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL1308261158788"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL1308261158788",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -164,7 +166,7 @@
     },
     "uuid": "anapec:1158926",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158926/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(8) Téléconseiller",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -177,7 +179,8 @@
     "contest_code": "FE1308261158926",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=FE1308261158926"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=FE1308261158926",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -224,7 +227,7 @@
     },
     "uuid": "anapec:1158927",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158927/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Technicien Topographe",
     "administration": "ANAPEC",
     "contest_date": "2026-09-01",
@@ -237,7 +240,8 @@
     "contest_code": "AL1308261158927",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AL1308261158927"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AL1308261158927",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -284,7 +288,7 @@
     },
     "uuid": "anapec:1158866",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158866/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(80) Concepteur CAO",
     "administration": "ALTRAN MAROC",
     "contest_date": null,
@@ -297,7 +301,8 @@
     "contest_code": "BE1308261158866",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1308261158866"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1308261158866",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -344,7 +349,7 @@
     },
     "uuid": "anapec:1158957",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158957/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) PATISSIER",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -357,7 +362,8 @@
     "contest_code": "AG1308261158957",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG1308261158957"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG1308261158957",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -404,7 +410,7 @@
     },
     "uuid": "anapec:1158889",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158889/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(160) OUVRIER POLYVALENT",
     "administration": "ANAPEC",
     "contest_date": "2026-08-19",
@@ -417,7 +423,8 @@
     "contest_code": "SK1308261158889",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SK1308261158889"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SK1308261158889",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -473,7 +480,7 @@
     },
     "uuid": "anapec:1158585",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158585/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Cariste",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -486,7 +493,8 @@
     "contest_code": "BE1308261158585",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1308261158585"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1308261158585",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -533,7 +541,7 @@
     },
     "uuid": "anapec:1158946",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158946/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Gestionnaires De Magasin (F)",
     "administration": "ANAPEC",
     "contest_date": "2026-09-01",
@@ -546,7 +554,8 @@
     "contest_code": "EL1308261158946",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL1308261158946"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL1308261158946",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -593,7 +602,7 @@
     },
     "uuid": "anapec:1158852",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158852/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(5) Opérateur De Production (H)",
     "administration": "ANAPEC",
     "contest_date": "2026-09-01",
@@ -606,7 +615,8 @@
     "contest_code": "EL1308261158852",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL1308261158852"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL1308261158852",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -653,7 +663,7 @@
     },
     "uuid": "anapec:1158618",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158618/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Comptable",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -666,7 +676,8 @@
     "contest_code": "BE1308261158618",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1308261158618"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1308261158618",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -713,7 +724,7 @@
     },
     "uuid": "anapec:1158891",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158891/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(30) OPERATRICE/OPERATEUR",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -726,7 +737,8 @@
     "contest_code": "TA1308261158891",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA1308261158891"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA1308261158891",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -782,7 +794,7 @@
     },
     "uuid": "anapec:1158507",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158507/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(25) Employé Libre Service",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -795,7 +807,8 @@
     "contest_code": "BE1308261158507",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1308261158507"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1308261158507",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -842,7 +855,7 @@
     },
     "uuid": "anapec:1158527",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158527/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Secrétaire Bureautique Spécialisé",
     "administration": "ANAPEC",
     "contest_date": "2026-08-19",
@@ -855,7 +868,8 @@
     "contest_code": "AG1308261158527",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG1308261158527"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG1308261158527",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -902,7 +916,7 @@
     },
     "uuid": "anapec:1158546",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158546/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(10) Conseiller En Assurances",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -915,7 +929,8 @@
     "contest_code": "ME1308261158546",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ME1308261158546"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ME1308261158546",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -962,7 +977,7 @@
     },
     "uuid": "anapec:1158954",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158954/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) BOULANGER",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -975,7 +990,8 @@
     "contest_code": "AG1308261158954",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG1308261158954"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG1308261158954",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -1022,7 +1038,7 @@
     },
     "uuid": "anapec:1158825",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158825/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) ANIMATRICE HSE",
     "administration": "ANAPEC",
     "contest_date": "2026-08-20",
@@ -1035,7 +1051,8 @@
     "contest_code": "LA1308261158825",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=LA1308261158825"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=LA1308261158825",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -1091,7 +1108,7 @@
     },
     "uuid": "anapec:1158534",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158534/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(10) Attaché Commercial",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -1104,7 +1121,8 @@
     "contest_code": "BE1308261158534",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1308261158534"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1308261158534",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -1151,7 +1169,7 @@
     },
     "uuid": "anapec:1158556",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158556/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) CHEF DE PROJET",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -1164,7 +1182,8 @@
     "contest_code": "OU1308261158556",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU1308261158556"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU1308261158556",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -1211,7 +1230,7 @@
     },
     "uuid": "anapec:1158832",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158832/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(60) OPERATEUR AU TERMINAL",
     "administration": "ANAPEC",
     "contest_date": "2026-09-01",
@@ -1224,7 +1243,8 @@
     "contest_code": "NA1308261158832",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=NA1308261158832"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=NA1308261158832",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -1271,7 +1291,7 @@
     },
     "uuid": "anapec:1158680",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158680/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) AIDE COMPTABLE",
     "administration": "ANAPEC",
     "contest_date": "2026-08-19",
@@ -1284,7 +1304,8 @@
     "contest_code": "ME1308261158680",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ME1308261158680"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ME1308261158680",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -1340,7 +1361,7 @@
     },
     "uuid": "anapec:1158565",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158565/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(8) Contrôleur De Marchandise",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -1353,7 +1374,8 @@
     "contest_code": "BE1308261158565",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1308261158565"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1308261158565",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -1409,7 +1431,7 @@
     },
     "uuid": "anapec:1158523",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158523/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(20) Hôte / Hôtesse De Caisse",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -1422,7 +1444,8 @@
     "contest_code": "BE1308261158523",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1308261158523"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1308261158523",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -1469,7 +1492,7 @@
     },
     "uuid": "anapec:1158808",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158808/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(5) Vendeurs (H)",
     "administration": "ANAPEC",
     "contest_date": "2026-09-01",
@@ -1482,7 +1505,8 @@
     "contest_code": "EL1308261158808",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL1308261158808"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL1308261158808",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -1529,7 +1553,7 @@
     },
     "uuid": "anapec:1158579",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158579/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(100) Opérateurs/Opératrices",
     "administration": "VERSIGENT SERVICES MOROCCO S.A.S.U EX APTIV SERVICES MOROCCO",
     "contest_date": null,
@@ -1542,7 +1566,8 @@
     "contest_code": "TE1308261158579",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TE1308261158579"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TE1308261158579",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -1589,7 +1614,7 @@
     },
     "uuid": "anapec:1158529",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158529/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(30) Opératrice/opérateur",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -1602,7 +1627,8 @@
     "contest_code": "TA1308261158529",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA1308261158529"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA1308261158529",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -1649,7 +1675,7 @@
     },
     "uuid": "anapec:1158945",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158945/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Commercial (e) Immobilier (H/F)",
     "administration": "ANAPEC",
     "contest_date": "2026-08-24",
@@ -1662,7 +1688,8 @@
     "contest_code": "EL1308261158945",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL1308261158945"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL1308261158945",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -1709,7 +1736,7 @@
     },
     "uuid": "anapec:1158075",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158075/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) ASSISTANTE DENTAIRE",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -1722,7 +1749,8 @@
     "contest_code": "KE1208261158075",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE1208261158075"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE1208261158075",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -1769,7 +1797,7 @@
     },
     "uuid": "anapec:1158146",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158146/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) -Femme De Chambre",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -1782,7 +1810,8 @@
     "contest_code": "KH1208261158146",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KH1208261158146"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KH1208261158146",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -1829,7 +1858,7 @@
     },
     "uuid": "anapec:1158968",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158968/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Vendeuse En Pharmacie (F)",
     "administration": "ANAPEC",
     "contest_date": "2026-08-24",
@@ -1842,7 +1871,8 @@
     "contest_code": "EL1308261158968",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL1308261158968"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL1308261158968",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -1889,7 +1919,7 @@
     },
     "uuid": "anapec:1158281",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158281/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(10) Cuisinier",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -1902,7 +1932,8 @@
     "contest_code": "BE1208261158281",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1208261158281"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1208261158281",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -1949,7 +1980,7 @@
     },
     "uuid": "anapec:1158303",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158303/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(50) Operateur De Production De L’industrie Automobile",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -1962,7 +1993,8 @@
     "contest_code": "TA1208261158303",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA1208261158303"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA1208261158303",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -2009,7 +2041,7 @@
     },
     "uuid": "anapec:1158168",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158168/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) -Serveur",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -2022,7 +2054,8 @@
     "contest_code": "KH1208261158168",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KH1208261158168"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KH1208261158168",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -2069,7 +2102,7 @@
     },
     "uuid": "anapec:1158233",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158233/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) EMPLOYE DE PHARMACIE",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -2082,7 +2115,8 @@
     "contest_code": "ME1208261158233",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ME1208261158233"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ME1208261158233",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -2129,7 +2163,7 @@
     },
     "uuid": "anapec:1158068",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158068/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(20) Employé Polyvalent De Restauration (Cuisinier,Serveur, Barman,Employé)",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -2142,7 +2176,8 @@
     "contest_code": "FE1208261158068",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=FE1208261158068"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=FE1208261158068",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -2189,7 +2224,7 @@
     },
     "uuid": "anapec:1157989",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157989/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Chargé De Clientèle",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -2202,7 +2237,8 @@
     "contest_code": "LA1208261157989",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=LA1208261157989"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=LA1208261157989",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -2249,7 +2285,7 @@
     },
     "uuid": "anapec:1158296",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158296/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) -Assistant Administratif",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -2262,7 +2298,8 @@
     "contest_code": "KH1208261158296",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KH1208261158296"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KH1208261158296",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -2309,7 +2346,7 @@
     },
     "uuid": "anapec:1158026",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158026/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Technicien Gestion Commerciale",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -2322,7 +2359,8 @@
     "contest_code": "TI1208261158026",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TI1208261158026"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TI1208261158026",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -2369,7 +2407,7 @@
     },
     "uuid": "anapec:1158216",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158216/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(100) Monteur Câbleur En électronique.",
     "administration": "Versigent Services Oujda",
     "contest_date": null,
@@ -2382,7 +2420,8 @@
     "contest_code": "OU1208261158216",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU1208261158216"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU1208261158216",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -2429,7 +2468,7 @@
     },
     "uuid": "anapec:1158178",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158178/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) -Technicien Polyvalent",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -2442,7 +2481,8 @@
     "contest_code": "KH1208261158178",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KH1208261158178"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KH1208261158178",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -2489,7 +2529,7 @@
     },
     "uuid": "anapec:1158158",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158158/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) -Réceptionniste",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -2502,7 +2542,8 @@
     "contest_code": "KH1208261158158",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KH1208261158158"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KH1208261158158",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -2549,7 +2590,7 @@
     },
     "uuid": "anapec:1157969",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157969/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Technicien De Maintenance Sur Installation Industrielle Automatisé",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -2562,7 +2603,8 @@
     "contest_code": "NO1208261157969",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=NO1208261157969"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=NO1208261157969",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -2609,7 +2651,7 @@
     },
     "uuid": "anapec:1158243",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158243/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(25) Opérateur De Câblage 3000 Dh Transport Assuré Vers Casa Deroua Bouskoura Errahma Dar Bouazza Et Environs",
     "administration": "ANAPEC",
     "contest_date": "2026-08-18",
@@ -2622,7 +2664,8 @@
     "contest_code": "NO1208261158243",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=NO1208261158243"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=NO1208261158243",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -2669,7 +2712,7 @@
     },
     "uuid": "anapec:1158228",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158228/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Cuisinier",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -2682,7 +2725,8 @@
     "contest_code": "ES1208261158228",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ES1208261158228"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ES1208261158228",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -2729,7 +2773,7 @@
     },
     "uuid": "anapec:1158116",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158116/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(3) Chaudronniers (H)",
     "administration": "ANAPEC",
     "contest_date": "2026-09-01",
@@ -2742,7 +2786,8 @@
     "contest_code": "EL1208261158116",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL1208261158116"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL1208261158116",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -2789,7 +2834,7 @@
     },
     "uuid": "anapec:1158163",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1158163/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Commercial (e) Envoyer CV à : Anapecauh2@gmail.com",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -2802,7 +2847,8 @@
     "contest_code": "Ag1208261158163",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=Ag1208261158163"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=Ag1208261158163",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -2849,7 +2895,7 @@
     },
     "uuid": "anapec:1157578",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157578/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) RECEPTIONNISTE",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -2862,7 +2908,8 @@
     "contest_code": "BE1108261157578",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1108261157578"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1108261157578",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -2909,7 +2956,7 @@
     },
     "uuid": "anapec:1157589",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157589/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) ESTHETICIENNE",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -2922,7 +2969,8 @@
     "contest_code": "BE1108261157589",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1108261157589"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE1108261157589",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -2969,7 +3017,7 @@
     },
     "uuid": "anapec:1157703",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157703/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(8) Vérification Des Conteneurs",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -2982,7 +3030,8 @@
     "contest_code": "TA1108261157703",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA1108261157703"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA1108261157703",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -3029,7 +3078,7 @@
     },
     "uuid": "anapec:1157265",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157265/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Architecte D'intérieur Envoyer CV à: Anapecauh2@gmail.com",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -3042,7 +3091,8 @@
     "contest_code": "Ag1108261157265",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=Ag1108261157265"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=Ag1108261157265",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -3089,7 +3139,7 @@
     },
     "uuid": "anapec:1157607",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157607/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(3) CHARGE DE PROJET ASSOCIATTIF",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -3102,7 +3152,8 @@
     "contest_code": "MI1108261157607",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=MI1108261157607"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=MI1108261157607",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -3149,7 +3200,7 @@
     },
     "uuid": "anapec:1157535",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157535/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Assistante Dentaire",
     "administration": "ANAPEC",
     "contest_date": "2026-08-20",
@@ -3162,7 +3213,8 @@
     "contest_code": "AI1108261157535",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AI1108261157535"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AI1108261157535",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -3209,7 +3261,7 @@
     },
     "uuid": "anapec:1157753",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157753/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Assistante Médicale (F)",
     "administration": "ANAPEC",
     "contest_date": "2026-08-24",
@@ -3222,7 +3274,8 @@
     "contest_code": "EL1108261157753",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL1108261157753"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL1108261157753",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -3269,7 +3322,7 @@
     },
     "uuid": "anapec:1157690",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157690/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(60) Chauffeur Camion",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -3282,7 +3335,8 @@
     "contest_code": "AI1108261157690",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AI1108261157690"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AI1108261157690",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -3329,7 +3383,7 @@
     },
     "uuid": "anapec:1157651",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157651/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Assistante Médicale Sur Bouskoura Envoyer CV à: Anapecauh2@gmail.com",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -3342,7 +3396,8 @@
     "contest_code": "Ag1108261157651",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=Ag1108261157651"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=Ag1108261157651",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -3389,7 +3444,7 @@
     },
     "uuid": "anapec:1157475",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157475/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(5) Diplome De Restauration Ou Bien En Patisserie: Envoyer Votre CV Par Mail Anapec2001@gmail.com",
     "administration": "ANAPEC",
     "contest_date": "2026-08-31",
@@ -3402,7 +3457,8 @@
     "contest_code": "SK1108261157475",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SK1108261157475"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SK1108261157475",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -3449,7 +3505,7 @@
     },
     "uuid": "anapec:1157195",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157195/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Aide Livreur",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -3462,7 +3518,8 @@
     "contest_code": "SA1108261157195",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SA1108261157195"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SA1108261157195",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -3509,7 +3566,7 @@
     },
     "uuid": "anapec:1157207",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157207/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(3) Manutentionnaire",
     "administration": "ANAPEC",
     "contest_date": "2026-08-19",
@@ -3522,7 +3579,8 @@
     "contest_code": "SA1108261157207",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SA1108261157207"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SA1108261157207",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -3569,7 +3627,7 @@
     },
     "uuid": "anapec:1157673",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157673/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Agent D'accueil",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -3582,7 +3640,8 @@
     "contest_code": "KH1108261157673",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KH1108261157673"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KH1108261157673",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -3629,7 +3688,7 @@
     },
     "uuid": "anapec:1157611",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157611/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(20) 16 Techniciens Spécialisés En Génie Electrique, Electromécanique/ 4 Techniciens De Maintenance Industrielle",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -3642,7 +3701,8 @@
     "contest_code": "MA1108261157611",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=MA1108261157611"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=MA1108261157611",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -3689,7 +3749,7 @@
     },
     "uuid": "anapec:1157510",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157510/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(3) Technicien De Laboratoire D'analyses Médicales",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -3702,7 +3762,8 @@
     "contest_code": "DR1108261157510",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=DR1108261157510"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=DR1108261157510",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -3749,7 +3810,7 @@
     },
     "uuid": "anapec:1157324",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157324/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(50) AGENT DE PRODUCTION DES CONNECTEURS",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -3762,7 +3823,8 @@
     "contest_code": "TA1108261157324",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA1108261157324"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA1108261157324",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -3809,7 +3871,7 @@
     },
     "uuid": "anapec:1157464",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157464/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Technicien En Automatisme",
     "administration": "STE DASPI MAROC",
     "contest_date": null,
@@ -3822,7 +3884,8 @@
     "contest_code": "CA1108261157464",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=CA1108261157464"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=CA1108261157464",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -3869,7 +3932,7 @@
     },
     "uuid": "anapec:1157157",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157157/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Assistante Administrative",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -3882,7 +3945,8 @@
     "contest_code": "H.1108261157157",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=H.1108261157157"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=H.1108261157157",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -3929,7 +3993,7 @@
     },
     "uuid": "anapec:1157693",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157693/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(8) LASHER",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -3942,7 +4006,8 @@
     "contest_code": "TA1108261157693",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA1108261157693"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA1108261157693",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -3989,7 +4054,7 @@
     },
     "uuid": "anapec:1157685",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157685/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Secrétaire Comptable",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -4002,7 +4067,8 @@
     "contest_code": "H.1108261157685",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=H.1108261157685"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=H.1108261157685",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -4049,7 +4115,7 @@
     },
     "uuid": "anapec:1157371",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157371/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(20) Employé D'étage",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -4062,7 +4128,8 @@
     "contest_code": "SA1108261157371",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SA1108261157371"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SA1108261157371",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -4109,7 +4176,7 @@
     },
     "uuid": "anapec:1157307",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157307/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(3) Opérateur De Productio Envoyer CV à: Anapecauh2@gmail.com",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -4122,7 +4189,8 @@
     "contest_code": "Ag1108261157307",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=Ag1108261157307"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=Ag1108261157307",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -4169,7 +4237,7 @@
     },
     "uuid": "anapec:1156568",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156568/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Technicien En électricité Ou Systèmes Automatisés",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -4182,7 +4250,8 @@
     "contest_code": "KE1008261156568",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE1008261156568"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE1008261156568",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -4229,7 +4298,7 @@
     },
     "uuid": "anapec:1157367",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157367/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(10) 10 Agents De Sécurité Et De Surveillance",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -4242,7 +4311,8 @@
     "contest_code": "ME1108261157367",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ME1108261157367"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ME1108261157367",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -4289,7 +4359,7 @@
     },
     "uuid": "anapec:1157230",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157230/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) TECHNICIEN TEST ELECTRIQUE",
     "administration": "SEWS MAROC K2",
     "contest_date": null,
@@ -4302,7 +4372,8 @@
     "contest_code": "KE1108261157230",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE1108261157230"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE1108261157230",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -4349,7 +4420,7 @@
     },
     "uuid": "anapec:1157321",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157321/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Technicien De Maintenance Informatique Envoyer CV à: Anapecauh2@gmail.com",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -4362,7 +4433,8 @@
     "contest_code": "Ag1108261157321",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=Ag1108261157321"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=Ag1108261157321",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -4409,7 +4481,7 @@
     },
     "uuid": "anapec:1156763",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156763/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(20) Opérateur Sur Machines Automatiques En Production électrique Ou électronique.",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -4422,7 +4494,8 @@
     "contest_code": "FE1008261156763",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=FE1008261156763"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=FE1008261156763",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -4469,7 +4542,7 @@
     },
     "uuid": "anapec:1157053",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157053/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) TECHNICIEN GENIE CIVIL.",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -4482,7 +4555,8 @@
     "contest_code": "TA1008261157053",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA1008261157053"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA1008261157053",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -4529,7 +4603,7 @@
     },
     "uuid": "anapec:1156828",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156828/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(10) Operateur De Production De L’industrie Automobile",
     "administration": "ANAPEC",
     "contest_date": "2026-08-31",
@@ -4542,7 +4616,8 @@
     "contest_code": "KE1008261156828",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE1008261156828"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE1008261156828",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -4589,7 +4664,7 @@
     },
     "uuid": "anapec:1156903",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156903/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) CADRE ÉDUCATIF",
     "administration": "ASS DAR TALIB E",
     "contest_date": null,
@@ -4602,7 +4677,8 @@
     "contest_code": "ES1008261156903",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ES1008261156903"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ES1008261156903",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -4649,7 +4725,7 @@
     },
     "uuid": "anapec:1156647",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156647/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(20) OPERATEUR DE PRODUCTION A TANGER",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -4662,7 +4738,8 @@
     "contest_code": "KH1008261156647",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KH1008261156647"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KH1008261156647",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -4709,7 +4786,7 @@
     },
     "uuid": "anapec:1156615",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156615/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Agent De Planification Et De Réservation",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -4722,7 +4799,8 @@
     "contest_code": "ET1008261156615",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ET1008261156615"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ET1008261156615",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -4769,7 +4847,7 @@
     },
     "uuid": "anapec:1156871",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156871/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) CHARGE D'ACCUEIL ET DE RESERVATION",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -4782,7 +4860,8 @@
     "contest_code": "AG1008261156871",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG1008261156871"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG1008261156871",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -4829,7 +4908,7 @@
     },
     "uuid": "anapec:1156905",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156905/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) AGENT COMPTABLE",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -4842,7 +4921,8 @@
     "contest_code": "AG1008261156905",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG1008261156905"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG1008261156905",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -4889,7 +4969,7 @@
     },
     "uuid": "anapec:1157057",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157057/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(20) Enseignant Des écoles",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -4902,7 +4982,8 @@
     "contest_code": "EL1008261157057",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL1008261157057"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL1008261157057",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -4949,7 +5030,7 @@
     },
     "uuid": "anapec:1156586",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156586/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Secrétaire Bureautique Polyvalent",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -4962,7 +5043,8 @@
     "contest_code": "KE1008261156586",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE1008261156586"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE1008261156586",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -5009,7 +5091,7 @@
     },
     "uuid": "anapec:1155930",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155930/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Vendeur En Articles De Sports Et De Loisirs De Plein Air",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -5022,7 +5104,8 @@
     "contest_code": "NA0708261155930",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=NA0708261155930"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=NA0708261155930",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -5069,7 +5152,7 @@
     },
     "uuid": "anapec:1156625",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156625/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Manager Data Consultant",
     "administration": "ANAPEC",
     "contest_date": "2026-08-31",
@@ -5082,7 +5165,8 @@
     "contest_code": "ET1008261156625",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ET1008261156625"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ET1008261156625",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -5129,7 +5213,7 @@
     },
     "uuid": "anapec:1157006",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1157006/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Receptionise Dans Une Clinique",
     "administration": "CLINIQUE DE L'UNIVERSITE",
     "contest_date": null,
@@ -5142,7 +5226,8 @@
     "contest_code": "AG1008261157006",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG1008261157006"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG1008261157006",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -5189,7 +5274,7 @@
     },
     "uuid": "anapec:1156848",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156848/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) CONSEILLERS EN ORIENTATION ET SUIVI DES DOSSIERS ETUDIANTS",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -5202,7 +5287,8 @@
     "contest_code": "AG1008261156848",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG1008261156848"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG1008261156848",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -5249,7 +5335,7 @@
     },
     "uuid": "anapec:1156833",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156833/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Ergothérapeute",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -5262,7 +5348,8 @@
     "contest_code": "ET1008261156833",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ET1008261156833"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ET1008261156833",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -5309,7 +5396,7 @@
     },
     "uuid": "anapec:1155949",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155949/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Secrétaire",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -5322,7 +5409,8 @@
     "contest_code": "RA0708261155949",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=RA0708261155949"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=RA0708261155949",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -5369,7 +5457,7 @@
     },
     "uuid": "anapec:1156321",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156321/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(10) Commercial Terrain – Vente Directe",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -5382,7 +5470,8 @@
     "contest_code": "EL0708261156321",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0708261156321"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0708261156321",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -5429,7 +5518,7 @@
     },
     "uuid": "anapec:1156015",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156015/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) TECHNICIEN EN CLIMATISATION",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -5442,7 +5531,8 @@
     "contest_code": "KE0708261156015",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE0708261156015"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE0708261156015",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -5489,7 +5579,7 @@
     },
     "uuid": "anapec:1156097",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156097/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Aide Pharmacienne",
     "administration": "ANAPEC",
     "contest_date": "2026-08-14",
@@ -5502,7 +5592,8 @@
     "contest_code": "SK0708261156097",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SK0708261156097"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SK0708261156097",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -5549,7 +5640,7 @@
     },
     "uuid": "anapec:1155989",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155989/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) KINESITHERAPEUTE",
     "administration": "ANAPEC",
     "contest_date": "2026-08-13",
@@ -5562,7 +5653,8 @@
     "contest_code": "ME0708261155989",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ME0708261155989"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ME0708261155989",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -5609,7 +5701,7 @@
     },
     "uuid": "anapec:1156124",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156124/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) TECH EN INSTALATION DES GPS ET CAMERA DE SURVEILLANCE",
     "administration": "ANAPEC",
     "contest_date": "2026-08-18",
@@ -5622,7 +5714,8 @@
     "contest_code": "AG0708261156124",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0708261156124"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0708261156124",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -5669,7 +5762,7 @@
     },
     "uuid": "anapec:1156312",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156312/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Aide Comptable",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -5682,7 +5775,8 @@
     "contest_code": "MO0708261156312",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=MO0708261156312"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=MO0708261156312",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -5729,7 +5823,7 @@
     },
     "uuid": "anapec:1156269",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156269/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(15) Médecin Généraliste",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -5742,7 +5836,8 @@
     "contest_code": "GU0708261156269",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=GU0708261156269"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=GU0708261156269",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -5789,7 +5884,7 @@
     },
     "uuid": "anapec:1156368",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156368/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Préparateur En Pharmacie",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -5802,7 +5897,8 @@
     "contest_code": "OU0708261156368",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0708261156368"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0708261156368",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -5849,7 +5945,7 @@
     },
     "uuid": "anapec:1156030",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156030/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Secrétaire Bureautique Polyvalent",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -5862,7 +5958,8 @@
     "contest_code": "LA0708261156030",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=LA0708261156030"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=LA0708261156030",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -5909,7 +6006,7 @@
     },
     "uuid": "anapec:1156335",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156335/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Commercial/Commerciale",
     "administration": "ANAPEC",
     "contest_date": "2026-09-07",
@@ -5922,7 +6019,8 @@
     "contest_code": "KE0708261156335",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE0708261156335"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE0708261156335",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -5969,7 +6067,7 @@
     },
     "uuid": "anapec:1156034",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156034/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(10) Carreleur-faiencier",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -5982,7 +6080,8 @@
     "contest_code": "BE0708261156034",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE0708261156034"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE0708261156034",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -6029,7 +6128,7 @@
     },
     "uuid": "anapec:1156139",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156139/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(6) -Formateur Des Infirmiers.",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -6042,7 +6141,8 @@
     "contest_code": "BE0708261156139",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE0708261156139"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE0708261156139",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -6089,7 +6189,7 @@
     },
     "uuid": "anapec:1156132",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156132/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Commercial/Commerciale",
     "administration": "ANAPEC",
     "contest_date": "2026-08-26",
@@ -6102,7 +6202,8 @@
     "contest_code": "AG0708261156132",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0708261156132"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0708261156132",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -6149,7 +6250,7 @@
     },
     "uuid": "anapec:1156234",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156234/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(4) Il S'agit Des Responsables Qualiticiens",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -6162,7 +6263,8 @@
     "contest_code": "SA0708261156234",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SA0708261156234"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SA0708261156234",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -6209,7 +6311,7 @@
     },
     "uuid": "anapec:1156354",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156354/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Employé De Gestion Administrative",
     "administration": "ANAPEC",
     "contest_date": "2026-09-01",
@@ -6222,7 +6324,8 @@
     "contest_code": "AL0708261156354",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AL0708261156354"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AL0708261156354",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -6269,7 +6372,7 @@
     },
     "uuid": "anapec:1156201",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156201/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Technicien AUTOMATISME",
     "administration": "ANAPEC",
     "contest_date": "2026-08-17",
@@ -6282,7 +6385,8 @@
     "contest_code": "NO0708261156201",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=NO0708261156201"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=NO0708261156201",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -6329,7 +6433,7 @@
     },
     "uuid": "anapec:1156238",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156238/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(4) Responsable Logistique",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -6342,7 +6446,8 @@
     "contest_code": "SA0708261156238",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SA0708261156238"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SA0708261156238",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -6389,7 +6494,7 @@
     },
     "uuid": "anapec:1155712",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155712/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(20) -Opérateur De Production.",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -6402,7 +6507,8 @@
     "contest_code": "BE0608261155712",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE0608261155712"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE0608261155712",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -6449,7 +6555,7 @@
     },
     "uuid": "anapec:1155708",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155708/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Coiffeuses (F)",
     "administration": "ANAPEC",
     "contest_date": "2026-08-17",
@@ -6462,7 +6568,8 @@
     "contest_code": "EL0608261155708",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0608261155708"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0608261155708",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -6509,7 +6616,7 @@
     },
     "uuid": "anapec:1156237",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156237/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) COMMERCIAL(E) EN ASSURANCE",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -6522,7 +6629,8 @@
     "contest_code": "AI0708261156237",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AI0708261156237"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AI0708261156237",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -6569,7 +6677,7 @@
     },
     "uuid": "anapec:1156326",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1156326/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(4) Enseignants Arabe, Français Et Anglais",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -6582,7 +6690,8 @@
     "contest_code": "BE0708261156326",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE0708261156326"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE0708261156326",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -6629,7 +6738,7 @@
     },
     "uuid": "anapec:1155489",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155489/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Employé Administratif D'assurances",
     "administration": "ANAPEC",
     "contest_date": "2026-08-07",
@@ -6642,7 +6751,8 @@
     "contest_code": "BE0608261155489",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE0608261155489"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=BE0608261155489",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -6689,7 +6799,7 @@
     },
     "uuid": "anapec:1155690",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155690/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Aide Comptable",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -6702,7 +6812,8 @@
     "contest_code": "AG0608261155690",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0608261155690"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0608261155690",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -6749,7 +6860,7 @@
     },
     "uuid": "anapec:1155808",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155808/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(3) Technicien En électricité",
     "administration": "ANAPEC",
     "contest_date": "2026-08-17",
@@ -6762,7 +6873,8 @@
     "contest_code": "TA0608261155808",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0608261155808"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0608261155808",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -6809,7 +6921,7 @@
     },
     "uuid": "anapec:1155710",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155710/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Esthéticiennes (F)",
     "administration": "ANAPEC",
     "contest_date": "2026-08-17",
@@ -6822,7 +6934,8 @@
     "contest_code": "EL0608261155710",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0608261155710"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0608261155710",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -6869,7 +6982,7 @@
     },
     "uuid": "anapec:1155786",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155786/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) RECEPTIONNISTE",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -6882,7 +6995,8 @@
     "contest_code": "OU0608261155786",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0608261155786"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0608261155786",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -6929,7 +7043,7 @@
     },
     "uuid": "anapec:1155540",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155540/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Assistante Administrative",
     "administration": "ANAPEC",
     "contest_date": "2026-08-17",
@@ -6942,7 +7056,8 @@
     "contest_code": "SI0608261155540",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SI0608261155540"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SI0608261155540",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -6989,7 +7104,7 @@
     },
     "uuid": "anapec:1155677",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155677/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) GESTIONNAIRE DE SINISTRE AUTOMOBILE",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -7002,7 +7117,8 @@
     "contest_code": "NA0608261155677",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=NA0608261155677"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=NA0608261155677",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -7049,7 +7165,7 @@
     },
     "uuid": "anapec:1155434",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155434/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Vendeur Conventionnel En Produits De Parfumeries",
     "administration": "ANAPEC",
     "contest_date": "2026-08-07",
@@ -7062,7 +7178,8 @@
     "contest_code": "NO0608261155434",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=NO0608261155434"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=NO0608261155434",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -7109,7 +7226,7 @@
     },
     "uuid": "anapec:1155441",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155441/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(100) OPERATEUR(ICE)",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -7122,7 +7239,8 @@
     "contest_code": "TA0608261155441",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0608261155441"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0608261155441",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -7169,7 +7287,7 @@
     },
     "uuid": "anapec:1155460",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155460/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Thérapeute SPA",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -7182,7 +7300,8 @@
     "contest_code": "ET0608261155460",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ET0608261155460"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ET0608261155460",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -7229,7 +7348,7 @@
     },
     "uuid": "anapec:1155693",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155693/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(7) Contrôleurs",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -7242,7 +7361,8 @@
     "contest_code": "KE0608261155693",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE0608261155693"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE0608261155693",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -7289,7 +7409,7 @@
     },
     "uuid": "anapec:1155790",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155790/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Contrôleur De Gestion",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -7302,7 +7422,8 @@
     "contest_code": "AG0608261155790",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0608261155790"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0608261155790",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -7349,7 +7470,7 @@
     },
     "uuid": "anapec:1155479",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155479/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) ASSISTANTE EN GESTION ADMINISTRATIVE",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -7362,7 +7483,8 @@
     "contest_code": "EL0608261155479",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0608261155479"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0608261155479",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -7409,7 +7531,7 @@
     },
     "uuid": "anapec:1155421",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155421/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) VENDEUR AVEC PERMIS B (REGION SIDI KACEM-SIDI SLIMANE - SIDI YAHYA ..)",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -7422,7 +7544,8 @@
     "contest_code": "SI0608261155421",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SI0608261155421"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SI0608261155421",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -7469,7 +7592,7 @@
     },
     "uuid": "anapec:1155353",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155353/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(600) Des Opératrices En Câblage",
     "administration": "ANAPEC",
     "contest_date": "2026-08-24",
@@ -7482,7 +7605,8 @@
     "contest_code": "SI0608261155353",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SI0608261155353"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SI0608261155353",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -7529,7 +7653,7 @@
     },
     "uuid": "anapec:1155458",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155458/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(4) TECHNICIEN MONTAGE",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -7542,7 +7666,8 @@
     "contest_code": "TA0608261155458",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0608261155458"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0608261155458",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -7589,7 +7714,7 @@
     },
     "uuid": "anapec:1155356",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155356/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(450) Des Opératrices En Câblage",
     "administration": "ANAPEC",
     "contest_date": "2026-08-31",
@@ -7602,7 +7727,8 @@
     "contest_code": "SI0608261155356",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SI0608261155356"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SI0608261155356",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -7649,7 +7775,7 @@
     },
     "uuid": "anapec:1155440",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155440/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(10) Caissier De Libre Service: Envoyer Votre CV Par Mail Anapec2001@gmail.com",
     "administration": "ANAPEC",
     "contest_date": "2026-08-24",
@@ -7662,7 +7788,8 @@
     "contest_code": "SK0608261155440",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SK0608261155440"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SK0608261155440",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -7709,7 +7836,7 @@
     },
     "uuid": "anapec:1155679",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155679/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) SECRETAIRE DEXPERTISE AUTOMOBILE",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -7722,7 +7849,8 @@
     "contest_code": "NA0608261155679",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=NA0608261155679"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=NA0608261155679",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -7769,7 +7897,7 @@
     },
     "uuid": "anapec:1155758",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155758/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Assistant Logistique",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -7782,7 +7910,8 @@
     "contest_code": "AG0608261155758",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0608261155758"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0608261155758",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -7829,7 +7958,7 @@
     },
     "uuid": "anapec:1155715",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155715/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(20) -Opérateur De Production",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -7842,7 +7971,8 @@
     "contest_code": "KH0608261155715",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KH0608261155715"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KH0608261155715",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -7889,7 +8019,7 @@
     },
     "uuid": "anapec:1155428",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155428/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(6) Vendeuses Polyvalentes",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -7902,7 +8032,8 @@
     "contest_code": "KE0608261155428",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE0608261155428"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE0608261155428",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -7949,7 +8080,7 @@
     },
     "uuid": "anapec:1155470",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155470/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Vendeur/Vendeuse",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -7962,7 +8093,8 @@
     "contest_code": "H.0608261155470",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=H.0608261155470"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=H.0608261155470",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -8009,7 +8141,7 @@
     },
     "uuid": "anapec:1155618",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155618/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Secrétaire De Direction",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -8022,7 +8154,8 @@
     "contest_code": "EL0608261155618",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0608261155618"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0608261155618",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -8069,7 +8202,7 @@
     },
     "uuid": "anapec:1155605",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155605/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) ASSISTANTE DE DIRECTION TRILINGUE (arabe, Français Et Anglais)",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -8082,7 +8215,8 @@
     "contest_code": "EL0608261155605",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0608261155605"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0608261155605",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -8129,7 +8263,7 @@
     },
     "uuid": "anapec:1155496",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155496/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Enseignante De Sport (F)",
     "administration": "ANAPEC",
     "contest_date": "2026-08-14",
@@ -8142,7 +8276,8 @@
     "contest_code": "EL0608261155496",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0608261155496"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0608261155496",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -8189,7 +8324,7 @@
     },
     "uuid": "anapec:1155203",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155203/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) COMPTABLE EXPERIMENTE",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -8202,7 +8337,8 @@
     "contest_code": "TA0508261155203",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0508261155203"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0508261155203",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -8249,7 +8385,7 @@
     },
     "uuid": "anapec:1154812",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154812/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Commercial Et Support Client",
     "administration": "GROWMAX GROUP",
     "contest_date": "2026-08-24",
@@ -8262,7 +8398,8 @@
     "contest_code": "TA0508261154812",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0508261154812"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0508261154812",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -8309,7 +8446,7 @@
     },
     "uuid": "anapec:1155057",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155057/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Vendeuse",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -8322,7 +8459,8 @@
     "contest_code": "SA0508261155057",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SA0508261155057"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SA0508261155057",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -8369,7 +8507,7 @@
     },
     "uuid": "anapec:1155554",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155554/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(20) Monteur Câbleur En électronique.",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -8382,7 +8520,8 @@
     "contest_code": "AZ0608261155554",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AZ0608261155554"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AZ0608261155554",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -8429,7 +8568,7 @@
     },
     "uuid": "anapec:1155211",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155211/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Secrétaire Médicale",
     "administration": "ANAPEC",
     "contest_date": "2026-08-08",
@@ -8442,7 +8581,8 @@
     "contest_code": "Me0508261155211",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=Me0508261155211"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=Me0508261155211",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -8489,7 +8629,7 @@
     },
     "uuid": "anapec:1155037",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155037/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Assistante Administrative En BTP",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -8502,7 +8642,8 @@
     "contest_code": "ME0508261155037",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ME0508261155037"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ME0508261155037",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -8549,7 +8690,7 @@
     },
     "uuid": "anapec:1155146",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155146/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Assistante",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -8562,7 +8703,8 @@
     "contest_code": "RA0508261155146",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=RA0508261155146"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=RA0508261155146",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -8609,7 +8751,7 @@
     },
     "uuid": "anapec:1155208",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155208/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(40) VENDEURES",
     "administration": "ANAPEC",
     "contest_date": "2026-08-17",
@@ -8622,7 +8764,8 @@
     "contest_code": "AL0508261155208",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AL0508261155208"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AL0508261155208",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -8669,7 +8812,7 @@
     },
     "uuid": "anapec:1155050",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155050/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Technicien De Production",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -8682,7 +8825,8 @@
     "contest_code": "FE0508261155050",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=FE0508261155050"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=FE0508261155050",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -8729,7 +8873,7 @@
     },
     "uuid": "anapec:1155177",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155177/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(100) Opérateurs De Production",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -8742,7 +8886,8 @@
     "contest_code": "TE0508261155177",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TE0508261155177"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TE0508261155177",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -8789,7 +8934,7 @@
     },
     "uuid": "anapec:1154941",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154941/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(5) Enseignants Des écoles( Français, Arabe, Mathématique )",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -8802,7 +8947,8 @@
     "contest_code": "IN0508261154941",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=IN0508261154941"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=IN0508261154941",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -8849,7 +8995,7 @@
     },
     "uuid": "anapec:1154966",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154966/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(4) Technicien Froid Et Climatisation (H)",
     "administration": "ANAPEC",
     "contest_date": "2026-09-01",
@@ -8862,7 +9008,8 @@
     "contest_code": "EL0508261154966",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0508261154966"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0508261154966",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -8909,7 +9056,7 @@
     },
     "uuid": "anapec:1155044",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155044/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) AIDE COMPTABLE",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -8922,7 +9069,8 @@
     "contest_code": "ME0508261155044",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ME0508261155044"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ME0508261155044",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -8969,7 +9117,7 @@
     },
     "uuid": "anapec:1155078",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155078/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Cariste",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -8982,7 +9130,8 @@
     "contest_code": "OU0508261155078",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0508261155078"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0508261155078",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -9029,7 +9178,7 @@
     },
     "uuid": "anapec:1155091",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155091/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(50) Opérateur Sur Machines Automatiques En Production électrique Ou électronique.",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -9042,7 +9191,8 @@
     "contest_code": "TA0508261155091",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0508261155091"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0508261155091",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -9089,7 +9239,7 @@
     },
     "uuid": "anapec:1155150",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155150/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(20) OUVRIER PAIN INDUSTRIEL",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -9102,7 +9252,8 @@
     "contest_code": "SI0508261155150",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SI0508261155150"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SI0508261155150",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -9149,7 +9300,7 @@
     },
     "uuid": "anapec:1154945",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154945/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Conducteur De Transport Scolaire",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -9162,7 +9313,8 @@
     "contest_code": "IN0508261154945",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=IN0508261154945"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=IN0508261154945",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -9209,7 +9361,7 @@
     },
     "uuid": "anapec:1154100",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154100/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Esthéticienne (F)",
     "administration": "ANAPEC",
     "contest_date": "2026-08-17",
@@ -9222,7 +9374,8 @@
     "contest_code": "EL0408261154100",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0408261154100"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0408261154100",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -9269,7 +9422,7 @@
     },
     "uuid": "anapec:1155212",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1155212/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Secrétaire Médicale",
     "administration": "ANAPEC",
     "contest_date": "2026-08-08",
@@ -9282,7 +9435,8 @@
     "contest_code": "Me0508261155212",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=Me0508261155212"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=Me0508261155212",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -9329,7 +9483,7 @@
     },
     "uuid": "anapec:1154949",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154949/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Employé De Maison",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -9342,7 +9496,8 @@
     "contest_code": "ET0508261154949",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ET0508261154949"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ET0508261154949",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -9389,7 +9544,7 @@
     },
     "uuid": "anapec:1154322",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154322/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) CONSEILLER JURIDIQUE",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -9402,7 +9557,8 @@
     "contest_code": "TI0408261154322",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TI0408261154322"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TI0408261154322",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -9449,7 +9605,7 @@
     },
     "uuid": "anapec:1154206",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154206/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(4) CHARGES DE CLIENTELE",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -9462,7 +9618,8 @@
     "contest_code": "TA0408261154206",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0408261154206"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0408261154206",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -9509,7 +9666,7 @@
     },
     "uuid": "anapec:1154162",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154162/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(200) Operateur De Production De L’industrie Automobile",
     "administration": "LEAR AUTOMOTIVE MOROCCO TAC",
     "contest_date": null,
@@ -9522,7 +9679,8 @@
     "contest_code": "TA0408261154162",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0408261154162"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0408261154162",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -9569,7 +9727,7 @@
     },
     "uuid": "anapec:1154274",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154274/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) -Agent De Vente",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -9582,7 +9740,8 @@
     "contest_code": "KH0408261154274",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KH0408261154274"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KH0408261154274",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -9629,7 +9788,7 @@
     },
     "uuid": "anapec:1154293",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154293/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(3) Enseignant Des écoles ( Maths - Francais - Arabe )",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -9642,7 +9801,8 @@
     "contest_code": "ER0408261154293",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ER0408261154293"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ER0408261154293",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -9689,7 +9849,7 @@
     },
     "uuid": "anapec:1154436",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154436/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(3) Conducteur D'engins",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -9702,7 +9862,8 @@
     "contest_code": "OU0408261154436",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0408261154436"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0408261154436",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -9749,7 +9910,7 @@
     },
     "uuid": "anapec:1154554",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154554/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Collaboratrice En Asurance",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -9762,7 +9923,8 @@
     "contest_code": "AG0408261154554",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0408261154554"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0408261154554",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -9809,7 +9971,7 @@
     },
     "uuid": "anapec:1154467",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154467/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(160) BOISEUR - MAÇONNERIE - FERRAILLEURS - OUVRIERS",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -9822,7 +9984,8 @@
     "contest_code": "OU0408261154467",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0408261154467"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0408261154467",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -9869,7 +10032,7 @@
     },
     "uuid": "anapec:1154548",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154548/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) ASSISTANTE MEDICALE DENTAIRE",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -9882,7 +10045,8 @@
     "contest_code": "AG0408261154548",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0408261154548"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0408261154548",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -9929,7 +10093,7 @@
     },
     "uuid": "anapec:1154530",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154530/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) AGENT D'ACCUEIL",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -9942,7 +10106,8 @@
     "contest_code": "AG0408261154530",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0408261154530"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0408261154530",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -9989,7 +10154,7 @@
     },
     "uuid": "anapec:1154434",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154434/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(30) TECHNICIEN EN ÉLECTRICITÉ",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -10002,7 +10167,8 @@
     "contest_code": "OU0408261154434",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0408261154434"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0408261154434",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -10049,7 +10215,7 @@
     },
     "uuid": "anapec:1154308",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154308/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Enseignant En Dévloppement Informatique",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -10062,7 +10228,8 @@
     "contest_code": "ER0408261154308",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ER0408261154308"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ER0408261154308",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -10109,7 +10276,7 @@
     },
     "uuid": "anapec:1154429",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154429/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Infirmier / Ambulancier",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -10122,7 +10289,8 @@
     "contest_code": "OU0408261154429",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0408261154429"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0408261154429",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -10169,7 +10337,7 @@
     },
     "uuid": "anapec:1154196",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154196/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(6) AGENT COMMARCIAUX",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -10182,7 +10350,8 @@
     "contest_code": "TA0408261154196",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0408261154196"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0408261154196",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -10229,7 +10398,7 @@
     },
     "uuid": "anapec:1154442",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154442/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Agent De Sécurité",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -10242,7 +10411,8 @@
     "contest_code": "OU0408261154442",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0408261154442"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0408261154442",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -10289,7 +10459,7 @@
     },
     "uuid": "anapec:1154531",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154531/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Chef De Chaîne",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -10302,7 +10472,8 @@
     "contest_code": "H.0408261154531",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=H.0408261154531"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=H.0408261154531",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -10358,7 +10529,7 @@
     },
     "uuid": "anapec:1154584",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154584/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(3) Pâtissier-Confiseur",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -10371,7 +10542,8 @@
     "contest_code": "MO0408261154584",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=MO0408261154584"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=MO0408261154584",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -10418,7 +10590,7 @@
     },
     "uuid": "anapec:1154097",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154097/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Infirmier (H)",
     "administration": "ANAPEC",
     "contest_date": "2026-08-17",
@@ -10431,7 +10603,8 @@
     "contest_code": "EL0408261154097",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0408261154097"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0408261154097",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -10478,7 +10651,7 @@
     },
     "uuid": "anapec:1154612",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154612/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(105) - Agent De Sécurité ( Salon Du Cheval ) - Niveau 4ème Et Plus - Taille: 1,80 Et Plus - 25 Ans A 48 Ans - Candidats Ville El Jadida / Azemmour",
     "administration": "ANAPEC",
     "contest_date": "2026-09-01",
@@ -10491,7 +10664,8 @@
     "contest_code": "EL0408261154612",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0408261154612"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0408261154612",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -10538,7 +10712,7 @@
     },
     "uuid": "anapec:1154448",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154448/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(10) Chef D'équipe / Chef Chantier",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -10551,7 +10725,8 @@
     "contest_code": "OU0408261154448",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0408261154448"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0408261154448",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -10598,7 +10773,7 @@
     },
     "uuid": "anapec:1154099",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154099/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(4) Femmes De Ménage",
     "administration": "ANAPEC",
     "contest_date": "2026-08-17",
@@ -10611,7 +10786,8 @@
     "contest_code": "EL0408261154099",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0408261154099"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL0408261154099",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -10658,7 +10834,7 @@
     },
     "uuid": "anapec:1154403",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154403/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) RESPONSABLE DE STATION",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -10671,7 +10847,8 @@
     "contest_code": "OU0408261154403",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0408261154403"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0408261154403",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -10718,7 +10895,7 @@
     },
     "uuid": "anapec:1154282",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154282/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(5) Chargé De La Clientèle",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -10731,7 +10908,8 @@
     "contest_code": "FE0408261154282",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=FE0408261154282"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=FE0408261154282",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -10778,7 +10956,7 @@
     },
     "uuid": "anapec:1154465",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1154465/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(10) Technicien D'hygiène Et De Sécurité",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -10791,7 +10969,8 @@
     "contest_code": "OU0408261154465",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0408261154465"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0408261154465",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -10838,7 +11017,7 @@
     },
     "uuid": "anapec:1153580",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153580/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Employé De Gestion Administrative",
     "administration": "ANAPEC",
     "contest_date": "2026-08-10",
@@ -10851,7 +11030,8 @@
     "contest_code": "ME0308261153580",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ME0308261153580"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=ME0308261153580",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -10898,7 +11078,7 @@
     },
     "uuid": "anapec:1153826",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153826/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) DESSINATEUR ARCHITECTURE ET URBANISME",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -10911,7 +11091,8 @@
     "contest_code": "AG0308261153826",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0308261153826"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0308261153826",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -10958,7 +11139,7 @@
     },
     "uuid": "anapec:1153688",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153688/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) VENDEUR POLYVALENT MAGASIN",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -10971,7 +11152,8 @@
     "contest_code": "H.0308261153688",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=H.0308261153688"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=H.0308261153688",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -11018,7 +11200,7 @@
     },
     "uuid": "anapec:1153643",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153643/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) PLOMBIER",
     "administration": "ECWP",
     "contest_date": "2026-08-10",
@@ -11031,7 +11213,8 @@
     "contest_code": "MI0308261153643",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=MI0308261153643"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=MI0308261153643",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -11078,7 +11261,7 @@
     },
     "uuid": "anapec:1153516",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153516/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(4) On Cherche Des Agents D'escal Qui Maitrise Le Fracais Et Anglais, Le Travail Sera à L'aeroport Et Nécessite Des Deplacements Frequents.",
     "administration": "ANAPEC",
     "contest_date": "2026-08-20",
@@ -11091,7 +11274,8 @@
     "contest_code": "AG0308261153516",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0308261153516"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0308261153516",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -11138,7 +11322,7 @@
     },
     "uuid": "anapec:1153765",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153765/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) VENDEUR DANS UNE AGENCE DE TELECOMMUNICATION",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -11151,7 +11335,8 @@
     "contest_code": "AG0308261153765",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0308261153765"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0308261153765",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -11198,7 +11383,7 @@
     },
     "uuid": "anapec:1153832",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153832/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(10) Technicien En Gestion D'Entreprises",
     "administration": "Société Régionale Multiservices Marrakech-Safi",
     "contest_date": null,
@@ -11211,7 +11396,8 @@
     "contest_code": "MA0308261153832",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=MA0308261153832"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=MA0308261153832",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -11258,7 +11444,7 @@
     },
     "uuid": "anapec:1153689",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153689/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Electromécanicien En Appareillage Haute Tension.",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -11271,7 +11457,8 @@
     "contest_code": "IN0308261153689",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=IN0308261153689"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=IN0308261153689",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -11318,7 +11505,7 @@
     },
     "uuid": "anapec:1153772",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153772/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Assistante Bureau (Fille)",
     "administration": "ANAPEC",
     "contest_date": "2026-08-10",
@@ -11331,7 +11518,8 @@
     "contest_code": "KE0308261153772",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE0308261153772"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE0308261153772",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -11378,7 +11566,7 @@
     },
     "uuid": "anapec:1153583",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153583/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) TECHNICIEN INSTALLATEUR MATERIEL DE LABORATOIRE",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -11391,7 +11579,8 @@
     "contest_code": "H.0308261153583",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=H.0308261153583"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=H.0308261153583",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -11438,7 +11627,7 @@
     },
     "uuid": "anapec:1153536",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153536/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Assistante Commerciale",
     "administration": "GROWMAX GROUP",
     "contest_date": null,
@@ -11451,7 +11640,8 @@
     "contest_code": "TA0308261153536",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0308261153536"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0308261153536",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -11498,7 +11688,7 @@
     },
     "uuid": "anapec:1153942",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153942/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) RESPONSABLE ACHAT",
     "administration": "ANAPEC",
     "contest_date": "2026-09-01",
@@ -11511,7 +11701,8 @@
     "contest_code": "Ag0308261153942",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=Ag0308261153942"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=Ag0308261153942",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -11558,7 +11749,7 @@
     },
     "uuid": "anapec:1153853",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153853/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(10) Opérateurs/opératrices Polyvalents",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -11571,7 +11762,8 @@
     "contest_code": "KE0308261153853",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE0308261153853"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE0308261153853",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -11618,7 +11810,7 @@
     },
     "uuid": "anapec:1153982",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153982/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) INFORMATICIEN TECHNICIEN RESEAU",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -11631,7 +11823,8 @@
     "contest_code": "AG0308261153982",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0308261153982"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0308261153982",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -11678,7 +11871,7 @@
     },
     "uuid": "anapec:1153587",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153587/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) ASSISTANTE DENTAIRE",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -11691,7 +11884,8 @@
     "contest_code": "AI0308261153587",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AI0308261153587"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AI0308261153587",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -11738,7 +11932,7 @@
     },
     "uuid": "anapec:1153520",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153520/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(100) Opérateurs/Opératrices De Production",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -11751,7 +11945,8 @@
     "contest_code": "TA0308261153520",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0308261153520"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA0308261153520",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -11798,7 +11993,7 @@
     },
     "uuid": "anapec:1153788",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153788/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(8) Acheteuses",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -11811,7 +12006,8 @@
     "contest_code": "KE0308261153788",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE0308261153788"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KE0308261153788",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -11858,7 +12054,7 @@
     },
     "uuid": "anapec:1153579",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153579/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Technicien De Maintenance",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -11871,7 +12067,8 @@
     "contest_code": "KH0308261153579",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KH0308261153579"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=KH0308261153579",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -11918,7 +12115,7 @@
     },
     "uuid": "anapec:1153973",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153973/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) TECHNICIEN ELECTRICIEN",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -11931,7 +12128,8 @@
     "contest_code": "AG0308261153973",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0308261153973"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=AG0308261153973",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -11978,7 +12176,7 @@
     },
     "uuid": "anapec:1153834",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153834/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(15) Agent D'escale",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -11991,7 +12189,8 @@
     "contest_code": "IN0308261153834",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=IN0308261153834"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=IN0308261153834",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -12038,7 +12237,7 @@
     },
     "uuid": "anapec:1153565",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153565/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Aide Pharmacien",
     "administration": "ANAPEC",
     "contest_date": "2026-08-11",
@@ -12051,7 +12250,8 @@
     "contest_code": "SE0308261153565",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SE0308261153565"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SE0308261153565",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -12098,7 +12298,7 @@
     },
     "uuid": "anapec:1153425",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153425/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Recherche Un Gérant",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -12111,7 +12311,8 @@
     "contest_code": "OU0108261153425",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0108261153425"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0108261153425",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -12158,7 +12359,7 @@
     },
     "uuid": "anapec:1153426",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153426/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) 1 Chef De Cuisine 1 Commis De Cuisine",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -12171,7 +12372,8 @@
     "contest_code": "OU0108261153426",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0108261153426"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0108261153426",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -12218,7 +12420,7 @@
     },
     "uuid": "anapec:1153139",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153139/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) VENDEUR / VENDEUSE.",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -12231,7 +12433,8 @@
     "contest_code": "TA3107261153139",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA3107261153139"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA3107261153139",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -12278,7 +12481,7 @@
     },
     "uuid": "anapec:1153427",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153427/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(4) Serveurs",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -12291,7 +12494,8 @@
     "contest_code": "OU0108261153427",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0108261153427"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=OU0108261153427",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -12338,7 +12542,7 @@
     },
     "uuid": "anapec:1153091",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153091/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(26) MAITRE NAGEUR SAUVETEUR",
     "administration": "ANAPEC",
     "contest_date": "2025-06-02",
@@ -12351,7 +12555,8 @@
     "contest_code": "MD3107261153091",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=MD3107261153091"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=MD3107261153091",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -12398,7 +12603,7 @@
     },
     "uuid": "anapec:1153184",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153184/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) AIDE COMPTABLE",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -12411,7 +12616,8 @@
     "contest_code": "MO3107261153184",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=MO3107261153184"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=MO3107261153184",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -12458,7 +12664,7 @@
     },
     "uuid": "anapec:1153357",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153357/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) OUVRIER",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -12471,7 +12677,8 @@
     "contest_code": "LA3107261153357",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=LA3107261153357"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=LA3107261153357",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -12518,7 +12725,7 @@
     },
     "uuid": "anapec:1153356",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153356/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) FEMME DE MENAGE",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -12531,7 +12738,8 @@
     "contest_code": "LA3107261153356",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=LA3107261153356"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=LA3107261153356",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -12578,7 +12786,7 @@
     },
     "uuid": "anapec:1153269",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153269/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Assistante Comptable",
     "administration": "ANAPEC",
     "contest_date": "2026-08-10",
@@ -12591,7 +12799,8 @@
     "contest_code": "NO3107261153269",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=NO3107261153269"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=NO3107261153269",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -12638,7 +12847,7 @@
     },
     "uuid": "anapec:1153302",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153302/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Tôliers Voiture",
     "administration": "ANAPEC",
     "contest_date": "2026-08-10",
@@ -12651,7 +12860,8 @@
     "contest_code": "EL3107261153302",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL3107261153302"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL3107261153302",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -12698,7 +12908,7 @@
     },
     "uuid": "anapec:1152951",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1152951/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(20) Marjane Market Recrute Des Employés Polyvalents",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -12711,7 +12921,8 @@
     "contest_code": "TI3107261152951",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TI3107261152951"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TI3107261152951",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -12758,7 +12969,7 @@
     },
     "uuid": "anapec:1153116",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153116/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Commercial/Commerciale",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -12771,7 +12982,8 @@
     "contest_code": "TA3107261153116",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA3107261153116"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA3107261153116",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -12818,7 +13030,7 @@
     },
     "uuid": "anapec:1153042",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153042/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) COMMERCIAL",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -12831,7 +13043,8 @@
     "contest_code": "TA3107261153042",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA3107261153042"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=TA3107261153042",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -12878,7 +13091,7 @@
     },
     "uuid": "anapec:1153349",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153349/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(200) Chauffeur De Transport Scolaire",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -12891,7 +13104,8 @@
     "contest_code": "FK3107261153349",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=FK3107261153349"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=FK3107261153349",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -12938,7 +13152,7 @@
     },
     "uuid": "anapec:1153296",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153296/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Mécaniciens Automobile",
     "administration": "ANAPEC",
     "contest_date": "2026-08-10",
@@ -12951,7 +13165,8 @@
     "contest_code": "EL3107261153296",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL3107261153296"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL3107261153296",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -12998,7 +13213,7 @@
     },
     "uuid": "anapec:1153240",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153240/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Agent D'encadrement Des Industries Graphiques",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -13011,7 +13226,8 @@
     "contest_code": "IN3107261153240",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=IN3107261153240"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=IN3107261153240",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -13058,7 +13274,7 @@
     },
     "uuid": "anapec:1153295",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153295/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Soudeurs",
     "administration": "ANAPEC",
     "contest_date": "2026-08-10",
@@ -13071,7 +13287,8 @@
     "contest_code": "EL3107261153295",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL3107261153295"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL3107261153295",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -13118,7 +13335,7 @@
     },
     "uuid": "anapec:1153271",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153271/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Comptable Minimum 2 Ans D'expériences",
     "administration": "ANAPEC",
     "contest_date": "2026-08-10",
@@ -13131,7 +13348,8 @@
     "contest_code": "NO3107261153271",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=NO3107261153271"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=NO3107261153271",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -13178,7 +13396,7 @@
     },
     "uuid": "anapec:1153187",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153187/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(3) ENSEIGNANT FRANCAIS",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -13191,7 +13409,8 @@
     "contest_code": "SI3107261153187",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SI3107261153187"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=SI3107261153187",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -13238,7 +13457,7 @@
     },
     "uuid": "anapec:1153299",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153299/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(1) Tourneur",
     "administration": "ANAPEC",
     "contest_date": "2026-08-10",
@@ -13251,7 +13470,8 @@
     "contest_code": "EL3107261153299",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL3107261153299"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=EL3107261153299",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -13298,7 +13518,7 @@
     },
     "uuid": "anapec:1152983",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1152983/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(250) Ouvrier(ère) Agricole Polyvalent(e)",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -13311,7 +13531,8 @@
     "contest_code": "CH3107261152983",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=CH3107261152983"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=CH3107261152983",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -13358,7 +13579,7 @@
     },
     "uuid": "anapec:1152705",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1152705/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(15) Opératrice De Câblage Aéronautique",
     "administration": "ANAPEC",
     "contest_date": "2026-08-03",
@@ -13371,7 +13592,8 @@
     "contest_code": "Ag3007261152705",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=Ag3007261152705"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=Ag3007261152705",
+    "employment_sector": "private"
   },
   {
     "source": "anapec",
@@ -13418,7 +13640,7 @@
     },
     "uuid": "anapec:1153050",
     "url": "https://www.anapec.org/sigec-app-rv/fr/entreprises/bloc_offre_home/1153050/resultat_recherche",
-    "scope": "public",
+    "scope": "private",
     "listing_title": "(2) Contrôleur Terrain",
     "administration": "ANAPEC",
     "contest_date": null,
@@ -13431,6 +13653,7 @@
     "contest_code": "FK3107261153050",
     "application_notice_url": "",
     "opening_order_url": "",
-    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=FK3107261153050"
+    "application_url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/postulation?ref=FK3107261153050",
+    "employment_sector": "private"
   }
 ]
