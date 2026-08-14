@@ -10,11 +10,11 @@ REPO = Path(__file__).resolve().parents[1]
 raise SystemExit(
     subprocess.call([
         sys.executable,
-        str(REPO / "maintenance" / "refresh.py"),
+        str(REPO / "maintenance" / "public_refresh.py"),
         "--mode",
         "auto",
         "--runtime-dir",
-        "runtime/emploi_public",
+        "runtime/public/aggregate",
         "--min-coverage",
         "90",
     ], cwd=REPO)

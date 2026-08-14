@@ -1,0 +1,195 @@
+{
+  "source": "anapec",
+  "generated_at": "2026-08-14T20:19:11.143040+01:00",
+  "native_truststore": true,
+  "tls_policy": "explicit_truststore_sslcontext_cert_required",
+  "discovery_scope": "newest_first_until_15_day_freshness_frontier",
+  "policy": {
+    "max_job_age_days": 15,
+    "deadline_required": false,
+    "publication_date_required": true,
+    "fabricate_deadline": false,
+    "stale_guard_pages": 3,
+    "pagination_policy": "follow_source_advertised_links_only"
+  },
+  "discovered_count": 269,
+  "parsed_count": 269,
+  "visible_count": 223,
+  "rejected_count": 46,
+  "detail_failure_count": 0,
+  "pages_fetched": 18,
+  "termination_reason": "freshness_frontier",
+  "date_order_ok": true,
+  "freshness_frontier_confirmed": true,
+  "page_summaries": [
+    {
+      "page": 1,
+      "url": "https://www.anapec.org/sigec-app-rv/fr/chercheurs/resultat_recherche/tout:all",
+      "offer_count": 15,
+      "publication_date_max": "2026-08-13",
+      "publication_date_min": "2026-08-13",
+      "all_older_than_cutoff": false,
+      "stale_guard_streak": 0
+    },
+    {
+      "page": 2,
+      "url": "https://www.anapec.org/sigec-app-rv/chercheurs/resultat_recherche/page:2/tout:all/language:fr",
+      "offer_count": 15,
+      "publication_date_max": "2026-08-13",
+      "publication_date_min": "2026-08-12",
+      "all_older_than_cutoff": false,
+      "stale_guard_streak": 0
+    },
+    {
+      "page": 3,
+      "url": "https://www.anapec.org/sigec-app-rv/chercheurs/resultat_recherche/page:3/tout:all/language:fr",
+      "offer_count": 15,
+      "publication_date_max": "2026-08-12",
+      "publication_date_min": "2026-08-12",
+      "all_older_than_cutoff": false,
+      "stale_guard_streak": 0
+    },
+    {
+      "page": 4,
+      "url": "https://www.anapec.org/sigec-app-rv/chercheurs/resultat_recherche/page:4/tout:all/language:fr",
+      "offer_count": 15,
+      "publication_date_max": "2026-08-12",
+      "publication_date_min": "2026-08-11",
+      "all_older_than_cutoff": false,
+      "stale_guard_streak": 0
+    },
+    {
+      "page": 5,
+      "url": "https://www.anapec.org/sigec-app-rv/chercheurs/resultat_recherche/page:5/tout:all/language:fr",
+      "offer_count": 15,
+      "publication_date_max": "2026-08-11",
+      "publication_date_min": "2026-08-10",
+      "all_older_than_cutoff": false,
+      "stale_guard_streak": 0
+    },
+    {
+      "page": 6,
+      "url": "https://www.anapec.org/sigec-app-rv/chercheurs/resultat_recherche/page:6/tout:all/language:fr",
+      "offer_count": 15,
+      "publication_date_max": "2026-08-10",
+      "publication_date_min": "2026-08-07",
+      "all_older_than_cutoff": false,
+      "stale_guard_streak": 0
+    },
+    {
+      "page": 7,
+      "url": "https://www.anapec.org/sigec-app-rv/chercheurs/resultat_recherche/page:7/tout:all/language:fr",
+      "offer_count": 15,
+      "publication_date_max": "2026-08-07",
+      "publication_date_min": "2026-08-07",
+      "all_older_than_cutoff": false,
+      "stale_guard_streak": 0
+    },
+    {
+      "page": 8,
+      "url": "https://www.anapec.org/sigec-app-rv/chercheurs/resultat_recherche/page:8/tout:all/language:fr",
+      "offer_count": 14,
+      "publication_date_max": "2026-08-07",
+      "publication_date_min": "2026-08-06",
+      "all_older_than_cutoff": false,
+      "stale_guard_streak": 0
+    },
+    {
+      "page": 9,
+      "url": "https://www.anapec.org/sigec-app-rv/chercheurs/resultat_recherche/page:9/tout:all/language:fr",
+      "offer_count": 15,
+      "publication_date_max": "2026-08-06",
+      "publication_date_min": "2026-08-06",
+      "all_older_than_cutoff": false,
+      "stale_guard_streak": 0
+    },
+    {
+      "page": 10,
+      "url": "https://www.anapec.org/sigec-app-rv/chercheurs/resultat_recherche/page:10/tout:all/language:fr",
+      "offer_count": 15,
+      "publication_date_max": "2026-08-06",
+      "publication_date_min": "2026-08-05",
+      "all_older_than_cutoff": false,
+      "stale_guard_streak": 0
+    },
+    {
+      "page": 11,
+      "url": "https://www.anapec.org/sigec-app-rv/chercheurs/resultat_recherche/page:11/tout:all/language:fr",
+      "offer_count": 15,
+      "publication_date_max": "2026-08-05",
+      "publication_date_min": "2026-08-04",
+      "all_older_than_cutoff": false,
+      "stale_guard_streak": 0
+    },
+    {
+      "page": 12,
+      "url": "https://www.anapec.org/sigec-app-rv/chercheurs/resultat_recherche/page:12/tout:all/language:fr",
+      "offer_count": 15,
+      "publication_date_max": "2026-08-04",
+      "publication_date_min": "2026-08-04",
+      "all_older_than_cutoff": false,
+      "stale_guard_streak": 0
+    },
+    {
+      "page": 13,
+      "url": "https://www.anapec.org/sigec-app-rv/chercheurs/resultat_recherche/page:13/tout:all/language:fr",
+      "offer_count": 15,
+      "publication_date_max": "2026-08-03",
+      "publication_date_min": "2026-08-03",
+      "all_older_than_cutoff": false,
+      "stale_guard_streak": 0
+    },
+    {
+      "page": 14,
+      "url": "https://www.anapec.org/sigec-app-rv/chercheurs/resultat_recherche/page:14/tout:all/language:fr",
+      "offer_count": 15,
+      "publication_date_max": "2026-08-03",
+      "publication_date_min": "2026-07-31",
+      "all_older_than_cutoff": false,
+      "stale_guard_streak": 0
+    },
+    {
+      "page": 15,
+      "url": "https://www.anapec.org/sigec-app-rv/chercheurs/resultat_recherche/page:15/tout:all/language:fr",
+      "offer_count": 15,
+      "publication_date_max": "2026-07-31",
+      "publication_date_min": "2026-07-29",
+      "all_older_than_cutoff": false,
+      "stale_guard_streak": 0
+    },
+    {
+      "page": 16,
+      "url": "https://www.anapec.org/sigec-app-rv/chercheurs/resultat_recherche/page:16/tout:all/language:fr",
+      "offer_count": 15,
+      "publication_date_max": "2026-07-29",
+      "publication_date_min": "2026-07-28",
+      "all_older_than_cutoff": true,
+      "stale_guard_streak": 1
+    },
+    {
+      "page": 17,
+      "url": "https://www.anapec.org/sigec-app-rv/chercheurs/resultat_recherche/page:17/tout:all/language:fr",
+      "offer_count": 15,
+      "publication_date_max": "2026-07-28",
+      "publication_date_min": "2026-07-28",
+      "all_older_than_cutoff": true,
+      "stale_guard_streak": 2
+    },
+    {
+      "page": 18,
+      "url": "https://www.anapec.org/sigec-app-rv/chercheurs/resultat_recherche/page:18/tout:all/language:fr",
+      "offer_count": 15,
+      "publication_date_max": "2026-07-28",
+      "publication_date_min": "2026-07-27",
+      "all_older_than_cutoff": true,
+      "stale_guard_streak": 3
+    }
+  ],
+  "checks": {
+    "identity_unique": true,
+    "all_scanned_details_parsed": true,
+    "publication_date_order_verified": true,
+    "fresh_15_day_window_complete": true
+  },
+  "gate": "PASS"
+}

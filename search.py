@@ -88,21 +88,36 @@ def _local_datetime(iso_value: object) -> datetime:
 
 
 def is_job_visible_now(job: dict, now: datetime | None = None) -> bool:
-    # Final runtime safety gate: never show stale or expired jobs.
+    # Final runtime safety gate. Visibility policy is source-specific:
+    # Emploi-Public requires an open deadline; ANAPEC publishes no deadline.
     now = now or datetime.now(TZ)
+    if now.tzinfo is None:
+        now = now.replace(tzinfo=TZ)
+    else:
+        now = now.astimezone(TZ)
     publication = job.get("publication_date")
-    deadline = job.get("deadline")
-    if not publication or not deadline:
+    if not publication:
         return False
 
     try:
         pub = _local_datetime(publication)
-        end = _local_datetime(deadline)
     except (TypeError, ValueError):
         return False
 
     age_days = (now.date() - pub.date()).days
     if age_days < 0 or age_days > MAX_JOB_AGE_DAYS:
+        return False
+
+    source = str(job.get("source") or "emploi-public").strip().casefold()
+    if source == "anapec":
+        return True
+
+    deadline = job.get("deadline")
+    if not deadline:
+        return False
+    try:
+        end = _local_datetime(deadline)
+    except (TypeError, ValueError):
         return False
     return end >= now
 
@@ -122,9 +137,12 @@ def rank_job(job: dict, profession_id: str, now: datetime | None = None) -> tupl
     match_component = float(match.get("score") or 0) * 0.82
     age = _days_since(str(job.get("publication_date") or ""), now)
     freshness_component = max(10.0 - min(age, 15) * (10.0 / 15.0), 0.0)
-    days_left = _days_until(str(job.get("deadline") or ""), now)
-    deadline_component = min(days_left, 10) * 0.3
-    source_component = 5.0  # verified official source
+    if job.get("deadline"):
+        days_left = _days_until(str(job.get("deadline") or ""), now)
+        deadline_component = min(days_left, 10) * 0.3
+    else:
+        deadline_component = 0.0
+    source_component = 5.0  # both public sources are verified official sources
     final = min(match_component + freshness_component + deadline_component + source_component, 100.0)
     return round(final, 2), match
 
@@ -153,12 +171,23 @@ def search_by_profession(
                 "source_title": source_title,
                 "search_title": search_title,
                 "matched_profession_label": (match or {}).get("label"),
+                "source": job.get("source") or "emploi-public",
+                "source_label": job.get("source_label") or "Emploi-Public.ma",
+                "global_id": job.get("global_id") or job.get("uuid"),
                 "application_type": job.get("application_type") or "",
                 "application_site": job.get("application_site") or "",
+                "application_url": job.get("application_url") or job.get("application_site") or "",
                 "application_notice_url": job.get("application_notice_url") or "",
                 "opening_order_url": job.get("opening_order_url") or "",
                 "specialties": list(job.get("specialties") or []),
                 "administration": job.get("administration"),
+                "company": job.get("company"),
+                "location": job.get("location"),
+                "work_location_text": job.get("work_location_text"),
+                "location_relation": job.get("location_relation"),
+                "contract_type": job.get("contract_type") or job.get("recruitment_type"),
+                "contract_options": list(job.get("contract_options") or []),
+                "salary": job.get("salary"),
                 "publication_date": job.get("publication_date"),
                 "deadline": job.get("deadline"),
                 "positions": job.get("positions"),

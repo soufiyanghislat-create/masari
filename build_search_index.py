@@ -21,11 +21,11 @@ def _display_title(job: dict) -> str:
         return " / ".join(specialties[:3])
     if job.get("grade"):
         return str(job["grade"])
-    return str(job.get("listing_title") or "Offre Emploi-Public")
+    return str(job.get("listing_title") or "Offre publique")
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description="Build deterministic Masari search index from verified Emploi-Public jobs")
+    ap = argparse.ArgumentParser(description="Build deterministic Masari search index from verified public jobs")
     ap.add_argument("--input", default="output/jobs.json")
     ap.add_argument("--output", default="output")
     ap.add_argument(
@@ -107,15 +107,21 @@ def main() -> int:
     position_coverage = round(classified_positions / total_positions * 100, 2) if total_positions else 100.0
     gate = classifiability["gate"]
 
+    source_counts: dict[str, int] = {}
+    for job in indexed:
+        source = str(job.get("source") or "emploi-public")
+        source_counts[source] = source_counts.get(source, 0) + 1
+
     index_payload = {
-        "version": 2,
+        "version": 3,
         "generated_at": datetime.now(TZ).isoformat(),
-        "source": "emploi-public.ma",
+        "source": "public",
+        "sources": dict(sorted(source_counts.items())),
         "classification_policy": "precision_v1.2_exact_strong_only",
         "jobs": indexed,
     }
     taxonomy_audit = {
-        "source": "emploi-public.ma",
+        "source": "public",
         "generated_at": datetime.now(TZ).isoformat(),
         "jobs": len(indexed),
         "classified_jobs": classified,

@@ -1,0 +1,13 @@
+{
+  "source": "anapec",
+  "version": "v12",
+  "published_at": "2026-08-14T20:58:46.186578+01:00",
+  "jobs": 223,
+  "source_gate": "PASS",
+  "quality_gate": "PASS",
+  "ground_truth_gate": "PASS",
+  "ground_truth_matched": 223,
+  "ground_truth_mismatches": 0,
+  "imported_verified_snapshot": true,
+  "bootstrap_release": true
+}

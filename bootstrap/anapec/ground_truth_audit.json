@@ -1,0 +1,12 @@
+{
+  "source": "anapec",
+  "audit": "independent_ground_truth",
+  "generated_at": "2026-08-14T20:19:48.248787+01:00",
+  "job_count": 223,
+  "matched_count": 223,
+  "mismatch_count": 0,
+  "fetch_failure_count": 0,
+  "mismatch_fields": {},
+  "gate": "PASS",
+  "failures": []
+}

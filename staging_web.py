@@ -15,9 +15,16 @@ from zoneinfo import ZoneInfo
 
 import uvicorn
 from fastapi import FastAPI, HTTPException, Query
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, Response
 
 from search import resolve_profession_query, search_by_profession
+from literal_search import (
+    LITERAL_PREFIX,
+    literal_profession_suggestions,
+    merge_profession_suggestions,
+    resolve_literal_profession,
+    search_literal_profession,
+)
 from taxonomy_engine import Taxonomy
 
 TZ = ZoneInfo("Africa/Casablanca")
@@ -65,9 +72,9 @@ def runtime_dir() -> Path:
     # is required or expected for the current hosting-only staging setup.
     railway_volume = os.getenv("RAILWAY_VOLUME_MOUNT_PATH", "").strip()
     if railway_volume:
-        return Path(railway_volume) / "emploi_public"
+        return Path(railway_volume) / "public" / "aggregate"
 
-    return REPO / "runtime" / "emploi_public"
+    return REPO / "runtime" / "public" / "aggregate"
 
 
 def current_index_path() -> Path:
@@ -185,7 +192,7 @@ def run_refresh(mode: str) -> bool:
 
     cmd = [
         sys.executable,
-        str(REPO / "maintenance" / "refresh.py"),
+        str(REPO / "maintenance" / "public_refresh.py"),
         "--mode",
         mode,
         "--runtime-dir",
@@ -297,6 +304,22 @@ def home() -> HTMLResponse:
     )
 
 
+@app.get("/service-worker.js", include_in_schema=False)
+def service_worker_cleanup() -> Response:
+    body = (
+        "self.addEventListener('install',()=>self.skipWaiting());\n"
+        "self.addEventListener('activate',event=>event.waitUntil(self.registration.unregister()));\n"
+    )
+    return Response(
+        content=body,
+        media_type="application/javascript",
+        headers={
+            "Cache-Control": "no-store, max-age=0",
+            "Service-Worker-Allowed": "/",
+        },
+    )
+
+
 @app.get("/healthz")
 def healthz() -> dict[str, Any]:
     path, source = active_index_path()
@@ -333,8 +356,16 @@ def api_meta() -> dict[str, Any]:
 def api_suggest(
     q: str = Query(min_length=2, max_length=120),
 ) -> dict[str, Any]:
+    query = q.strip()
+    canonical = taxonomy.autocomplete(query, limit=8)
+    literal = []
+    try:
+        index, _source = load_index()
+        literal = literal_profession_suggestions(index, query, limit=8)
+    except Exception:
+        literal = []
     return {
-        "suggestions": taxonomy.autocomplete(q.strip(), limit=8),
+        "suggestions": merge_profession_suggestions(canonical, literal, limit=8),
     }
 
 
@@ -354,29 +385,62 @@ def api_search(
         raise HTTPException(status_code=503, detail="Search index unavailable.")
 
     query = q.strip()
-    profession_id, suggestions = resolve_profession_query(taxonomy, query)
 
-    if profession_id is None:
+    if query.startswith(LITERAL_PREFIX):
+        literal = resolve_literal_profession(index, query)
+        if literal is not None:
+            results = search_literal_profession(index, literal["profession_id"], limit=limit)
+            return {
+                "selection_required": False,
+                "index_source": index_source,
+                "profession": {
+                    "profession_id": literal["profession_id"],
+                    "label": literal["label"],
+                    "sector": literal.get("sector") or "ANAPEC",
+                    "family": literal.get("family") or "",
+                },
+                "count": len(results),
+                "results": results,
+            }
+
+    profession_id, suggestions = resolve_profession_query(taxonomy, query)
+    if profession_id is not None:
+        p = taxonomy.profession(profession_id)
+        results = search_by_profession(index, profession_id, limit)
         return {
-            "selection_required": True,
-            "suggestions": suggestions,
+            "selection_required": False,
             "index_source": index_source,
+            "profession": {
+                "profession_id": profession_id,
+                "label": getattr(p, "label", profession_id),
+                "sector": getattr(p, "sector", ""),
+                "family": getattr(p, "family", ""),
+            },
+            "count": len(results),
+            "results": results,
         }
 
-    p = taxonomy.profession(profession_id)
-    results = search_by_profession(index, profession_id, limit)
+    literal = resolve_literal_profession(index, query)
+    if literal is not None:
+        results = search_literal_profession(index, literal["profession_id"], limit=limit)
+        return {
+            "selection_required": False,
+            "index_source": index_source,
+            "profession": {
+                "profession_id": literal["profession_id"],
+                "label": literal["label"],
+                "sector": literal.get("sector") or "ANAPEC",
+                "family": literal.get("family") or "",
+            },
+            "count": len(results),
+            "results": results,
+        }
 
+    literal_suggestions = literal_profession_suggestions(index, query, limit=8)
     return {
-        "selection_required": False,
+        "selection_required": True,
+        "suggestions": merge_profession_suggestions(suggestions, literal_suggestions, limit=8),
         "index_source": index_source,
-        "profession": {
-            "profession_id": profession_id,
-            "label": getattr(p, "label", profession_id),
-            "sector": getattr(p, "sector", ""),
-            "family": getattr(p, "family", ""),
-        },
-        "count": len(results),
-        "results": results,
     }
 
 

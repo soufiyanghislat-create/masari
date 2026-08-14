@@ -1113,6 +1113,81 @@ const PROFESSIONS={
     "fr": "Responsable d'exploitation de gare routière",
     "ar": "مسؤول استغلال محطة طرقية",
     "en": "Bus Station Operations Manager"
+  },
+  "btp.chef_chantier": {
+    "fr": "Chef de chantier",
+    "ar": "رئيس ورش",
+    "en": "Construction Site Supervisor"
+  },
+  "btp.plombier": {
+    "fr": "Plombier / Tuyauteur",
+    "ar": "سباك / مركب أنابيب",
+    "en": "Plumber / Pipefitter"
+  },
+  "hcp.0154": {
+    "fr": "Attaché commercial",
+    "ar": "ملحق تجاري",
+    "en": "Commercial Attaché"
+  },
+  "health.kinesitherapeute": {
+    "fr": "Kinésithérapeute",
+    "ar": "أخصائي علاج طبيعي",
+    "en": "Physiotherapist"
+  },
+  "health.preparateur_pharmacie": {
+    "fr": "Préparateur en pharmacie",
+    "ar": "محضر صيدلي",
+    "en": "Pharmacy Technician"
+  },
+  "health.technicien_labo": {
+    "fr": "Technicien de laboratoire",
+    "ar": "تقني مختبر",
+    "en": "Laboratory Technician"
+  },
+  "hotel.chef_cuisinier": {
+    "fr": "Chef cuisinier",
+    "ar": "رئيس الطهاة",
+    "en": "Head Chef"
+  },
+  "hotel.cuisinier": {
+    "fr": "Cuisinier",
+    "ar": "طباخ",
+    "en": "Cook"
+  },
+  "hotel.serveur": {
+    "fr": "Serveur",
+    "ar": "نادل",
+    "en": "Waiter / Waitress"
+  },
+  "legal.conseiller_juridique": {
+    "fr": "Conseiller juridique",
+    "ar": "مستشار قانوني",
+    "en": "Legal Counsel"
+  },
+  "sales.accueil": {
+    "fr": "Agent d'accueil",
+    "ar": "موظف استقبال",
+    "en": "Reception Agent"
+  },
+  "sales.vendeur": {
+    "fr": "Vendeur / Vendeuse",
+    "ar": "بائع / بائعة",
+    "en": "Salesperson"
+  },
+  "security.agent_securite": {
+    "fr": "Agent de sécurité",
+    "ar": "حارس أمن",
+    "en": "Security Guard"
+  },
+  "transport.cariste": {
+    "fr": "Cariste",
+    "ar": "سائق رافعة شوكية",
+    "en": "Forklift Operator"
+  },
+  "transport.conducteur_engins": {
+    "fr": "Conducteur d'engins",
+    "ar": "سائق آليات",
+    "en": "Heavy Equipment Operator"
   }
 };
 
@@ -1210,7 +1285,8 @@ function normalize(v){
 function professionLabel(id,fallback=''){
   const item=PROFESSIONS[id];
   if(item && item[currentLang]) return item[currentLang];
-  if(currentLang==='fr') return fallback || UI.fr.profession;
+  if(fallback) return fallback;
+  if(currentLang==='fr') return UI.fr.profession;
   return lastQuery || UI[currentLang].profession;
 }
 
@@ -1296,13 +1372,15 @@ async function backendSuggestions(query){
 function localizedSuggestionRow(x){
   const id=x.profession_id;
   const mapped=PROFESSIONS[id];
-  if(currentLang!=='fr' && !mapped) return null;
+  const literal=x.source==='anapec_literal';
+  if(currentLang!=='fr' && !mapped && !literal) return null;
   return {
     profession_id:id,
     label:professionLabel(id,x.label),
-    sector:taxonomyText(x.sector),
-    family:taxonomyText(x.family),
-    score:x.score||0
+    sector:literal?(x.sector||'ANAPEC'):taxonomyText(x.sector),
+    family:literal?(x.family||''):taxonomyText(x.family),
+    score:x.score||0,
+    source:x.source||''
   };
 }
 
@@ -1445,7 +1523,7 @@ function results(d){
         return `<article class="card">
           <div class="title">${esc(label)}</div>
           <div class="admin"><span>${esc(UI[currentLang].employer)}:</span> <span lang="fr" dir="ltr">${esc(j.administration||'—')}</span></div>
-          <div class="sourcebadge">Emploi-Public.ma</div>
+          <div class="sourcebadge">${esc(j.source_label||'Emploi-Public.ma')}</div>
           ${multi?`<div class="tags"><span class="tag match">${esc(UI[currentLang].match)}: ${esc(label)}</span></div>`:''}
           <div class="info">
             <div><span>${esc(posLabel)}</span>${esc(j.positions??'—')}</div>

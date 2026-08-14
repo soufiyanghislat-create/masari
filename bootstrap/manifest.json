@@ -1,7 +1,21 @@
 {
-  "mode": "bootstrap",
-  "prepared_at": "2026-08-13T19:54:37.791017+01:00",
+  "mode": "bootstrap-public-v3",
+  "prepared_at": "2026-08-14T21:38:50.011959+01:00",
   "timezone": "Africa/Casablanca",
-  "jobs": 202,
-  "note": "Verified staging bootstrap; runtime refresh replaces it when available."
+  "jobs": 409,
+  "source_counts": {
+    "anapec": 223,
+    "emploi-public": 186
+  },
+  "sources": {
+    "anapec": {
+      "snapshot_jobs": 223,
+      "ground_truth_gate": "PASS"
+    },
+    "emploi-public": {
+      "snapshot_jobs": 186
+    }
+  },
+  "gate": "PASS",
+  "note": "Verified public bootstrap: Emploi-Public + ANAPEC v12; runtime refresh replaces it when available."
 }

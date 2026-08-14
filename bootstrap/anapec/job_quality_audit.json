@@ -1,0 +1,156 @@
+{
+  "source": "anapec",
+  "generated_at": "2026-08-14T20:19:11.448371+01:00",
+  "job_count": 223,
+  "checks": {
+    "nonempty": true,
+    "no_duplicate_identity": true,
+    "required_fields_complete": true,
+    "no_mojibake": true,
+    "company_semantics_clean": true,
+    "salary_semantics_clean": true,
+    "normalized_fields_free_of_labels": true,
+    "location_metadata_consistent": true,
+    "title_positions_normalized": true,
+    "contract_semantics_consistent": true,
+    "reference_identity_consistent": true,
+    "publication_window_valid": true,
+    "official_application_consistent": true
+  },
+  "problem_counts": {},
+  "duplicate_values": {
+    "source_offer_id": [],
+    "source_reference": [],
+    "global_id": [],
+    "source_url": []
+  },
+  "semantic_duplicate_review_groups": [],
+  "field_completeness": {
+    "company": {
+      "present": 12,
+      "missing": 211,
+      "percent": 5.38
+    },
+    "employer_source_label": {
+      "present": 5,
+      "missing": 218,
+      "percent": 2.24
+    },
+    "company_description": {
+      "present": 37,
+      "missing": 186,
+      "percent": 16.59
+    },
+    "agency": {
+      "present": 219,
+      "missing": 4,
+      "percent": 98.21
+    },
+    "start_date": {
+      "present": 60,
+      "missing": 163,
+      "percent": 26.91
+    },
+    "contract_type": {
+      "present": 223,
+      "missing": 0,
+      "percent": 100.0
+    },
+    "contract_options": {
+      "present": 6,
+      "missing": 217,
+      "percent": 2.69
+    },
+    "source_contract_text": {
+      "present": 223,
+      "missing": 0,
+      "percent": 100.0
+    },
+    "salary": {
+      "present": 30,
+      "missing": 193,
+      "percent": 13.45
+    },
+    "source_salary_text": {
+      "present": 30,
+      "missing": 193,
+      "percent": 13.45
+    },
+    "sector": {
+      "present": 223,
+      "missing": 0,
+      "percent": 100.0
+    },
+    "description": {
+      "present": 87,
+      "missing": 136,
+      "percent": 39.01
+    },
+    "profile": {
+      "present": 2,
+      "missing": 221,
+      "percent": 0.9
+    },
+    "education": {
+      "present": 190,
+      "missing": 33,
+      "percent": 85.2
+    },
+    "experience": {
+      "present": 91,
+      "missing": 132,
+      "percent": 40.81
+    },
+    "languages": {
+      "present": 152,
+      "missing": 71,
+      "percent": 68.16
+    },
+    "comment": {
+      "present": 51,
+      "missing": 172,
+      "percent": 22.87
+    },
+    "source_location": {
+      "present": 223,
+      "missing": 0,
+      "percent": 100.0
+    },
+    "work_location_text": {
+      "present": 18,
+      "missing": 205,
+      "percent": 8.07
+    },
+    "location_relation": {
+      "present": 223,
+      "missing": 0,
+      "percent": 100.0
+    }
+  },
+  "summary": {
+    "positions_total": 3924,
+    "company_name_count": 12,
+    "company_description_count": 37,
+    "salary_count": 30,
+    "multiple_contract_job_count": 6,
+    "semantic_duplicate_review_group_count": 0,
+    "location_variation_count": 18,
+    "different_source_location_count": 14,
+    "related_location_detail_count": 3,
+    "multi_location_job_count": 1,
+    "location_relation_distribution": {
+      "different_source_location": 14,
+      "multi_location": 1,
+      "primary_only": 205,
+      "related_detail": 3
+    },
+    "contract_distribution": {
+      "CDD": 74,
+      "CDI": 31,
+      "CI": 112,
+      "MULTIPLE": 6
+    }
+  },
+  "problems": [],
+  "gate": "PASS"
+}
