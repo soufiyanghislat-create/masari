@@ -661,7 +661,6 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{
   <header class="top">
     <div class="brand">
       <div class="logo">Masari</div>
-      <div class="badge" id="stagingBadge"></div>
       <div class="tagline" id="tagline"></div>
     </div>
     <nav class="langs" aria-label="Language">
@@ -692,11 +691,6 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{
         <div id="suggestions" class="suggest" hidden></div>
       </div>
 
-      <div class="trust-row" aria-hidden="true">
-        <span class="trust-item" id="trustFresh"></span>
-        <span class="trust-item" id="trustSources"></span>
-        <span class="trust-item" id="trustApply"></span>
-      </div>
     </section>
 
     <div id="state" class="state" aria-live="polite"></div>
@@ -1001,12 +995,8 @@ function cvJobCard(j){
           ${employer?`<div class="admin"><span>${esc(UI[currentLang].employer)}:</span> <span lang="fr" dir="ltr">${esc(employer)}</span></div>`:''}
           <div class="sourcebadge">${esc(source)}</div>
         </div>
-        <span class="cv-match-score">${esc(j.match_score)}%</span>
       </div>
-      <div class="job-list-meta">
-        ${location?`<span>${esc(location)}</span>`:''}
-        <span><b>${esc(UI[currentLang].publication)}:</b> ${esc(formatDate(j.publication_date))}</span>
-      </div>
+      ${location?`<div class="job-list-meta"><span>${esc(location)}</span></div>`:''}
       ${reasons.length?`<div class="cv-reasons">${reasons.map(x=>`<span class="cv-reason">${esc(x)}</span>`).join('')}</div>`:''}
     </a>
   </article>`;
@@ -1083,14 +1073,7 @@ function renderCvResults(data){
     confidenceLabel
   ].filter(Boolean).join(' · ');
 
-  const profileHtml=`<div class="cv-profile">
-    <div>
-      <div class="cv-profile-title">${esc(cvText('profile'))}</div>
-      ${professionLabels.length?`<div class="cv-profile-professions">${professionLabels.map(esc).join(' · ')}</div>`:''}
-      ${profileMeta?`<div class="cv-profile-meta">${esc(profileMeta)}</div>`:''}
-    </div>
-    <div class="sourcebadge">CV · Masari</div>
-  </div>`;
+  const profileHtml='';
 
   const total=(grouped.public||[]).length+(grouped.private||[]).length;
   if(!total){
@@ -1189,13 +1172,9 @@ function setLanguage(lang){
   document.documentElement.lang=lang;
   document.documentElement.dir=lang==='ar'?'rtl':'ltr';
   document.title='Masari';
-  document.getElementById('stagingBadge').textContent=UI[lang].badge;
   document.getElementById('tagline').textContent=UI[lang].tagline;
   document.getElementById('heroTitle').textContent=UI[lang].heroTitle;
   document.getElementById('heroText').textContent=UI[lang].heroText;
-  document.getElementById('trustFresh').textContent=UI[lang].trustFresh;
-  document.getElementById('trustSources').textContent=UI[lang].trustSources;
-  document.getElementById('trustApply').textContent=UI[lang].trustApply;
   q.placeholder=UI[lang].placeholder;
   q.setAttribute('aria-label',UI[lang].placeholder);
   go.textContent=UI[lang].search;
