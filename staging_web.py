@@ -15,8 +15,9 @@ from typing import Any
 from zoneinfo import ZoneInfo
 
 import uvicorn
-from fastapi import FastAPI, HTTPException, Query
-from fastapi.responses import HTMLResponse, Response
+from fastapi import FastAPI, File, HTTPException, Query, UploadFile
+from fastapi.responses import HTMLResponse, JSONResponse, Response
+from starlette.concurrency import run_in_threadpool
 
 from search import is_job_visible_now, resolve_profession_query, search_by_profession
 from literal_search import (
@@ -28,6 +29,7 @@ from literal_search import (
     search_literal_profession,
 )
 from taxonomy_engine import Taxonomy
+from cv_analyzer import CVAnalysisError, MAX_CV_BYTES, analyze_cv
 
 TZ = ZoneInfo("Africa/Casablanca")
 REPO = Path(__file__).resolve().parent
@@ -382,6 +384,59 @@ def api_job_detail(job_id: str) -> dict[str, Any]:
     job=find_visible_job(index,unquote(job_id))
     if job is None:raise HTTPException(status_code=404,detail="Job not found")
     return {"index_source":index_source,"job":public_job_detail(job)}
+
+
+@app.post("/api/cv/analyze")
+async def api_cv_analyze(
+    file: UploadFile = File(...),
+    limit: int = Query(default=15, ge=1, le=15),
+) -> JSONResponse:
+    filename = str(file.filename or "cv").strip() or "cv"
+    try:
+        data = await file.read(MAX_CV_BYTES + 1)
+    finally:
+        await file.close()
+
+    if len(data) > MAX_CV_BYTES:
+        raise HTTPException(
+            status_code=413,
+            detail={"code": "CV_TOO_LARGE", "message": "Le CV dépasse la limite de 5 Mo."},
+        )
+
+    try:
+        index, index_source = load_index()
+    except Exception:
+        raise HTTPException(
+            status_code=503,
+            detail={
+                "code": "SEARCH_INDEX_UNAVAILABLE",
+                "message": "L’index des offres est temporairement indisponible.",
+            },
+        )
+
+    try:
+        result = await run_in_threadpool(
+            analyze_cv,
+            filename,
+            data,
+            index,
+            taxonomy,
+            limit=limit,
+        )
+    except CVAnalysisError as exc:
+        status = {"CV_TOO_LARGE": 413, "CV_UNSUPPORTED_FORMAT": 415}.get(exc.code, 422)
+        raise HTTPException(
+            status_code=status,
+            detail={"code": exc.code, "message": exc.message},
+        )
+    except Exception:
+        raise HTTPException(
+            status_code=422,
+            detail={"code": "CV_ANALYSIS_FAILED", "message": "Le CV n’a pas pu être analysé."},
+        )
+
+    result["index_source"] = index_source
+    return JSONResponse(result, headers={"Cache-Control": "no-store"})
 
 @app.get("/api/suggest")
 def api_suggest(

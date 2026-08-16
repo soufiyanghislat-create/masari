@@ -557,6 +557,102 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{
 @media(prefers-reduced-motion:reduce){
   *{scroll-behavior:auto!important;transition:none!important}
 }
+
+/* Minimal inline CV attachment: keep Masari's existing search UI intact. */
+#cvFile{display:none!important}
+.attach-plus{
+  flex:0 0 44px!important;
+  width:44px!important;
+  min-width:44px!important;
+  height:44px!important;
+  margin:0!important;
+  padding:0!important;
+  border:1px solid var(--line)!important;
+  border-radius:50%!important;
+  background:#fff!important;
+  color:var(--brand-strong)!important;
+  font-size:26px!important;
+  line-height:1!important;
+  font-weight:500!important;
+  box-shadow:none!important;
+}
+.attach-plus:hover{background:var(--brand-soft)!important;border-color:#cbded9!important}
+.cv-attachment{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  width:max-content;
+  max-width:100%;
+  margin:8px 6px 0;
+  padding:7px 9px 7px 11px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:#fff;
+  color:var(--muted);
+  font-size:11px;
+  font-weight:800;
+}
+.cv-attachment[hidden]{display:none!important}
+.cv-file-name{max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cv-remove{
+  width:22px!important;
+  min-width:22px!important;
+  height:22px!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:50%!important;
+  background:var(--soft)!important;
+  color:var(--muted)!important;
+  font-size:14px!important;
+  line-height:1!important;
+  box-shadow:none!important;
+}
+.cv-profile{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  align-items:flex-start;
+  margin-bottom:14px;
+  padding:15px 16px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:#fff;
+}
+.cv-profile-title{font-weight:950}
+.cv-profile-meta{margin-top:5px;color:var(--muted);font-size:12px}
+.cv-match-score{
+  flex:0 0 auto;
+  padding:6px 9px;
+  border-radius:999px;
+  background:var(--accent-soft);
+  color:#6f5011;
+  font-size:11px;
+  font-weight:950;
+}
+.cv-reasons{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;padding-inline-start:4px}
+.cv-reason{padding:5px 8px;border-radius:999px;background:var(--soft);color:var(--muted);font-size:10px;font-weight:800}
+
+@media(max-width:760px){
+  .row.cv-enabled{
+    display:grid;
+    grid-template-columns:46px minmax(0,1fr);
+    gap:6px;
+  }
+  .row.cv-enabled .attach-plus{
+    grid-column:1;
+    grid-row:1;
+    width:46px!important;
+    min-width:46px!important;
+    height:52px!important;
+    margin:0!important;
+  }
+  .row.cv-enabled #q{grid-column:2;grid-row:1;height:52px}
+  .row.cv-enabled #go{grid-column:1/-1;grid-row:2;width:100%;margin-top:0}
+  .cv-profile{display:block}
+  .cv-match-score{display:inline-block;margin-top:8px}
+}
+
 </style>
 </head>
 <body>
@@ -582,9 +678,15 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{
       </div>
 
       <div class="search" role="search" id="professionSearch">
-        <div class="row">
+        <div class="row cv-enabled">
+          <button id="cvPlus" class="attach-plus" type="button" aria-label="Attach CV" title="Attach CV">+</button>
+          <input id="cvFile" type="file" accept=".pdf,.docx,.txt,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain" hidden>
           <input id="q" autocomplete="off" aria-controls="suggestions">
           <button id="go" type="button"></button>
+        </div>
+        <div id="cvAttachment" class="cv-attachment" hidden>
+          <span aria-hidden="true">📄</span><span id="cvFileName" class="cv-file-name"></span>
+          <button id="cvRemove" class="cv-remove" type="button" aria-label="Remove">×</button>
         </div>
         <div id="suggestions" class="suggest" hidden></div>
       </div>
@@ -778,6 +880,177 @@ let selectedProfessionId=null;
 let currentLang=localStorage.getItem('masari.lang') || preferredLanguage();
 let lastQuery='';
 
+
+const CV_UI={
+  ar:{
+    attach:'إرفاق السيرة الذاتية',
+    remove:'إزالة الملف',
+    ready:'السيرة الذاتية مرفقة',
+    analyzing:'جاري تحليل السيرة الذاتية ومطابقتها مع الوظائف…',
+    invalid:'اختر ملف PDF أو DOCX أو TXT بحجم لا يتجاوز 5 MB.',
+    noMatches:'لم نجد وظائف مطابقة بما يكفي في الإعلانات الحالية.',
+    profile:'الملف المهني المستنتج',
+    matches:'أفضل الوظائف المطابقة',
+    keywords:'كلمات مشتركة',
+    profession:'المهنة',
+    recent:'إعلان حديث',
+    privacy:'لا نحفظ السيرة الذاتية'
+  },
+  fr:{
+    attach:'Joindre le CV',
+    remove:'Retirer le fichier',
+    ready:'CV joint',
+    analyzing:'Analyse du CV et comparaison avec les offres…',
+    invalid:'Choisissez un fichier PDF, DOCX ou TXT de 5 Mo maximum.',
+    noMatches:'Aucune offre suffisamment correspondante dans les annonces actuelles.',
+    profile:'Profil professionnel détecté',
+    matches:'Meilleures offres correspondantes',
+    keywords:'Mots communs',
+    profession:'Métier',
+    recent:'Offre récente',
+    privacy:'Le CV n’est pas conservé'
+  },
+  en:{
+    attach:'Attach CV',
+    remove:'Remove file',
+    ready:'CV attached',
+    analyzing:'Analyzing CV and matching current jobs…',
+    invalid:'Choose a PDF, DOCX, or TXT file up to 5 MB.',
+    noMatches:'No sufficiently strong matches were found in current jobs.',
+    profile:'Detected professional profile',
+    matches:'Best matching jobs',
+    keywords:'Shared keywords',
+    profession:'Profession',
+    recent:'Recent opening',
+    privacy:'Your CV is not stored'
+  }
+};
+const cvPlus=document.getElementById('cvPlus');
+const cvFile=document.getElementById('cvFile');
+const cvAttachment=document.getElementById('cvAttachment');
+const cvFileName=document.getElementById('cvFileName');
+const cvRemove=document.getElementById('cvRemove');
+let selectedCvFile=null;
+
+function cvText(key){
+  return (CV_UI[currentLang]||CV_UI.fr)[key]||'';
+}
+
+function renderCvAttachment(){
+  if(!selectedCvFile){
+    cvAttachment.hidden=true;
+    cvFileName.textContent='';
+    return;
+  }
+  cvAttachment.hidden=false;
+  cvFileName.textContent=selectedCvFile.name;
+  cvAttachment.title=`${cvText('ready')} · ${cvText('privacy')}`;
+  cvRemove.setAttribute('aria-label',cvText('remove'));
+  cvRemove.title=cvText('remove');
+}
+
+function cvReasonText(reason){
+  if(reason.type==='profession') return `${cvText('profession')}: ${reason.label||''}`;
+  if(reason.type==='keywords') return `${cvText('keywords')}: ${(reason.terms||[]).join(', ')}`;
+  if(reason.type==='recent') return cvText('recent');
+  return '';
+}
+
+function renderCvResults(data){
+  const profile=data.profile||{};
+  const professions=profile.professions||[];
+  const matches=data.matches||[];
+  const primary=professions[0]||null;
+  const confidence=String(profile.analysis_confidence||'').toUpperCase();
+  const exp=profile.explicit_experience_years;
+  const langs=profile.language_mentions||[];
+  const profileMeta=[
+    exp?`${exp} ${currentLang==='ar'?'سنوات':currentLang==='en'?'years':'ans'}`:'',
+    langs.length?langs.join(', '):'',
+    confidence
+  ].filter(Boolean).join(' · ');
+
+  const profileHtml=`<div class="cv-profile">
+    <div>
+      <div class="cv-profile-title">${esc(cvText('profile'))}${primary?`: ${esc(professionLabel(primary.profession_id,primary.label))}`:''}</div>
+      ${profileMeta?`<div class="cv-profile-meta">${esc(profileMeta)}</div>`:''}
+    </div>
+    <div class="sourcebadge">CV · Masari</div>
+  </div>`;
+
+  if(!matches.length){
+    content.innerHTML=profileHtml+`<div class="init">${esc(cvText('noMatches'))}</div>`;
+    return;
+  }
+
+  content.innerHTML=profileHtml+`<div class="profession">
+    <div class="profession-copy"><div class="name">${esc(cvText('matches'))}</div></div>
+    <div class="result-count">${matches.length}</div>
+  </div><div class="grid">${matches.map(j=>{
+    const id=String(j.global_id||'');
+    const employer=String(j.company||'').trim();
+    const location=String(j.location||'').trim();
+    const source=String(j.source_label||j.source||'');
+    const reasons=(j.reasons||[]).map(r=>cvReasonText(r)).filter(Boolean);
+    return `<article class="card">
+      <a class="job-link" href="/job/${encodeURIComponent(id)}">
+        <div class="job-list-head">
+          <div>
+            <div class="title">${esc(j.title||'')}</div>
+            ${employer?`<div class="admin"><span>${esc(UI[currentLang].employer)}:</span> <span lang="fr" dir="ltr">${esc(employer)}</span></div>`:''}
+            <div class="sourcebadge">${esc(source)}</div>
+          </div>
+          <span class="cv-match-score">${esc(j.match_score)}%</span>
+        </div>
+        <div class="job-list-meta">
+          ${location?`<span>${esc(location)}</span>`:''}
+          <span><b>${esc(UI[currentLang].publication)}:</b> ${esc(formatDate(j.publication_date))}</span>
+        </div>
+        ${reasons.length?`<div class="cv-reasons">${reasons.map(x=>`<span class="cv-reason">${esc(x)}</span>`).join('')}</div>`:''}
+      </a>
+    </article>`;
+  }).join('')}</div>`;
+}
+
+async function analyzeAttachedCv(){
+  if(!selectedCvFile) return;
+  sug.hidden=true;
+  state.textContent=cvText('analyzing');
+  content.innerHTML='';
+  go.disabled=true;
+  cvPlus.disabled=true;
+
+  try{
+    const body=new FormData();
+    body.append('file',selectedCvFile);
+    const r=await fetch('/api/cv/analyze?limit=15',{
+      method:'POST',
+      body,
+      cache:'no-store'
+    });
+    const d=await r.json();
+    if(!r.ok){
+      const message=d?.detail?.message||d?.detail||UI[currentLang].error;
+      throw new Error(message);
+    }
+    state.textContent='';
+    renderCvResults(d);
+  }catch(err){
+    state.textContent=err?.message||UI[currentLang].error;
+  }finally{
+    go.disabled=false;
+    cvPlus.disabled=false;
+  }
+}
+
+async function submitSearch(){
+  if(selectedCvFile){
+    await analyzeAttachedCv();
+    return;
+  }
+  await search();
+}
+
 function preferredLanguage(){
   const n=(navigator.language||'fr').toLowerCase();
   if(n.startsWith('ar')) return 'ar';
@@ -841,6 +1114,9 @@ function setLanguage(lang){
   sug.hidden=true;
   selectedProfessionId=null;
   q.value='';
+  cvPlus.setAttribute('aria-label',cvText('attach'));
+  cvPlus.title=cvText('attach');
+  renderCvAttachment();
 }
 
 function formatDate(v,withTime=false){
@@ -1210,9 +1486,20 @@ async function search(){
   }
 }
 
+cvPlus.addEventListener('click',()=>cvFile.click());
+cvFile.addEventListener('change',()=>{
+  const file=cvFile.files&&cvFile.files[0];
+  if(!file){selectedCvFile=null;renderCvAttachment();return;}
+  const ext=(file.name.split('.').pop()||'').toLowerCase();
+  if(!['pdf','docx','txt'].includes(ext) || file.size>5*1024*1024){
+    selectedCvFile=null;cvFile.value='';renderCvAttachment();state.textContent=cvText('invalid');return;
+  }
+  selectedCvFile=file;selectedProfessionId=null;sug.hidden=true;state.textContent=cvText('ready');renderCvAttachment();
+});
+cvRemove.addEventListener('click',()=>{selectedCvFile=null;cvFile.value='';renderCvAttachment();state.textContent=UI[currentLang].start;});
 q.addEventListener('input',suggest);
-q.addEventListener('keydown',e=>{if(e.key==='Enter')search();});
-go.addEventListener('click',search);
+q.addEventListener('keydown',e=>{if(e.key==='Enter')submitSearch();});
+go.addEventListener('click',submitSearch);
 document.addEventListener('click',e=>{if(!e.target.closest('.search'))sug.hidden=true;});
 document.querySelectorAll('.langs button').forEach(b=>b.addEventListener('click',()=>setLanguage(b.dataset.lang)));
 
