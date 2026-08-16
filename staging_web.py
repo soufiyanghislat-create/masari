@@ -38,7 +38,7 @@ JOB_HTML_PATH = REPO / "web" / "job.html"
 
 # Railway test mode: serve the verified frozen five-source corpus.
 # Remove this flag in the final authorized production release.
-EXPERIMENTAL_FROZEN_CORPUS = True
+EXPERIMENTAL_FROZEN_CORPUS = False
 
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
@@ -298,6 +298,15 @@ SLOTS: dict[tuple[int, int], str] = {
     (18, 30): "quick",
 }
 
+SOURCE_SCHEDULE_POLICY = {
+    "emploi-public": {"collector": "native", "full": ["05:30"], "quick": ["10:30", "14:30", "18:30"]},
+    "anapec": {"collector": "native", "full": ["05:30"], "stale_check_hours": 6},
+    "smartrecruiters": {"collector": "official_api", "full": ["05:30"], "stale_check_hours": 6},
+    "indeed": {"collector": "shared_jobspy", "full": ["05:30"], "window_hours": 360},
+    "linkedin": {"collector": "shared_jobspy", "full": ["05:30"], "window_hours": 360},
+    "timezone": "Africa/Casablanca",
+}
+
 
 def scheduler_loop() -> None:
     mode = bootstrap_mode(datetime.now(TZ))
@@ -367,6 +376,11 @@ def api_meta() -> dict[str, Any]:
         "index_source": source,
         "manifest": active_manifest(source),
         "refresh": refresh_status_public(),
+        "scheduler_enabled": (
+            (not EXPERIMENTAL_FROZEN_CORPUS)
+            and os.getenv("MASARI_DISABLE_SCHEDULER", "").strip() != "1"
+        ),
+        "schedule": SOURCE_SCHEDULE_POLICY,
         "timezone": "Africa/Casablanca",
     }
 

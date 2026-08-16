@@ -260,13 +260,27 @@ def main() -> int:
         "error": smartrecruiters_error,
     }
 
-    # Snapshot-only local integration: no LinkedIn/Indeed network refresh.
+    # LinkedIn and Indeed use the exact same JobSpy collection pipeline.
+    # To keep provider pressure bounded, both run during the daily full cycle.
     for source_name in ("indeed", "linkedin"):
+        attempted = (not args.no_refresh) and mode == "full"
+        refresh_ok = True
+        refresh_error = ""
+        if attempted:
+            refresh_ok, refresh_error = call([
+                sys.executable,
+                str(REPO / "maintenance" / "jobspy_refresh.py"),
+                "--source", source_name,
+                "--runtime-dir", str(public_root / source_name),
+            ])
         source_status[source_name] = {
-            "refresh_attempted": False,
-            "refresh_ok": True,
-            "error": "",
-            "network_refresh_enabled": False,
+            "refresh_attempted": attempted,
+            "refresh_ok": refresh_ok,
+            "error": refresh_error,
+            "network_refresh_enabled": True,
+            "collector": "shared_jobspy",
+            "cadence": "daily_full",
+            "window_hours": 360,
         }
 
     try:
@@ -338,6 +352,9 @@ def main() -> int:
                 "snapshot_origin": status.get("snapshot_origin", "none"),
                 "snapshot_jobs": int(status.get("snapshot_jobs") or 0),
                 "network_refresh_enabled": bool(status.get("network_refresh_enabled", True)),
+                "collector": status.get("collector", "native"),
+                "cadence": status.get("cadence", "scheduled"),
+                "window_hours": status.get("window_hours"),
             }
             for name, status in source_status.items()
         }
