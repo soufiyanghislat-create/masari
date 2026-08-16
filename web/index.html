@@ -620,6 +620,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{
   background:#fff;
 }
 .cv-profile-title{font-weight:950}
+.cv-profile-professions{margin-top:5px;font-size:13px;font-weight:850;color:var(--brand-strong)}
 .cv-profile-meta{margin-top:5px;color:var(--muted);font-size:12px}
 .cv-match-score{
   flex:0 0 auto;
@@ -951,19 +952,101 @@ function renderCvAttachment(){
 
 function cvReasonText(reason){
   if(reason.type==='profession') return `${cvText('profession')}: ${reason.label||''}`;
+  if(reason.type==='related_profession') return `${cvText('profession')}: ${reason.label||''}`;
+  if(reason.type==='diploma_eligibility') return currentLang==='ar'?'أهلية الدبلوم':currentLang==='en'?'Diploma eligibility':'Diplôme compatible';
+  if(reason.type==='experience_relevance') return currentLang==='ar'?'الخبرة المهنية مطابقة':currentLang==='en'?'Relevant experience':'Expérience pertinente';
+  if(reason.type==='diploma_support') return currentLang==='ar'?'الدبلوم يدعم الملف':currentLang==='en'?'Diploma supports profile':'Diplôme pertinent';
   if(reason.type==='keywords') return `${cvText('keywords')}: ${(reason.terms||[]).join(', ')}`;
   if(reason.type==='recent') return cvText('recent');
   return '';
 }
 
+
+function cvSectorLabels(){
+  return {
+    public: currentLang==='ar'?'القطاع العمومي':currentLang==='en'?'Public sector':'Secteur public',
+    private: currentLang==='ar'?'القطاع الخاص':currentLang==='en'?'Private sector':'Secteur privé'
+  };
+}
+
+let activeCvSector='public';
+
+function cvJobCard(j){
+  const id=String(j.global_id||'');
+  const employer=String(j.company||'').trim();
+  const location=String(j.location||'').trim();
+  const source=String(j.source_label||j.source||'');
+  const reasons=(j.reasons||[]).map(r=>cvReasonText(r)).filter(Boolean);
+  return `<article class="card">
+    <a class="job-link" href="/job/${encodeURIComponent(id)}">
+      <div class="job-list-head">
+        <div>
+          <div class="title">${esc(j.title||'')}</div>
+          ${employer?`<div class="admin"><span>${esc(UI[currentLang].employer)}:</span> <span lang="fr" dir="ltr">${esc(employer)}</span></div>`:''}
+          <div class="sourcebadge">${esc(source)}</div>
+        </div>
+        <span class="cv-match-score">${esc(j.match_score)}%</span>
+      </div>
+      <div class="job-list-meta">
+        ${location?`<span>${esc(location)}</span>`:''}
+        <span><b>${esc(UI[currentLang].publication)}:</b> ${esc(formatDate(j.publication_date))}</span>
+      </div>
+      ${reasons.length?`<div class="cv-reasons">${reasons.map(x=>`<span class="cv-reason">${esc(x)}</span>`).join('')}</div>`:''}
+    </a>
+  </article>`;
+}
+
+function renderCvSectorTabs(data){
+  const grouped=data.sector_matches||{};
+  const publicRows=grouped.public||[];
+  const privateRows=grouped.private||[];
+  const labels=cvSectorLabels();
+
+  if(activeCvSector==='public' && !publicRows.length && privateRows.length) activeCvSector='private';
+  if(activeCvSector==='private' && !privateRows.length && publicRows.length) activeCvSector='public';
+
+  const rows=activeCvSector==='private'?privateRows:publicRows;
+  const empty=cvText('noMatches');
+
+  return `<div class="sector-tabs" role="tablist" aria-label="CV employment sector">
+    <button type="button" class="sector-tab public ${activeCvSector==='public'?'active':''}" data-cv-sector="public" role="tab" aria-selected="${activeCvSector==='public'?'true':'false'}">
+      <span class="sector-tab-label">${esc(labels.public)}</span>
+      <span class="sector-tab-count">${publicRows.length}</span>
+    </button>
+    <button type="button" class="sector-tab private ${activeCvSector==='private'?'active':''}" data-cv-sector="private" role="tab" aria-selected="${activeCvSector==='private'?'true':'false'}">
+      <span class="sector-tab-label">${esc(labels.private)}</span>
+      <span class="sector-tab-count">${privateRows.length}</span>
+    </button>
+  </div>
+  <section class="sector-panel">
+    <div class="grid">${rows.length?rows.map(cvJobCard).join(''):`<div class="sector-empty">${esc(empty)}</div>`}</div>
+  </section>`;
+}
+
+function bindCvSectorTabs(data){
+  content.querySelectorAll('[data-cv-sector]').forEach(button=>{
+    button.addEventListener('click',()=>{
+      activeCvSector=button.dataset.cvSector==='private'?'private':'public';
+      renderCvResults(data);
+    });
+  });
+}
+
 function renderCvResults(data){
   const profile=data.profile||{};
   const professions=profile.professions||[];
-  const matches=data.matches||[];
-  const primary=professions[0]||null;
+  const grouped=data.sector_matches||{
+    public:(data.matches||[]).filter(j=>String(j.employment_sector||'').toLowerCase()==='public'),
+    private:(data.matches||[]).filter(j=>String(j.employment_sector||'').toLowerCase()!=='public')
+  };
+  data.sector_matches=grouped;
+
   const confidence=String(profile.analysis_confidence||'').toUpperCase();
   const exp=profile.explicit_experience_years;
   const langs=profile.language_mentions||[];
+  const professionLabels=professions.slice(0,6).map(
+    p=>professionLabel(p.profession_id,p.label)
+  );
   const profileMeta=[
     exp?`${exp} ${currentLang==='ar'?'سنوات':currentLang==='en'?'years':'ans'}`:'',
     langs.length?langs.join(', '):'',
@@ -972,44 +1055,25 @@ function renderCvResults(data){
 
   const profileHtml=`<div class="cv-profile">
     <div>
-      <div class="cv-profile-title">${esc(cvText('profile'))}${primary?`: ${esc(professionLabel(primary.profession_id,primary.label))}`:''}</div>
+      <div class="cv-profile-title">${esc(cvText('profile'))}</div>
+      ${professionLabels.length?`<div class="cv-profile-professions">${professionLabels.map(esc).join(' · ')}</div>`:''}
       ${profileMeta?`<div class="cv-profile-meta">${esc(profileMeta)}</div>`:''}
     </div>
     <div class="sourcebadge">CV · Masari</div>
   </div>`;
 
-  if(!matches.length){
+  const total=(grouped.public||[]).length+(grouped.private||[]).length;
+  if(!total){
     content.innerHTML=profileHtml+`<div class="init">${esc(cvText('noMatches'))}</div>`;
     return;
   }
 
   content.innerHTML=profileHtml+`<div class="profession">
     <div class="profession-copy"><div class="name">${esc(cvText('matches'))}</div></div>
-    <div class="result-count">${matches.length}</div>
-  </div><div class="grid">${matches.map(j=>{
-    const id=String(j.global_id||'');
-    const employer=String(j.company||'').trim();
-    const location=String(j.location||'').trim();
-    const source=String(j.source_label||j.source||'');
-    const reasons=(j.reasons||[]).map(r=>cvReasonText(r)).filter(Boolean);
-    return `<article class="card">
-      <a class="job-link" href="/job/${encodeURIComponent(id)}">
-        <div class="job-list-head">
-          <div>
-            <div class="title">${esc(j.title||'')}</div>
-            ${employer?`<div class="admin"><span>${esc(UI[currentLang].employer)}:</span> <span lang="fr" dir="ltr">${esc(employer)}</span></div>`:''}
-            <div class="sourcebadge">${esc(source)}</div>
-          </div>
-          <span class="cv-match-score">${esc(j.match_score)}%</span>
-        </div>
-        <div class="job-list-meta">
-          ${location?`<span>${esc(location)}</span>`:''}
-          <span><b>${esc(UI[currentLang].publication)}:</b> ${esc(formatDate(j.publication_date))}</span>
-        </div>
-        ${reasons.length?`<div class="cv-reasons">${reasons.map(x=>`<span class="cv-reason">${esc(x)}</span>`).join('')}</div>`:''}
-      </a>
-    </article>`;
-  }).join('')}</div>`;
+    <div class="result-count">${total}</div>
+  </div>${renderCvSectorTabs(data)}`;
+
+  bindCvSectorTabs(data);
 }
 
 async function analyzeAttachedCv(){
