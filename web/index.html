@@ -986,7 +986,6 @@ function cvJobCard(j){
   const employer=String(j.company||'').trim();
   const location=String(j.location||'').trim();
   const source=String(j.source_label||j.source||'');
-  const reasons=(j.reasons||[]).map(r=>cvReasonText(r)).filter(Boolean);
   return `<article class="card">
     <a class="job-link" href="/job/${encodeURIComponent(id)}">
       <div class="job-list-head">
@@ -997,7 +996,6 @@ function cvJobCard(j){
         </div>
       </div>
       ${location?`<div class="job-list-meta"><span>${esc(location)}</span></div>`:''}
-      ${reasons.length?`<div class="cv-reasons">${reasons.map(x=>`<span class="cv-reason">${esc(x)}</span>`).join('')}</div>`:''}
     </a>
   </article>`;
 }
