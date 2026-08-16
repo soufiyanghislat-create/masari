@@ -960,9 +960,15 @@ function renderCvAttachment(){
   cvRemove.title=cvText('remove');
 }
 
+function cvReasonProfessionLabel(reason){
+  const id=String(reason.profession_id||'');
+  if(id) return professionLabel(id,reason.label||'');
+  return String(reason.label||'');
+}
+
 function cvReasonText(reason){
-  if(reason.type==='profession') return `${cvText('profession')}: ${reason.label||''}`;
-  if(reason.type==='related_profession') return `${cvText('profession')}: ${reason.label||''}`;
+  if(reason.type==='profession') return `${cvText('profession')}: ${cvReasonProfessionLabel(reason)}`;
+  if(reason.type==='related_profession') return `${cvText('profession')}: ${cvReasonProfessionLabel(reason)}`;
   if(reason.type==='diploma_eligibility') return currentLang==='ar'?'أهلية الدبلوم':currentLang==='en'?'Diploma eligibility':'Diplôme compatible';
   if(reason.type==='experience_relevance') return currentLang==='ar'?'الخبرة المهنية مطابقة':currentLang==='en'?'Relevant experience':'Expérience pertinente';
   if(reason.type==='diploma_support') return currentLang==='ar'?'الدبلوم يدعم الملف':currentLang==='en'?'Diploma supports profile':'Diplôme pertinent';
@@ -1060,9 +1066,17 @@ function renderCvResults(data){
   const exp=profile.explicit_experience_years;
   const langs=profile.language_mentions||[];
   const localizedLangs=langs.map(code=>UI[currentLang].languageNames?.[code]||code);
-  const professionLabels=professions.slice(0,6).map(
-    p=>professionLabel(p.profession_id,p.label)
-  );
+  function cvProfileProfessionLabel(p){
+    const id=String(p?.profession_id||'');
+    // HCP/NAP labels are French source labels. Until a verified ar/en label
+    // exists, do not leak that raw French label into Arabic/English UI.
+    if(id.startsWith('hcp.') && currentLang!=='fr') return '';
+    return professionLabel(id,p?.label||'');
+  }
+  const professionLabels=professions.slice(0,8)
+    .map(cvProfileProfessionLabel)
+    .filter(Boolean)
+    .slice(0,6);
   const profileMeta=[
     exp?`${exp} ${currentLang==='ar'?'سنوات':currentLang==='en'?'years':'ans'}`:'',
     localizedLangs.length?localizedLangs.join(', '):'',

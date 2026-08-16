@@ -48,7 +48,8 @@ def test_sector_tabs_still_localize():
 
 def test_profession_labels_still_use_current_language():
     assert "professionLabel(p.profession_id,p.label)" in HTML
-    assert "professions.slice(0,6)" in HTML
+    assert "professions.slice(0,8)" in HTML
+    assert ".slice(0,6)" in HTML
 
 
 def test_new_or_removed_cv_invalidates_cached_analysis():

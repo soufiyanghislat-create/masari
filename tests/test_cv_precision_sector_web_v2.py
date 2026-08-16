@@ -12,7 +12,8 @@ def test_cv_results_use_public_private_tabs():
 
 
 def test_cv_profile_displays_multiple_professions():
-    assert "professions.slice(0,6)" in HTML
+    assert "professions.slice(0,8)" in HTML
+    assert ".slice(0,6)" in HTML
     assert "cv-profile-professions" in HTML
 
 

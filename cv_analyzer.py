@@ -298,11 +298,26 @@ def detect_language_mentions(text: str) -> list[str]:
 
 
 def infer_explicit_experience_years(text: str) -> int | None:
-    values = []
-    for match in YEARS_RE.finditer(text):
-        value = int(match.group(1))
-        if 0 < value <= 50:
-            values.append(value)
+    # A bare "28 ans" is commonly an age, not professional experience.
+    # Keep only year counts explicitly tied to experience wording on the
+    # same line. Do not infer years from dates.
+    experience_markers = (
+        "experience", "expérience", "experiences", "expériences",
+        "d experience", "d'expérience", "professional experience",
+        "work experience", "خبرة", "الخبرة",
+    )
+    values: list[int] = []
+    for raw_line in _analysis_text(text).splitlines():
+        line = raw_line.strip()
+        if not line:
+            continue
+        normalized_line = normalize(line)
+        if not any(normalize(marker) in normalized_line for marker in experience_markers):
+            continue
+        for match in YEARS_RE.finditer(line):
+            value = int(match.group(1))
+            if 0 < value <= 50:
+                values.append(value)
     return max(values) if values else None
 
 
@@ -1081,6 +1096,7 @@ def _match_jobs(
                     if relation_kind == "exact"
                     else "related_profession"
                 ),
+                "profession_id": cv_pid,
                 "label": labels.get(cv_pid, cv_pid),
             }
         ]

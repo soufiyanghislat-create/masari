@@ -54,7 +54,9 @@ def test_txt_extraction_and_size_metadata():
 
 def test_explicit_years():
     assert infer_explicit_experience_years("5 ans d'expérience") == 5
-    assert infer_explicit_experience_years("2 years puis 7 ans") == 7
+    assert infer_explicit_experience_years(
+        "2 years of professional experience puis 7 ans d\'expérience"
+    ) == 7
 
 
 def test_cv_profession_and_job_match_without_pii_return():
