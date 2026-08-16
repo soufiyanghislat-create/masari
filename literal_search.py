@@ -18,6 +18,20 @@ LITERAL_SOURCE_CONFIG: dict[str, dict[str, str]] = {
         "family": "Intitulé entreprise vérifié",
         "literal_source": "smartrecruiters_literal",
     },
+    "indeed": {
+        "prefix": "jobspy.literal.",
+        "sector": "Secteur privé",
+        "family": "Intitulé source privé vérifié",
+        "literal_source": "jobspy_literal",
+        "shared_group": True,
+    },
+    "linkedin": {
+        "prefix": "jobspy.literal.",
+        "sector": "Secteur privé",
+        "family": "Intitulé source privé vérifié",
+        "literal_source": "jobspy_literal",
+        "shared_group": True,
+    },
 }
 LITERAL_PREFIX = LITERAL_SOURCE_CONFIG["anapec"]["prefix"]
 LITERAL_PREFIXES = tuple(dict.fromkeys(x["prefix"] for x in LITERAL_SOURCE_CONFIG.values()))
@@ -178,6 +192,8 @@ def search_literal_profession(index: dict[str, Any], profession_id: str, *, limi
             "profession_match": literal,
             "uuid": job.get("uuid"),
             "global_id": job.get("global_id") or job.get("uuid"),
+            "ground_truth_status": job.get("ground_truth_status"),
+            "ground_truth_proof": job.get("ground_truth_proof"),
             "source": source,
             "source_label": job.get("source_label") or source,
             "scope": job.get("scope") or "private",

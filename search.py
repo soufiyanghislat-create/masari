@@ -78,7 +78,7 @@ def _result_titles(job: dict, match: dict | None) -> tuple[str, str, str]:
 
 
 MAX_JOB_AGE_DAYS = 15
-NO_DEADLINE_SOURCES = frozenset({"anapec", "smartrecruiters"})
+NO_DEADLINE_SOURCES = frozenset({"anapec", "smartrecruiters", "indeed", "linkedin"})
 
 
 def _local_datetime(iso_value: object) -> datetime:
@@ -88,7 +88,22 @@ def _local_datetime(iso_value: object) -> datetime:
     return dt.astimezone(TZ)
 
 
+JOBSPY_GROUND_TRUTH_SOURCES = {"indeed", "linkedin"}
+
+
+def is_job_ground_truth_verified(job: dict) -> bool:
+    source = str(job.get("source") or "").strip().casefold()
+    if source not in JOBSPY_GROUND_TRUTH_SOURCES:
+        return True
+    return (
+        str(job.get("ground_truth_status") or "").strip().upper() == "VERIFIED"
+        and bool(str(job.get("ground_truth_proof") or "").strip())
+    )
+
+
 def is_job_visible_now(job: dict, now: datetime | None = None) -> bool:
+    if not is_job_ground_truth_verified(job):
+        return False
     # Final runtime safety gate. Visibility policy is source-specific:
     # Emploi-Public requires an open deadline; ANAPEC publishes no deadline.
     now = now or datetime.now(TZ)
@@ -177,6 +192,8 @@ def search_by_profession(
                 "scope": job.get("scope") or ("private" if str(job.get("source") or "").casefold() == "anapec" else "public"),
                 "employment_sector": job.get("employment_sector") or job.get("scope") or ("private" if str(job.get("source") or "").casefold() == "anapec" else "public"),
                 "global_id": job.get("global_id") or job.get("uuid"),
+                "ground_truth_status": job.get("ground_truth_status"),
+                "ground_truth_proof": job.get("ground_truth_proof"),
                 "application_type": job.get("application_type") or "",
                 "application_site": job.get("application_site") or "",
                 "application_url": job.get("application_url") or job.get("application_site") or "",

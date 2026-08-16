@@ -1,21 +1,52 @@
 {
-  "mode": "bootstrap-public-v3",
-  "prepared_at": "2026-08-14T21:38:50.011959+01:00",
-  "timezone": "Africa/Casablanca",
-  "jobs": 409,
+  "source": "public",
+  "published_at": "2026-08-16T01:54:23.797792+01:00",
+  "run_id": "20260816-015423-full",
+  "mode": "full",
+  "jobs": 1255,
   "source_counts": {
-    "anapec": 223,
-    "emploi-public": 186
+    "anapec": 203,
+    "emploi-public": 178,
+    "indeed": 179,
+    "linkedin": 684,
+    "smartrecruiters": 11
   },
   "sources": {
-    "anapec": {
-      "snapshot_jobs": 223,
-      "ground_truth_gate": "PASS"
-    },
     "emploi-public": {
-      "snapshot_jobs": 186
+      "refresh_attempted": false,
+      "refresh_ok": true,
+      "snapshot_origin": "bootstrap",
+      "snapshot_jobs": 186,
+      "network_refresh_enabled": true
+    },
+    "anapec": {
+      "refresh_attempted": false,
+      "refresh_ok": true,
+      "snapshot_origin": "bootstrap",
+      "snapshot_jobs": 223,
+      "network_refresh_enabled": true
+    },
+    "smartrecruiters": {
+      "refresh_attempted": false,
+      "refresh_ok": true,
+      "snapshot_origin": "bootstrap",
+      "snapshot_jobs": 13,
+      "network_refresh_enabled": true
+    },
+    "indeed": {
+      "refresh_attempted": false,
+      "refresh_ok": true,
+      "snapshot_origin": "bootstrap",
+      "snapshot_jobs": 179,
+      "network_refresh_enabled": false
+    },
+    "linkedin": {
+      "refresh_attempted": false,
+      "refresh_ok": true,
+      "snapshot_origin": "bootstrap",
+      "snapshot_jobs": 685,
+      "network_refresh_enabled": false
     }
   },
-  "gate": "PASS",
-  "note": "Verified public bootstrap: Emploi-Public + ANAPEC v12; runtime refresh replaces it when available."
+  "gate": "PASS"
 }

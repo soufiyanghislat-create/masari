@@ -31,6 +31,46 @@ def _source(job: dict) -> str:
     return str(job.get("source") or "emploi-public").strip().casefold()
 
 
+JOBSPY_PREVERIFIED_SOURCES = frozenset({"indeed", "linkedin"})
+
+
+def _preverified_jobspy_matches(job: dict, taxonomy: Taxonomy) -> list[dict]:
+    # Reuse only canonical matches already audited in the immutable JobSpy snapshot.
+    if _source(job) not in JOBSPY_PREVERIFIED_SOURCES:
+        raise ValueError("preverified JobSpy path called for another source")
+
+    verification = job.get("location_verification") or {}
+    if not isinstance(verification, dict) or verification.get("gate") != "PASS":
+        raise RuntimeError(f"JobSpy location verification missing: {job.get('global_id')}")
+
+    safe = []
+    for raw in job.get("profession_matches") or []:
+        if not isinstance(raw, dict):
+            continue
+        profession_id = str(raw.get("profession_id") or "").strip()
+        confidence = str(raw.get("confidence") or "").strip().upper()
+        searchable = raw.get("searchable")
+        score = float(raw.get("score") or 0.0)
+
+        if profession_id not in taxonomy.by_id:
+            continue
+        if confidence not in {"EXACT", "STRONG"}:
+            continue
+        if searchable is False:
+            continue
+        if score < 92.0:
+            continue
+        safe.append(dict(raw))
+
+    safe.sort(
+        key=lambda row: (
+            -float(row.get("score") or 0.0),
+            str(row.get("profession_id") or ""),
+        )
+    )
+    return safe[:8]
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Build Masari multi-source search index with source-aware hard gates")
     ap.add_argument("--input", required=True)
@@ -55,9 +95,18 @@ def main() -> int:
     exact_jobs = strong_jobs = related_only_jobs = 0
 
     for job in jobs:
-        matches = taxonomy.classify_job(job)
-        strong_ids = {m["profession_id"] for m in matches}
-        related = taxonomy.related_job_matches(job, exclude_ids=strong_ids)
+        source_name = _source(job)
+
+        if source_name in JOBSPY_PREVERIFIED_SOURCES:
+            # The standalone audit already produced safe canonical matches.
+            # Everything else remains verified literal fallback.
+            # Do NOT run HCP/RELATED over 1691 JobSpy rows again.
+            matches = _preverified_jobspy_matches(job, taxonomy)
+            related = []
+        else:
+            matches = taxonomy.classify_job(job)
+            strong_ids = {m["profession_id"] for m in matches}
+            related = taxonomy.related_job_matches(job, exclude_ids=strong_ids)
 
         copy = dict(job)
         copy["search_title"] = _display_title(job)
@@ -232,6 +281,8 @@ def main() -> int:
         "literal_fallback_jobs.json": literal_fallback,
         "anapec_missing_literal_jobs.json": missing_literal_by_source.get("anapec", []),
         "smartrecruiters_missing_literal_jobs.json": missing_literal_by_source.get("smartrecruiters", []),
+        "indeed_missing_literal_jobs.json": missing_literal_by_source.get("indeed", []),
+        "linkedin_missing_literal_jobs.json": missing_literal_by_source.get("linkedin", []),
         "structurally_ambiguous_jobs.json": aggregate_classifiability["structurally_ambiguous_rows"],
         "unexplained_unclassified_jobs.json": aggregate_classifiability["unexplained_unclassified_rows"],
         "ambiguous_classified_jobs.json": aggregate_classifiability["ambiguous_classified_rows"],

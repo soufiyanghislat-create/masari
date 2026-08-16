@@ -571,6 +571,21 @@
       "fr": "Conducteur d'engins",
       "ar": "سائق آليات",
       "en": "Heavy Equipment Operator"
+    },
+    "finance.banque": {
+      "fr": "Chargé de banque / Assurance",
+      "ar": "الخدمات البنكية",
+      "en": "Banking"
+    },
+    "it.data_scientist": {
+      "fr": "Data scientist",
+      "ar": "عالم بيانات",
+      "en": "Data Scientist"
+    },
+    "security.gardien": {
+      "fr": "Gardien / Concierge",
+      "ar": "حارس أمن",
+      "en": "Security Guard"
     }
   }
 }

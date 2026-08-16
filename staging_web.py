@@ -34,9 +34,13 @@ REPO = Path(__file__).resolve().parent
 HTML_PATH = REPO / "web" / "index.html"
 JOB_HTML_PATH = REPO / "web" / "job.html"
 
+# Railway test mode: serve the verified frozen five-source corpus.
+# Remove this flag in the final authorized production release.
+EXPERIMENTAL_FROZEN_CORPUS = True
+
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
-    if os.getenv("MASARI_DISABLE_SCHEDULER", "").strip() != "1":
+    if (not EXPERIMENTAL_FROZEN_CORPUS) and os.getenv("MASARI_DISABLE_SCHEDULER", "").strip() != "1":
         thread = threading.Thread(
             target=scheduler_loop,
             daemon=True,
@@ -143,7 +147,7 @@ def active_manifest(source: str) -> dict[str, Any]:
         return {}
 
 
-JOB_DETAIL_FIELDS=("uuid","global_id","source","source_label","scope","employment_sector","source_offer_id","source_reference","listing_title","search_title","title","job_name","administration","company","publication_date","deadline","contest_date","grade","specialties","positions","recruitment_type","contract_type","contract_options","salary","location","work_location_text","location_relation","education","experience","languages","description","profile","sector","agency","application_type","application_site","application_url","application_notice_url","opening_order_url","contest_code","url","source_url")
+JOB_DETAIL_FIELDS=("uuid","global_id","source","source_label","scope","employment_sector","ground_truth_status","ground_truth_proof","source_offer_id","source_reference","listing_title","search_title","title","job_name","administration","company","publication_date","deadline","contest_date","grade","specialties","positions","recruitment_type","contract_type","contract_options","salary","location","work_location_text","location_relation","education","experience","languages","description","profile","sector","agency","application_type","application_site","application_url","application_notice_url","opening_order_url","contest_code","url","source_url")
 def public_job_detail(job: dict[str, Any]) -> dict[str, Any]:
     return {key: job.get(key) for key in JOB_DETAIL_FIELDS}
 def find_visible_job(index: dict[str, Any], job_id: str) -> dict[str, Any] | None:

@@ -1,0 +1,15 @@
+{
+  "source": "indeed",
+  "version": "jobspy-strict-ground-truth-v4.1",
+  "published_at": "2026-08-15T23:24:39.673605+01:00",
+  "jobs": 179,
+  "source_gate": "PASS",
+  "quality_gate": "PASS",
+  "location_gate": "PASS",
+  "literal_gate": "PASS",
+  "ground_truth_gate": "PASS",
+  "ground_truth_policy": "STRICT_VERIFIED_ONLY",
+  "network_refresh_enabled": false,
+  "jobs_sha256": "9d77e52d28b611004ff7a389de812c8e99b4377090190626972a2afc232decc0",
+  "gate": "PASS"
+}

@@ -20,6 +20,7 @@ if str(REPO) not in sys.path:
 
 from public_job_adapter import normalize_emploi_public_job  # noqa: E402
 from smartrecruiters_adapter import normalize_smartrecruiters_job  # noqa: E402
+from jobspy_source_adapter import normalize_jobspy_source_job  # noqa: E402
 from search import is_job_visible_now  # noqa: E402
 
 
@@ -117,6 +118,42 @@ def _smartrecruiters_jobs(runtime: Path) -> tuple[list[dict], str]:
             return [normalize_smartrecruiters_job(j) for j in jobs], "bootstrap"
     return [], "none"
 
+
+def _jobspy_source_jobs(source: str, runtime: Path) -> tuple[list[dict], str]:
+    source = str(source or "").strip().casefold()
+    if source not in {"indeed", "linkedin"}:
+        raise ValueError(f"unsupported JobSpy source: {source}")
+
+    current_jobs = runtime / "current" / "jobs.json"
+    current_manifest = runtime / "current" / "manifest.json"
+    if current_jobs.exists() and current_manifest.exists():
+        manifest = read_json(current_manifest)
+        jobs = read_json(current_jobs)
+        if (
+            manifest.get("gate") == "PASS"
+            and manifest.get("source_gate") == "PASS"
+            and manifest.get("quality_gate") == "PASS"
+            and manifest.get("location_gate") == "PASS"
+            and manifest.get("literal_gate") == "PASS"
+            and int(manifest.get("jobs") or 0) == len(jobs)
+        ):
+            return [normalize_jobspy_source_job(j, source) for j in jobs], "runtime"
+
+    bootstrap_jobs = REPO / "bootstrap" / source / "jobs.json"
+    bootstrap_manifest = REPO / "bootstrap" / source / "manifest.json"
+    if bootstrap_jobs.exists() and bootstrap_manifest.exists():
+        manifest = read_json(bootstrap_manifest)
+        jobs = read_json(bootstrap_jobs)
+        if (
+            manifest.get("gate") == "PASS"
+            and manifest.get("source_gate") == "PASS"
+            and manifest.get("quality_gate") == "PASS"
+            and manifest.get("location_gate") == "PASS"
+            and manifest.get("literal_gate") == "PASS"
+            and int(manifest.get("jobs") or 0) == len(jobs)
+        ):
+            return [normalize_jobspy_source_job(j, source) for j in jobs], "bootstrap"
+    return [], "none"
 
 def _validate_aggregate(jobs: list[dict], now: datetime) -> dict:
     visible = [j for j in jobs if is_job_visible_now(j, now)]
@@ -223,24 +260,41 @@ def main() -> int:
         "error": smartrecruiters_error,
     }
 
+    # Snapshot-only local integration: no LinkedIn/Indeed network refresh.
+    for source_name in ("indeed", "linkedin"):
+        source_status[source_name] = {
+            "refresh_attempted": False,
+            "refresh_ok": True,
+            "error": "",
+            "network_refresh_enabled": False,
+        }
+
     try:
         ep_jobs, ep_origin = _emploi_jobs(ep_runtime)
         anapec_jobs, anapec_origin = _anapec_jobs(anapec_runtime)
         smartrecruiters_jobs, smartrecruiters_origin = _smartrecruiters_jobs(smartrecruiters_runtime)
+        indeed_jobs, indeed_origin = _jobspy_source_jobs("indeed", public_root / "indeed")
+        linkedin_jobs, linkedin_origin = _jobspy_source_jobs("linkedin", public_root / "linkedin")
         source_status["emploi-public"]["snapshot_origin"] = ep_origin
         source_status["emploi-public"]["snapshot_jobs"] = len(ep_jobs)
         source_status["anapec"]["snapshot_origin"] = anapec_origin
         source_status["anapec"]["snapshot_jobs"] = len(anapec_jobs)
         source_status["smartrecruiters"]["snapshot_origin"] = smartrecruiters_origin
         source_status["smartrecruiters"]["snapshot_jobs"] = len(smartrecruiters_jobs)
+        source_status["indeed"]["snapshot_origin"] = indeed_origin
+        source_status["indeed"]["snapshot_jobs"] = len(indeed_jobs)
+        source_status["linkedin"]["snapshot_origin"] = linkedin_origin
+        source_status["linkedin"]["snapshot_jobs"] = len(linkedin_jobs)
 
-        if not ep_jobs and not anapec_jobs and not smartrecruiters_jobs:
+        if not ep_jobs and not anapec_jobs and not smartrecruiters_jobs and not indeed_jobs and not linkedin_jobs:
             raise RuntimeError("No source snapshot available")
 
         validation = _validate_aggregate([
             *ep_jobs,
             *anapec_jobs,
             *smartrecruiters_jobs,
+            *indeed_jobs,
+            *linkedin_jobs,
         ], now)
         jobs = validation.pop("jobs")
         source_dir = run_dir / "source"
