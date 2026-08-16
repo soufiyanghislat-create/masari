@@ -895,7 +895,10 @@ const CV_UI={
     keywords:'كلمات مشتركة',
     profession:'المهنة',
     recent:'إعلان حديث',
-    privacy:'لا نحفظ السيرة الذاتية'
+    privacy:'لا نحفظ السيرة الذاتية',
+    confidenceHigh:'ثقة عالية',
+    confidenceMedium:'ثقة متوسطة',
+    confidenceLow:'ثقة منخفضة'
   },
   fr:{
     attach:'Joindre le CV',
@@ -909,7 +912,10 @@ const CV_UI={
     keywords:'Mots communs',
     profession:'Métier',
     recent:'Offre récente',
-    privacy:'Le CV n’est pas conservé'
+    privacy:'Le CV n’est pas conservé',
+    confidenceHigh:'Confiance élevée',
+    confidenceMedium:'Confiance moyenne',
+    confidenceLow:'Confiance faible'
   },
   en:{
     attach:'Attach CV',
@@ -923,7 +929,10 @@ const CV_UI={
     keywords:'Shared keywords',
     profession:'Profession',
     recent:'Recent opening',
-    privacy:'Your CV is not stored'
+    privacy:'Your CV is not stored',
+    confidenceHigh:'High confidence',
+    confidenceMedium:'Medium confidence',
+    confidenceLow:'Low confidence'
   }
 };
 const cvPlus=document.getElementById('cvPlus');
@@ -932,6 +941,7 @@ const cvAttachment=document.getElementById('cvAttachment');
 const cvFileName=document.getElementById('cvFileName');
 const cvRemove=document.getElementById('cvRemove');
 let selectedCvFile=null;
+let lastCvAnalysis=null;
 
 function cvText(key){
   return (CV_UI[currentLang]||CV_UI.fr)[key]||'';
@@ -1042,15 +1052,21 @@ function renderCvResults(data){
   data.sector_matches=grouped;
 
   const confidence=String(profile.analysis_confidence||'').toUpperCase();
+  const confidenceLabel=({
+    HIGH:cvText('confidenceHigh'),
+    MEDIUM:cvText('confidenceMedium'),
+    LOW:cvText('confidenceLow')
+  })[confidence]||confidence;
   const exp=profile.explicit_experience_years;
   const langs=profile.language_mentions||[];
+  const localizedLangs=langs.map(code=>UI[currentLang].languageNames?.[code]||code);
   const professionLabels=professions.slice(0,6).map(
     p=>professionLabel(p.profession_id,p.label)
   );
   const profileMeta=[
     exp?`${exp} ${currentLang==='ar'?'سنوات':currentLang==='en'?'years':'ans'}`:'',
-    langs.length?langs.join(', '):'',
-    confidence
+    localizedLangs.length?localizedLangs.join(', '):'',
+    confidenceLabel
   ].filter(Boolean).join(' · ');
 
   const profileHtml=`<div class="cv-profile">
@@ -1097,8 +1113,9 @@ async function analyzeAttachedCv(){
       const message=d?.detail?.message||d?.detail||UI[currentLang].error;
       throw new Error(message);
     }
+    lastCvAnalysis=d;
     state.textContent='';
-    renderCvResults(d);
+    renderCvResults(lastCvAnalysis);
   }catch(err){
     state.textContent=err?.message||UI[currentLang].error;
   }finally{
@@ -1173,14 +1190,19 @@ function setLanguage(lang){
     b.classList.toggle('active',b.dataset.lang===lang);
     b.setAttribute('aria-pressed',b.dataset.lang===lang?'true':'false');
   });
-  state.textContent=UI[lang].start;
-  content.innerHTML='';
   sug.hidden=true;
   selectedProfessionId=null;
   q.value='';
   cvPlus.setAttribute('aria-label',cvText('attach'));
   cvPlus.title=cvText('attach');
   renderCvAttachment();
+  if(lastCvAnalysis){
+    state.textContent='';
+    renderCvResults(lastCvAnalysis);
+  }else{
+    state.textContent=UI[lang].start;
+    content.innerHTML='';
+  }
 }
 
 function formatDate(v,withTime=false){
@@ -1556,11 +1578,11 @@ cvFile.addEventListener('change',()=>{
   if(!file){selectedCvFile=null;renderCvAttachment();return;}
   const ext=(file.name.split('.').pop()||'').toLowerCase();
   if(!['pdf','docx','txt'].includes(ext) || file.size>5*1024*1024){
-    selectedCvFile=null;cvFile.value='';renderCvAttachment();state.textContent=cvText('invalid');return;
+    selectedCvFile=null;lastCvAnalysis=null;cvFile.value='';renderCvAttachment();content.innerHTML='';state.textContent=cvText('invalid');return;
   }
-  selectedCvFile=file;selectedProfessionId=null;sug.hidden=true;state.textContent=cvText('ready');renderCvAttachment();
+  selectedCvFile=file;lastCvAnalysis=null;selectedProfessionId=null;sug.hidden=true;state.textContent=cvText('ready');content.innerHTML='';renderCvAttachment();
 });
-cvRemove.addEventListener('click',()=>{selectedCvFile=null;cvFile.value='';renderCvAttachment();state.textContent=UI[currentLang].start;});
+cvRemove.addEventListener('click',()=>{selectedCvFile=null;lastCvAnalysis=null;cvFile.value='';renderCvAttachment();content.innerHTML='';state.textContent=UI[currentLang].start;});
 q.addEventListener('input',suggest);
 q.addEventListener('keydown',e=>{if(e.key==='Enter')submitSearch();});
 go.addEventListener('click',submitSearch);
