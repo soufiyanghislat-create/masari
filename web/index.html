@@ -1032,17 +1032,60 @@ function sectorLabels(){
   };
 }
 
+const PRIVATE_SOURCE_ORDER=['anapec','smartrecruiters','linkedin','indeed'];
+
+function privateSourceKey(j){
+  return String(j.source||'').trim().toLowerCase();
+}
+
+function balancedPrivateRows(rows,limit=15){
+  const groups=new Map(PRIVATE_SOURCE_ORDER.map(source=>[
+    source, rows.filter(j=>privateSourceKey(j)===source)
+  ]));
+  const other=rows.filter(j=>!PRIVATE_SOURCE_ORDER.includes(privateSourceKey(j)));
+  const output=[];
+  let round=0;
+  while(output.length<limit){
+    let added=false;
+    for(const source of PRIVATE_SOURCE_ORDER){
+      const group=groups.get(source)||[];
+      if(round<group.length && output.length<limit){
+        output.push(group[round]);
+        added=true;
+      }
+    }
+    if(round<other.length && output.length<limit){
+      output.push(other[round]);
+      added=true;
+    }
+    if(!added) break;
+    round+=1;
+  }
+  return output;
+}
+
+function sourceSummary(rows){
+  const labels={anapec:'ANAPEC',smartrecruiters:'SmartRecruiters',linkedin:'LinkedIn',indeed:'Indeed'};
+  return PRIVATE_SOURCE_ORDER
+    .map(source=>({source,count:rows.filter(j=>privateSourceKey(j)===source).length}))
+    .filter(item=>item.count>0)
+    .map(item=>`${labels[item.source]} ${item.count}`)
+    .join(' · ');
+}
+
 function renderSectorJobs(rows,sector){
+  const visibleRows=(sector==='private'?balancedPrivateRows(rows,15):rows.slice(0,15));
+  const privateSummary=sector==='private'?sourceSummary(rows):'';
   const detail=currentLang==='ar'?'عرض التفاصيل':currentLang==='en'?'View details':'Voir les détails';
   const locLabel=currentLang==='ar'?'المكان':currentLang==='en'?'Location':'Lieu';
   const labels=sectorLabels();
   const empty=currentLang==='ar'?'لا توجد وظائف في هذا القسم لهذا البحث.':currentLang==='en'?'No jobs in this sector for this search.':'Aucune offre dans ce secteur pour cette recherche.';
   return `<section class="sector-panel">
     <div class="sector-panel-head">
-      <div class="sector-panel-title">${esc(labels[sector])}</div>
+      <div class="sector-panel-title">${esc(labels[sector])}${privateSummary?` · ${esc(privateSummary)}`:''}</div>
     </div>
     <div class="grid">
-      ${rows.length?rows.map(j=>{
+      ${visibleRows.length?visibleRows.map(j=>{
         const id=String(j.global_id||j.uuid||'');
         const employer=String(j.company||j.administration||'').trim();
         const source=String(j.source_label||(j.source==='anapec'?'ANAPEC':'Emploi-Public.ma'));
@@ -1142,7 +1185,7 @@ async function search(){
   const backendQuery=localId||visible;
 
   try{
-    const r=await fetch('/api/search?q='+encodeURIComponent(backendQuery)+'&limit=15',{cache:'no-store'});
+    const r=await fetch('/api/search?q='+encodeURIComponent(backendQuery)+'&limit=15&balanced=true',{cache:'no-store'});
     const d=await r.json();
 
     if(r.status===503){

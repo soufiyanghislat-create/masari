@@ -400,10 +400,49 @@ def api_suggest(
     }
 
 
+
+BALANCED_SEARCH_SOURCES = (
+    "emploi-public",
+    "anapec",
+    "smartrecruiters",
+    "linkedin",
+    "indeed",
+)
+
+
+def balanced_source_pool(rows: list[dict[str, Any]], per_source_limit: int) -> list[dict[str, Any]]:
+    # Keep up to per_source_limit ranked rows from each provider.
+    limit = max(int(per_source_limit), 1)
+    selected: list[dict[str, Any]] = []
+    known = set(BALANCED_SEARCH_SOURCES)
+    for source in BALANCED_SEARCH_SOURCES:
+        source_rows = [
+            row for row in rows
+            if str(row.get("source") or "").strip().casefold() == source
+        ]
+        selected.extend(source_rows[:limit])
+    selected.extend(
+        row for row in rows
+        if str(row.get("source") or "").strip().casefold() not in known
+    )
+    selected.sort(key=lambda x: str(x.get("publication_date") or ""), reverse=True)
+    selected.sort(key=lambda x: float(x.get("score") or 0.0), reverse=True)
+    return selected
+
+
+def maybe_balanced_results(
+    results: list[dict[str, Any]], *, balanced: bool, limit: int
+) -> list[dict[str, Any]]:
+    if not balanced:
+        return results[:limit]
+    return balanced_source_pool(results, limit)
+
+
 @app.get("/api/search")
 def api_search(
     q: str = Query(min_length=1, max_length=120),
     limit: int = Query(default=15, ge=1, le=30),
+    balanced: bool = Query(default=False),
 ) -> dict[str, Any]:
     try:
         index, index_source = load_index()
@@ -420,7 +459,8 @@ def api_search(
     if query.startswith(LITERAL_PREFIXES):
         literal = resolve_literal_profession(index, query)
         if literal is not None:
-            results = search_literal_profession(index, literal["profession_id"], limit=limit)
+            results = search_literal_profession(index, literal["profession_id"], limit=(len(index.get("jobs") or []) if balanced else limit))
+            results = maybe_balanced_results(results, balanced=balanced, limit=limit)
             return {
                 "selection_required": False,
                 "index_source": index_source,
@@ -437,7 +477,8 @@ def api_search(
     profession_id, suggestions = resolve_profession_query(taxonomy, query)
     if profession_id is not None:
         p = taxonomy.profession(profession_id)
-        results = search_by_profession(index, profession_id, limit)
+        results = search_by_profession(index, profession_id, (len(index.get("jobs") or []) if balanced else limit))
+        results = maybe_balanced_results(results, balanced=balanced, limit=limit)
         return {
             "selection_required": False,
             "index_source": index_source,
@@ -453,7 +494,8 @@ def api_search(
 
     literal = resolve_literal_profession(index, query)
     if literal is not None:
-        results = search_literal_profession(index, literal["profession_id"], limit=limit)
+        results = search_literal_profession(index, literal["profession_id"], limit=(len(index.get("jobs") or []) if balanced else limit))
+        results = maybe_balanced_results(results, balanced=balanced, limit=limit)
         return {
             "selection_required": False,
             "index_source": index_source,
