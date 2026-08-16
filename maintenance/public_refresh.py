@@ -19,6 +19,7 @@ if str(REPO) not in sys.path:
     sys.path.insert(0, str(REPO))
 
 from public_job_adapter import normalize_emploi_public_job  # noqa: E402
+from smartrecruiters_adapter import normalize_smartrecruiters_job  # noqa: E402
 from search import is_job_visible_now  # noqa: E402
 
 
@@ -96,6 +97,27 @@ def _anapec_jobs(runtime: Path) -> tuple[list[dict], str]:
     return [], "none"
 
 
+
+def _smartrecruiters_jobs(runtime: Path) -> tuple[list[dict], str]:
+    current = runtime / "current" / "jobs.json"
+    if current.exists():
+        return [normalize_smartrecruiters_job(j) for j in read_json(current)], "runtime"
+
+    bootstrap_jobs = REPO / "bootstrap" / "smartrecruiters" / "jobs.json"
+    bootstrap_manifest = REPO / "bootstrap" / "smartrecruiters" / "manifest.json"
+    if bootstrap_jobs.exists() and bootstrap_manifest.exists():
+        manifest = read_json(bootstrap_manifest)
+        jobs = read_json(bootstrap_jobs)
+        if (
+            manifest.get("gate") == "PASS"
+            and manifest.get("source_gate") == "PASS"
+            and manifest.get("quality_gate") == "PASS"
+            and int(manifest.get("jobs") or 0) == len(jobs)
+        ):
+            return [normalize_smartrecruiters_job(j) for j in jobs], "bootstrap"
+    return [], "none"
+
+
 def _validate_aggregate(jobs: list[dict], now: datetime) -> dict:
     visible = [j for j in jobs if is_job_visible_now(j, now)]
     uuids = [str(j.get("uuid") or "") for j in visible]
@@ -128,6 +150,7 @@ def main() -> int:
     public_root = aggregate_runtime.parent
     ep_runtime = public_root / "emploi_public"
     anapec_runtime = public_root / "anapec"
+    smartrecruiters_runtime = public_root / "smartrecruiters"
     aggregate_runtime.mkdir(parents=True, exist_ok=True)
 
     lock_file = (aggregate_runtime / ".refresh.lock").open("a+")
@@ -181,18 +204,44 @@ def main() -> int:
         "error": anapec_error,
     }
 
+    refresh_smartrecruiters = (
+        (not args.no_refresh)
+        and (mode == "full" or _anapec_is_stale(smartrecruiters_runtime / "current", now))
+    )
+    smartrecruiters_ok = True
+    smartrecruiters_error = ""
+    if refresh_smartrecruiters:
+        smartrecruiters_ok, smartrecruiters_error = call([
+            sys.executable,
+            str(REPO / "maintenance" / "smartrecruiters_refresh.py"),
+            "--runtime-dir",
+            str(smartrecruiters_runtime),
+        ])
+    source_status["smartrecruiters"] = {
+        "refresh_attempted": refresh_smartrecruiters,
+        "refresh_ok": smartrecruiters_ok,
+        "error": smartrecruiters_error,
+    }
+
     try:
         ep_jobs, ep_origin = _emploi_jobs(ep_runtime)
         anapec_jobs, anapec_origin = _anapec_jobs(anapec_runtime)
+        smartrecruiters_jobs, smartrecruiters_origin = _smartrecruiters_jobs(smartrecruiters_runtime)
         source_status["emploi-public"]["snapshot_origin"] = ep_origin
         source_status["emploi-public"]["snapshot_jobs"] = len(ep_jobs)
         source_status["anapec"]["snapshot_origin"] = anapec_origin
         source_status["anapec"]["snapshot_jobs"] = len(anapec_jobs)
+        source_status["smartrecruiters"]["snapshot_origin"] = smartrecruiters_origin
+        source_status["smartrecruiters"]["snapshot_jobs"] = len(smartrecruiters_jobs)
 
-        if not ep_jobs and not anapec_jobs:
-            raise RuntimeError("No public source snapshot available")
+        if not ep_jobs and not anapec_jobs and not smartrecruiters_jobs:
+            raise RuntimeError("No source snapshot available")
 
-        validation = _validate_aggregate([*ep_jobs, *anapec_jobs], now)
+        validation = _validate_aggregate([
+            *ep_jobs,
+            *anapec_jobs,
+            *smartrecruiters_jobs,
+        ], now)
         jobs = validation.pop("jobs")
         source_dir = run_dir / "source"
         index_dir = run_dir / "index"
@@ -234,6 +283,7 @@ def main() -> int:
                 "refresh_ok": bool(status.get("refresh_ok")),
                 "snapshot_origin": status.get("snapshot_origin", "none"),
                 "snapshot_jobs": int(status.get("snapshot_jobs") or 0),
+                "network_refresh_enabled": bool(status.get("network_refresh_enabled", True)),
             }
             for name, status in source_status.items()
         }

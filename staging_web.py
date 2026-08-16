@@ -21,6 +21,7 @@ from fastapi.responses import HTMLResponse, Response
 from search import is_job_visible_now, resolve_profession_query, search_by_profession
 from literal_search import (
     LITERAL_PREFIX,
+    LITERAL_PREFIXES,
     literal_profession_suggestions,
     merge_profession_suggestions,
     resolve_literal_profession,
@@ -412,7 +413,7 @@ def api_search(
 
     query = q.strip()
 
-    if query.startswith(LITERAL_PREFIX):
+    if query.startswith(LITERAL_PREFIXES):
         literal = resolve_literal_profession(index, query)
         if literal is not None:
             results = search_literal_profession(index, literal["profession_id"], limit=limit)

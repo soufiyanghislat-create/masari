@@ -78,6 +78,7 @@ def _result_titles(job: dict, match: dict | None) -> tuple[str, str, str]:
 
 
 MAX_JOB_AGE_DAYS = 15
+NO_DEADLINE_SOURCES = frozenset({"anapec", "smartrecruiters"})
 
 
 def _local_datetime(iso_value: object) -> datetime:
@@ -109,7 +110,7 @@ def is_job_visible_now(job: dict, now: datetime | None = None) -> bool:
         return False
 
     source = str(job.get("source") or "emploi-public").strip().casefold()
-    if source == "anapec":
+    if source in NO_DEADLINE_SOURCES:
         return True
 
     deadline = job.get("deadline")

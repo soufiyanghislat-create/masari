@@ -1,0 +1,10 @@
+{
+  "source": "smartrecruiters",
+  "version": "v1-audit-v1.3",
+  "published_at": "2026-08-15T17:28:29.751993+01:00",
+  "jobs": 13,
+  "source_gate": "PASS",
+  "quality_gate": "PASS",
+  "jobs_sha256": "72230b1bfccabcf58a65a9604efaf85971a46cd0cff278d9db791a9d61b8b5eb",
+  "gate": "PASS"
+}

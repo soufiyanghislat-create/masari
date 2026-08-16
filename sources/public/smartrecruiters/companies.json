@@ -1,0 +1,66 @@
+[
+  {
+    "identifier": "SQLI1",
+    "label": "SQLI"
+  },
+  {
+    "identifier": "DigitalVirgo",
+    "label": "Digital Virgo"
+  },
+  {
+    "identifier": "IKEA-AlHomaiziLimited",
+    "label": "IKEA - Al Homaizi Limited"
+  },
+  {
+    "identifier": "Keenfinity",
+    "label": "Keenfinity"
+  },
+  {
+    "identifier": "RolandBerger",
+    "label": "Roland Berger"
+  },
+  {
+    "identifier": "Wavestone1",
+    "label": "Wavestone"
+  },
+  {
+    "identifier": "SofadevDocapostBPO",
+    "label": "Sofadev Docapost BPO"
+  },
+  {
+    "identifier": "AdgecoGroup",
+    "label": "Adgeco Group"
+  },
+  {
+    "identifier": "in-vr",
+    "label": "IN-VR"
+  },
+  {
+    "identifier": "BoschGroup",
+    "label": "Bosch Group"
+  },
+  {
+    "identifier": "Trigo",
+    "label": "TRIGO"
+  },
+  {
+    "identifier": "JYSK",
+    "label": "JYSK"
+  },
+  {
+    "identifier": "SEWAN",
+    "label": "Sewan"
+  },
+  {
+    "identifier": "Kronospan",
+    "label": "Kronospan"
+  },
+  {
+    "identifier": "Sia",
+    "label": "Sia"
+  },
+  {
+    "identifier": "SMAC1",
+    "label": "SMAC"
+  }
+]

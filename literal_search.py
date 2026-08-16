@@ -5,29 +5,56 @@ from typing import Any
 
 from taxonomy_engine import normalize, tokens
 
-LITERAL_PREFIX = "anapec.literal."
+LITERAL_SOURCE_CONFIG: dict[str, dict[str, str]] = {
+    "anapec": {
+        "prefix": "anapec.literal.",
+        "sector": "ANAPEC",
+        "family": "Intitulé source vérifié",
+        "literal_source": "anapec_literal",
+    },
+    "smartrecruiters": {
+        "prefix": "smartrecruiters.literal.",
+        "sector": "Secteur privé",
+        "family": "Intitulé entreprise vérifié",
+        "literal_source": "smartrecruiters_literal",
+    },
+}
+LITERAL_PREFIX = LITERAL_SOURCE_CONFIG["anapec"]["prefix"]
+LITERAL_PREFIXES = tuple(dict.fromkeys(x["prefix"] for x in LITERAL_SOURCE_CONFIG.values()))
+LITERAL_SOURCES = frozenset(LITERAL_SOURCE_CONFIG)
 
 
-def literal_profession_id(title: str) -> str:
+def literal_profession_id(title: str, source: str = "anapec") -> str:
+    source_key = str(source or "").strip().casefold()
+    config = LITERAL_SOURCE_CONFIG.get(source_key)
+    if config is None:
+        raise ValueError(f"unsupported literal source: {source}")
     normalized = normalize(title)
     if not normalized:
         raise ValueError("literal profession title is empty")
     digest = hashlib.sha256(normalized.encode("utf-8")).hexdigest()[:16]
-    return f"{LITERAL_PREFIX}{digest}"
+    return f"{config['prefix']}{digest}"
 
 
 def literal_profession_for_job(job: dict[str, Any]) -> dict[str, Any] | None:
-    if str(job.get("source") or "").strip().casefold() != "anapec":
+    source = str(job.get("source") or "").strip().casefold()
+    config = LITERAL_SOURCE_CONFIG.get(source)
+    if config is None:
         return None
-    title = str(job.get("job_name") or job.get("title") or "").strip()
+    title = str(job.get("job_name") or job.get("title") or job.get("listing_title") or "").strip()
     if not title:
         return None
     return {
-        "profession_id": literal_profession_id(title),
+        "profession_id": literal_profession_id(title, source),
         "label": title,
-        "sector": "ANAPEC",
-        "family": "Intitulé source vérifié",
-        "source": "anapec_literal",
+        "sector": (
+            config["sector"]
+            if config.get("shared_group")
+            else str(job.get("source_label") or config["sector"])
+        ),
+        "family": config["family"],
+        "source": config["literal_source"],
+        "job_source": source,
         "score": 1000.0,
         "confidence": "EXACT",
         "searchable": True,
@@ -89,7 +116,7 @@ def resolve_literal_profession(index: dict[str, Any], query: str) -> dict[str, A
     if not raw:
         return None
     options = _literal_options(index)
-    if raw.startswith(LITERAL_PREFIX):
+    if raw.startswith(LITERAL_PREFIXES):
         for option in options:
             if option.get("profession_id") == raw:
                 return option
@@ -119,15 +146,23 @@ def merge_profession_suggestions(canonical: list[dict[str, Any]], literal: list[
             continue
         seen_ids.add(pid)
         rows.append(dict(row))
-    rows.sort(key=lambda x: (-float(x.get("score") or 0), 1 if x.get("source") == "anapec_literal" else 0, str(x.get("label") or "").casefold()))
+    rows.sort(
+        key=lambda x: (
+            -float(x.get("score") or 0),
+            1 if str(x.get("source") or "").endswith("_literal") else 0,
+            str(x.get("label") or "").casefold(),
+        )
+    )
     return rows[:limit]
 
 
 def search_literal_profession(index: dict[str, Any], profession_id: str, *, limit: int = 20, now=None) -> list[dict[str, Any]]:
     from search import is_job_visible_now
+
     rows: list[dict[str, Any]] = []
     for job in index.get("jobs") or []:
-        if str(job.get("source") or "").strip().casefold() != "anapec":
+        source = str(job.get("source") or "").strip().casefold()
+        if source not in LITERAL_SOURCES:
             continue
         literal = job.get("literal_profession")
         if not isinstance(literal, dict):
@@ -143,15 +178,15 @@ def search_literal_profession(index: dict[str, Any], profession_id: str, *, limi
             "profession_match": literal,
             "uuid": job.get("uuid"),
             "global_id": job.get("global_id") or job.get("uuid"),
-            "source": "anapec",
-            "source_label": job.get("source_label") or "ANAPEC",
-            "scope": "private",
-            "employment_sector": "private",
+            "source": source,
+            "source_label": job.get("source_label") or source,
+            "scope": job.get("scope") or "private",
+            "employment_sector": job.get("employment_sector") or "private",
             "title": title,
             "source_title": source_title,
             "search_title": title,
             "matched_profession_label": literal.get("label"),
-            "application_type": job.get("application_type") or "ANAPEC",
+            "application_type": job.get("application_type") or job.get("source_label") or source,
             "application_site": job.get("application_site") or "",
             "application_url": job.get("application_url") or job.get("application_site") or "",
             "application_notice_url": job.get("application_notice_url") or "",
