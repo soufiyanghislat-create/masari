@@ -11,7 +11,11 @@ from zoneinfo import ZoneInfo
 
 from classifiability import evaluate_classifiable_coverage
 from literal_search import LITERAL_SOURCES, literal_profession_for_job
-from taxonomy_engine import Taxonomy
+from taxonomy_engine import (
+    HCP_SEARCH_MIN_SCORE,
+    STRICT_SEARCH_MIN_SCORE,
+    Taxonomy,
+)
 
 TZ = ZoneInfo("Africa/Casablanca")
 
@@ -32,6 +36,67 @@ def _source(job: dict) -> str:
 
 
 JOBSPY_PREVERIFIED_SOURCES = frozenset({"indeed", "linkedin"})
+
+
+def _strict_jobspy_title_matches(job: dict, taxonomy: Taxonomy) -> list[dict]:
+    # Accuracy-first fallback for live JobSpy rows.
+    # Only the verified source title is classified; description/company/skills
+    # cannot create a profession. Existing taxonomy gates stay unchanged:
+    # market >= 92 and HCP >= 96, EXACT/STRONG only.
+    verification = job.get("location_verification") or {}
+    if not isinstance(verification, dict) or verification.get("gate") != "PASS":
+        return []
+    if str(job.get("ground_truth_status") or "").strip().upper() != "VERIFIED":
+        return []
+    if not str(job.get("ground_truth_proof") or "").strip():
+        return []
+
+    title = str(
+        job.get("job_name")
+        or job.get("title")
+        or job.get("listing_title")
+        or ""
+    ).strip()
+    if not title:
+        return []
+
+    # Deliberately omit description, company, profile, skills and specialties.
+    title_only_job = {"job_name": title}
+    rows = taxonomy.classify_job(title_only_job, max_matches=8)
+
+    safe = []
+    for raw in rows:
+        if not isinstance(raw, dict):
+            continue
+        profession_id = str(raw.get("profession_id") or "").strip()
+        profession = taxonomy.profession(profession_id)
+        if profession is None:
+            continue
+        if raw.get("searchable") is False:
+            continue
+        confidence = str(raw.get("confidence") or "").strip().upper()
+        if confidence not in {"EXACT", "STRONG"}:
+            continue
+        score = float(raw.get("score") or 0.0)
+        minimum = (
+            STRICT_SEARCH_MIN_SCORE
+            if profession.source == "masari_market"
+            else HCP_SEARCH_MIN_SCORE
+        )
+        if score < minimum:
+            continue
+        evidence = raw.get("evidence") or {}
+        if not isinstance(evidence, dict) or evidence.get("field") != "job_name":
+            continue
+        safe.append(dict(raw))
+
+    safe.sort(
+        key=lambda row: (
+            -float(row.get("score") or 0.0),
+            str(row.get("profession_id") or ""),
+        )
+    )
+    return safe[:8]
 
 
 def _preverified_jobspy_matches(job: dict, taxonomy: Taxonomy) -> list[dict]:
@@ -98,10 +163,13 @@ def main() -> int:
         source_name = _source(job)
 
         if source_name in JOBSPY_PREVERIFIED_SOURCES:
-            # The standalone audit already produced safe canonical matches.
-            # Everything else remains verified literal fallback.
-            # Do NOT run HCP/RELATED over 1691 JobSpy rows again.
+            # Preserve audited canonical matches from the immutable corpus.
+            # Live daily JobSpy rows may arrive without profession_matches.
+            # In that case classify VERIFIED SOURCE TITLE ONLY with the same
+            # strict taxonomy gates. RELATED remains disabled for JobSpy.
             matches = _preverified_jobspy_matches(job, taxonomy)
+            if not matches:
+                matches = _strict_jobspy_title_matches(job, taxonomy)
             related = []
         else:
             matches = taxonomy.classify_job(job)
